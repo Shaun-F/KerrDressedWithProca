@@ -1,0 +1,3106 @@
+Mon 23 May 2022 12:27:57
+
+<|"\[Mu]range" -> {1/25, 1/2}, "\[Delta]\[Mu]" -> 1/100, "nrange" -> {0, 2}, "\[Delta]n" -> 1, "mrange" -> {3, 4}, "\[Delta]m" -> 1, "EndingX" -> 1200000/49, "StartingX" -> 1/10000, "precision" -> 24, "omegaRes" -> 800, "MaxInterationsMinimization" -> 1000, "integratorMaxStep" -> 1000000, "integratorPrecisionGoal" -> 5, "OptimizationPrecision" -> 6, "OptimizationAccuracy" -> 17, "StartingR" -> 1.4359898943540674, "EndingR" -> 25001 + Sqrt[19]/10, "branch" -> 1, "KMax" -> 2, "\[Epsilon]" -> 1/10000, "\[Mu]Nv" -> 7/100, "m" -> 3, "\[Eta]" -> 0, "n" -> 0, "l" -> 2, "s" -> -1, "\[Chi]" -> 9/10|>
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 1
+m Value: 3
+n Value: 0
+\[Mu] Value: 1/25
+Minimization Results: <|"\[Omega]" -> 0.039996443012757184 + 1.8424939361550182*^-26*I, "\[Nu]" -> -0.013495090641178497|>
+Minimization Time: 64.554555
+Angular Solver Time: 0.044468
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 2
+m Value: 3
+n Value: 0
+\[Mu] Value: 1/20
+Minimization Results: <|"\[Omega]" -> 0.04999305121904265 + 4.653291216849789*^-25*I, "\[Nu]" -> -0.016920102033944496|>
+Minimization Time: 70.26488
+Angular Solver Time: 0.046792
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 3
+m Value: 3
+n Value: 0
+\[Mu] Value: 3/50
+Minimization Results: <|"\[Omega]" -> 0.05998798926470313 + 7.207907682917661*^-24*I, "\[Nu]" -> -0.020365941635210293|>
+Minimization Time: 58.345505
+Angular Solver Time: 0.038885
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 4
+m Value: 3
+n Value: 0
+\[Mu] Value: 7/100
+Minimization Results: <|"\[Omega]" -> 0.06998092130879845 + 6.849272722349612*^-23*I, "\[Nu]" -> -0.02383277674543348|>
+Minimization Time: 72.44865
+Angular Solver Time: 0.038152
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 5
+m Value: 3
+n Value: 0
+\[Mu] Value: 2/25
+Minimization Results: <|"\[Omega]" -> 0.07997151082959766 + 4.230970064859746*^-22*I, "\[Nu]" -> -0.027320775178077697 - 2.4194608179700096*^-23*I|>
+Minimization Time: 63.950446
+Angular Solver Time: 0.047146
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 6
+m Value: 3
+n Value: 0
+\[Mu] Value: 9/100
+Minimization Results: <|"\[Omega]" -> 0.08995941958997322 + 2.495850803727029*^-21*I, "\[Nu]" -> -0.030830105180692707 - 1.4586203327543525*^-22*I|>
+Minimization Time: 58.151899
+Angular Solver Time: 0.040364
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 7
+m Value: 3
+n Value: 0
+\[Mu] Value: 1/10
+Minimization Results: <|"\[Omega]" -> 0.0999443088234053 + 1.1416185514756692*^-20*I, "\[Nu]" -> -0.03436093547996382 - 6.816981299357636*^-22*I|>
+Minimization Time: 62.333429
+Angular Solver Time: 0.039767
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 8
+m Value: 3
+n Value: 0
+\[Mu] Value: 11/100
+Minimization Results: <|"\[Omega]" -> 0.1099258380399585 + 4.442655141387118*^-20*I, "\[Nu]" -> -0.037913435189752605 - 2.7099836198666914*^-21*I|>
+Minimization Time: 59.547366
+Angular Solver Time: 0.046603
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 9
+m Value: 3
+n Value: 0
+\[Mu] Value: 3/25
+Minimization Results: <|"\[Omega]" -> 0.1199036655819496 + 1.5270029013193566*^-19*I, "\[Nu]" -> -0.04148777381808105 - 9.513172960738209*^-21*I|>
+Minimization Time: 58.876032
+Angular Solver Time: 0.039189
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 10
+m Value: 3
+n Value: 0
+\[Mu] Value: 13/100
+Minimization Results: <|"\[Omega]" -> 0.12987744779083385 + 4.640756446306555*^-19*I, "\[Nu]" -> -0.045084121189126254 - 2.952208889583882*^-20*I|>
+Minimization Time: 56.768951
+Angular Solver Time: 0.040067
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 11
+m Value: 3
+n Value: 0
+\[Mu] Value: 7/50
+Minimization Results: <|"\[Omega]" -> 0.1398468391644805 + 1.3247082014672289*^-18*I, "\[Nu]" -> -0.04870264742195868 - 8.603304849230838*^-20*I|>
+Minimization Time: 60.12401
+Angular Solver Time: 0.040679
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 12
+m Value: 3
+n Value: 0
+\[Mu] Value: 3/20
+Minimization Results: <|"\[Omega]" -> 0.14981149295761992 + 3.451341069145518*^-18*I, "\[Nu]" -> -0.05234352293878783 - 2.2878962442753827*^-19*I|>
+Minimization Time: 60.726298
+Angular Solver Time: 0.046683
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 13
+m Value: 3
+n Value: 0
+\[Mu] Value: 4/25
+Minimization Results: <|"\[Omega]" -> 0.15977105947059797 + 8.4905894180185*^-18*I, "\[Nu]" -> -0.056006918320590085 - 5.743924037780788*^-19*I|>
+Minimization Time: 64.549328
+Angular Solver Time: 0.041164
+Caching results to: \[Epsilon]1_10000\[Mu]Nv4_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 14
+m Value: 3
+n Value: 0
+\[Mu] Value: 17/100
+Minimization Results: <|"\[Omega]" -> 0.1697251878944596 + 1.9565046963917922*^-17*I, "\[Nu]" -> -0.05969300439306964 - 1.3505029726018097*^-18*I|>
+Minimization Time: 60.806784
+Angular Solver Time: 0.050225
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 15
+m Value: 3
+n Value: 0
+\[Mu] Value: 9/50
+Minimization Results: <|"\[Omega]" -> 0.17967352437296494 + 4.2788839824053524*^-17*I, "\[Nu]" -> -0.06340195206018263 - 3.013093579442393*^-18*I|>
+Minimization Time: 62.060031
+Angular Solver Time: 0.040872
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 16
+m Value: 3
+n Value: 0
+\[Mu] Value: 19/100
+Minimization Results: <|"\[Omega]" -> 0.18961571322176982 + 8.980454741835803*^-17*I, "\[Nu]" -> -0.06713393234701712 - 6.450207940878949*^-18*I|>
+Minimization Time: 68.705819
+Angular Solver Time: 0.044581
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 17
+m Value: 3
+n Value: 0
+\[Mu] Value: 1/5
+Minimization Results: <|"\[Omega]" -> 0.19955139704877214 + 1.8021869079659037*^-16*I, "\[Nu]" -> -0.0708891163710631 - 1.3200682543833872*^-17*I|>
+Minimization Time: 61.901685
+Angular Solver Time: 0.041968
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_5m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 18
+m Value: 3
+n Value: 0
+\[Mu] Value: 21/100
+Minimization Results: <|"\[Omega]" -> 0.2094802115766853 + 3.5079418278189226*^-16*I, "\[Nu]" -> -0.07466767491757022 - 2.6199921162180582*^-17*I|>
+Minimization Time: 60.595094
+Angular Solver Time: 0.04571
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 19
+m Value: 3
+n Value: 0
+\[Mu] Value: 11/50
+Minimization Results: <|"\[Omega]" -> 0.21940179755203015 + 6.555452544328916*^-16*I, "\[Nu]" -> -0.07846977926942385 - 4.991523351392333*^-17*I|>
+Minimization Time: 57.714192
+Angular Solver Time: 0.040132
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 20
+m Value: 3
+n Value: 0
+\[Mu] Value: 23/100
+Minimization Results: <|"\[Omega]" -> 0.22931578501392264 + 1.190226858305821*^-15*I, "\[Nu]" -> -0.08229559999432434 - 9.237971355815127*^-17*I|>
+Minimization Time: 58.238281
+Angular Solver Time: 0.040921
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 21
+m Value: 3
+n Value: 0
+\[Mu] Value: 6/25
+Minimization Results: <|"\[Omega]" -> 0.2392218042296016 + 2.114491635938278*^-15*I, "\[Nu]" -> -0.08614530770121835 - 1.6726483025899802*^-16*I|>
+Minimization Time: 60.062301
+Angular Solver Time: 0.04131
+Caching results to: \[Epsilon]1_10000\[Mu]Nv6_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 22
+m Value: 3
+n Value: 0
+\[Mu] Value: 1/4
+Minimization Results: <|"\[Omega]" -> 0.2491194870390037 + 3.634592035102602*^-15*I, "\[Nu]" -> -0.09001907311876206 - 2.9298351049100467*^-16*I|>
+Minimization Time: 61.26977
+Angular Solver Time: 0.041503
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_4m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 23
+m Value: 3
+n Value: 0
+\[Mu] Value: 13/50
+Minimization Results: <|"\[Omega]" -> 0.25900845248071297 + 6.108329495775726*^-15*I, "\[Nu]" -> -0.09391706589413089 - 5.016923406820885*^-16*I|>
+Minimization Time: 60.80846
+Angular Solver Time: 0.049443
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 24
+m Value: 3
+n Value: 0
+\[Mu] Value: 27/100
+Minimization Results: <|"\[Omega]" -> 0.2688883268659967 + 1.0137384036389809*^-14*I, "\[Nu]" -> -0.09783945614077075 - 8.482202558168314*^-16*I|>
+Minimization Time: 65.858359
+Angular Solver Time: 0.041317
+Caching results to: \[Epsilon]1_10000\[Mu]Nv27_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 25
+m Value: 3
+n Value: 0
+\[Mu] Value: 7/25
+Minimization Results: <|"\[Omega]" -> 0.278758720311652 + 1.6338990119104253*^-14*I, "\[Nu]" -> -0.10178641245835203 - 1.3925711122921855*^-15*I|>
+Minimization Time: 64.790164
+Angular Solver Time: 0.044462
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 26
+m Value: 3
+n Value: 0
+\[Mu] Value: 29/100
+Minimization Results: <|"\[Omega]" -> 0.28861925086566814 + 2.5845886174027036*^-14*I, "\[Nu]" -> -0.10575810386307706 - 2.2435521754295635*^-15*I|>
+Minimization Time: 64.713549
+Angular Solver Time: 0.046865
+Caching results to: \[Epsilon]1_10000\[Mu]Nv29_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 27
+m Value: 3
+n Value: 0
+\[Mu] Value: 3/10
+Minimization Results: <|"\[Omega]" -> 0.2984695326957053 + 4.0390788933922595*^-14*I, "\[Nu]" -> -0.1097546987663807 - 3.5704600752127605*^-15*I|>
+Minimization Time: 59.649214
+Angular Solver Time: 0.043764
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 28
+m Value: 3
+n Value: 0
+\[Mu] Value: 31/100
+Minimization Results: <|"\[Omega]" -> 0.3083091638692162 + 6.191928895551881*^-14*I, "\[Nu]" -> -0.11377636380368814 - 5.573278550331973*^-15*I|>
+Minimization Time: 62.557075
+Angular Solver Time: 0.045635
+Caching results to: \[Epsilon]1_10000\[Mu]Nv31_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 29
+m Value: 3
+n Value: 0
+\[Mu] Value: 8/25
+Minimization Results: <|"\[Omega]" -> 0.3181377599655573 + 9.34609456345409*^-14*I, "\[Nu]" -> -0.11782326674145598 - 8.564559492259226*^-15*I|>
+Minimization Time: 58.074032
+Angular Solver Time: 0.044267
+Caching results to: \[Epsilon]1_10000\[Mu]Nv8_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 30
+m Value: 3
+n Value: 0
+\[Mu] Value: 33/100
+Minimization Results: <|"\[Omega]" -> 0.32795490839414587 + 1.3975956376380104*^-13*I, "\[Nu]" -> -0.12189557231386433 - 1.3037514783601481*^-14*I|>
+Minimization Time: 58.748373
+Angular Solver Time: 0.040819
+Caching results to: \[Epsilon]1_10000\[Mu]Nv33_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 31
+m Value: 3
+n Value: 0
+\[Mu] Value: 17/50
+Minimization Results: <|"\[Omega]" -> 0.33776020752498065 + 2.0547120524477163*^-13*I, "\[Nu]" -> -0.12599344565950876 - 1.9509771930373095*^-14*I|>
+Minimization Time: 63.036353
+Angular Solver Time: 0.045461
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 32
+m Value: 3
+n Value: 0
+\[Mu] Value: 7/20
+Minimization Results: <|"\[Omega]" -> 0.347553250106013 + 2.9782044388113003*^-13*I, "\[Nu]" -> -0.1301170507605846 - 2.878023540311685*^-14*I|>
+Minimization Time: 63.434796
+Angular Solver Time: 0.046209
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 33
+m Value: 3
+n Value: 0
+\[Mu] Value: 9/25
+Minimization Results: <|"\[Omega]" -> 0.35733361867989505 + 4.292153559047648*^-13*I, "\[Nu]" -> -0.13426654989431921 - 4.2209037808952726*^-14*I|>
+Minimization Time: 64.807124
+Angular Solver Time: 0.040563
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 34
+m Value: 3
+n Value: 0
+\[Mu] Value: 37/100
+Minimization Results: <|"\[Omega]" -> 0.36710089939261775 + 6.092143961226166*^-13*I, "\[Nu]" -> -0.13844210487440486 - 6.095979966823447*^-14*I|>
+Minimization Time: 63.786415
+Angular Solver Time: 0.04567
+Caching results to: \[Epsilon]1_10000\[Mu]Nv37_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 35
+m Value: 3
+n Value: 0
+\[Mu] Value: 19/50
+Minimization Results: <|"\[Omega]" -> 0.37685466731658157 + 8.546691404226998*^-13*I, "\[Nu]" -> -0.14264387553244576 - 8.700984322896684*^-14*I|>
+Minimization Time: 63.022032
+Angular Solver Time: 0.047651
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 36
+m Value: 3
+n Value: 0
+\[Mu] Value: 39/100
+Minimization Results: <|"\[Omega]" -> 0.38659450047092264 + 1.186628454286055*^-12*I, "\[Nu]" -> -0.14687202101594293 - 1.2289576066946782*^-13*I|>
+Minimization Time: 59.664791
+Angular Solver Time: 0.041063
+Caching results to: \[Epsilon]1_10000\[Mu]Nv39_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 37
+m Value: 3
+n Value: 0
+\[Mu] Value: 2/5
+Minimization Results: <|"\[Omega]" -> 0.39631996044313045 + 1.6406826642906493*^-12*I, "\[Nu]" -> -0.15112669771288958 - 1.7284397209685454*^-13*I|>
+Minimization Time: 59.81883
+Angular Solver Time: 0.041036
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_5m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 38
+m Value: 3
+n Value: 0
+\[Mu] Value: 41/100
+Minimization Results: <|"\[Omega]" -> 0.4060306089342456 + 2.240449132277639*^-12*I, "\[Nu]" -> -0.1554080608154671 - 2.400650101247019*^-13*I|>
+Minimization Time: 55.882146
+Angular Solver Time: 0.040144
+Caching results to: \[Epsilon]1_10000\[Mu]Nv41_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 39
+m Value: 3
+n Value: 0
+\[Mu] Value: 21/50
+Minimization Results: <|"\[Omega]" -> 0.41572601932681175 + 3.0299186378093273*^-12*I, "\[Nu]" -> -0.15971626551569088 - 3.3017665935023134*^-13*I|>
+Minimization Time: 56.620082
+Angular Solver Time: 0.045474
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 40
+m Value: 3
+n Value: 0
+\[Mu] Value: 43/100
+Minimization Results: <|"\[Omega]" -> 0.42540572914675134 + 4.062720820525095*^-12*I, "\[Nu]" -> -0.1640514617775153 - 4.502070892812456*^-13*I|>
+Minimization Time: 61.041198
+Angular Solver Time: 0.041724
+Caching results to: \[Epsilon]1_10000\[Mu]Nv43_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 41
+m Value: 3
+n Value: 0
+\[Mu] Value: 11/25
+Minimization Results: <|"\[Omega]" -> 0.4350692909426518 + 5.431487760851253*^-12*I, "\[Nu]" -> -0.16841379966896589 - 6.120025434743419*^-13*I|>
+Minimization Time: 64.458461
+Angular Solver Time: 0.040669
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 42
+m Value: 3
+n Value: 0
+\[Mu] Value: 9/20
+Minimization Results: <|"\[Omega]" -> 0.444716257218132 + 7.18174435846404*^-12*I, "\[Nu]" -> -0.17280342770152982 - 8.227413698864318*^-13*I|>
+Minimization Time: 57.481816
+Angular Solver Time: 0.040158
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 43
+m Value: 3
+n Value: 0
+\[Mu] Value: 23/50
+Minimization Results: <|"\[Omega]" -> 0.45434615372567905 + 9.420657112717879*^-12*I, "\[Nu]" -> -0.1772204896448292 - 1.0971706886137705*^-12*I|>
+Minimization Time: 58.854139
+Angular Solver Time: 0.047006
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 44
+m Value: 3
+n Value: 0
+\[Mu] Value: 47/100
+Minimization Results: <|"\[Omega]" -> 0.46395851532047394 + 1.2281455978427289*^-11*I, "\[Nu]" -> -0.18166512843745533 - 1.4539980001836696*^-12*I|>
+Minimization Time: 63.748162
+Angular Solver Time: 0.040581
+Caching results to: \[Epsilon]1_10000\[Mu]Nv47_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 45
+m Value: 3
+n Value: 0
+\[Mu] Value: 12/25
+Minimization Results: <|"\[Omega]" -> 0.4735528591438341 + 1.5977280577188494*^-11*I, "\[Nu]" -> -0.18613748296470614 - 1.9226480651451594*^-12*I|>
+Minimization Time: 59.614021
+Angular Solver Time: 0.040742
+Caching results to: \[Epsilon]1_10000\[Mu]Nv12_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 46
+m Value: 3
+n Value: 0
+\[Mu] Value: 49/100
+Minimization Results: <|"\[Omega]" -> 0.4831287548143083 + 2.05525093635817*^-11*I, "\[Nu]" -> -0.19063769638513992 - 2.513665431862864*^-12*I|>
+Minimization Time: 58.548481
+Angular Solver Time: 0.041152
+Caching results to: \[Epsilon]1_10000\[Mu]Nv49_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 1
+\[Mu] Iteration Count: 47
+m Value: 3
+n Value: 0
+\[Mu] Value: 1/2
+Minimization Results: <|"\[Omega]" -> 0.4926856619953293 + 2.6282819043192742*^-11*I, "\[Nu]" -> -0.19516589637368806 - 3.266807602304059*^-12*I|>
+Minimization Time: 60.025632
+Angular Solver Time: 0.041731
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_2m3\[Eta]0n0l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 1
+m Value: 3
+n Value: 1
+\[Mu] Value: 1/25
+Minimization Results: <|"\[Omega]" -> 0.03999799914358015 + 1.4141673313313951*^-26*I, "\[Nu]" -> -0.013495172018441|>
+Minimization Time: 75.779866
+Angular Solver Time: 0.045042
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 2
+m Value: 3
+n Value: 1
+\[Mu] Value: 1/20
+Minimization Results: <|"\[Omega]" -> 0.04999609115604284 + 2.8009360676054405*^-25*I, "\[Nu]" -> -0.01692026466059891|>
+Minimization Time: 89.247644
+Angular Solver Time: 0.046209
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_20m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 3
+m Value: 3
+n Value: 1
+\[Mu] Value: 3/50
+Minimization Results: <|"\[Omega]" -> 0.05999324356622872 + 4.339637514621382*^-24*I, "\[Nu]" -> -0.020366229110830143|>
+Minimization Time: 69.605308
+Angular Solver Time: 0.04624
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 4
+m Value: 3
+n Value: 1
+\[Mu] Value: 7/100
+Minimization Results: <|"\[Omega]" -> 0.06998926736718182 + 4.125726751044679*^-23*I, "\[Nu]" -> -0.023833243639999214|>
+Minimization Time: 66.531449
+Angular Solver Time: 0.039053
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 5
+m Value: 3
+n Value: 1
+\[Mu] Value: 2/25
+Minimization Results: <|"\[Omega]" -> 0.07998397306035243 + 2.548863940108661*^-22*I, "\[Nu]" -> -0.027321487835237482 - 1.457597922765643*^-23*I|>
+Minimization Time: 62.514861
+Angular Solver Time: 0.038042
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 6
+m Value: 3
+n Value: 1
+\[Mu] Value: 9/100
+Minimization Results: <|"\[Omega]" -> 0.08997717039352955 + 1.5058321799101934*^-21*I, "\[Nu]" -> -0.030831142589341668 - 8.800687993308209*^-23*I|>
+Minimization Time: 52.733945
+Angular Solver Time: 0.047549
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 7
+m Value: 3
+n Value: 1
+\[Mu] Value: 1/10
+Minimization Results: <|"\[Omega]" -> 0.09996866823946302 + 6.895478422078638*^-21*I, "\[Nu]" -> -0.03436239009640153 - 4.11771755531948*^-22*I|>
+Minimization Time: 54.118417
+Angular Solver Time: 0.046098
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 8
+m Value: 3
+n Value: 1
+\[Mu] Value: 11/100
+Minimization Results: <|"\[Omega]" -> 0.10995827486516015 + 2.6842094643349592*^-20*I, "\[Nu]" -> -0.03791541387008634 - 1.6374457995309953*^-21*I|>
+Minimization Time: 60.289904
+Angular Solver Time: 0.04351
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 9
+m Value: 3
+n Value: 1
+\[Mu] Value: 3/25
+Minimization Results: <|"\[Omega]" -> 0.11994579768158374 + 9.244107061972529*^-20*I, "\[Nu]" -> -0.04149039873138854 - 5.759478480345883*^-21*I|>
+Minimization Time: 58.731658
+Angular Solver Time: 0.044149
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 10
+m Value: 3
+n Value: 1
+\[Mu] Value: 13/100
+Minimization Results: <|"\[Omega]" -> 0.12993104280117898 + 2.809034887207878*^-19*I, "\[Nu]" -> -0.04508753078194201 - 1.7871258712057675*^-20*I|>
+Minimization Time: 57.460946
+Angular Solver Time: 0.039689
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 11
+m Value: 3
+n Value: 1
+\[Mu] Value: 7/50
+Minimization Results: <|"\[Omega]" -> 0.1399138148946581 + 8.02886490021616*^-19*I, "\[Nu]" -> -0.04870699739295522 - 5.21491064273275*^-20*I|>
+Minimization Time: 66.899341
+Angular Solver Time: 0.040215
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 12
+m Value: 3
+n Value: 1
+\[Mu] Value: 3/20
+Minimization Results: <|"\[Omega]" -> 0.1498939187101663 + 2.0938298345327316*^-18*I, "\[Nu]" -> -0.05234898730280087 - 1.388181780195745*^-19*I|>
+Minimization Time: 64.314147
+Angular Solver Time: 0.039195
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 13
+m Value: 3
+n Value: 1
+\[Mu] Value: 4/25
+Minimization Results: <|"\[Omega]" -> 0.15987115560772677 + 5.16172430618229*^-18*I, "\[Nu]" -> -0.05601369038930403 - 3.4924647605120936*^-19*I|>
+Minimization Time: 60.728335
+Angular Solver Time: 0.04042
+Caching results to: \[Epsilon]1_10000\[Mu]Nv4_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 14
+m Value: 3
+n Value: 1
+\[Mu] Value: 17/100
+Minimization Results: <|"\[Omega]" -> 0.16984532801779584 + 1.1904856043920853*^-17*I, "\[Nu]" -> -0.05970129796034542 - 8.218945374847107*^-19*I|>
+Minimization Time: 59.750237
+Angular Solver Time: 0.037242
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 15
+m Value: 3
+n Value: 1
+\[Mu] Value: 9/50
+Minimization Results: <|"\[Omega]" -> 0.17981623508433395 + 2.608607974153575*^-17*I, "\[Nu]" -> -0.06341200245991702 - 1.8373006792621118*^-18*I|>
+Minimization Time: 57.374638
+Angular Solver Time: 0.041064
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 16
+m Value: 3
+n Value: 1
+\[Mu] Value: 19/100
+Minimization Results: <|"\[Omega]" -> 0.18978367533252 + 5.485389458777015*^-17*I, "\[Nu]" -> -0.06714599764209922 - 3.940808460491914*^-18*I|>
+Minimization Time: 61.076208
+Angular Solver Time: 0.038218
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 17
+m Value: 3
+n Value: 1
+\[Mu] Value: 1/5
+Minimization Results: <|"\[Omega]" -> 0.19974744519135082 + 1.1015317671789436*^-16*I, "\[Nu]" -> -0.07090347846320635 - 8.070685433040811*^-18*I|>
+Minimization Time: 58.248648
+Angular Solver Time: 0.04719
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_5m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 18
+m Value: 3
+n Value: 1
+\[Mu] Value: 21/100
+Minimization Results: <|"\[Omega]" -> 0.20970733863562083 + 2.1494157075449402*^-16*I, "\[Nu]" -> -0.07468464104445198 - 1.60583337504813*^-17*I|>
+Minimization Time: 61.9886
+Angular Solver Time: 0.040411
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 19
+m Value: 3
+n Value: 1
+\[Mu] Value: 11/50
+Minimization Results: <|"\[Omega]" -> 0.21966315003712897 + 4.024709941400289*^-16*I, "\[Nu]" -> -0.07848968287522046 - 3.0655923826817736*^-17*I|>
+Minimization Time: 58.680243
+Angular Solver Time: 0.037639
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 20
+m Value: 3
+n Value: 1
+\[Mu] Value: 23/100
+Minimization Results: <|"\[Omega]" -> 0.2296146698130165 + 7.316176077478791*^-16*I, "\[Nu]" -> -0.08231880248150215 - 5.680658812336619*^-17*I|>
+Minimization Time: 67.819641
+Angular Solver Time: 0.041856
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 21
+m Value: 3
+n Value: 1
+\[Mu] Value: 6/25
+Minimization Results: <|"\[Omega]" -> 0.23956168615122803 + 1.3033719067341263*^-15*I, "\[Nu]" -> -0.08617219953616669 - 1.0314648466589936*^-16*I|>
+Minimization Time: 60.256195
+Angular Solver Time: 0.039491
+Caching results to: \[Epsilon]1_10000\[Mu]Nv6_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 22
+m Value: 3
+n Value: 1
+\[Mu] Value: 1/4
+Minimization Results: <|"\[Omega]" -> 0.2495039886850676 + 2.2433958742442903*^-15*I, "\[Nu]" -> -0.09005007514081725 - 1.8092643956601366*^-16*I|>
+Minimization Time: 62.424189
+Angular Solver Time: 0.046053
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_4m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 23
+m Value: 3
+n Value: 1
+\[Mu] Value: 13/50
+Minimization Results: <|"\[Omega]" -> 0.25944135693619425 + 3.79944491201812*^-15*I, "\[Nu]" -> -0.09395263088882488 - 3.12224165660444*^-16*I|>
+Minimization Time: 62.786969
+Angular Solver Time: 0.044184
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 24
+m Value: 3
+n Value: 1
+\[Mu] Value: 27/100
+Minimization Results: <|"\[Omega]" -> 0.2693735778057113 + 6.287223220778347*^-15*I, "\[Nu]" -> -0.09788007025327163 - 5.263774723104298*^-16*I|>
+Minimization Time: 61.394775
+Angular Solver Time: 0.042067
+Caching results to: \[Epsilon]1_10000\[Mu]Nv27_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 25
+m Value: 3
+n Value: 1
+\[Mu] Value: 7/25
+Minimization Results: <|"\[Omega]" -> 0.27930043287770384 + 1.0156335005690852*^-14*I, "\[Nu]" -> -0.10183259756143219 - 8.661853785110934*^-16*I|>
+Minimization Time: 62.777801
+Angular Solver Time: 0.042233
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 26
+m Value: 3
+n Value: 1
+\[Mu] Value: 29/100
+Minimization Results: <|"\[Omega]" -> 0.2892216951592623 + 1.432064281510721*^-14*I, "\[Nu]" -> -0.10581041767017677 - 1.2439892157770582*^-15*I|>
+Minimization Time: 21.533354
+Angular Solver Time: 0.039804
+Caching results to: \[Epsilon]1_10000\[Mu]Nv29_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 27
+m Value: 3
+n Value: 1
+\[Mu] Value: 3/10
+Minimization Results: <|"\[Omega]" -> 0.2991371379686317 + 2.5255538076555846*^-14*I, "\[Nu]" -> -0.10981373668301879 - 2.234278440891023*^-15*I|>
+Minimization Time: 62.797946
+Angular Solver Time: 0.046818
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_10m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 28
+m Value: 3
+n Value: 1
+\[Mu] Value: 31/100
+Minimization Results: <|"\[Omega]" -> 0.30904653743228755 + 3.8799575870423276*^-14*I, "\[Nu]" -> -0.11384276217501134 - 3.495279406051216*^-15*I|>
+Minimization Time: 62.383338
+Angular Solver Time: 0.049558
+Caching results to: \[Epsilon]1_10000\[Mu]Nv31_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 29
+m Value: 3
+n Value: 1
+\[Mu] Value: 8/25
+Minimization Results: <|"\[Omega]" -> 0.3189496625841538 + 5.875747996581134*^-14*I, "\[Nu]" -> -0.11789770230471307 - 5.389411610401436*^-15*I|>
+Minimization Time: 65.818752
+Angular Solver Time: 0.040555
+Caching results to: \[Epsilon]1_10000\[Mu]Nv8_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 30
+m Value: 3
+n Value: 1
+\[Mu] Value: 33/100
+Minimization Results: <|"\[Omega]" -> 0.3288462780096294 + 8.810931509229231*^-14*I, "\[Nu]" -> -0.12197876599958501 - 8.227608177427646*^-15*I|>
+Minimization Time: 63.837134
+Angular Solver Time: 0.039879
+Caching results to: \[Epsilon]1_10000\[Mu]Nv33_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 31
+m Value: 3
+n Value: 1
+\[Mu] Value: 17/50
+Minimization Results: <|"\[Omega]" -> 0.3387361505409389 + 1.2989099732695506*^-13*I, "\[Nu]" -> -0.1260861635506266 - 1.2346844184602979*^-14*I|>
+Minimization Time: 65.789156
+Angular Solver Time: 0.045329
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 32
+m Value: 3
+n Value: 1
+\[Mu] Value: 7/20
+Minimization Results: <|"\[Omega]" -> 0.34861903836007857 + 1.888796522002832*^-13*I, "\[Nu]" -> -0.130220105571297 - 1.8274267879635025*^-14*I|>
+Minimization Time: 71.69426
+Angular Solver Time: 0.040007
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_20m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 33
+m Value: 3
+n Value: 1
+\[Mu] Value: 9/25
+Minimization Results: <|"\[Omega]" -> 0.35849468947206214 + 2.7320635357245773*^-13*I, "\[Nu]" -> -0.1343808027671419 - 2.6901556848732474*^-14*I|>
+Minimization Time: 62.799434
+Angular Solver Time: 0.0402
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 34
+m Value: 3
+n Value: 1
+\[Mu] Value: 37/100
+Minimization Results: <|"\[Omega]" -> 0.3683628717148436 + 3.8923646389676963*^-13*I, "\[Nu]" -> -0.13856846884646581 - 3.900200916564602*^-14*I|>
+Minimization Time: 61.30576
+Angular Solver Time: 0.040311
+Caching results to: \[Epsilon]1_10000\[Mu]Nv37_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 35
+m Value: 3
+n Value: 1
+\[Mu] Value: 19/50
+Minimization Results: <|"\[Omega]" -> 0.37822332317500335 + 5.475364237031393*^-13*I, "\[Nu]" -> -0.14278331562829819 - 5.582508947419991*^-14*I|>
+Minimization Time: 61.413974
+Angular Solver Time: 0.039926
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 36
+m Value: 3
+n Value: 1
+\[Mu] Value: 39/100
+Minimization Results: <|"\[Omega]" -> 0.38807579970547584 + 7.630043242528946*^-13*I, "\[Nu]" -> -0.14702555770015838 - 7.914865133272615*^-14*I|>
+Minimization Time: 60.707956
+Angular Solver Time: 0.040401
+Caching results to: \[Epsilon]1_10000\[Mu]Nv39_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 37
+m Value: 3
+n Value: 1
+\[Mu] Value: 2/5
+Minimization Results: <|"\[Omega]" -> 0.39792004224021926 + 1.0595753784898213*^-12*I, "\[Nu]" -> -0.15129540911451372 - 1.1181669353224318*^-13*I|>
+Minimization Time: 60.937483
+Angular Solver Time: 0.042731
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_5m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 38
+m Value: 3
+n Value: 1
+\[Mu] Value: 41/100
+Minimization Results: <|"\[Omega]" -> 0.40775577003288005 + 1.4515618547067031*^-12*I, "\[Nu]" -> -0.15559308251653725 - 1.5582162423390415*^-13*I|>
+Minimization Time: 323.164723
+Angular Solver Time: 0.044253
+Caching results to: \[Epsilon]1_10000\[Mu]Nv41_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 39
+m Value: 3
+n Value: 1
+\[Mu] Value: 21/50
+Minimization Results: <|"\[Omega]" -> 0.41758275472737155 + 1.971014314439266*^-12*I, "\[Nu]" -> -0.15991879701765474 - 2.1520850494740018*^-13*I|>
+Minimization Time: 61.671397
+Angular Solver Time: 0.047084
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 40
+m Value: 3
+n Value: 1
+\[Mu] Value: 43/100
+Minimization Results: <|"\[Omega]" -> 0.42740068572530515 + 2.653542041112426*^-12*I, "\[Nu]" -> -0.16427276371237798 - 2.946687389852452*^-13*I|>
+Minimization Time: 58.352111
+Angular Solver Time: 0.041406
+Caching results to: \[Epsilon]1_10000\[Mu]Nv43_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 41
+m Value: 3
+n Value: 1
+\[Mu] Value: 11/25
+Minimization Results: <|"\[Omega]" -> 0.4372093189292491 + 3.564295483687712*^-12*I, "\[Nu]" -> -0.1686552016923699 - 4.025150183248127*^-13*I|>
+Minimization Time: 57.592795
+Angular Solver Time: 0.039497
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 42
+m Value: 3
+n Value: 1
+\[Mu] Value: 9/20
+Minimization Results: <|"\[Omega]" -> 0.4470083531555256 + 4.730131264362346*^-12*I, "\[Nu]" -> -0.173066324459543 - 5.431810012732002*^-13*I|>
+Minimization Time: 61.366072
+Angular Solver Time: 0.038622
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_20m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 43
+m Value: 3
+n Value: 1
+\[Mu] Value: 23/50
+Minimization Results: <|"\[Omega]" -> 0.45679753133176076 + 6.2337599612917455*^-12*I, "\[Nu]" -> -0.177506351177722 - 7.278601877078591*^-13*I|>
+Minimization Time: 59.846176
+Angular Solver Time: 0.040517
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 44
+m Value: 3
+n Value: 1
+\[Mu] Value: 47/100
+Minimization Results: <|"\[Omega]" -> 0.4665765279764644 + 8.200856884907486*^-12*I, "\[Nu]" -> -0.1819754937173581 - 9.7352683784423*^-13*I|>
+Minimization Time: 60.275552
+Angular Solver Time: 0.048905
+Caching results to: \[Epsilon]1_10000\[Mu]Nv47_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 45
+m Value: 3
+n Value: 1
+\[Mu] Value: 12/25
+Minimization Results: <|"\[Omega]" -> 0.4763450878172966 + 1.0664590084672079*^-11*I, "\[Nu]" -> -0.18647397269091998 - 1.2870302118843661*^-12*I|>
+Minimization Time: 63.571178
+Angular Solver Time: 0.049661
+Caching results to: \[Epsilon]1_10000\[Mu]Nv12_25m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 46
+m Value: 3
+n Value: 1
+\[Mu] Value: 49/100
+Minimization Results: <|"\[Omega]" -> 0.4861028839425343 + 1.3793507818338545*^-11*I, "\[Nu]" -> -0.19100200071620332 - 1.6921582506786219*^-12*I|>
+Minimization Time: 59.703331
+Angular Solver Time: 0.044736
+Caching results to: \[Epsilon]1_10000\[Mu]Nv49_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 2
+\[Mu] Iteration Count: 47
+m Value: 3
+n Value: 1
+\[Mu] Value: 1/2
+Minimization Results: <|"\[Omega]" -> 0.4958496138632639 + 1.7724216977765717*^-11*I, "\[Nu]" -> -0.19555979365162587 - 2.2101486910340414*^-12*I|>
+Minimization Time: 55.262937
+Angular Solver Time: 0.039858
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_2m3\[Eta]0n1l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 1
+m Value: 3
+n Value: 2
+\[Mu] Value: 1/25
+Minimization Results: <|"\[Omega]" -> 0.03999871949184567 + 8.760175808372527*^-27*I, "\[Nu]" -> -0.01349520968894082|>
+Minimization Time: 43.408365
+Angular Solver Time: 0.037132
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 2
+m Value: 3
+n Value: 2
+\[Mu] Value: 1/20
+Minimization Results: <|"\[Omega]" -> 0.049997498437959184 + 1.6463060459876835*^-25*I, "\[Nu]" -> -0.016920339946103126|>
+Minimization Time: 62.18442
+Angular Solver Time: 0.039976
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_20m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 3
+m Value: 3
+n Value: 2
+\[Mu] Value: 3/50
+Minimization Results: <|"\[Omega]" -> 0.05999567612908155 + 2.5507008430397646*^-24*I, "\[Nu]" -> -0.020366362203700927|>
+Minimization Time: 80.787908
+Angular Solver Time: 0.041483
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 4
+m Value: 3
+n Value: 2
+\[Mu] Value: 7/100
+Minimization Results: <|"\[Omega]" -> 0.06999313163618186 + 2.42534897966812*^-23*I, "\[Nu]" -> -0.0238334598179684|>
+Minimization Time: 61.680449
+Angular Solver Time: 0.040499
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 5
+m Value: 3
+n Value: 2
+\[Mu] Value: 2/25
+Minimization Results: <|"\[Omega]" -> 0.07998974373050964 + 1.4985708413518077*^-22*I, "\[Nu]" -> -0.027321817840009997 - 8.569867928530127*^-24*I|>
+Minimization Time: 70.754454
+Angular Solver Time: 0.041974
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 6
+m Value: 3
+n Value: 2
+\[Mu] Value: 9/100
+Minimization Results: <|"\[Omega]" -> 0.08998539077454899 + 8.858128330416861*^-22*I, "\[Nu]" -> -0.030831623025623908 - 5.177136512515734*^-23*I|>
+Minimization Time: 57.158038
+Angular Solver Time: 0.041352
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 7
+m Value: 3
+n Value: 2
+\[Mu] Value: 1/10
+Minimization Results: <|"\[Omega]" -> 0.09997995061351676 + 4.05764240024555*^-21*I, "\[Nu]" -> -0.03436306384445355 - 2.423124209194407*^-22*I|>
+Minimization Time: 59.068331
+Angular Solver Time: 0.047371
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 8
+m Value: 3
+n Value: 2
+\[Mu] Value: 11/100
+Minimization Results: <|"\[Omega]" -> 0.10997330064105534 + 1.5797923110026096*^-20*I, "\[Nu]" -> -0.03791633049903202 - 9.637464383267832*^-22*I|>
+Minimization Time: 57.086919
+Angular Solver Time: 0.039655
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 9
+m Value: 3
+n Value: 2
+\[Mu] Value: 3/25
+Minimization Results: <|"\[Omega]" -> 0.11996531761121816 + 5.4435211370412*^-20*I, "\[Nu]" -> -0.04149161492861128 - 3.391667261807783*^-21*I|>
+Minimization Time: 59.109591
+Angular Solver Time: 0.04002
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 10
+m Value: 3
+n Value: 2
+\[Mu] Value: 13/100
+Minimization Results: <|"\[Omega]" -> 0.12995587777308085 + 1.654754556601109*^-19*I, "\[Nu]" -> -0.045089110832124524 - 1.0528099759477527*^-20*I|>
+Minimization Time: 56.279177
+Angular Solver Time: 0.039254
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 11
+m Value: 3
+n Value: 2
+\[Mu] Value: 7/50
+Minimization Results: <|"\[Omega]" -> 0.13994485658446498 + 4.734072794751458*^-19*I, "\[Nu]" -> -0.04870901366493365 - 3.07503263893577*^-20*I|>
+Minimization Time: 62.147531
+Angular Solver Time: 0.043958
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 12
+m Value: 3
+n Value: 2
+\[Mu] Value: 3/20
+Minimization Results: <|"\[Omega]" -> 0.14993212867553832 + 1.2339637878319337*^-18*I, "\[Nu]" -> -0.052351520649906294 - 8.181511919801232*^-20*I|>
+Minimization Time: 73.777202
+Angular Solver Time: 0.040524
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 13
+m Value: 3
+n Value: 2
+\[Mu] Value: 4/25
+Minimization Results: <|"\[Omega]" -> 0.15991756811620017 + 3.044694590652735*^-18*I, "\[Nu]" -> -0.056016830808758536 - 2.0602111946884894*^-19*I|>
+Minimization Time: 64.698714
+Angular Solver Time: 0.041251
+Caching results to: \[Epsilon]1_10000\[Mu]Nv4_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 14
+m Value: 3
+n Value: 2
+\[Mu] Value: 17/100
+Minimization Results: <|"\[Omega]" -> 0.16990104811617554 + 4.989180007375719*^-18*I, "\[Nu]" -> -0.059705144956436314 - 3.4447441277505537*^-19*I|>
+Minimization Time: 20.415636
+Angular Solver Time: 0.041156
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 15
+m Value: 3
+n Value: 2
+\[Mu] Value: 9/50
+Minimization Results: <|"\[Omega]" -> 0.17988244036450488 + 1.540258795526098*^-17*I, "\[Nu]" -> -0.06341666566764106 - 1.0849420624612922*^-18*I|>
+Minimization Time: 63.257174
+Angular Solver Time: 0.038403
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 16
+m Value: 3
+n Value: 2
+\[Mu] Value: 19/100
+Minimization Results: <|"\[Omega]" -> 0.1898616167302077 + 3.2407195692159296*^-17*I, "\[Nu]" -> -0.06715159740739307 - 2.328449707291779*^-18*I|>
+Minimization Time: 58.239692
+Angular Solver Time: 0.043093
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 17
+m Value: 3
+n Value: 2
+\[Mu] Value: 1/5
+Minimization Results: <|"\[Omega]" -> 0.19983844728384212 + 6.509781733993846*^-17*I, "\[Nu]" -> -0.07091014640637598 - 4.770172178265783*^-18*I|>
+Minimization Time: 66.290185
+Angular Solver Time: 0.043577
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_5m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 18
+m Value: 3
+n Value: 2
+\[Mu] Value: 21/100
+Minimization Results: <|"\[Omega]" -> 0.20981280024870036 + 1.2714407579784612*^-16*I, "\[Nu]" -> -0.0746925206635512 - 9.50030822993704*^-18*I|>
+Minimization Time: 67.44861
+Angular Solver Time: 0.046786
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 19
+m Value: 3
+n Value: 2
+\[Mu] Value: 11/50
+Minimization Results: <|"\[Omega]" -> 0.21978454445073933 + 2.3830001880697606*^-16*I, "\[Nu]" -> -0.07849893013842989 - 1.8154040057096646*^-17*I|>
+Minimization Time: 61.343307
+Angular Solver Time: 0.041946
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 20
+m Value: 3
+n Value: 2
+\[Mu] Value: 23/100
+Minimization Results: <|"\[Omega]" -> 0.22975354730073708 + 4.3326037972964173*^-16*I, "\[Nu]" -> -0.08232958661780575 - 3.364662066097811*^-17*I|>
+Minimization Time: 66.693208
+Angular Solver Time: 0.047339
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 21
+m Value: 3
+n Value: 2
+\[Mu] Value: 6/25
+Minimization Results: <|"\[Omega]" -> 0.23971967255633714 + 7.727166365695266*^-16*I, "\[Nu]" -> -0.08618470354728927 - 6.116365843567684*^-17*I|>
+Minimization Time: 66.371569
+Angular Solver Time: 0.042076
+Caching results to: \[Epsilon]1_10000\[Mu]Nv6_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 22
+m Value: 3
+n Value: 2
+\[Mu] Value: 1/4
+Minimization Results: <|"\[Omega]" -> 0.24968278579947714 + 1.3306125600890053*^-15*I, "\[Nu]" -> -0.09006449646470596 - 1.0733583709574718*^-16*I|>
+Minimization Time: 60.897142
+Angular Solver Time: 0.043609
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_4m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 23
+m Value: 3
+n Value: 2
+\[Mu] Value: 13/50
+Minimization Results: <|"\[Omega]" -> 0.25964274712555835 + 2.255950828295896*^-15*I, "\[Nu]" -> -0.09396918243182449 - 1.854315457328149*^-16*I|>
+Minimization Time: 68.407993
+Angular Solver Time: 0.041977
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 24
+m Value: 3
+n Value: 2
+\[Mu] Value: 27/100
+Minimization Results: <|"\[Omega]" -> 0.26959942300903694 + 3.736390037853343*^-15*I, "\[Nu]" -> -0.09789898100474129 - 3.1290292336457684*^-16*I|>
+Minimization Time: 66.145113
+Angular Solver Time: 0.047818
+Caching results to: \[Epsilon]1_10000\[Mu]Nv27_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 25
+m Value: 3
+n Value: 2
+\[Mu] Value: 7/25
+Minimization Results: <|"\[Omega]" -> 0.279552669784819 + 6.0399778908841785*^-15*I, "\[Nu]" -> -0.10185411289295018 - 5.152764985238527*^-16*I|>
+Minimization Time: 68.98239
+Angular Solver Time: 0.03996
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 26
+m Value: 3
+n Value: 2
+\[Mu] Value: 29/100
+Minimization Results: <|"\[Omega]" -> 0.2895023443512833 + 9.586513018297482*^-15*I, "\[Nu]" -> -0.10583480082868567 - 8.330266432341893*^-16*I|>
+Minimization Time: 66.585784
+Angular Solver Time: 0.04104
+Caching results to: \[Epsilon]1_10000\[Mu]Nv29_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 27
+m Value: 3
+n Value: 2
+\[Mu] Value: 3/10
+Minimization Results: <|"\[Omega]" -> 0.29944830522504184 + 8.892324512674672*^-15*I, "\[Nu]" -> -0.10984126968269133 - 7.869622650740129*^-16*I|>
+Minimization Time: 22.563417
+Angular Solver Time: 0.040954
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_10m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 28
+m Value: 3
+n Value: 2
+\[Mu] Value: 31/100
+Minimization Results: <|"\[Omega]" -> 0.3093904079080993 + 2.3141055875652495*^-14*I, "\[Nu]" -> -0.11387374607795187 - 2.0855025001703096*^-15*I|>
+Minimization Time: 60.287028
+Angular Solver Time: 0.046932
+Caching results to: \[Epsilon]1_10000\[Mu]Nv31_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 29
+m Value: 3
+n Value: 2
+\[Mu] Value: 8/25
+Minimization Results: <|"\[Omega]" -> 0.31932850229831405 + 3.525975883488685*^-14*I, "\[Nu]" -> -0.11793245814587514 - 3.2355323572486976*^-15*I|>
+Minimization Time: 68.05129
+Angular Solver Time: 0.039682
+Caching results to: \[Epsilon]1_10000\[Mu]Nv8_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 30
+m Value: 3
+n Value: 2
+\[Mu] Value: 33/100
+Minimization Results: <|"\[Omega]" -> 0.3292624413551857 + 5.268528875901075*^-14*I, "\[Nu]" -> -0.12201763630742458 - 4.922048528015127*^-15*I|>
+Minimization Time: 66.341074
+Angular Solver Time: 0.044218
+Caching results to: \[Epsilon]1_10000\[Mu]Nv33_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 31
+m Value: 3
+n Value: 2
+\[Mu] Value: 17/50
+Minimization Results: <|"\[Omega]" -> 0.33919207445974037 + 7.772745200078043*^-14*I, "\[Nu]" -> -0.1261295126844253 - 7.392198202573664*^-15*I|>
+Minimization Time: 69.522879
+Angular Solver Time: 0.046601
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 32
+m Value: 3
+n Value: 2
+\[Mu] Value: 7/20
+Minimization Results: <|"\[Omega]" -> 0.3491172501361708 + 1.131671375816654*^-13*I, "\[Nu]" -> -0.13026832135037167 - 1.0955089026805574*^-14*I|>
+Minimization Time: 65.698098
+Angular Solver Time: 0.045166
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_20m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 33
+m Value: 3
+n Value: 2
+\[Mu] Value: 9/25
+Minimization Results: <|"\[Omega]" -> 0.3590378069179436 + 1.63951822892751*^-13*I, "\[Nu]" -> -0.13443429744026794 - 1.615337189536801*^-14*I|>
+Minimization Time: 68.517454
+Angular Solver Time: 0.041559
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 34
+m Value: 3
+n Value: 2
+\[Mu] Value: 37/100
+Minimization Results: <|"\[Omega]" -> 0.36895359284367524 + 2.3382371588068835*^-13*I, "\[Nu]" -> -0.13862767903545237 - 2.3444607791765992*^-14*I|>
+Minimization Time: 63.559343
+Angular Solver Time: 0.041004
+Caching results to: \[Epsilon]1_10000\[Mu]Nv37_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 35
+m Value: 3
+n Value: 2
+\[Mu] Value: 19/50
+Minimization Results: <|"\[Omega]" -> 0.3788644535370965 + 3.2930784233537515*^-13*I, "\[Nu]" -> -0.14284870604615793 - 3.3598600403397456*^-14*I|>
+Minimization Time: 63.443674
+Angular Solver Time: 0.043417
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 36
+m Value: 3
+n Value: 2
+\[Mu] Value: 39/100
+Minimization Results: <|"\[Omega]" -> 0.38877021179079796 + 4.617111917209055*^-13*I, "\[Nu]" -> -0.14709761808756447 - 4.793056123162987*^-14*I|>
+Minimization Time: 63.045936
+Angular Solver Time: 0.041747
+Caching results to: \[Epsilon]1_10000\[Mu]Nv39_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 37
+m Value: 3
+n Value: 2
+\[Mu] Value: 2/5
+Minimization Results: <|"\[Omega]" -> 0.39867071554230293 + 6.393040964876652*^-13*I, "\[Nu]" -> -0.15137465935737723 - 6.751992464299498*^-14*I|>
+Minimization Time: 60.977859
+Angular Solver Time: 0.04102
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_5m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 38
+m Value: 3
+n Value: 2
+\[Mu] Value: 41/100
+Minimization Results: <|"\[Omega]" -> 0.40856579011591093 + 8.767716794317725*^-13*I, "\[Nu]" -> -0.15568007374584775 - 9.420060262699629*^-14*I|>
+Minimization Time: 59.557417
+Angular Solver Time: 0.041112
+Caching results to: \[Epsilon]1_10000\[Mu]Nv41_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 39
+m Value: 3
+n Value: 2
+\[Mu] Value: 21/50
+Minimization Results: <|"\[Omega]" -> 0.4184552721999994 + 1.192348869220627*^-12*I, "\[Nu]" -> -0.16001410835723576 - 1.3030904342590467*^-13*I|>
+Minimization Time: 394.283299
+Angular Solver Time: 0.041008
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 40
+m Value: 3
+n Value: 2
+\[Mu] Value: 43/100
+Minimization Results: <|"\[Omega]" -> 0.428338979214752 + 1.6149796459316612*^-12*I, "\[Nu]" -> -0.1643770102231131 - 1.7951659062599462*^-13*I|>
+Minimization Time: 66.608792
+Angular Solver Time: 0.0423
+Caching results to: \[Epsilon]1_10000\[Mu]Nv43_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 41
+m Value: 3
+n Value: 2
+\[Mu] Value: 11/25
+Minimization Results: <|"\[Omega]" -> 0.43821675314095365 + 2.1636746402017513*^-12*I, "\[Nu]" -> -0.16876903108942284 - 2.4460144909801944*^-13*I|>
+Minimization Time: 60.392745
+Angular Solver Time: 0.043276
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 42
+m Value: 3
+n Value: 2
+\[Mu] Value: 9/20
+Minimization Results: <|"\[Omega]" -> 0.44808839723569277 + 2.422371977299323*^-11*I, "\[Nu]" -> -0.17319042038631094 - 2.7848481777331097*^-12*I|>
+Minimization Time: 30.701329
+Angular Solver Time: 0.046459
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_20m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 43
+m Value: 3
+n Value: 2
+\[Mu] Value: 23/50
+Minimization Results: <|"\[Omega]" -> 0.45795373445080895 + 3.7958828846781156*^-12*I, "\[Nu]" -> -0.177641431697761 - 4.4374355976690077*^-13*I|>
+Minimization Time: 64.578908
+Angular Solver Time: 0.041451
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_50m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 44
+m Value: 3
+n Value: 2
+\[Mu] Value: 47/100
+Minimization Results: <|"\[Omega]" -> 0.4678125839133689 + 5.002813402026635*^-12*I, "\[Nu]" -> -0.1821223201656649 - 5.94645199184251*^-13*I|>
+Minimization Time: 64.114954
+Angular Solver Time: 0.04156
+Caching results to: \[Epsilon]1_10000\[Mu]Nv47_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 45
+m Value: 3
+n Value: 2
+\[Mu] Value: 12/25
+Minimization Results: <|"\[Omega]" -> 0.4776647581649641 + 6.51889426476866*^-12*I, "\[Nu]" -> -0.18663334212919228 - 7.877864323856061*^-13*I|>
+Minimization Time: 61.39422
+Angular Solver Time: 0.043455
+Caching results to: \[Epsilon]1_10000\[Mu]Nv12_25m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 46
+m Value: 3
+n Value: 2
+\[Mu] Value: 49/100
+Minimization Results: <|"\[Omega]" -> 0.48751004492475186 + 8.444192872962704*^-12*I, "\[Nu]" -> -0.19117475282803428 - 1.0374114082346742*^-12*I|>
+Minimization Time: 64.895902
+Angular Solver Time: 0.040911
+Caching results to: \[Epsilon]1_10000\[Mu]Nv49_100m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 1
+n Iteration Count: 3
+\[Mu] Iteration Count: 47
+m Value: 3
+n Value: 2
+\[Mu] Value: 1/2
+Minimization Results: <|"\[Omega]" -> 0.49734827714728497 + 1.0871656195987806*^-11*I, "\[Nu]" -> -0.195746814907586 - 1.3577350800298656*^-12*I|>
+Minimization Time: 61.400763
+Angular Solver Time: 0.042479
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_2m3\[Eta]0n2l2s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 1
+m Value: 4
+n Value: 0
+\[Mu] Value: 1/25
+Minimization Results: <|"\[Omega]" -> 0.03999799955255123 + 3.9647351417836817*^-35*I, "\[Nu]" -> -0.010090756700621557|>
+Minimization Time: 50.291531
+Angular Solver Time: 0.045036
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 2
+m Value: 4
+n Value: 0
+\[Mu] Value: 1/20
+Minimization Results: <|"\[Omega]" -> 0.04999609239686658 + 2.5676698390774834*^-33*I, "\[Nu]" -> -0.012642104011013866|>
+Minimization Time: 51.456934
+Angular Solver Time: 0.044054
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_20m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 3
+m Value: 4
+n Value: 0
+\[Mu] Value: 3/50
+Minimization Results: <|"\[Omega]" -> 0.059993246634629946 + 1.07484044691041*^-31*I, "\[Nu]" -> -0.015205057580934553|>
+Minimization Time: 69.147742
+Angular Solver Time: 0.040141
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 4
+m Value: 4
+n Value: 0
+\[Mu] Value: 7/100
+Minimization Results: <|"\[Omega]" -> 0.0699892739913584 + 1.2014345147897035*^-30*I, "\[Nu]" -> -0.017779689255264176|>
+Minimization Time: 67.690512
+Angular Solver Time: 0.040295
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 5
+m Value: 4
+n Value: 0
+\[Mu] Value: 2/25
+Minimization Results: <|"\[Omega]" -> 0.0799839858751686 + 1.596319840785052*^-29*I, "\[Nu]" -> -0.020366071065468613|>
+Minimization Time: 58.79369
+Angular Solver Time: 0.038376
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 6
+m Value: 4
+n Value: 0
+\[Mu] Value: 9/100
+Minimization Results: <|"\[Omega]" -> 0.08997719333409596, "\[Nu]" -> -0.022964275224132275|>
+Minimization Time: 75.549202
+Angular Solver Time: 0.042112
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 7
+m Value: 4
+n Value: 0
+\[Mu] Value: 1/10
+Minimization Results: <|"\[Omega]" -> 0.09996870708131536, "\[Nu]" -> -0.025574374121518716|>
+Minimization Time: 73.085085
+Angular Solver Time: 0.043887
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_10m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 8
+m Value: 4
+n Value: 0
+\[Mu] Value: 11/100
+Minimization Results: <|"\[Omega]" -> 0.10995833752227654, "\[Nu]" -> -0.028196440322167424|>
+Minimization Time: 70.948068
+Angular Solver Time: 0.038983
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 9
+m Value: 4
+n Value: 0
+\[Mu] Value: 3/25
+Minimization Results: <|"\[Omega]" -> 0.11994589396294138, "\[Nu]" -> -0.030830546532253422|>
+Minimization Time: 66.776595
+Angular Solver Time: 0.040344
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 10
+m Value: 4
+n Value: 0
+\[Mu] Value: 13/100
+Minimization Results: <|"\[Omega]" -> 0.12993118604293336, "\[Nu]" -> -0.03347676564443066|>
+Minimization Time: 62.886933
+Angular Solver Time: 0.040269
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 11
+m Value: 4
+n Value: 0
+\[Mu] Value: 7/50
+Minimization Results: <|"\[Omega]" -> 0.1399140223577533, "\[Nu]" -> -0.03613517068429017|>
+Minimization Time: 63.220612
+Angular Solver Time: 0.042638
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 12
+m Value: 4
+n Value: 0
+\[Mu] Value: 3/20
+Minimization Results: <|"\[Omega]" -> 0.1498942109359394, "\[Nu]" -> -0.03880583482096668|>
+Minimization Time: 94.7971
+Angular Solver Time: 0.039648
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_20m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 13
+m Value: 4
+n Value: 0
+\[Mu] Value: 4/25
+Minimization Results: <|"\[Omega]" -> 0.1598715596094294, "\[Nu]" -> -0.04148883137546731|>
+Minimization Time: 93.225251
+Angular Solver Time: 0.04485
+Caching results to: \[Epsilon]1_10000\[Mu]Nv4_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 14
+m Value: 4
+n Value: 0
+\[Mu] Value: 17/100
+Minimization Results: <|"\[Omega]" -> 0.16984587384566502, "\[Nu]" -> -0.04418423373089493|>
+Minimization Time: 102.028993
+Angular Solver Time: 0.037897
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 15
+m Value: 4
+n Value: 0
+\[Mu] Value: 9/50
+Minimization Results: <|"\[Omega]" -> 0.179816961367727, "\[Nu]" -> -0.04689211550420164|>
+Minimization Time: 93.987694
+Angular Solver Time: 0.043999
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 16
+m Value: 4
+n Value: 0
+\[Mu] Value: 19/100
+Minimization Results: <|"\[Omega]" -> 0.18978462533465454, "\[Nu]" -> -0.04961255027261566|>
+Minimization Time: 88.192055
+Angular Solver Time: 0.039761
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 17
+m Value: 4
+n Value: 0
+\[Mu] Value: 1/5
+Minimization Results: <|"\[Omega]" -> 0.1997486729293006, "\[Nu]" -> -0.05234561190796871|>
+Minimization Time: 90.686897
+Angular Solver Time: 0.037368
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_5m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 18
+m Value: 4
+n Value: 0
+\[Mu] Value: 21/100
+Minimization Results: <|"\[Omega]" -> 0.20970890409464768, "\[Nu]" -> -0.05509137411199112|>
+Minimization Time: 88.555657
+Angular Solver Time: 0.040475
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 19
+m Value: 4
+n Value: 0
+\[Mu] Value: 11/50
+Minimization Results: <|"\[Omega]" -> 0.2196651257700965, "\[Nu]" -> -0.05784991099520826|>
+Minimization Time: 73.330315
+Angular Solver Time: 0.041126
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 20
+m Value: 4
+n Value: 0
+\[Mu] Value: 23/100
+Minimization Results: <|"\[Omega]" -> 0.22961713501129113, "\[Nu]" -> -0.060621296361037205|>
+Minimization Time: 90.908505
+Angular Solver Time: 0.040456
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 21
+m Value: 4
+n Value: 0
+\[Mu] Value: 6/25
+Minimization Results: <|"\[Omega]" -> 0.23956473743118278, "\[Nu]" -> -0.06340560448230724|>
+Minimization Time: 92.649285
+Angular Solver Time: 0.039221
+Caching results to: \[Epsilon]1_10000\[Mu]Nv6_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 22
+m Value: 4
+n Value: 0
+\[Mu] Value: 1/4
+Minimization Results: <|"\[Omega]" -> 0.2495077282032709, "\[Nu]" -> -0.06620290926976823|>
+Minimization Time: 67.537452
+Angular Solver Time: 0.041583
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_4m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 23
+m Value: 4
+n Value: 0
+\[Mu] Value: 13/50
+Minimization Results: <|"\[Omega]" -> 0.2594459093169197, "\[Nu]" -> -0.06901328501946623|>
+Minimization Time: 75.877339
+Angular Solver Time: 0.045026
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 24
+m Value: 4
+n Value: 0
+\[Mu] Value: 27/100
+Minimization Results: <|"\[Omega]" -> 0.26937907953743784, "\[Nu]" -> -0.07183680596373777|>
+Minimization Time: 55.051518
+Angular Solver Time: 0.039805
+Caching results to: \[Epsilon]1_10000\[Mu]Nv27_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 25
+m Value: 4
+n Value: 0
+\[Mu] Value: 7/25
+Minimization Results: <|"\[Omega]" -> 0.27930702909416144, "\[Nu]" -> -0.07467354599991076|>
+Minimization Time: 92.496231
+Angular Solver Time: 0.042006
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 26
+m Value: 4
+n Value: 0
+\[Mu] Value: 29/100
+Minimization Results: <|"\[Omega]" -> 0.28922956238453207, "\[Nu]" -> -0.07752357974771819|>
+Minimization Time: 52.100307
+Angular Solver Time: 0.041487
+Caching results to: \[Epsilon]1_10000\[Mu]Nv29_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 27
+m Value: 4
+n Value: 0
+\[Mu] Value: 3/10
+Minimization Results: <|"\[Omega]" -> 0.2991464644843605, "\[Nu]" -> -0.08038698095300278|>
+Minimization Time: 50.949209
+Angular Solver Time: 0.040153
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_10m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 28
+m Value: 4
+n Value: 0
+\[Mu] Value: 31/100
+Minimization Results: <|"\[Omega]" -> 0.30905753474688397, "\[Nu]" -> -0.0832638240819405|>
+Minimization Time: 51.724364
+Angular Solver Time: 0.039532
+Caching results to: \[Epsilon]1_10000\[Mu]Nv31_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 29
+m Value: 4
+n Value: 0
+\[Mu] Value: 8/25
+Minimization Results: <|"\[Omega]" -> 0.31896256617924784, "\[Nu]" -> -0.08615418332431411|>
+Minimization Time: 51.586351
+Angular Solver Time: 0.038801
+Caching results to: \[Epsilon]1_10000\[Mu]Nv8_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 30
+m Value: 4
+n Value: 0
+\[Mu] Value: 33/100
+Minimization Results: <|"\[Omega]" -> 0.32886134020972774, "\[Nu]" -> -0.08905813229028312|>
+Minimization Time: 49.531899
+Angular Solver Time: 0.039598
+Caching results to: \[Epsilon]1_10000\[Mu]Nv33_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 31
+m Value: 4
+n Value: 0
+\[Mu] Value: 17/50
+Minimization Results: <|"\[Omega]" -> 0.33875365478237623, "\[Nu]" -> -0.09197574542807417|>
+Minimization Time: 48.123941
+Angular Solver Time: 0.040975
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 32
+m Value: 4
+n Value: 0
+\[Mu] Value: 7/20
+Minimization Results: <|"\[Omega]" -> 0.3486393753641833 + 4.319806053968353*^-10*I, "\[Nu]" -> -0.09490710080284843 - 2.3019154884213108*^-11*I|>
+Minimization Time: 26.392243
+Angular Solver Time: 0.03936
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_20m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 33
+m Value: 4
+n Value: 0
+\[Mu] Value: 9/25
+Minimization Results: <|"\[Omega]" -> 0.3585180477198868 + 4.3665329460750955*^-18*I, "\[Nu]" -> -0.09785225941283152 - 2.3638260265689783*^-19*I|>
+Minimization Time: 81.006657
+Angular Solver Time: 0.043913
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 34
+m Value: 4
+n Value: 0
+\[Mu] Value: 37/100
+Minimization Results: <|"\[Omega]" -> 0.3683897014451662 + 6.8957497829231856*^-18*I, "\[Nu]" -> -0.1008113080061927 - 3.79197318222941*^-19*I|>
+Minimization Time: 72.859723
+Angular Solver Time: 0.044576
+Caching results to: \[Epsilon]1_10000\[Mu]Nv37_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 35
+m Value: 4
+n Value: 0
+\[Mu] Value: 19/50
+Minimization Results: <|"\[Omega]" -> 0.37825403108528977 + 1.0715516893119643*^-17*I, "\[Nu]" -> -0.10378431540418179 - 5.984863926359939*^-19*I|>
+Minimization Time: 77.551166
+Angular Solver Time: 0.038552
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 36
+m Value: 4
+n Value: 0
+\[Mu] Value: 39/100
+Minimization Results: <|"\[Omega]" -> 0.3881108213160312 + 1.643856009563094*^-17*I, "\[Nu]" -> -0.10677135517022948 - 9.324289833703008*^-19*I|>
+Minimization Time: 80.811193
+Angular Solver Time: 0.044405
+Caching results to: \[Epsilon]1_10000\[Mu]Nv39_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 37
+m Value: 4
+n Value: 0
+\[Mu] Value: 2/5
+Minimization Results: <|"\[Omega]" -> 0.3979598576715646 + 2.492848282446214*^-17*I, "\[Nu]" -> -0.10977250084723951 - 1.4358634241134006*^-18*I|>
+Minimization Time: 74.811011
+Angular Solver Time: 0.040766
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_5m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 38
+m Value: 4
+n Value: 0
+\[Mu] Value: 41/100
+Minimization Results: <|"\[Omega]" -> 0.40780092176443095, "\[Nu]" -> -0.11278782567229806|>
+Minimization Time: 48.375232
+Angular Solver Time: 0.042774
+Caching results to: \[Epsilon]1_10000\[Mu]Nv41_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 39
+m Value: 4
+n Value: 0
+\[Mu] Value: 21/50
+Minimization Results: <|"\[Omega]" -> 0.4176339516521862 + 1.894969435590419*^-12*I, "\[Nu]" -> -0.1158174120715199 - 1.1251679686963129*^-13*I|>
+Minimization Time: 21.343034
+Angular Solver Time: 0.039834
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 40
+m Value: 4
+n Value: 0
+\[Mu] Value: 43/100
+Minimization Results: <|"\[Omega]" -> 0.4274585159633102 + 1.894969435590419*^-12*I, "\[Nu]" -> -0.11886132065600742 - 1.1422253142853173*^-13*I|>
+Minimization Time: 21.240594
+Angular Solver Time: 0.03968
+Caching results to: \[Epsilon]1_10000\[Mu]Nv43_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 41
+m Value: 4
+n Value: 0
+\[Mu] Value: 11/25
+Minimization Results: <|"\[Omega]" -> 0.43727399917592336, "\[Nu]" -> -0.12191959988277108|>
+Minimization Time: 48.288131
+Angular Solver Time: 0.04347
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 42
+m Value: 4
+n Value: 0
+\[Mu] Value: 9/20
+Minimization Results: <|"\[Omega]" -> 0.44708089716094007, "\[Nu]" -> -0.12499236563802853|>
+Minimization Time: 44.707424
+Angular Solver Time: 0.039749
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_20m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 43
+m Value: 4
+n Value: 0
+\[Mu] Value: 23/50
+Minimization Results: <|"\[Omega]" -> 0.45687907584767967 + 1.894969435590419*^-12*I, "\[Nu]" -> -0.12807969658167695 - 1.1942832409293183*^-13*I|>
+Minimization Time: 21.572272
+Angular Solver Time: 0.04177
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_50m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 44
+m Value: 4
+n Value: 0
+\[Mu] Value: 47/100
+Minimization Results: <|"\[Omega]" -> 0.4666671648411211, "\[Nu]" -> -0.13118159247718067|>
+Minimization Time: 45.394129
+Angular Solver Time: 0.041655
+Caching results to: \[Epsilon]1_10000\[Mu]Nv47_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 45
+m Value: 4
+n Value: 0
+\[Mu] Value: 12/25
+Minimization Results: <|"\[Omega]" -> 0.47644605539387064, "\[Nu]" -> -0.13429819537996562|>
+Minimization Time: 44.000089
+Angular Solver Time: 0.042083
+Caching results to: \[Epsilon]1_10000\[Mu]Nv12_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 46
+m Value: 4
+n Value: 0
+\[Mu] Value: 49/100
+Minimization Results: <|"\[Omega]" -> 0.48621560237884853 + 1.894969435590419*^-12*I, "\[Nu]" -> -0.13742958309835077 - 1.2476955705214921*^-13*I|>
+Minimization Time: 21.08886
+Angular Solver Time: 0.046169
+Caching results to: \[Epsilon]1_10000\[Mu]Nv49_100m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 1
+\[Mu] Iteration Count: 47
+m Value: 4
+n Value: 0
+\[Mu] Value: 1/2
+Minimization Results: <|"\[Omega]" -> 0.49597440083862954 + 1.894969435590419*^-12*I, "\[Nu]" -> -0.1405757493928953 - 1.2658059950170064*^-13*I|>
+Minimization Time: 21.734037
+Angular Solver Time: 0.044492
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_2m4\[Eta]0n0l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 1
+m Value: 4
+n Value: 1
+\[Mu] Value: 1/25
+Minimization Results: <|"\[Omega]" -> 0.03999871969449056 + 3.468805128227891*^-35*I, "\[Nu]" -> -0.010090778536008628|>
+Minimization Time: 52.399841
+Angular Solver Time: 0.0445
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 2
+m Value: 4
+n Value: 1
+\[Mu] Value: 1/20
+Minimization Results: <|"\[Omega]" -> 0.04999749907548015 + 1.818071555304767*^-33*I, "\[Nu]" -> -0.012642147576474604|>
+Minimization Time: 57.171682
+Angular Solver Time: 0.04115
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_20m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 3
+m Value: 4
+n Value: 1
+\[Mu] Value: 3/50
+Minimization Results: <|"\[Omega]" -> 0.059995677695903964 + 6.555748831913655*^-32*I, "\[Nu]" -> -0.015205134464514745|>
+Minimization Time: 55.096892
+Angular Solver Time: 0.039748
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 4
+m Value: 4
+n Value: 1
+\[Mu] Value: 7/100
+Minimization Results: <|"\[Omega]" -> 0.06999313500852981 + 1.2130218722558798*^-30*I, "\[Nu]" -> -0.017779813912968404|>
+Minimization Time: 50.260509
+Angular Solver Time: 0.0386
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 5
+m Value: 4
+n Value: 1
+\[Mu] Value: 2/25
+Minimization Results: <|"\[Omega]" -> 0.07998975028855132 + 1.2812313667520404*^-29*I, "\[Nu]" -> -0.0203662610180748|>
+Minimization Time: 59.505502
+Angular Solver Time: 0.042869
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 6
+m Value: 4
+n Value: 1
+\[Mu] Value: 9/100
+Minimization Results: <|"\[Omega]" -> 0.08998540257073276, "\[Nu]" -> -0.022964551257865378|>
+Minimization Time: 80.096063
+Angular Solver Time: 0.040166
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 7
+m Value: 4
+n Value: 1
+\[Mu] Value: 1/10
+Minimization Results: <|"\[Omega]" -> 0.09997997052839502, "\[Nu]" -> -0.02557476048826388|>
+Minimization Time: 77.265441
+Angular Solver Time: 0.042996
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_10m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 8
+m Value: 4
+n Value: 1
+\[Mu] Value: 11/100
+Minimization Results: <|"\[Omega]" -> 0.10997333268032508, "\[Nu]" -> -0.02819696495011452|>
+Minimization Time: 74.131263
+Angular Solver Time: 0.040518
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 9
+m Value: 4
+n Value: 1
+\[Mu] Value: 3/25
+Minimization Results: <|"\[Omega]" -> 0.1199653669508923, "\[Nu]" -> -0.030831241253930795|>
+Minimization Time: 68.341737
+Angular Solver Time: 0.03934
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 10
+m Value: 4
+n Value: 1
+\[Mu] Value: 13/100
+Minimization Results: <|"\[Omega]" -> 0.12995595137723756, "\[Nu]" -> -0.033477666404486434|>
+Minimization Time: 68.939337
+Angular Solver Time: 0.04024
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 11
+m Value: 4
+n Value: 1
+\[Mu] Value: 7/50
+Minimization Results: <|"\[Omega]" -> 0.13994496300769962, "\[Nu]" -> -0.036136317761241404|>
+Minimization Time: 65.104924
+Angular Solver Time: 0.040014
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 12
+m Value: 4
+n Value: 1
+\[Mu] Value: 3/20
+Minimization Results: <|"\[Omega]" -> 0.14993227868485484, "\[Nu]" -> -0.0388072730652721|>
+Minimization Time: 94.58193
+Angular Solver Time: 0.041226
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_20m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 13
+m Value: 4
+n Value: 1
+\[Mu] Value: 4/25
+Minimization Results: <|"\[Omega]" -> 0.15991777507184712, "\[Nu]" -> -0.04149061044030176|>
+Minimization Time: 93.966902
+Angular Solver Time: 0.039726
+Caching results to: \[Epsilon]1_10000\[Mu]Nv4_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 14
+m Value: 4
+n Value: 1
+\[Mu] Value: 17/100
+Minimization Results: <|"\[Omega]" -> 0.16990132783423975, "\[Nu]" -> -0.044186408360673245|>
+Minimization Time: 98.912675
+Angular Solver Time: 0.039609
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 15
+m Value: 4
+n Value: 1
+\[Mu] Value: 9/50
+Minimization Results: <|"\[Omega]" -> 0.17988281301499653, "\[Nu]" -> -0.046894745703302355|>
+Minimization Time: 95.104343
+Angular Solver Time: 0.046054
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 16
+m Value: 4
+n Value: 1
+\[Mu] Value: 19/100
+Minimization Results: <|"\[Omega]" -> 0.189862104209635, "\[Nu]" -> -0.04961570163471429|>
+Minimization Time: 97.666839
+Angular Solver Time: 0.039638
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 17
+m Value: 4
+n Value: 1
+\[Mu] Value: 1/5
+Minimization Results: <|"\[Omega]" -> 0.19983907717133476, "\[Nu]" -> -0.05234935579325799|>
+Minimization Time: 95.503844
+Angular Solver Time: 0.03972
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_5m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 18
+m Value: 4
+n Value: 1
+\[Mu] Value: 21/100
+Minimization Results: <|"\[Omega]" -> 0.20981360404719213, "\[Nu]" -> -0.05509578805449123|>
+Minimization Time: 101.139058
+Angular Solver Time: 0.044501
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 19
+m Value: 4
+n Value: 1
+\[Mu] Value: 11/50
+Minimization Results: <|"\[Omega]" -> 0.21978555901030433, "\[Nu]" -> -0.05785507875974507|>
+Minimization Time: 96.416316
+Angular Solver Time: 0.047999
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 20
+m Value: 4
+n Value: 1
+\[Mu] Value: 23/100
+Minimization Results: <|"\[Omega]" -> 0.2297548135693482, "\[Nu]" -> -0.06062730851913274|>
+Minimization Time: 90.221977
+Angular Solver Time: 0.044717
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 21
+m Value: 4
+n Value: 1
+\[Mu] Value: 6/25
+Minimization Results: <|"\[Omega]" -> 0.2397212400945119, "\[Nu]" -> -0.06341255835827952|>
+Minimization Time: 92.967725
+Angular Solver Time: 0.042261
+Caching results to: \[Epsilon]1_10000\[Mu]Nv6_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 22
+m Value: 4
+n Value: 1
+\[Mu] Value: 1/4
+Minimization Results: <|"\[Omega]" -> 0.24968470854721428, "\[Nu]" -> -0.06621090957382446|>
+Minimization Time: 110.00123
+Angular Solver Time: 0.046337
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_4m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 23
+m Value: 4
+n Value: 1
+\[Mu] Value: 13/50
+Minimization Results: <|"\[Omega]" -> 0.25964509029444216, "\[Nu]" -> -0.06902244389947892|>
+Minimization Time: 105.311422
+Angular Solver Time: 0.045767
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 24
+m Value: 4
+n Value: 1
+\[Mu] Value: 27/100
+Minimization Results: <|"\[Omega]" -> 0.2696022532781763, "\[Nu]" -> -0.07184724328542012|>
+Minimization Time: 103.669025
+Angular Solver Time: 0.046218
+Caching results to: \[Epsilon]1_10000\[Mu]Nv27_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 25
+m Value: 4
+n Value: 1
+\[Mu] Value: 7/25
+Minimization Results: <|"\[Omega]" -> 0.27955606471204103, "\[Nu]" -> -0.07468539001283954|>
+Minimization Time: 58.26907
+Angular Solver Time: 0.044954
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 26
+m Value: 4
+n Value: 1
+\[Mu] Value: 29/100
+Minimization Results: <|"\[Omega]" -> 0.28950639735849565, "\[Nu]" -> -0.07753696699418314|>
+Minimization Time: 66.360229
+Angular Solver Time: 0.051306
+Caching results to: \[Epsilon]1_10000\[Mu]Nv29_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 27
+m Value: 4
+n Value: 1
+\[Mu] Value: 3/10
+Minimization Results: <|"\[Omega]" -> 0.29945311144589776, "\[Nu]" -> -0.08040205690581916|>
+Minimization Time: 63.151802
+Angular Solver Time: 0.052376
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_10m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 28
+m Value: 4
+n Value: 1
+\[Mu] Value: 31/100
+Minimization Results: <|"\[Omega]" -> 0.30939607536366803, "\[Nu]" -> -0.08328074317126569|>
+Minimization Time: 62.884688
+Angular Solver Time: 0.055918
+Caching results to: \[Epsilon]1_10000\[Mu]Nv31_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 29
+m Value: 4
+n Value: 1
+\[Mu] Value: 8/25
+Minimization Results: <|"\[Omega]" -> 0.31933515656227984, "\[Nu]" -> -0.08617310953117395|>
+Minimization Time: 58.107647
+Angular Solver Time: 0.056817
+Caching results to: \[Epsilon]1_10000\[Mu]Nv8_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 30
+m Value: 4
+n Value: 1
+\[Mu] Value: 33/100
+Minimization Results: <|"\[Omega]" -> 0.32927021163644615, "\[Nu]" -> -0.08907923952674895|>
+Minimization Time: 59.482407
+Angular Solver Time: 0.046883
+Caching results to: \[Epsilon]1_10000\[Mu]Nv33_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 31
+m Value: 4
+n Value: 1
+\[Mu] Value: 17/50
+Minimization Results: <|"\[Omega]" -> 0.3392011102033167, "\[Nu]" -> -0.09199921770645306|>
+Minimization Time: 62.177024
+Angular Solver Time: 0.047219
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 32
+m Value: 4
+n Value: 1
+\[Mu] Value: 7/20
+Minimization Results: <|"\[Omega]" -> 0.3491277154687837, "\[Nu]" -> -0.09493312864318293|>
+Minimization Time: 56.233517
+Angular Solver Time: 0.048491
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_20m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 33
+m Value: 4
+n Value: 1
+\[Mu] Value: 9/25
+Minimization Results: <|"\[Omega]" -> 0.3590498762877241, "\[Nu]" -> -0.0978810564762302|>
+Minimization Time: 55.714587
+Angular Solver Time: 0.053718
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 34
+m Value: 4
+n Value: 1
+\[Mu] Value: 37/100
+Minimization Results: <|"\[Omega]" -> 0.36896746752982285, "\[Nu]" -> -0.1008430870692299|>
+Minimization Time: 71.219859
+Angular Solver Time: 0.052007
+Caching results to: \[Epsilon]1_10000\[Mu]Nv37_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 35
+m Value: 4
+n Value: 1
+\[Mu] Value: 19/50
+Minimization Results: <|"\[Omega]" -> 0.37888033777596114, "\[Nu]" -> -0.10381930519734466|>
+Minimization Time: 64.020378
+Angular Solver Time: 0.05707
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 36
+m Value: 4
+n Value: 1
+\[Mu] Value: 39/100
+Minimization Results: <|"\[Omega]" -> 0.38878834173246146, "\[Nu]" -> -0.10680979627160939|>
+Minimization Time: 57.162682
+Angular Solver Time: 0.054811
+Caching results to: \[Epsilon]1_10000\[Mu]Nv39_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 37
+m Value: 4
+n Value: 1
+\[Mu] Value: 2/5
+Minimization Results: <|"\[Omega]" -> 0.39869134461623, "\[Nu]" -> -0.10981464661591127|>
+Minimization Time: 57.771316
+Angular Solver Time: 0.055893
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_5m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 38
+m Value: 4
+n Value: 1
+\[Mu] Value: 41/100
+Minimization Results: <|"\[Omega]" -> 0.40858919076251343, "\[Nu]" -> -0.11283394167418359|>
+Minimization Time: 56.10467
+Angular Solver Time: 0.044142
+Caching results to: \[Epsilon]1_10000\[Mu]Nv41_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 39
+m Value: 4
+n Value: 1
+\[Mu] Value: 21/50
+Minimization Results: <|"\[Omega]" -> 0.41848174093433155, "\[Nu]" -> -0.1158677681321052|>
+Minimization Time: 54.321345
+Angular Solver Time: 0.045876
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 40
+m Value: 4
+n Value: 1
+\[Mu] Value: 43/100
+Minimization Results: <|"\[Omega]" -> 0.4283690067706129 + 1.894969435590419*^-12*I, "\[Nu]" -> -0.1189162220979775 - 1.143059927514364*^-13*I|>
+Minimization Time: 24.220382
+Angular Solver Time: 0.050276
+Caching results to: \[Epsilon]1_10000\[Mu]Nv43_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 41
+m Value: 4
+n Value: 1
+\[Mu] Value: 11/25
+Minimization Results: <|"\[Omega]" -> 0.43825035738800966 + 1.0720194868722295*^-16*I, "\[Nu]" -> -0.12197936120662412 - 6.5642136748762374*^-18*I|>
+Minimization Time: 85.29151
+Angular Solver Time: 0.048962
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 42
+m Value: 4
+n Value: 1
+\[Mu] Value: 9/20
+Minimization Results: <|"\[Omega]" -> 0.44812611124316926 + 1.5456640106612776*^-16*I, "\[Nu]" -> -0.1250573006122379 - 9.606569850486738*^-18*I|>
+Minimization Time: 83.762992
+Angular Solver Time: 0.052669
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_20m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 43
+m Value: 4
+n Value: 1
+\[Mu] Value: 23/50
+Minimization Results: <|"\[Omega]" -> 0.4579959724444018 + 2.2107690441448954*^-16*I, "\[Nu]" -> -0.1281501187129427 - 1.3945388777224353*^-17*I|>
+Minimization Time: 84.704042
+Angular Solver Time: 0.046716
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_50m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 44
+m Value: 4
+n Value: 1
+\[Mu] Value: 47/100
+Minimization Results: <|"\[Omega]" -> 0.4678597859149733 + 3.1418041527268775*^-16*I, "\[Nu]" -> -0.13125790265289566 - 2.011231058026261*^-17*I|>
+Minimization Time: 79.994319
+Angular Solver Time: 0.044942
+Caching results to: \[Epsilon]1_10000\[Mu]Nv47_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 45
+m Value: 4
+n Value: 1
+\[Mu] Value: 12/25
+Minimization Results: <|"\[Omega]" -> 0.4777173783454354 + 4.416264319764099*^-16*I, "\[Nu]" -> -0.1343807386399551 - 2.868771248791515*^-17*I|>
+Minimization Time: 73.4546
+Angular Solver Time: 0.040502
+Caching results to: \[Epsilon]1_10000\[Mu]Nv12_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 46
+m Value: 4
+n Value: 1
+\[Mu] Value: 49/100
+Minimization Results: <|"\[Omega]" -> 0.48756861243535904 + 6.164069840528896*^-16*I, "\[Nu]" -> -0.1375187154300034 - 4.062838828008221*^-17*I|>
+Minimization Time: 70.654672
+Angular Solver Time: 0.03771
+Caching results to: \[Epsilon]1_10000\[Mu]Nv49_100m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 2
+\[Mu] Iteration Count: 47
+m Value: 4
+n Value: 1
+\[Mu] Value: 1/2
+Minimization Results: <|"\[Omega]" -> 0.4974133233863347, "\[Nu]" -> -0.14067192024738975|>
+Minimization Time: 45.459629
+Angular Solver Time: 0.042539
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_2m4\[Eta]0n1l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 1
+m Value: 4
+n Value: 2
+\[Mu] Value: 1/25
+Minimization Results: <|"\[Omega]" -> 0.03999911090637671 + 2.5309835268673214*^-35*I, "\[Nu]" -> -0.01009079039794452|>
+Minimization Time: 102.945594
+Angular Solver Time: 0.048907
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 2
+m Value: 4
+n Value: 2
+\[Mu] Value: 1/20
+Minimization Results: <|"\[Omega]" -> 0.04999826326084695 + 1.8401317462675576*^-33*I, "\[Nu]" -> -0.012642171243700486|>
+Minimization Time: 84.315112
+Angular Solver Time: 0.046146
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_20m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 3
+m Value: 4
+n Value: 2
+\[Mu] Value: 3/50
+Minimization Results: <|"\[Omega]" -> 0.05999699843076139 + 6.294966778442296*^-32*I, "\[Nu]" -> -0.015205176233618662|>
+Minimization Time: 54.537011
+Angular Solver Time: 0.03952
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 4
+m Value: 4
+n Value: 2
+\[Mu] Value: 7/100
+Minimization Results: <|"\[Omega]" -> 0.06999523273677273 + 7.964729786562314*^-31*I, "\[Nu]" -> -0.01777988164111772|>
+Minimization Time: 67.189521
+Angular Solver Time: 0.047132
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 5
+m Value: 4
+n Value: 2
+\[Mu] Value: 2/25
+Minimization Results: <|"\[Omega]" -> 0.0799928823270324 + 8.894950526035048*^-30*I, "\[Nu]" -> -0.020366364227831446|>
+Minimization Time: 100.138918
+Angular Solver Time: 0.044316
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 6
+m Value: 4
+n Value: 2
+\[Mu] Value: 9/100
+Minimization Results: <|"\[Omega]" -> 0.08998986319902794, "\[Nu]" -> -0.022964701247089762|>
+Minimization Time: 91.269699
+Angular Solver Time: 0.045931
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 7
+m Value: 4
+n Value: 2
+\[Mu] Value: 1/10
+Minimization Results: <|"\[Omega]" -> 0.09998609116035365, "\[Nu]" -> -0.025574970445394748|>
+Minimization Time: 86.034498
+Angular Solver Time: 0.046208
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_10m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 8
+m Value: 4
+n Value: 2
+\[Mu] Value: 11/100
+Minimization Results: <|"\[Omega]" -> 0.10998148178102342, "\[Nu]" -> -0.028197250063442172|>
+Minimization Time: 89.833834
+Angular Solver Time: 0.050635
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 9
+m Value: 4
+n Value: 2
+\[Mu] Value: 3/25
+Minimization Results: <|"\[Omega]" -> 0.11997595053359403, "\[Nu]" -> -0.030831618843644756|>
+Minimization Time: 78.943587
+Angular Solver Time: 0.047511
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 10
+m Value: 4
+n Value: 2
+\[Mu] Value: 13/100
+Minimization Results: <|"\[Omega]" -> 0.1299694124792466, "\[Nu]" -> -0.03347815602171937|>
+Minimization Time: 76.368734
+Angular Solver Time: 0.04117
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 11
+m Value: 4
+n Value: 2
+\[Mu] Value: 7/50
+Minimization Results: <|"\[Omega]" -> 0.13996178233850842, "\[Nu]" -> -0.03613694133121861|>
+Minimization Time: 80.354478
+Angular Solver Time: 0.060668
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 12
+m Value: 4
+n Value: 2
+\[Mu] Value: 3/20
+Minimization Results: <|"\[Omega]" -> 0.14995297480402592, "\[Nu]" -> -0.03880805501748497|>
+Minimization Time: 105.923978
+Angular Solver Time: 0.042765
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_20m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 13
+m Value: 4
+n Value: 2
+\[Mu] Value: 4/25
+Minimization Results: <|"\[Omega]" -> 0.15994290525802862 + 2.4305527394773065*^-12*I, "\[Nu]" -> -0.04149157786850736 - 9.356956873338185*^-14*I|>
+Minimization Time: 57.592777
+Angular Solver Time: 0.046423
+Caching results to: \[Epsilon]1_10000\[Mu]Nv4_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 14
+m Value: 4
+n Value: 2
+\[Mu] Value: 17/100
+Minimization Results: <|"\[Omega]" -> 0.16993148400075797, "\[Nu]" -> -0.04418759099440458|>
+Minimization Time: 79.768613
+Angular Solver Time: 0.045783
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 15
+m Value: 4
+n Value: 2
+\[Mu] Value: 9/50
+Minimization Results: <|"\[Omega]" -> 0.1799186280019332, "\[Nu]" -> -0.04689617628176838|>
+Minimization Time: 81.160542
+Angular Solver Time: 0.040152
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 16
+m Value: 4
+n Value: 2
+\[Mu] Value: 19/100
+Minimization Results: <|"\[Omega]" -> 0.1899042495321362, "\[Nu]" -> -0.049617415958757786|>
+Minimization Time: 93.061474
+Angular Solver Time: 0.044519
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 17
+m Value: 4
+n Value: 2
+\[Mu] Value: 1/5
+Minimization Results: <|"\[Omega]" -> 0.19988826106984325, "\[Nu]" -> -0.05235139278448862|>
+Minimization Time: 97.47501
+Angular Solver Time: 0.045211
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_5m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 18
+m Value: 4
+n Value: 2
+\[Mu] Value: 21/100
+Minimization Results: <|"\[Omega]" -> 0.20987057461576916, "\[Nu]" -> -0.05509819002414077|>
+Minimization Time: 98.250854
+Angular Solver Time: 0.039189
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 19
+m Value: 4
+n Value: 2
+\[Mu] Value: 11/50
+Minimization Results: <|"\[Omega]" -> 0.21985110279495165, "\[Nu]" -> -0.05785789149772093|>
+Minimization Time: 103.152518
+Angular Solver Time: 0.042998
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 20
+m Value: 4
+n Value: 2
+\[Mu] Value: 23/100
+Minimization Results: <|"\[Omega]" -> 0.2298297560076865, "\[Nu]" -> -0.06063058146124285|>
+Minimization Time: 97.420522
+Angular Solver Time: 0.042644
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 21
+m Value: 4
+n Value: 2
+\[Mu] Value: 6/25
+Minimization Results: <|"\[Omega]" -> 0.23980644610891094, "\[Nu]" -> -0.06341634476501377|>
+Minimization Time: 87.60107
+Angular Solver Time: 0.040679
+Caching results to: \[Epsilon]1_10000\[Mu]Nv6_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 22
+m Value: 4
+n Value: 2
+\[Mu] Value: 1/4
+Minimization Results: <|"\[Omega]" -> 0.24978108279322747 + 5.841683473928491*^-21*I, "\[Nu]" -> -0.06621526669896159 - 2.6411761222871764*^-22*I|>
+Minimization Time: 70.275925
+Angular Solver Time: 0.041321
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_4m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 23
+m Value: 4
+n Value: 2
+\[Mu] Value: 13/50
+Minimization Results: <|"\[Omega]" -> 0.2597535759278183 + 1.1485994945588649*^-20*I, "\[Nu]" -> -0.06902743309476866 - 5.282620102618883*^-22*I|>
+Minimization Time: 87.839528
+Angular Solver Time: 0.041018
+Caching results to: \[Epsilon]1_10000\[Mu]Nv13_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 24
+m Value: 4
+n Value: 2
+\[Mu] Value: 27/100
+Minimization Results: <|"\[Omega]" -> 0.26972383527811933, "\[Nu]" -> -0.071852930316833|>
+Minimization Time: 70.154854
+Angular Solver Time: 0.044243
+Caching results to: \[Epsilon]1_10000\[Mu]Nv27_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 25
+m Value: 4
+n Value: 2
+\[Mu] Value: 7/25
+Minimization Results: <|"\[Omega]" -> 0.2796917680955872, "\[Nu]" -> -0.07469184515024407|>
+Minimization Time: 33.701099
+Angular Solver Time: 0.044327
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 26
+m Value: 4
+n Value: 2
+\[Mu] Value: 29/100
+Minimization Results: <|"\[Omega]" -> 0.28965728407050484 + 7.445648701512564*^-20*I, "\[Nu]" -> -0.0775442650334272 - 3.60153542039638*^-21*I|>
+Minimization Time: 78.667216
+Angular Solver Time: 0.041451
+Caching results to: \[Epsilon]1_10000\[Mu]Nv29_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 27
+m Value: 4
+n Value: 2
+\[Mu] Value: 3/10
+Minimization Results: <|"\[Omega]" -> 0.29962028983954797, "\[Nu]" -> -0.08041027780083256|>
+Minimization Time: 74.339226
+Angular Solver Time: 0.041628
+Caching results to: \[Epsilon]1_10000\[Mu]Nv3_10m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 28
+m Value: 4
+n Value: 2
+\[Mu] Value: 31/100
+Minimization Results: <|"\[Omega]" -> 0.30958069191810816 + 2.313108535793081*^-19*I, "\[Nu]" -> -0.08328997182022538 - 1.1563764510739276*^-20*I|>
+Minimization Time: 71.869991
+Angular Solver Time: 0.040161
+Caching results to: \[Epsilon]1_10000\[Mu]Nv31_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 29
+m Value: 4
+n Value: 2
+\[Mu] Value: 8/25
+Minimization Results: <|"\[Omega]" -> 0.31953839747831997 + 3.9555853862244116*^-19*I, "\[Nu]" -> -0.08618343603463356 - 2.0099803638134634*^-20*I|>
+Minimization Time: 75.558103
+Angular Solver Time: 0.040518
+Caching results to: \[Epsilon]1_10000\[Mu]Nv8_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 30
+m Value: 4
+n Value: 2
+\[Mu] Value: 33/100
+Minimization Results: <|"\[Omega]" -> 0.3294933092980009, "\[Nu]" -> -0.08909075970712006|>
+Minimization Time: 72.663007
+Angular Solver Time: 0.038937
+Caching results to: \[Epsilon]1_10000\[Mu]Nv33_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 31
+m Value: 4
+n Value: 2
+\[Mu] Value: 17/50
+Minimization Results: <|"\[Omega]" -> 0.33944533630326945 + 1.1003648184874855*^-18*I, "\[Nu]" -> -0.09201203295862012 - 5.774541987460015*^-20*I|>
+Minimization Time: 79.817787
+Angular Solver Time: 0.041292
+Caching results to: \[Epsilon]1_10000\[Mu]Nv17_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 32
+m Value: 4
+n Value: 2
+\[Mu] Value: 7/20
+Minimization Results: <|"\[Omega]" -> 0.3493943786322512, "\[Nu]" -> -0.09494734600005636|>
+Minimization Time: 29.126698
+Angular Solver Time: 0.039755
+Caching results to: \[Epsilon]1_10000\[Mu]Nv7_20m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 33
+m Value: 4
+n Value: 2
+\[Mu] Value: 9/25
+Minimization Results: <|"\[Omega]" -> 0.3593403386362043 + 2.864958803108217*^-18*I, "\[Nu]" -> -0.09789678969398005 - 1.5520277807846378*^-19*I|>
+Minimization Time: 71.522069
+Angular Solver Time: 0.045855
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 34
+m Value: 4
+n Value: 2
+\[Mu] Value: 37/100
+Minimization Results: <|"\[Omega]" -> 0.36928312153997384 + 4.534877102920693*^-18*I, "\[Nu]" -> -0.10086045560282027 - 2.495599469680626*^-19*I|>
+Minimization Time: 74.401959
+Angular Solver Time: 0.044203
+Caching results to: \[Epsilon]1_10000\[Mu]Nv37_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 35
+m Value: 4
+n Value: 2
+\[Mu] Value: 19/50
+Minimization Results: <|"\[Omega]" -> 0.37922262824587605 + 7.06749792980166*^-18*I, "\[Nu]" -> -0.10383843560164277 - 3.950543813884756*^-19*I|>
+Minimization Time: 78.096982
+Angular Solver Time: 0.040961
+Caching results to: \[Epsilon]1_10000\[Mu]Nv19_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 36
+m Value: 4
+n Value: 2
+\[Mu] Value: 39/100
+Minimization Results: <|"\[Omega]" -> 0.3891587579731863 + 1.0879157298122173*^-17*I, "\[Nu]" -> -0.10683082201187988 - 6.176222477391637*^-19*I|>
+Minimization Time: 79.433731
+Angular Solver Time: 0.03928
+Caching results to: \[Epsilon]1_10000\[Mu]Nv39_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 37
+m Value: 4
+n Value: 2
+\[Mu] Value: 2/5
+Minimization Results: <|"\[Omega]" -> 0.39909141156724137 + 1.658041296969953*^-17*I, "\[Nu]" -> -0.10983770778711463 - 9.559060195593083*^-19*I|>
+Minimization Time: 76.773432
+Angular Solver Time: 0.039196
+Caching results to: \[Epsilon]1_10000\[Mu]Nv2_5m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 38
+m Value: 4
+n Value: 2
+\[Mu] Value: 41/100
+Minimization Results: <|"\[Omega]" -> 0.40902048669221214 + 2.4921031508800388*^-17*I, "\[Nu]" -> -0.11285918624116315 - 1.458930987606937*^-18*I|>
+Minimization Time: 77.984894
+Angular Solver Time: 0.040912
+Caching results to: \[Epsilon]1_10000\[Mu]Nv41_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 39
+m Value: 4
+n Value: 2
+\[Mu] Value: 21/50
+Minimization Results: <|"\[Omega]" -> 0.4189458810516475 + 3.7072964579736664*^-17*I, "\[Nu]" -> -0.11589535122761582 - 2.2035992359444843*^-18*I|>
+Minimization Time: 79.144101
+Angular Solver Time: 0.0432
+Caching results to: \[Epsilon]1_10000\[Mu]Nv21_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 40
+m Value: 4
+n Value: 2
+\[Mu] Value: 43/100
+Minimization Results: <|"\[Omega]" -> 0.4288674945160304 + 5.4726366080292864*^-17*I, "\[Nu]" -> -0.11894629727051803 - 3.3024564596685394*^-18*I|>
+Minimization Time: 79.535807
+Angular Solver Time: 0.03971
+Caching results to: \[Epsilon]1_10000\[Mu]Nv43_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 41
+m Value: 4
+n Value: 2
+\[Mu] Value: 11/25
+Minimization Results: <|"\[Omega]" -> 0.4387852194323069 + 4.045499230810891*^-14*I, "\[Nu]" -> -0.12201211898274049 - 2.4782056960172323*^-15*I|>
+Minimization Time: 26.14835
+Angular Solver Time: 0.037949
+Caching results to: \[Epsilon]1_10000\[Mu]Nv11_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 42
+m Value: 4
+n Value: 2
+\[Mu] Value: 9/20
+Minimization Results: <|"\[Omega]" -> 0.44869894759186124 + 1.1520647108462436*^-16*I, "\[Nu]" -> -0.12509291146682777 - 7.163533172958219*^-18*I|>
+Minimization Time: 79.399113
+Angular Solver Time: 0.044452
+Caching results to: \[Epsilon]1_10000\[Mu]Nv9_20m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 43
+m Value: 4
+n Value: 2
+\[Mu] Value: 23/50
+Minimization Results: <|"\[Omega]" -> 0.45860857812686245 + 1.653492768451123*^-16*I, "\[Nu]" -> -0.12818877081236008 - 1.0435161579348869*^-17*I|>
+Minimization Time: 98.008325
+Angular Solver Time: 0.048118
+Caching results to: \[Epsilon]1_10000\[Mu]Nv23_50m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 44
+m Value: 4
+n Value: 2
+\[Mu] Value: 47/100
+Minimization Results: <|"\[Omega]" -> 0.46851400584830194 + 2.3465066847915393*^-16*I, "\[Nu]" -> -0.13129979338499057 - 1.5028903271265823*^-17*I|>
+Minimization Time: 76.099187
+Angular Solver Time: 0.046412
+Caching results to: \[Epsilon]1_10000\[Mu]Nv47_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 45
+m Value: 4
+n Value: 2
+\[Mu] Value: 12/25
+Minimization Results: <|"\[Omega]" -> 0.47841511461364744 + 3.3039950492861385*^-16*I, "\[Nu]" -> -0.13442607537703552 - 2.1474172934534993*^-17*I|>
+Minimization Time: 81.259709
+Angular Solver Time: 0.040075
+Caching results to: \[Epsilon]1_10000\[Mu]Nv12_25m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 46
+m Value: 4
+n Value: 2
+\[Mu] Value: 49/100
+Minimization Results: <|"\[Omega]" -> 0.4883117965188957, "\[Nu]" -> -0.13756771402259338|>
+Minimization Time: 48.114263
+Angular Solver Time: 0.045504
+Caching results to: \[Epsilon]1_10000\[Mu]Nv49_100m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
+m Iteration Count: 2
+n Iteration Count: 3
+\[Mu] Iteration Count: 47
+m Value: 4
+n Value: 2
+\[Mu] Value: 1/2
+Minimization Results: <|"\[Omega]" -> 0.4982039488494262, "\[Nu]" -> -0.1407248074339558|>
+Minimization Time: 45.533927
+Angular Solver Time: 0.040427
+Caching results to: \[Epsilon]1_10000\[Mu]Nv1_2m4\[Eta]0n2l3s-1\[Chi]9_10KMax2.mx
+
