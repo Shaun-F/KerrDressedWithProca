@@ -45,8 +45,8 @@ Begin["KWP`"];
 *)
 
 
-ToPrecision[parameters_][expr_] :=
-    SetPrecision[expr, parameters["precision"]];
+ToPrecision[parameterAssoc_?AssociationQ][expr_] := SetPrecision[expr, parameterAssoc["precision"]];
+
 
 TotalQuantum[orbital_, overtone_] :=
     (overtone + orbital + 1);
@@ -216,7 +216,7 @@ Block[{Diffeq},
 With[{\[CapitalDelta] = (r - rplus) (r - rminus), qr = 1 + \[Nu]^2 * r^2, \[Sigma]=\[Chi] * \[Nu]^2 (m -\[Chi] * \[Omega]) + \[Omega], Kr = -\[Chi]* m + (\[Chi]^2 + r^2) \[Omega]},
 
 Diffeq = (D[\[CapitalDelta]/qr*D[#,r],r] + (Kr^2/(qr*\[CapitalDelta])+(2-qr)/qr^2*\[Sigma]/\[Nu]-\[Mu]^2/\[Nu]^2)*#)&;
-Return[Diffeq/.{KWP`\[Chi]->Global`\[Chi],KWP`m->Global`m,KWP`r->Global`r,KWP`\[Mu]->Global`\[Mu], KWP`\[Nu]->Global`\[Nu], KWP`\[Omega]->Global`\[Omega]}]
+Return[Diffeq/.{\[Chi]->Global`\[Chi],m->Global`m,r->Global`r,\[Mu]->\[Mu], \[Nu]->Global`\[Nu], \[Omega]->Global`\[Omega]}]
 ]
 ];
 
@@ -315,7 +315,8 @@ getRadialSolution[w_?NumberQ, v_?NumberQ, parameters_]:=
 	Module[{\[Omega]vv = w, \[Nu]vv=v,\[Chi]=parameters["\[Chi]"],m=parameters["m"],\[Mu]N=parameters["\[Mu]Nv"]},
 		StartingRadius =  parameters["StartingX"];
 		EndingRadius =  parameters["EndingX"];
-		FrobeniusSolution =(NSolve[FrobeniusSystem[\[Kappa],c1,c2,\[Nu]vv,\[Omega]vv,parameters]//Rationalize[#,0]&, {\[Kappa],c1,c2}, VerifySolutions->True, WorkingPrecision->parameters["precision"]][[parameters["branch"]]])[[All,2]];
+		FullFrobeniusSolution = NSolve[FrobeniusSystem[\[Kappa],c1,c2,\[Nu]vv,\[Omega]vv,parameters]//Rationalize[#,0]&, {\[Kappa],c1,c2}, VerifySolutions->True, WorkingPrecision->parameters["precision"]];
+		FrobeniusSolution =(FullFrobeniusSolution[[parameters["branch"]]])[[All,2]];
 		FrobR0 = (Limit[FrobeniusSeries[x,Sequence@@#], x->parameters["\[Epsilon]"]]&)@ FrobeniusSolution;
 		FrobRPrime0 = (Limit[D[FrobeniusSeries[x,Sequence@@#],x], x-> parameters["\[Epsilon]"]]&)@FrobeniusSolution;
 		BC = Thread@{FrobR0, FrobRPrime0}//ToPrecision[parameters];
@@ -453,7 +454,8 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
         If[TrueQ[\[Nu]fit == Null],\[Nu]fitted=Null,\[Nu]fitted = \[Nu]fit[parameters["\[Mu]Nv"]]];
         result = 
                 NMinimize[
-                    {Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], \[Psi] > 0},{\[Xi], \[Psi]},
+                    {Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], \[Psi] > 0},
+                    {\[Xi], \[Psi]},
                     Method -> {"NelderMead", "PostProcess" -> False, 
                         "InitialPoints" -> InitialSimplex},
                     WorkingPrecision -> parameters["OptimizationAccuracy"],
