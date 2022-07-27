@@ -464,7 +464,7 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
                     EvaluationMonitor :>(RMMessenger = RMMessengerGenerator[\[Xi] + I * \[Psi], CurrentIteration];
                                         CurrentIteration++;
                                         ),
-                    MaxIterations -> parameters["MaxInterationsMinimization"]
+                    MaxIterations -> parameters["MaxIterationsMinimization"]
                 ][[2]];
         ];
         \[Omega]Result = (\[Xi] + I * \[Psi]) /. result;
