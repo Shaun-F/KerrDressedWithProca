@@ -51,10 +51,12 @@ ToPrecision[parameterAssoc_?AssociationQ][expr_] := SetPrecision[expr, parameter
 TotalQuantum[orbital_, overtone_] :=
     (overtone + orbital + 1);
 
+
 InsertValues[parameters_][expr_] :=
     expr /. {\[Mu]N -> parameters["\[Mu]Nv"], m -> parameters["m"], \[Eta] -> parameters[
         "\[Eta]"], n -> parameters["n"], l -> parameters["l"], s -> parameters["s"
         ], \[Chi] -> parameters["\[Chi]"]};
+
 
 GetIngoingSolution[frobsol_] :=
     Block[{
@@ -72,24 +74,25 @@ GetIngoingSolution[frobsol_] :=
         frobsol[[inx]]
     ];
 
+
 JfromLS[l_, s_] :=
     Abs[l + s] // Rationalize[#, 0]&;
 
+
 QValue[\[Mu]_, \[Omega]_] :=
-    Sqrt[\[Mu]^2 - \[Omega]^2]
+    Sqrt[\[Mu]^2 - \[Omega]^2];
 
-
-
-QApprox[\[Mu]_, Q1_, Q2_, \[Mu]1_, \[Mu]2_] :=
-    (Q2 - Q1) / (\[Mu]2 - \[Mu]1) * \[Mu] + (Q1 * \[Mu]2 - Q2 * \[Mu]1) / (\[Mu]2 - \[Mu]1)
 
 calcEndingX[parameters_] :=
     2 * 10 * (parameters["m"] + parameters["n"]) / parameters["\[Mu]Nv"] ^
-         2
+         2;
+
 
 calcOrbital[parameters_] :=
-    parameters["m"] + parameters["s"]
+    parameters["m"] + parameters["s"];
 
+
+KerrSurfaceRotationN[\[Chi]_] := (1 / 2) (\[Chi] / rplusN[\[Chi]]);
 
 
 (*Angular functions*)
@@ -113,13 +116,9 @@ diffeqang[s_, m_, a_, \[Omega]_, \[Nu]_] :=
     Collect[qth[a, \[Nu], \[Theta]] / Sin[\[Theta]] * D[Sin[\[Theta]] / qth[a, \[Nu], \[Theta]] * D[s, \[Theta]],
          \[Theta]] - qth (Kth[m, a, \[Omega], \[Theta]] ^ 2 / (qth[a, \[Nu], \[Theta]] * Sin[\[Theta]] ^ 2) + (2 - qth[
         a, \[Nu], \[Theta]]) / qth[a, \[Nu], \[Theta]] ^ 2 * \[Sigma][a, m, \[Omega], \[Nu]] / \[Nu] - \[Mu]^2 / \[Nu]^2) s, {s, 
-        Derivative[1][s], s^\[Prime]\[Prime]}];
-
-spherharmons = Flatten @ Table[Row[{{l, m}, Spacer[20], SphericalHarmonicY[
-    l, m, \[Theta], 0]}], {l, 0, 4}, {m, -l, l}] // MatrixForm;
+        Derivative[1][s], Derivative[2][s]}];
 
 Off[ClebschGordan::tri];
-
 Off[ClebschGordan::phy];
 
 dl[l_] :=
@@ -181,7 +180,7 @@ ansatz[b1_] :=
     {1, b1, 0};
 
 SolveAngularSystem[\[Omega]value_?NumberQ, \[Nu]value_?NumberQ, parameters_] :=
-    Block[{bcoeffs = Table[C[i], {i, 0, parameters["KMax"]}], \[Eta] = parameters[
+    Block[{NumMatrix,equalto,System,res,bcoeffs = Table[C[i], {i, 0, parameters["KMax"]}], \[Eta] = parameters[
         "\[Eta]"], m = parameters["m"]},
         NumMatrix = \[Nu]N ^ -7 * Mmatrix[parameters["KMax"], \[Eta], m, \[Chi] * M,
              \[Omega]N / M, \[Nu]N / M, \[Mu]N / M] // N;
@@ -189,8 +188,9 @@ SolveAngularSystem[\[Omega]value_?NumberQ, \[Nu]value_?NumberQ, parameters_] :=
         System = (NumMatrix . bcoeffs == equalto) /. {\[Omega]N -> \[Omega]value, \[Nu]N
              -> \[Nu]value, \[Mu]N -> parameters["\[Mu]Nv"], m -> parameters["m"], \[Eta] -> parameters[
             "\[Eta]"], \[Chi] -> parameters["\[Chi]"]};
-        Return[Flatten @ {C[0] -> 1, Solve[System /. C[0] -> 1, bcoeffs
-            [[2 ;; parameters["KMax"] + 1]]]}];
+        res = Flatten @ {C[0] -> 1, Solve[System /. C[0] -> 1, bcoeffs
+            [[2 ;; parameters["KMax"] + 1]]]};
+        Return[res];
     ];
 
 
@@ -205,124 +205,121 @@ qr[\[Nu]_, r_] :=
 Kr[a_, m_, r_] :=
     -a * m + (a^2 + r^2) \[Omega];
 
-rplus = (1 + Sqrt[1 -  \[Chi]^2]);
-
-rminus = (1 - Sqrt[1 - \[Chi]^2]);
-
-\[CapitalDelta] = (r - rplus) (r - rminus);
 
 ProcaDiffOpRad = 
-Block[{Diffeq},
-With[{\[CapitalDelta] = (r - rplus) (r - rminus), qr = 1 + \[Nu]^2 * r^2, \[Sigma]=\[Chi] * \[Nu]^2 (m -\[Chi] * \[Omega]) + \[Omega], Kr = -\[Chi]* m + (\[Chi]^2 + r^2) \[Omega]},
-
-Diffeq = (D[\[CapitalDelta]/qr*D[#,r],r] + (Kr^2/(qr*\[CapitalDelta])+(2-qr)/qr^2*\[Sigma]/\[Nu]-\[Mu]^2/\[Nu]^2)*#)&;
-Return[Diffeq/.{\[Chi]->Global`\[Chi],m->Global`m,r->Global`r,\[Mu]->\[Mu], \[Nu]->Global`\[Nu], \[Omega]->Global`\[Omega]}]
-]
-];
-
-diffeqrad = D[\[CapitalDelta] / qr * D[R[r], r], r] + (Kr[a, m, r] ^ 2 / (qr * \[CapitalDelta]) +
-     (2 - qr) / qr^2 * \[Sigma][a, m, \[Omega], \[Nu]] / \[Nu] - \[Mu]^2 / \[Nu]^2) R[r] == 0;
-
-diffeqradOp = (D[\[CapitalDelta] / qr * D[#, r], r] + (Kr[a, m, r] ^ 2 / (qr * \[CapitalDelta]) +
-     (2 - qr) / qr^2 * \[Sigma][a, m, \[Omega], \[Nu]] / \[Nu] - \[Mu]^2 / \[Nu]^2) #)&;
-
-\[CapitalKappa][\[Omega]_, \[Chi]_, m_] :=
-    (\[Omega] * rplusN[\[Chi]] * (rplusN[\[Chi]] + rminusN[\[Chi]]) - \[Chi] * m) / (rplusN[\[Chi]] -
-         rminusN[\[Chi]]);
+	Block[{Diffeq,
+		   rplus = (1 + Sqrt[1 -  \[Chi]^2]),
+		   rminus = (1 - Sqrt[1 - \[Chi]^2])
+		   },
+		   With[{\[CapitalDelta] = (r - rplus) (r - rminus), 
+		         qr = 1 + \[Nu]^2 * r^2, 
+		         \[Sigma]=\[Chi] * \[Nu]^2 (m -\[Chi] * \[Omega]) + \[Omega], 
+		         Kr = -\[Chi]* m + (\[Chi]^2 + r^2) \[Omega]
+		         },
+		         Diffeq = (D[\[CapitalDelta]/qr*D[#,r],r] + (Kr^2/(qr*\[CapitalDelta])+(2-qr)/qr^2*\[Sigma]/\[Nu]-\[Mu]^2/\[Nu]^2)*#)&;
+		         Diffeq/.{\[Chi]->Global`\[Chi],m->Global`m,r->Global`r,\[Mu]->\[Mu], \[Nu]->Global`\[Nu], \[Omega]->Global`\[Omega]}
+		         ]
+		   ];
 
 
-KerrSurfaceRotationN[\[Chi]_] :=
-    (1 / 2) (\[Chi] / rplusN[\[Chi]]);
+DiffRadOpx = 
+	With[{
+	rplusN = rplusN[\[Chi]] // Rationalize, 
+	rminusN = rminusN[\[Chi]] // Rationalize,
+	qrN = qr[\[Nu], rN * M], (*numerical Subscript[q, r]*)
+	rpN = rplusN[\[Chi]] // Rationalize, (*numerical Subscript[r, +]*)
+	rmN = rminusN[\[Chi]] // Rationalize, (*numerical Subscript[r, -]*)
+	rsN = rplusN[\[Chi]] + rminusN[\[Chi]]  // Rationalize, (*numerical Subscript[r, s]*)
+	\[CapitalDelta]N = (rN - rplusN[\[Chi]]) * (rN - rminusN[\[Chi]]) // Rationalize, (*numerical \[CapitalDelta]*)
+	\[Sigma]N =\[Sigma][a, m, \[Omega], \[Nu]] * M //Expand //Rationalize, (*numerical \[Sigma]*)
+	KrN = Kr[a, m, rN * M] / M //Rationalize //Simplify (*numerical Subscript[K, r]*)
+	},
+	Block[{
+	P1 = (2 * rN - rsN) / (rN - rminusN) // Rationalize,
+	P2 = -(2 * rN * \[Nu]N^2) / qrN,
+	Q1 = KrN^2 / (rN - rminusN) ^ 2,
+	Q2 = qrN / (rN - rminusN) * ((2 - qrN) / qrN^2 * \[Sigma]N / \[Nu]N - \[Mu]N^2 / \[Nu]N^2) // Rationalize
+	},
+	
+	With[{
+	P1x = P1 /. rN -> xN * (rplusN - rminusN) + rplusN,
+	P2x = P2 /. rN -> xN * (rplusN - rminusN) + rplusN,
+	Q1x = Q1 /. rN -> xN * (rplusN - rminusN) + rplusN,
+	Q2x = Q2 /. rN -> xN * (rplusN - rminusN) + rplusN
+	},
+	
+	(\!\(
+\*SubscriptBox[\(\[PartialD]\), \(xN, xN\)]#\) + (P1x/xN+P2x*(rplusN-rminusN))\!\(
+\*SubscriptBox[\(\[PartialD]\), \(xN\)]#\) + (Q1x/xN^2+Q2x (rplusN-rminusN)/xN)#)&
+	]
+	]
+	];
+	
+DiffRadOpxsplit = 
+	DiffRadOpx/.\[Omega]N->\[Omega]Nr + I*\[Omega]Ni;
 
-qrN = qr[\[Nu], rN * M];
-
-rpN = rplusN[\[Chi]] // Rationalize;
-
-rmN = rminusN[\[Chi]] // Rationalize;
-
-rsN = rpN + rmN // Rationalize;
-
-\[CapitalDelta]N = (rN - rpN) * (rN - rmN) // Rationalize;
-
-\[Sigma]N =
-    \[Sigma][a, m, \[Omega], \[Nu]] * M //
-    Expand //
-    Rationalize;
-
-KrN =
-    Kr[a, m, rN * M] / M //
-    Rationalize //
-    Simplify;
-
-qrNX =
-    qrN /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]] //
-    Rationalize //
-    FullSimplify;
-
-KrNX =
-    KrN /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]] //
-    Rationalize //
-    FullSimplify;
-
-\[Sigma]NX =
-    \[Sigma]N /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]]//
-    Rationalize //
-    FullSimplify;
-
-\[CapitalDelta]NX =
-    \[CapitalDelta]N /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]] //
-    Rationalize //
-    FullSimplify;
-
-P1 = (2 * rN - rsN) / (rN - rminusN[\[Chi]]) // Rationalize;
-
-P2 = -(2 * rN * \[Nu]N^2) / qrN;
-
-Q1 = KrN^2 / (rN - rminusN[\[Chi]]) ^ 2;
-
-Q2 = qrN / (rN - rminusN[\[Chi]]) * ((2 - qrN) / qrN^2 * \[Sigma]N / \[Nu]N - \[Mu]N^2 / 
-    \[Nu]N^2) // Rationalize;
-
-P1x = P1 /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]];
-
-P2x = P2 /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]];
-
-Q1x = Q1 /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]];
-
-Q2x = Q2 /. rN -> xN * (rplusN[\[Chi]] - rminusN[\[Chi]]) + rplusN[\[Chi]];
-
-
-DiffRadOp = (\!\(
-\*SubscriptBox[\(\[PartialD]\), \(rN, rN\)]#\) + (qrN/\[CapitalDelta]N)*((2rN-rsN)/qrN-(2rN*\[Nu]N^2*\[CapitalDelta]N)/qrN^2)\!\(
-\*SubscriptBox[\(\[PartialD]\), \(rN\)]#\) + (qrN/\[CapitalDelta]N)(-(\[Mu]N/\[Nu]N)^2+KrN^2/(\[CapitalDelta]N*qrN)+((2-qrN)/qrN^2)*(\[Sigma]N/\[Nu]N))#)&;
-DiffRadOpx = (\!\(
-\*SubscriptBox[\(\[PartialD]\), \(xN, xN\)]#\) + (P1x/xN+P2x*(rplusN[\[Chi]]-rminusN[\[Chi]]))\!\(
-\*SubscriptBox[\(\[PartialD]\), \(xN\)]#\) + (Q1x/xN^2+Q2x (rplusN[\[Chi]]-rminusN[\[Chi]])/xN)#)&;
 
 FrobeniusSeries[x_,\[Kappa]_,c1_,c2_]:=x^(-I*\[Kappa])*(1 + c1*x + c2*x^2);
-(*FrobeniusSeries[xN,\[Kappa],C[1],C[2]]; (xN^(I*\[Kappa]+2)DiffRadOpx@%)//Simplify; Series[%, {xN,0,2}]\[Equal]0;
-FrobeniusSystem = Simplify[LogicalExpand[%], TimeConstraint\[Rule]Infinity]
-FrobeniusSystem[\[Kappa]_,c1_,c2_,\[Nu]N_,\[Omega]N_,parameters_:parameters]:=Evaluate[
-Block[{\[Chi]=parameters["\[Chi]"],m=parameters["m"], \[Mu]N=parameters["\[Mu]Nv"]},
-Block[{fs = FrobeniusSeries[xN,\[Kappa],c1,c2]},
-Block[{expr = xN^(I*\[Kappa]+2)DiffRadOpx@fs},
-Return@LogicalExpand[Series[expr, {xN,0,2}]\[Equal]0]]]]]*)
-FrobeniusSystem[\[Kappa]_,c1_,c2_,\[Nu]Nt_,\[Omega]Nt_,parameters_]:=Evaluate[
-Evaluate[Import[Global`$FKKSRoot<>"Expressions/FrobeniusSystem.mx"][\[Kappa],c1,c2,\[Omega]Nt, \[Nu]Nt, parameters["m"], parameters["\[Chi]"], parameters["\[Mu]Nv"]]]
-];
+
+Options[FrobeniusSystem] = {Recalculate->False};
+FrobeniusSystem[\[Kappa]_,c1_,c2_,\[Nu]Nt_,\[Omega]Nt_,parameters_, OptionsPattern[]]:=
+	Block[{},
+		If[OptionValue[Recalculate],
+		
+			Block[{expr, exprSeries, exprSystem, fs = FrobeniusSeries[xN,\[Kappa],c1,c2]},
+				expr = xN^(I*\[Kappa]+2)*DiffRadOpx@fs;
+				exprSeries = Series[expr,{xN,0,2}]==0;
+				exprSystem = LogicalExpand[exprSeries];
+				Export[$FKKSRoot<>"Expression/FrobeniusSystem.mx", exprSystem];
+				Return[exprSystem]
+				];,
+				
+			Evaluate[Import[$FKKSRoot<>"Expressions/FrobeniusSystem.mx"][\[Kappa],c1,c2,\[Omega]Nt, \[Nu]Nt, parameters["m"], parameters["\[Chi]"], parameters["\[Mu]Nv"]]]
+			]
+		];
 
 getRadialSolution[w_?NumberQ, v_?NumberQ, parameters_]:=
-	Module[{\[Omega]vv = w, \[Nu]vv=v,\[Chi]=parameters["\[Chi]"],m=parameters["m"],\[Mu]N=parameters["\[Mu]Nv"]},
+	Block[{
+		(*StartingRadius, 
+		EndingRadius, 
+		AnalyticFrobeniusSystem,
+		FullFrobeniusSolution, 
+		FrobeniusSolutionResults,
+		FrobeniusSolutionSeries,
+		FrobeniusSolution, 
+		FrobR0, 
+		FrobRPrime0, 
+		BC, 
+		eq, 
+		RadialSolutions,*)
+		\[Omega]vv = w, 
+		\[Nu]vv=v,
+		\[Chi]=parameters["\[Chi]"],
+		m=parameters["m"],
+		\[Mu]N=parameters["\[Mu]Nv"]},
+		
 		StartingRadius =  parameters["StartingX"];
 		EndingRadius =  parameters["EndingX"];
-		FullFrobeniusSolution = NSolve[FrobeniusSystem[\[Kappa],c1,c2,\[Nu]vv,\[Omega]vv,parameters]//Rationalize[#,0]&, {\[Kappa],c1,c2}, VerifySolutions->True, WorkingPrecision->parameters["precision"]];
-		FrobeniusSolution =(FullFrobeniusSolution[[parameters["branch"]]])[[All,2]];
-		FrobR0 = (Limit[FrobeniusSeries[x,Sequence@@#], x->parameters["\[Epsilon]"]]&)@ FrobeniusSolution;
-		FrobRPrime0 = (Limit[D[FrobeniusSeries[x,Sequence@@#],x], x-> parameters["\[Epsilon]"]]&)@FrobeniusSolution;
+		AnalyticFrobeniusSystem = FrobeniusSystem[\[Kappa],c1,c2,\[Nu]vv,\[Omega]vv,parameters]//Rationalize[#,0]&;
+		FullFrobeniusSolution = NSolve[AnalyticFrobeniusSystem, {\[Kappa],c1,c2}, VerifySolutions->True, WorkingPrecision->parameters["precision"]];
+		FrobeniusSolutionResults =(FullFrobeniusSolution[[parameters["branch"]]])[[All,2]];
+		FrobeniusSolutionSeries = {xN}|->Evaluate@FrobeniusSeries[xN,Sequence@@FrobeniusSolutionResults];
+		FrobR0 = Limit[FrobeniusSolutionSeries[xN], xN->parameters["\[Epsilon]"]];
+		FrobRPrime0 = Limit[Evaluate@D[FrobeniusSolutionSeries[xN],xN], xN-> parameters["\[Epsilon]"]];
 		BC = Thread@{FrobR0, FrobRPrime0}//ToPrecision[parameters];
-		eq = {((DiffRadOpx@R[xN]/.{a->\[Chi]*M,\[Omega]->\[Omega]N/M,\[Nu]->\[Nu]N/M,\[Mu]->\[Mu]N/M}//Collect[#,M]&//InsertValues[parameters]//ToPrecision[parameters])/.{ \[Nu]N->\[Nu]vv, \[Omega]N->\[Omega]vv})==0, R[StartingRadius]==FrobR0// ToPrecision[parameters], Derivative[1][R][StartingRadius]==FrobRPrime0// ToPrecision[parameters]};
-		RadialSolutions = NDSolve[eq// ToPrecision[parameters],R, {xN, StartingRadius, EndingRadius},WorkingPrecision->parameters["precision"], MaxSteps->parameters["integratorMaxStep"], PrecisionGoal->parameters["integratorPrecisionGoal"]]//First;
-		Return[R/.RadialSolutions, Module]
+		eq = {
+			((DiffRadOpx@R[xN]/.{a->\[Chi]*M,\[Omega]->\[Omega]N/M,\[Nu]->\[Nu]N/M,\[Mu]->\[Mu]N/M}//Collect[#,M]&//InsertValues[parameters])/.{ \[Nu]N->\[Nu]vv, \[Omega]N->\[Omega]vv})==0, 
+			R[StartingRadius]==FrobR0, 
+			Derivative[1][R][StartingRadius]==FrobRPrime0
+			}// ToPrecision[parameters];
+		RadialSolutions = NDSolve[eq,
+								 R, 
+								 {xN, StartingRadius, EndingRadius},
+								 WorkingPrecision->parameters["precision"], 
+								 MaxSteps->parameters["RadialIntegratorMaxStep"], 
+								 PrecisionGoal->parameters["RadialIntegratorPrecisionGoal"]
+								 ]//First;
+		Return[R/.RadialSolutions]
 ];
 
 
@@ -393,34 +390,28 @@ nuNNonRel[\[Omega]NNonRel_, parameters_] :=
             ]
     ];
 
+
 getNuValue[\[Omega]N_?NumberQ, parameters_, ClosestGuess_?NumberQ] :=
     Block[{eta = parameters["\[Eta]"], m = parameters["m"], \[Chi] = parameters[
         "\[Chi]"], \[Mu]N = parameters["\[Mu]Nv"]},
-        Module[{
-            thedet =
-                Function[{w, \[Nu]N},
-                    Evaluate @ Mmatrixdet[w, \[Nu]N, parameters]
-                ]
-        },
-            FindRoot[thedet[\[Omega]N, \[Nu]N] // ToPrecision[parameters], {\[Nu]N, 
+        thedet = Function[{w, \[Nu]N}, Evaluate @ Mmatrixdet[w, \[Nu]N, parameters]];
+        FindRoot[thedet[\[Omega]N, \[Nu]N] // ToPrecision[parameters], {\[Nu]N, 
                 ClosestGuess}, WorkingPrecision -> parameters["precision"], MaxIterations
-                 -> 1000][[1]][[2]] //
-            Rationalize[#, 0]& //
-            Return
-        ]
-    ]; (*Min@Cases[%,Power[\[Nu]N,x_?NumberQ]\[RuleDelayed]x,-1]*) 
+                 -> 1000][[1]][[2]] //Rationalize[#, 0]& //Return
+    ]; 
 
 
-functomin[parameters_?AssociationQ, \[Nu]fitted_:Null][\[Omega]realimaglist_?ListQ] :=
-    Block[{\[Omega]value = \[Omega]realimaglist[[1]] + I * \[Omega]realimaglist[[2]]},
+functomin[parameters_?AssociationQ, \[Nu]fitted_:Null][{\[Omega]real_?NumericQ, \[Omega]imag_?NumericQ}] :=
+    Block[{\[Omega]value = ToPrecision[parameters][\[Omega]real + I * \[Omega]imag]},
         Block[{
             nuroot =Evaluate @If[TrueQ[\[Nu]fitted == Null],
-                                   Evaluate @ ToPrecision[parameters]@getNuValue[\[Omega]value, parameters, ToPrecision[parameters]@nuNNonRel[\[Omega]value,parameters]]
+                                   Evaluate @ getNuValue[\[Omega]value, parameters, ToPrecision[parameters]@nuNNonRel[\[Omega]value,parameters]]
                                    ,
-                                   Evaluate @ ToPrecision[parameters]@getNuValue[\[Omega]value, parameters, ToPrecision[parameters]@\[Nu]fitted]
+                                   Evaluate @ getNuValue[\[Omega]value, parameters, ToPrecision[parameters]@\[Nu]fitted]
                                  ]
               },
-              retval = getRadialSolution[\[Omega]value, nuroot, parameters][parameters["EndingX"]] // Abs;
+              radsol = getRadialSolution[\[Omega]value, nuroot, parameters];
+              retval = radsol[parameters["EndingX"]] // Abs;
             (*Return large negative value if retval is 0. Cures errors
                  raised by taking naive logarithm*)
               If[retval == 0,
@@ -434,6 +425,7 @@ functomin[parameters_?AssociationQ, \[Nu]fitted_:Null][\[Omega]realimaglist_?Lis
 
 RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ,
      parameters_?AssociationQ, Watcher_?BooleanQ, \[Nu]fit_:Null] :=
+     Block[{MinimizationConstraints,MinimizationMethod,RMMessengerGenerator,SimplexBase,SimplexNodeOne,SimplexNodeTwo,InitialSimplex,result,\[Omega]Result,\[Nu]Result},
     Module[{currval = {0, 0}, CurrentIteration = 0},
         RMMessengerGenerator =
             Function[{X, counter},
@@ -443,27 +435,37 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
         RMMessenger = RMMessengerGenerator[currval, CurrentIteration]
             ;
         (*If[Watcher, PrintTemporary@Dynamic[RMMessenger]];*)
-        SimplexBase = {\[Omega]Guess // Re, \[Omega]Guess // Im} // ToPrecision[parameters
-            ];
-        SimplexNodeOne = SimplexBase - {(OmegaBoundary[[2]] - \[Omega]Guess)
-             / parameters["omegaRes"], 0} // Re;
+        SimplexBase = {\[Omega]Guess // Re, \[Omega]Guess // Im} // ToPrecision[parameters];
+        SimplexNodeOne = SimplexBase - {(OmegaBoundary[[2]] - \[Omega]Guess)/parameters["omegaRes"], 0} // Re;
         SimplexNodeTwo = SimplexBase - {0, 10 ^ (Log10[Abs @ Im[\[Omega]Guess
             ]] - 1)};
         InitialSimplex = {SimplexBase, SimplexNodeOne, SimplexNodeTwo
             };
         If[TrueQ[\[Nu]fit == Null],\[Nu]fitted=Null,\[Nu]fitted = \[Nu]fit[parameters["\[Mu]Nv"]]];
+        MinimizationConstraints = ToPrecision[parameters][{100*Im[\[Omega]Guess]> \[Psi] > 10^-13}];
+        MinimizationMethod = {"NelderMead", 
+                              "PostProcess" -> False, 
+                              "InitialPoints" -> InitialSimplex,
+		                     "Tolerance"->0
+                              };
+		With[{
+				Contraints = {100*Im[\[Omega]Guess]>\[Psi]>10^-12&&parameters["\[Mu]Nv"]^2>\[Xi]^2+\[Psi]^2&&Re[omegaBoundary[[2]]]>\[Xi]>Re[omegaBoundary[[1]]]}//ToPrecision[parameters],
+				method = MinimizationMethod
+		},
         result = 
                 NMinimize[
-                    {Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], \[Psi] > 0},
+                    {Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], 
+                    Sequence@@MinimizationConstraints
+                    },
                     {\[Xi], \[Psi]},
-                    Method -> {"NelderMead", "PostProcess" -> False, 
-                        "InitialPoints" -> InitialSimplex},
+                    Method -> method,
                     WorkingPrecision -> parameters["OptimizationAccuracy"],
                     EvaluationMonitor :>(RMMessenger = RMMessengerGenerator[\[Xi] + I * \[Psi], CurrentIteration];
                                         CurrentIteration++;
                                         ),
                     MaxIterations -> parameters["MaxInterationsMinimization"]
                 ][[2]];
+        ];
         \[Omega]Result = (\[Xi] + I * \[Psi]) /. result;
         If[TrueQ[\[Nu]fit == Null],
             \[Nu]Result = getNuValue[\[Omega]Result, parameters, nuNNonRel[\[Omega]Result,
@@ -471,7 +473,9 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
             ,
             \[Nu]Result = getNuValue[\[Omega]Result, parameters, \[Nu]fitted];
         ];
-        Return[<|"\[Omega]" -> \[Omega]Result, "\[Nu]" -> \[Nu]Result|>, Module];
+    ];
+    
+    Return[<|"\[Omega]" -> \[Omega]Result, "\[Nu]" -> \[Nu]Result|>];
     ];
 
 
