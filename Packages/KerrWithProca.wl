@@ -1,5 +1,8 @@
 (* ::Package:: *)
 
+If["HelperFunctions"\[NotElement]Names["Global`"], Import[$FKKSRoot<>"Packages/HelperFunctions.wl"]];
+
+
 RadialMinimize::usage = "Use Nelder Mead to find the minimum value of Log(|R(\!\(\*SubscriptBox[\(r\), \(max\)]\))|) over complex \[Omega]-space
 RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ,
      parameters_?AssociationQ, Watcher_?BooleanQ, \[Nu]fit_:Null] 
@@ -224,33 +227,30 @@ ProcaDiffOpRad =
 
 DiffRadOpx = 
 	With[{
-	rplusN = rplusN[\[Chi]] // Rationalize, 
-	rminusN = rminusN[\[Chi]] // Rationalize,
+	rplusNval = rplusN[\[Chi]] // Rationalize, 
+	rminusNval = rminusN[\[Chi]] // Rationalize,
 	qrN = qr[\[Nu], rN * M], (*numerical Subscript[q, r]*)
-	rpN = rplusN[\[Chi]] // Rationalize, (*numerical Subscript[r, +]*)
-	rmN = rminusN[\[Chi]] // Rationalize, (*numerical Subscript[r, -]*)
 	rsN = rplusN[\[Chi]] + rminusN[\[Chi]]  // Rationalize, (*numerical Subscript[r, s]*)
 	\[CapitalDelta]N = (rN - rplusN[\[Chi]]) * (rN - rminusN[\[Chi]]) // Rationalize, (*numerical \[CapitalDelta]*)
 	\[Sigma]N =\[Sigma][a, m, \[Omega], \[Nu]] * M //Expand //Rationalize, (*numerical \[Sigma]*)
 	KrN = Kr[a, m, rN * M] / M //Rationalize //Simplify (*numerical Subscript[K, r]*)
 	},
 	Block[{
-	P1 = (2 * rN - rsN) / (rN - rminusN) // Rationalize,
+	P1 = (2 * rN - rsN) / (rN - rminusNval) // Rationalize,
 	P2 = -(2 * rN * \[Nu]N^2) / qrN,
-	Q1 = KrN^2 / (rN - rminusN) ^ 2,
-	Q2 = qrN / (rN - rminusN) * ((2 - qrN) / qrN^2 * \[Sigma]N / \[Nu]N - \[Mu]N^2 / \[Nu]N^2) // Rationalize
+	Q1 = KrN^2 / (rN - rminusNval) ^ 2,
+	Q2 = qrN / (rN - rminusNval) * ((2 - qrN) / qrN^2 * \[Sigma]N / \[Nu]N - \[Mu]N^2 / \[Nu]N^2) // Rationalize
 	},
 	
 	With[{
-	P1x = P1 /. rN -> xN * (rplusN - rminusN) + rplusN,
-	P2x = P2 /. rN -> xN * (rplusN - rminusN) + rplusN,
-	Q1x = Q1 /. rN -> xN * (rplusN - rminusN) + rplusN,
-	Q2x = Q2 /. rN -> xN * (rplusN - rminusN) + rplusN
+	P1x = P1 /. rN -> xN * (rplusNval - rminusNval) + rplusNval,
+	P2x = P2 /. rN -> xN * (rplusNval - rminusNval) + rplusNval,
+	Q1x = Q1 /. rN -> xN * (rplusNval - rminusNval) + rplusNval,
+	Q2x = Q2 /. rN -> xN * (rplusNval - rminusNval) + rplusNval
 	},
-	
 	(\!\(
-\*SubscriptBox[\(\[PartialD]\), \(xN, xN\)]#\) + (P1x/xN+P2x*(rplusN-rminusN))\!\(
-\*SubscriptBox[\(\[PartialD]\), \(xN\)]#\) + (Q1x/xN^2+Q2x (rplusN-rminusN)/xN)#)&
+\*SubscriptBox[\(\[PartialD]\), \(xN, xN\)]#\) + (P1x/xN+P2x*(rplusNval-rminusNval))\!\(
+\*SubscriptBox[\(\[PartialD]\), \(xN\)]#\) + (Q1x/xN^2+Q2x (rplusNval-rminusNval)/xN)#)&
 	]
 	]
 	];
@@ -425,7 +425,7 @@ functomin[parameters_?AssociationQ, \[Nu]fitted_:Null][{\[Omega]real_?NumericQ, 
 
 RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ,
      parameters_?AssociationQ, Watcher_?BooleanQ, \[Nu]fit_:Null] :=
-     Block[{MinimizationConstraints,MinimizationMethod,RMMessengerGenerator,SimplexBase,SimplexNodeOne,SimplexNodeTwo,InitialSimplex,result,\[Omega]Result,\[Nu]Result},
+     Block[{MinimizationConstraints,MinimizationMethod,RMMessengerGenerator,SimplexBase,SimplexNodeOne,SimplexNodeTwo,InitialSimplex,\[Nu]fitted,result,\[Omega]Result,\[Nu]Result},
     Module[{currval = {0, 0}, CurrentIteration = 0},
         RMMessengerGenerator =
             Function[{X, counter},
@@ -437,25 +437,26 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
         (*If[Watcher, PrintTemporary@Dynamic[RMMessenger]];*)
         SimplexBase = {\[Omega]Guess // Re, \[Omega]Guess // Im} // ToPrecision[parameters];
         SimplexNodeOne = SimplexBase - {(OmegaBoundary[[2]] - \[Omega]Guess)/parameters["omegaRes"], 0} // Re;
-        SimplexNodeTwo = SimplexBase - {0, 10 ^ (Log10[Abs @ Im[\[Omega]Guess
-            ]] - 1)};
-        InitialSimplex = {SimplexBase, SimplexNodeOne, SimplexNodeTwo
-            };
+        SimplexNodeTwo = SimplexBase - {0, 10 ^ (Log10[Abs @ Im[\[Omega]Guess]] - 1)};
+        InitialSimplex = {SimplexBase, SimplexNodeOne, SimplexNodeTwo};
         If[TrueQ[\[Nu]fit == Null],\[Nu]fitted=Null,\[Nu]fitted = \[Nu]fit[parameters["\[Mu]Nv"]]];
+        
         MinimizationConstraints = ToPrecision[parameters][{100*Im[\[Omega]Guess]> \[Psi] > 10^-13}];
         MinimizationMethod = {"NelderMead", 
                               "PostProcess" -> False, 
                               "InitialPoints" -> InitialSimplex,
 		                     "Tolerance"->0
                               };
-		With[{
-				Contraints = {100*Im[\[Omega]Guess]>\[Psi]>10^-12&&parameters["\[Mu]Nv"]^2>\[Xi]^2+\[Psi]^2&&Re[omegaBoundary[[2]]]>\[Xi]>Re[omegaBoundary[[1]]]}//ToPrecision[parameters],
+        
+        (*Constraint on imaginary part comes from ad hoc lower bound together with rough scaling of imaginary part with mode number*)                      
+		With[{Contraints = {100*Im[\[Omega]Guess]>\[Psi]>10^((-12)*(parameters["m"]+1)/2)&&parameters["\[Mu]Nv"]^2>\[Xi]^2+\[Psi]^2&&Re[omegaBoundary[[2]]]>\[Xi]>Re[omegaBoundary[[1]]]}//ToPrecision[parameters],
 				method = MinimizationMethod
 		},
+		
         result = 
                 NMinimize[
                     {Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], 
-                    Sequence@@MinimizationConstraints
+                    Sequence@@Contraints
                     },
                     {\[Xi], \[Psi]},
                     Method -> method,
