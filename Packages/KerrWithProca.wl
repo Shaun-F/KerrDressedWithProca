@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-If["HelperFunctions"\[NotElement]Names["Global`"], Import[$FKKSRoot<>"Packages/HelperFunctions.wl"]];
+Import[$FKKSRoot<>"Packages/HelperFunctions.wl"];
 
 
 RadialMinimize::usage = "Use Nelder Mead to find the minimum value of Log(|R(\!\(\*SubscriptBox[\(r\), \(max\)]\))|) over complex \[Omega]-space
@@ -312,13 +312,14 @@ getRadialSolution[w_?NumberQ, v_?NumberQ, parameters_]:=
 			R[StartingRadius]==FrobR0, 
 			Derivative[1][R][StartingRadius]==FrobRPrime0
 			}// ToPrecision[parameters];
-		RadialSolutions = NDSolve[eq,
-								 R, 
-								 {xN, StartingRadius, EndingRadius},
-								 WorkingPrecision->parameters["precision"], 
-								 MaxSteps->parameters["RadialIntegratorMaxStep"], 
-								 PrecisionGoal->parameters["RadialIntegratorPrecisionGoal"]
-								 ]//First;
+		RadialSolutions = 
+				NDSolve[eq,
+						 R, 
+						 {xN, StartingRadius, EndingRadius},
+						 WorkingPrecision->parameters["precision"], 
+						 MaxSteps->parameters["RadialIntegratorMaxStep"], 
+						 PrecisionGoal->parameters["RadialIntegratorPrecisionGoal"]
+						 ]//First;
 		Return[R/.RadialSolutions]
 ];
 
@@ -423,8 +424,7 @@ functomin[parameters_?AssociationQ, \[Nu]fitted_:Null][{\[Omega]real_?NumericQ, 
     ];
 
 
-RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ,
-     parameters_?AssociationQ, Watcher_?BooleanQ, \[Nu]fit_:Null] :=
+RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ, parameters_?AssociationQ, Watcher_?BooleanQ, \[Nu]fit_:Null] :=
      Block[{MinimizationConstraints,MinimizationMethod,RMMessengerGenerator,SimplexBase,SimplexNodeOne,SimplexNodeTwo,InitialSimplex,\[Nu]fitted,result,\[Omega]Result,\[Nu]Result},
     Module[{currval = {0, 0}, CurrentIteration = 0},
         RMMessengerGenerator =
@@ -448,24 +448,40 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
 		                     "Tolerance"->0
                               };
         
-        (*Constraint on imaginary part comes from ad hoc lower bound together with rough scaling of imaginary part with mode number*)                      
-		With[{Contraints = {100*Im[\[Omega]Guess]>\[Psi]>10^((-12)*(parameters["m"]+1)/2)&&parameters["\[Mu]Nv"]^2>\[Xi]^2+\[Psi]^2&&Re[omegaBoundary[[2]]]>\[Xi]>Re[omegaBoundary[[1]]]}//ToPrecision[parameters],
+        (*Constraint on imaginary part comes from ad hoc lower bound together with rough scaling of imaginary part with mode number*)
+        ImaginaryConstraint[\[Psi]_]:=100*Im[\[Omega]Guess]>\[Psi]>10^((-12)*(parameters["m"]+1)/2);
+        BoundStateConstraint[\[Xi]_,\[Psi]_]:=parameters["\[Mu]Nv"]^2>\[Xi]^2+\[Psi]^2;
+        BoundaryConstraint[\[Xi]_]:=Re[omegaBoundary[[2]]]>\[Xi]>Re[omegaBoundary[[1]]];
+        If[\[Not](ImaginaryConstraint[Im[\[Omega]Guess]]||BoundStateConstraint[ReIm[\[Omega]Guess]]||BoundaryConstraint[Re[\[Omega]Guess]]),
+        Print[
+             Column[{
+                      "Minimization constraints failed: ",
+                      "\t ImaginaryConstraint: "<>ToString[ImaginaryConstraint[Im[\[Omega]Guess]], InputForm], 
+                      "\t BoundStateConstraint: "<>ToString[BoundStateConstraint[Sequence@@ReIm[\[Omega]Guess]], InputForm], 
+                      "\t BoundaryConstraint: "<>ToString[BoundaryConstraint[Re[\[Omega]Guess]], InputForm],
+                      "\t \[Omega] = "<>ToString[\[Omega]Guess, InputForm],
+                      "\t \[Nu] = "<>ToString[\[Nu]Guess, InputForm],
+                      "\t \[Omega]Boundary = "<>ToString[OmegaBoundary, InputForm]
+                      }]
+             ]
+        ];
+		With[{
+				Contraints = {ImaginaryConstraint[\[Psi]]&&BoundStateConstraint[\[Xi],\[Psi]]&&BoundaryConstraint[\[Xi]]}//ToPrecision[parameters],
 				method = MinimizationMethod
 		},
-		
-        result = 
-                NMinimize[
-                    {Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], 
-                    Sequence@@Contraints
-                    },
-                    {\[Xi], \[Psi]},
-                    Method -> method,
-                    WorkingPrecision -> parameters["OptimizationAccuracy"],
-                    EvaluationMonitor :>(RMMessenger = RMMessengerGenerator[\[Xi] + I * \[Psi], CurrentIteration];
+			result = 
+				NMinimize[
+					{Hold @ functomin[parameters, \[Nu]fitted][{\[Xi], \[Psi]}], 
+					Sequence@@Contraints
+					},
+					{\[Xi], \[Psi]},
+					Method -> method,
+					WorkingPrecision -> parameters["OptimizationAccuracy"],
+					EvaluationMonitor :>(RMMessenger = RMMessengerGenerator[\[Xi] + I * \[Psi], CurrentIteration];
                                         CurrentIteration++;
                                         ),
                     MaxIterations -> parameters["MaxIterationsMinimization"]
-                ][[2]];
+                    ][[2]];
         ];
         \[Omega]Result = (\[Xi] + I * \[Psi]) /. result;
         If[TrueQ[\[Nu]fit == Null],
