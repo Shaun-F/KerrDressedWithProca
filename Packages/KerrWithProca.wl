@@ -466,7 +466,7 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
              ]
         ];
 		With[{
-				Contraints = {ImaginaryConstraint[\[Psi]]&&BoundStateConstraint[\[Xi],\[Psi]]&&BoundaryConstraint[\[Xi]]}//ToPrecision[parameters],
+				Contraints = Evaluate@{ImaginaryConstraint[\[Psi]]&&BoundStateConstraint[\[Xi],\[Psi]]&&BoundaryConstraint[\[Xi]]}//ToPrecision[parameters],
 				method = MinimizationMethod
 		},
 			result = 
