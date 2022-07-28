@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    245902,       5369]
-NotebookOptionsPosition[    238480,       5227]
-NotebookOutlinePosition[    239214,       5252]
-CellTagsIndexPosition[    239128,       5247]
+NotebookDataLength[    217762,       4800]
+NotebookOptionsPosition[    210328,       4658]
+NotebookOutlinePosition[    211060,       4683]
+CellTagsIndexPosition[    210974,       4678]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -120,7 +120,8 @@ Cell[BoxData[{
    3.867478790401656*^9, 3.867478801977219*^9}, {3.86748066826404*^9, 
    3.867480673468967*^9}, 3.86754897620187*^9, {3.8678415238267813`*^9, 
    3.867841549337219*^9}},
- CellLabel->"In[20]:=",ExpressionUUID->"0a8963d9-1258-4765-941f-27f15cb0a19d"]
+ CellLabel->
+  "In[168]:=",ExpressionUUID->"0a8963d9-1258-4765-941f-27f15cb0a19d"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -512,14 +513,14 @@ Cell["Solving the FKKS ansatz", "Section",
 
 Cell[CellGroupData[{
 
-Cell["        Parameters", "Subsection",
+Cell[TextData[StyleBox["Parameters", "Abstract"]], "Subsection",
  CellGroupingRules->{"GroupTogetherGrouping", 10009.},
  CellChangeTimes->{{3.8601948804043617`*^9, 3.860194885373921*^9}, {
    3.860195006967104*^9, 3.860195008349834*^9}, 3.8602847045467567`*^9, {
    3.860299502012169*^9, 3.8602995040667133`*^9}, {3.861625372925462*^9, 
    3.861625377900035*^9}, 3.862222350994478*^9, {3.862222389646859*^9, 
    3.862222404705523*^9}, 3.862222445070656*^9, {3.863053939930953*^9, 
-   3.863053946837596*^9}},
+   3.863053946837596*^9}, {3.8679728143676367`*^9, 3.867972816167554*^9}},
  FontSize->18,ExpressionUUID->"b93c60da-0d21-4555-8038-a4293d7370bd"],
 
 Cell[BoxData[
@@ -546,11 +547,11 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"nrange", " ", "=", " ", 
      RowBox[{"{", 
-      RowBox[{"0", ",", "4"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{"1", ",", "1"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"mrange", " ", "=", " ", 
      RowBox[{"{", 
-      RowBox[{"1", ",", "4"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{"3", ",", "3"}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"\[Delta]\[Mu]", " ", "=", " ", 
      FractionBox["1", "100"]}], ";"}], "\[IndentingNewLine]", 
@@ -564,13 +565,13 @@ Cell[BoxData[
      FractionBox["1", "10000"]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"\[Mu]Nv", " ", "=", 
-     FractionBox["5", "100"]}], ";"}], "\[IndentingNewLine]", 
+     FractionBox["3", "10"]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"mode", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"mode", " ", "=", " ", "3"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"eta", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"overtone", " ", "=", " ", "0"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"overtone", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"polarization", " ", "=", " ", 
      RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
@@ -677,7 +678,7 @@ Cell[BoxData[
        RowBox[{"\"\<omegaRes\>\"", "\[Rule]", " ", "omegaRes"}], ",", 
        "\[IndentingNewLine]", " ", 
        RowBox[{
-       "\"\<MaxInterationsMinimization\>\"", "\[Rule]", " ", 
+       "\"\<MaxIterationsMinimization\>\"", "\[Rule]", " ", 
         "MaxInterationsMinimization"}], ",", "\[IndentingNewLine]", 
        RowBox[{
        "\"\<RadialIntegratorMaxStep\>\"", "\[Rule]", " ", 
@@ -835,20 +836,975 @@ Cell[BoxData[
    3.864262073732091*^9}, {3.864263524963828*^9, 3.864263526072596*^9}, {
    3.8642635971857023`*^9, 3.864263598584381*^9}, {3.864282061063354*^9, 
    3.864282061208202*^9}, {3.867847955311718*^9, 3.867847959473247*^9}, {
-   3.867848438930958*^9, 3.8678484663061543`*^9}},
+   3.867848438930958*^9, 3.8678484663061543`*^9}, 3.867922342333788*^9, {
+   3.8679366032364283`*^9, 3.867936609181806*^9}, {3.867975808710066*^9, 
+   3.8679758112034597`*^9}, {3.867976165257475*^9, 3.8679761819107447`*^9}},
  FontSize->12,
  CellTags->"CalculationParameters",
- CellLabel->"In[31]:=",ExpressionUUID->"2d372041-7545-4f64-ba88-a8d6900c9986"]
+ CellLabel->
+  "In[135]:=",ExpressionUUID->"2d372041-7545-4f64-ba88-a8d6900c9986"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["        The Calculation (Single Mass search)", "Subsection",
- CellGroupingRules->{"GroupTogetherGrouping", 10007.},
+Cell[TextData[StyleBox["Define Worker function", "Abstract"]], "Subsection",
+ CellChangeTimes->{{3.867972851308702*^9, 
+  3.867972855383574*^9}},ExpressionUUID->"226bb6ba-afc0-4d37-829f-\
+7405c78c10a9"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"WorkerFunction", "::", "usage"}], "=", 
+   "\"\<WorkerFunction[mvalue, nvalue]\n\tFunction solves the proca equation \
+for a given value of mode number and overtone and for a predfined range of \
+masses\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"WorkerFunction", "[", 
+   RowBox[{"mval_", ",", "nval_"}], "]"}], ":=", "\[IndentingNewLine]", 
+  RowBox[{"Block", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"$HistoryLength", "=", "0"}], "}"}], ",", "\[IndentingNewLine]", 
+    
+    RowBox[{"With", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"k", "=", "mval"}], ",", " ", 
+        RowBox[{"j", "=", "nval"}]}], "}"}], ",", "\[IndentingNewLine]", " ", 
+      
+      RowBox[{
+       RowBox[{"\[Mu]IterationCounter", "=", "1"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Do", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "=", "k"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<l\>\"", "]"}], "=", 
+            RowBox[{
+             RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "+", 
+             RowBox[{"parameters", "[", "\"\<s\>\"", "]"}]}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "=", "j"}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"Setup", " ", "next", " ", "iteration"}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "=", 
+            RowBox[{"i", "*", 
+             RowBox[{"parameters", "[", "\"\<m\>\"", "]"}]}]}], ";", " ", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{"account", " ", "for", " ", "m"}], "-", 
+             RowBox[{
+             "dependence", " ", "of", " ", "superradiant", " ", 
+              "threshold"}]}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}], "=", 
+            RowBox[{"calcEndingX", "[", "parameters", "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"omegaNINonRel", "[", "parameters", "]"}], "<", "0"}], 
+             ",", 
+             RowBox[{
+              RowBox[{"Print", "[", 
+               RowBox[{
+               "\"\<Superradiant condition fails for parameter (\[Mu],m,n,\
+\[Chi],s)=(\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
+                  " ", "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+                  "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+                  "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<\[Chi]\>\"", "]"}], ",", 
+                  " ", "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<s\>\"", "]"}], ",", " ", 
+                  "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], ";", 
+              RowBox[{"Goto", "[", "SuperradiantConditionFailure", "]"}]}]}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"CurrentParameterPoint", "[", 
+             RowBox[{"[", 
+              RowBox[{"$KernelID", "/.", "KernelsRule"}], "]"}], "]"}], "=", 
+            RowBox[{"\"\<Kernel \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
+             "\"\< executing search with parameters m=\>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}], "<>", "\"\< \[Mu]=\>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"\[Mu]IterationMessenger", " ", "=", " ", 
+            RowBox[{"\"\< Current \[Mu] Iteration: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"\[Mu]IterationCounter", ",", " ", "InputForm"}], "]"}],
+              "<>", "\"\<:\>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"\[Mu]Iterations", ",", " ", "InputForm"}], "]"}]}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"\[Mu]Messenger", "=", " ", 
+            RowBox[{"\"\< Current \[Mu] value: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{"\"\<m Iteration Count: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{"mIterationCounter", ",", " ", "InputForm"}], "]"}], 
+             "<>", "\"\<\\n\>\""}]}], ";", " ", "\[IndentingNewLine]", 
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{"Logger", "<>", " ", "\"\<m Value: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", " ", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{"Logger", "<>", "\"\<n Value: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"Logger", "=", 
+            RowBox[{"Logger", "<>", "\"\<\[Mu] Value: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ", 
+               "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"-", " ", "Minimization"}]}]}]}]}], " ", "using", 
+              " ", "native", " ", "Nelder", " ", "Mead", " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"algorithm", " ", "--"}], "--"}], "--"}], "--"}]}], 
+             "-"}], " ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"minimizetimestart", " ", "=", " ", 
+            RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Determine", " ", "next", " ", "guess", " ", "for", " ", 
+             "\[Omega]", " ", "and", " ", "\[Nu]"}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}], 
+            " ", "=", " ", "Null"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Mu]IterationCounter", "\[GreaterEqual]", "6"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+               RowBox[{"If", " ", 
+                RowBox[{"we", "'"}], "re", " ", "on", " ", "the", " ", "6", 
+                "th", " ", "iteration"}], ",", " ", 
+               RowBox[{
+               "use", " ", "previous", " ", "values", " ", "to", " ", 
+                "approximate", " ", "current", " ", "frequency", " ", "value",
+                 " ", "using", " ", "fit", " ", "functions"}]}], "*)"}], 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"\[Omega]ValHistory", " ", "=", " ", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"\[Omega]Holder", "[", "iter", "]"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"iter", ",", 
+                   RowBox[{"\[Mu]IterationCounter", "-", "5"}], ",", 
+                   RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"\[Nu]ValHistory", " ", "=", " ", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"\[Nu]Holder", "[", "iter", "]"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"iter", ",", 
+                   RowBox[{"\[Mu]IterationCounter", "-", "5"}], ",", 
+                   RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"\[Mu]ValHistory", " ", "=", " ", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"\[Mu]Holder", "[", "iter", "]"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"iter", ",", 
+                   RowBox[{"\[Mu]IterationCounter", "-", "5"}], ",", 
+                   RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], 
+               " ", "=", " ", 
+               RowBox[{"Fit", "[", 
+                RowBox[{
+                 RowBox[{"Thread", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], "}"}],
+                   "]"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "\[Zeta]", ",", 
+                   SuperscriptBox["\[Zeta]", "2"], ",", " ", 
+                   SuperscriptBox["\[Zeta]", "3"], ",", " ", 
+                   SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", 
+                 "\[Zeta]", ",", " ", 
+                 RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], 
+                "]"}]}], " ", 
+              RowBox[{"(*", 
+               RowBox[{"InterpolatingPolynomial", "[", 
+                RowBox[{
+                 RowBox[{"Thread", "[", 
+                  RowBox[{"{", 
+                   RowBox[{
+                   "\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], "}"}],
+                   "]"}], ",", "\[Zeta]"}], "]"}], "*)"}], 
+              RowBox[{"(*", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Interp", ".", " ", "Poly"}], " ", "seems", " ", 
+                  "to", " ", "fail", " ", "for", " ", "\[Omega]"}], "-", 
+                 RowBox[{"values", " ", "near", " ", "\[Mu]"}]}], "=", 
+                "0.4"}], "*)"}], ";", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "=", 
+               RowBox[{"Fit", "[", 
+                RowBox[{
+                 RowBox[{"Thread", "[", 
+                  RowBox[{"{", 
+                   RowBox[{"\[Mu]ValHistory", ",", " ", "\[Nu]ValHistory"}], 
+                   "}"}], "]"}], ",", "  ", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "\[Zeta]", ",", 
+                   SuperscriptBox["\[Zeta]", "2"], ",", " ", 
+                   SuperscriptBox["\[Zeta]", "3"], ",", " ", 
+                   SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", 
+                 "\[Zeta]", ",", " ", 
+                 RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"Current\[Omega]Guess", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
+                RowBox[{"\[Zeta]", "\[Rule]", 
+                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"Current\[Nu]Guess", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
+                RowBox[{"\[Zeta]", "->", 
+                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"omegaGuess", " ", "=", " ", "Current\[Omega]Guess"}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"nuGuess", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"getNuValue", "[", 
+                 RowBox[{
+                 "omegaGuess", ",", " ", "parameters", ",", " ", 
+                  "Current\[Nu]Guess"}], "]"}], "//", "N"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{
+               "\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}], " ", 
+               "=", " ", 
+               RowBox[{"Function", "[", 
+                RowBox[{
+                 RowBox[{"{", "\[Zeta]", "}"}], ",", " ", 
+                 RowBox[{"Evaluate", "@", 
+                  RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}]}]}],
+                 "]"}]}]}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+               RowBox[{"use", " ", "non"}], "-", 
+               RowBox[{
+               "rel", " ", "limit", " ", "for", " ", "initial", " ", "guess", 
+                " ", "of", " ", "\[Omega]", " ", "in", " ", "first", " ", "4",
+                 " ", "iterations"}]}], "*)"}], "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"omegaGuess", " ", "=", " ", 
+               RowBox[{"N", "[", 
+                RowBox[{
+                 RowBox[{"omegaNRNonRel", "[", "parameters", "]"}], " ", "+", 
+                 " ", 
+                 RowBox[{"I", "*", 
+                  RowBox[{"omegaNINonRel", "[", "parameters", "]"}]}]}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"nuGuess", " ", "=", " ", 
+               RowBox[{
+                RowBox[{"getNuValue", "[", 
+                 RowBox[{"omegaGuess", ",", " ", "parameters", ",", 
+                  RowBox[{"nuNNonRel", "[", 
+                   RowBox[{"omegaGuess", ",", "parameters"}], "]"}]}], "]"}], 
+                "//", "N"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"omegaBoundarySize", " ", "=", " ", 
+            RowBox[{
+             FractionBox["1", "2"], "*", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"omegaNRNonRel", "[", 
+                 RowBox[{"ReplacePart", "[", 
+                  RowBox[{"parameters", ",", 
+                   RowBox[{"\"\<n\>\"", "\[Rule]", 
+                    RowBox[{
+                    RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "+", 
+                    "1"}]}]}], "]"}], "]"}], " ", "-", " ", "omegaGuess"}], "//",
+                "Re"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"omegaBoundary", " ", "=", " ", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"omegaGuess", " ", "-", " ", "omegaBoundarySize"}], ",",
+               " ", 
+              RowBox[{"omegaGuess", "+", "omegaBoundarySize"}]}], "}"}]}], 
+           ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{"Perform", " ", "minimization"}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{"MinimizationResults", "=", 
+            RowBox[{"RadialMinimize", "[", 
+             RowBox[{
+             "omegaGuess", ",", "  ", "nuGuess", ",", " ", "omegaBoundary", 
+              ",", "  ", "parameters", ",", " ", "WatchEvaluation", ",", 
+              RowBox[{
+              "\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}]}], 
+             "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{"Logger", "<>", " ", "\"\<Minimization Results: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"MinimizationResults", "//", "N"}], ",", " ", 
+               "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"minimizetimestop", " ", "=", " ", 
+            RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+           
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{"Logger", "<>", " ", "\"\<\\nMinimization Time: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{"minimizetimestop", "-", "minimizetimestart"}], "]"}],
+                ",", " ", "InputForm"}], "]"}]}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"-", " ", "Solve"}]}]}]}]}], " ", "for", " ", 
+              "kernel", " ", "of", " ", "angular", " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"matrix", " ", "--"}], "--"}], "--"}], "--"}]}], 
+             "-"}], " ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"angulartimestart", " ", "=", " ", 
+            RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+           
+           RowBox[{"Sfunctemp", " ", "=", " ", 
+            RowBox[{"Sum", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"C", "[", "tempiter", "]"}], "*", 
+               RowBox[{"SphericalHarmonicY", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Abs", "[", 
+                   RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "]"}], "+", 
+                  
+                  RowBox[{"2", "*", "tempiter"}], "+", 
+                  RowBox[{"parameters", "[", "\"\<\[Eta]\>\"", "]"}]}], ",", 
+                 RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", 
+                 "\[Theta]", ",", "\[Phi]"}], "]"}], "*", 
+               RowBox[{"Exp", "[", 
+                RowBox[{
+                 RowBox[{"-", "I"}], "*", 
+                 RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "*", 
+                 "\[Phi]"}], "]"}]}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"tempiter", ",", "0", ",", 
+                RowBox[{"parameters", "[", "\"\<KMax\>\"", "]"}]}], "}"}]}], 
+             "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"coeffs", " ", "=", " ", 
+            RowBox[{"SolveAngularSystem", "[", 
+             RowBox[{
+              RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], 
+              ",", " ", 
+              RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], ",",
+               "parameters"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Sfunc", "=", 
+            RowBox[{"FunctionInterpolation", "[", 
+             RowBox[{
+              RowBox[{"Evaluate", "[", 
+               RowBox[{"Sfunctemp", "/.", "coeffs"}], "]"}], ",", " ", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}]}], "]"}]}],
+            ";", "\[IndentingNewLine]", 
+           RowBox[{"angulartimestop", " ", "=", " ", 
+            RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
+           
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{
+            "Logger", "<>", "\"\<\\nAngular Solver Time: \>\"", "<>", 
+             RowBox[{"ToString", "[", 
+              RowBox[{
+               RowBox[{"N", "[", 
+                RowBox[{"angulartimestop", "-", "angulartimestart"}], "]"}], 
+               ",", " ", "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]",
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"-", " ", "Safety"}]}]}]}]}], " ", "checks", " ", 
+              "on", " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"solution", " ", "--"}], "--"}], "--"}], "--"}]}], 
+             "-"}], " ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "2"], 
+              "\[LessEqual]", 
+              SuperscriptBox[
+               RowBox[{"Abs", "[", 
+                RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}],
+                 "]"}], "2"]}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Print", "[", 
+               RowBox[{"\"\<Kernel \>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
+                "\"\< says: Error! Frequency larger than field mass! Breaking \
+\[Mu] iteration ... (Parameter Point: m=\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+                  "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "]"}], "<>", 
+                "\"\< \[Mu]=\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
+                  " ", "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"TheSolution", "[", "\"\<R\>\"", "]"}], "[", 
+               RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}], "]"}], "//", 
+              RowBox[{"Log10", ">", "1"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Print", "[", 
+               RowBox[{"\"\<Kernel \>\"", "<>", 
+                RowBox[{"ToString", "[", "$KernelID", "]"}], "<>", 
+                "\"\< says: Error! Minimization failed! Breaking \[Mu] \
+Iteration ... (Parameter Point: m=\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+                  "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "]"}], "<>", 
+                "\"\< \[Mu]=\>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{
+                  RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
+                  " ", "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
+            "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"--", 
+                  RowBox[{"-", " ", "Output"}]}]}]}]}], " ", "solution", " ", 
+              "and", " ", "save", " ", "to", " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"disk", " ", "--"}], "--"}], "--"}], "--"}]}], "-"}],
+             " ", "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"\[Mu]IterationCounter", "<", "6"}], ",", " ", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+              "\[Omega]fitOutVariable", "=", 
+               "\"\<Not enough iterations to construct fit\>\""}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+              "\[Nu]fitOutVariable", "=", 
+               "\"\<Not enough iterations to construct fit\>\""}], ";"}], ",",
+              " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"\[Nu]fitOutVariable", "=", 
+               RowBox[{"\[Nu]Fit", "//", "DownValues"}]}], ";", 
+              "\[IndentingNewLine]", " ", 
+              RowBox[{"\[Omega]fitOutVariable", "=", 
+               RowBox[{"\[Omega]Fit", "//", "DownValues"}]}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"TheSolution", " ", "=", " ", 
+            RowBox[{"<|", 
+             RowBox[{
+              RowBox[{"\"\<\[Omega]\>\"", " ", "\[Rule]", " ", 
+               RowBox[{
+               "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}]}], ",", 
+              "\[IndentingNewLine]", "\t\t\t    ", 
+              RowBox[{"\"\<\[Nu]\>\"", "\[Rule]", "  ", 
+               RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}]}], 
+              ",", "\[IndentingNewLine]", "\t\t    \t", 
+              RowBox[{"\"\<R\>\"", "\[Rule]", " ", 
+               RowBox[{"getRadialSolution", "[", 
+                RowBox[{
+                 RowBox[{
+                 "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], ",", 
+                 " ", 
+                 RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], 
+                 ",", " ", "parameters"}], "]"}]}], ",", 
+              "\[IndentingNewLine]", "\t\t             ", 
+              RowBox[{"\"\<S\>\"", "\[Rule]", " ", "Sfunc"}], ",", 
+              "\[IndentingNewLine]", "\t\t\t    ", 
+              RowBox[{
+              "\"\<AngularKernelVector\>\"", "\[Rule]", " ", "coeffs"}], ",", 
+              "\[IndentingNewLine]", "\t\t\t    ", 
+              RowBox[{"\"\<Q\>\"", "\[Rule]", " ", 
+               RowBox[{"QValue", "[", 
+                RowBox[{
+                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
+                 " ", 
+                 RowBox[{
+                 "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}]}], 
+                "]"}]}], ",", "\[IndentingNewLine]", "\t\t\t    ", 
+              RowBox[{
+              "\"\<\[Omega]fit\>\"", "\[Rule]", " ", 
+               "\[Omega]fitOutVariable"}], ",", "\[IndentingNewLine]", 
+              "\t\t\t    ", 
+              RowBox[{
+              "\"\<\[Nu]fit\>\"", "->", " ", "\[Nu]fitOutVariable"}]}], 
+             "\[IndentingNewLine]", "\t\t\t", "|>"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"RadialPlot", "=", 
+            RowBox[{"LogLinearPlot", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"TheSolution", "[", "\"\<R\>\"", "]"}], "[", "r", 
+                "]"}], "//", "Abs"}], ",", " ", "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"r", ",", 
+                RowBox[{"parameters", "[", "\"\<StartingX\>\"", "]"}], ",", 
+                " ", 
+                RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}]}], "}"}], 
+              ",", " ", "\[IndentingNewLine]", 
+              RowBox[{
+              "PlotLabel", "\[Rule]", 
+               "\"\<|R(\!\(\*SubscriptBox[\(x\), \(N\)]\))|\>\""}], ",", 
+              "\[IndentingNewLine]", " ", 
+              RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+              "\[IndentingNewLine]", " ", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<\!\(\*SubscriptBox[\(x\), \(N\)]\)\>\"", ",", " ", 
+                 "\"\<R(\!\(\*SubscriptBox[\(x\), \(N\)]\))\>\""}], "}"}]}], 
+              ",", "\[IndentingNewLine]", " ", 
+              RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Epilog", "\[Rule]", " ", 
+               RowBox[{"Inset", "[", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"Grid", "[", 
+                   RowBox[{
+                    RowBox[{"Partition", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"parameters", "//", "Keys"}], ")"}], "[", 
+                    RowBox[{"[", "tempiter", "]"}], "]"}], " ", "\[Rule]", 
+                    " ", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"parameters", "//", "Values"}], ")"}], "[", 
+                    RowBox[{"[", "tempiter", "]"}], "]"}]}], ",", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"tempiter", ",", "1", ",", " ", 
+                    RowBox[{"Length", "@", "parameters"}]}], "}"}]}], "]"}], 
+                    ",", "2"}], "]"}], ",", " ", 
+                    RowBox[{"ItemSize", "\[Rule]", "18"}]}], "]"}], ",", " ", 
+                  "10"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+           ";", "\[IndentingNewLine]", 
+           RowBox[{"AngularPlot", " ", "=", 
+            RowBox[{"Plot", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"TheSolution", "[", "\"\<S\>\"", "]"}], "[", 
+                "\[Theta]", "]"}], "//", "Abs"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"{", 
+               RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", " ", 
+              "\[IndentingNewLine]", 
+              RowBox[{"PlotLabel", "\[Rule]", "\"\<|S(\[Theta])|\>\""}], ",", 
+              " ", "\[IndentingNewLine]", 
+              RowBox[{"AxesLabel", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<\[Theta]\>\"", ",", " ", "\"\<\>\""}], "}"}]}], 
+              ",", "\[IndentingNewLine]", 
+              RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"Epilog", "\[Rule]", " ", 
+               RowBox[{"Inset", "[", 
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"Grid", "[", 
+                   RowBox[{
+                    RowBox[{"Partition", "[", 
+                    RowBox[{
+                    RowBox[{"Table", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"parameters", "//", "Keys"}], ")"}], "[", 
+                    RowBox[{"[", "tempiter", "]"}], "]"}], " ", "\[Rule]", 
+                    " ", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"parameters", "//", "Values"}], ")"}], "[", 
+                    RowBox[{"[", "tempiter", "]"}], "]"}]}], ",", " ", 
+                    RowBox[{"{", 
+                    RowBox[{"tempiter", ",", "1", ",", " ", 
+                    RowBox[{"Length", "@", "parameters"}]}], "}"}]}], "]"}], 
+                    ",", "2"}], "]"}], ",", " ", 
+                    RowBox[{"ItemSize", "\[Rule]", "18"}]}], "]"}], ",", " ", 
+                  "10"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+           ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"TheSolution", ",", " ", 
+             RowBox[{"\"\<RadialPlot\>\"", "\[Rule]", " ", "RadialPlot"}]}], 
+            "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"TheSolution", ",", " ", 
+             RowBox[{"\"\<AngularPlot\>\"", "\[Rule]", " ", "AngularPlot"}]}],
+             "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Append", " ", "solution", " ", "data", " ", "to", " ", 
+             "parallelization", " ", "watcher"}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"CurrentResult", "[", 
+             RowBox[{"[", 
+              RowBox[{"$KernelID", "/.", "KernelsRule"}], "]"}], "]"}], " ", 
+            "=", " ", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"\"\<Result for Kernel \>\"", "<>", 
+                RowBox[{"ToString", "[", 
+                 RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
+                "\"\<: \>\""}], ",", " ", 
+               RowBox[{"Show", "[", 
+                RowBox[{"RadialPlot", ",", " ", 
+                 RowBox[{"ImageSize", "->", "Small"}], ",", " ", 
+                 RowBox[{"Epilog", "->", " ", 
+                  RowBox[{"Inset", "[", 
+                   RowBox[{
+                    RowBox[{"Framed", "[", 
+                    RowBox[{"\"\<\[Mu]Nv: \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{
+                    RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
+                    " ", "InputForm"}], "]"}], "<>", "\"\<\\nm: \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{
+                    RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+                    "InputForm"}], "]"}], "<>", "\"\<\\nn: \>\"", "<>", 
+                    RowBox[{"ToString", "[", 
+                    RowBox[{
+                    RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+                    "InputForm"}], "]"}]}], "]"}], ",", " ", "Center"}], 
+                   "]"}]}]}], "]"}], ",", " ", 
+               RowBox[{"Spacer", "[", "5", "]"}]}], "}"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "Prepare", " ", "solution", " ", "data", " ", "and", " ", "write",
+              " ", "to", " ", "disk"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{"printData", "=", 
+            RowBox[{"parameters", "[", 
+             RowBox[{"[", 
+              RowBox[{"{", 
+               RowBox[{
+               "\"\<\[Epsilon]\>\"", ",", " ", "\"\<\[Mu]Nv\>\"", ",", " ", 
+                "\"\<m\>\"", ",", " ", "\"\<\[Eta]\>\"", ",", " ", 
+                "\"\<n\>\"", ",", " ", "\"\<l\>\"", ",", " ", "\"\<s\>\"", 
+                ",", " ", "\"\<\[Chi]\>\"", ",", " ", "\"\<KMax\>\"", ",", 
+                " ", "\"\<branch\>\""}], "}"}], "]"}], "]"}]}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"CacheData", " ", "=", " ", 
+            RowBox[{"<|", " ", 
+             RowBox[{
+              RowBox[{"\"\<Parameters\>\"", "\[Rule]", " ", "parameters"}], 
+              ",", " ", 
+              RowBox[{"\"\<Solution\>\"", "\[Rule]", " ", "TheSolution"}]}], 
+             "|>"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Logger", " ", "=", " ", 
+            RowBox[{"Logger", "<>", " ", "\"\<\\nCaching results to: \>\"", "<>", 
+             RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
+             "\"\<.mx\\n\\n\>\""}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{"SaveToDisk", ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Export", "[", 
+               RowBox[{
+                RowBox[{"$SolutionPath", "<>", "\"\<RunData_\>\"", "<>", 
+                 RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
+                 "\"\<.mx\>\""}], ",", " ", "CacheData"}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{"LogRun", ",", 
+             RowBox[{"Logger", ">>>", "LogFile"}]}], "]"}], ";"}], 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"--", 
+              RowBox[{"--", 
+               RowBox[{"--", 
+                RowBox[{"--", 
+                 RowBox[{"-", " ", "Prepare"}]}]}]}]}], " ", "next", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"loop", " ", "--"}], "--"}], "--"}], "--"}]}], "-"}], 
+           " ", "*)"}], ";", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"\[Mu]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "//", 
+            RowBox[{
+             RowBox[{"SetPrecision", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], "]"}],
+              "&"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"\[Omega]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
+           RowBox[{
+            RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], "//", 
+            RowBox[{
+             RowBox[{"SetPrecision", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], "]"}],
+              "&"}]}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"\[Nu]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
+           RowBox[{
+            RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], "//", 
+            
+            RowBox[{
+             RowBox[{"SetPrecision", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], "]"}],
+              "&"}]}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"\[Mu]IterationCounter", "++"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"Continue", "[", "]"}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Label", "[", "SuperradiantConditionFailure", "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"CurrentResult", "[", 
+            RowBox[{"[", 
+             RowBox[{"$KernelID", "/.", "KernelsRule"}], "]"}], "]"}], " ", 
+           "=", " ", 
+           RowBox[{"Row", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"\"\<Result for Kernel \>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
+               "\"\<: \>\""}], ",", 
+              RowBox[{
+              "\"\<\\nSuperradiant condition failed for parameters \
+(\[Mu],m,n,\[Chi],s)=(\>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
+                 " ", "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+                 "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+                 "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"parameters", "[", "\"\<\[Chi]\>\"", "]"}], ",", " ",
+                  "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"parameters", "[", "\"\<s\>\"", "]"}], ",", " ", 
+                 "InputForm"}], "]"}], "<>", "\"\<)\>\""}], " ", ",", " ", 
+              RowBox[{"Spacer", "[", "5", "]"}]}], "}"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Logger", " ", "=", " ", 
+           RowBox[{
+           "Logger", "<>", 
+            "\"\<\\nSuperradiant condition failed for parameters (\[Mu],m,n,\
+\[Chi],s)=(\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ", 
+              "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+              "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+              "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              RowBox[{"parameters", "[", "\"\<\[Chi]\>\"", "]"}], ",", " ", 
+              "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+            RowBox[{"ToString", "[", 
+             RowBox[{
+              RowBox[{"parameters", "[", "\"\<s\>\"", "]"}], ",", " ", 
+              "InputForm"}], "]"}], "<>", "\"\<)\>\""}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{"LogRun", ",", 
+            RowBox[{"Logger", ">>>", "LogFile"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"printData", "=", 
+           RowBox[{"parameters", "[", 
+            RowBox[{"[", 
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<\[Epsilon]\>\"", ",", " ", "\"\<\[Mu]Nv\>\"", ",", " ", 
+               "\"\<m\>\"", ",", " ", "\"\<\[Eta]\>\"", ",", " ", "\"\<n\>\"",
+                ",", " ", "\"\<l\>\"", ",", " ", "\"\<s\>\"", ",", " ", 
+               "\"\<\[Chi]\>\"", ",", " ", "\"\<KMax\>\"", ",", " ", 
+               "\"\<branch\>\""}], "}"}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"CacheData", " ", "=", " ", 
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<Parameters\>\"", "->", "parameters"}], ",", " ", 
+             RowBox[{
+             "\"\<Solution\>\"", "->", 
+              "\"\<Superradiant condition failed\>\""}]}], "|>"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{"SaveToDisk", ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"Export", "[", 
+              RowBox[{
+               RowBox[{"$SolutionPath", "<>", "\"\<RunData_\>\"", "<>", 
+                RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
+                "\"\<.mx\>\""}], ",", " ", "CacheData"}], "]"}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<\[Mu]range\>\"", "]"}], "//", 
+            "First"}], ",", " ", 
+           RowBox[{
+            RowBox[{"parameters", "[", "\"\<\[Mu]range\>\"", "]"}], "//", 
+            "Last"}], ",", 
+           RowBox[{"parameters", "[", "\"\<\[Delta]\[Mu]\>\"", "]"}]}], 
+          "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"ClearAll", "[", 
+        RowBox[{
+        "\[Mu]Holder", ",", " ", "\[Omega]Holder", ",", " ", "\[Nu]Holder", 
+         ",", " ", "TheSolution", ",", " ", "AngularPlot", ",", " ", 
+         "RadialPlot", ",", "CacheData", ",", " ", "Logger", ",", " ", 
+         "\[Omega]Fit", ",", " ", "\[Nu]Fit", ",", "\[Nu]FitFunction"}], 
+        "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"ClearSystemCache", "[", "]"}], ";"}]}], "\[IndentingNewLine]",
+      "]"}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.867972989508016*^9, 3.867973043228196*^9}, {
+   3.867973098150201*^9, 3.867973116402268*^9}, 3.8679770587940483`*^9},
+ CellLabel->
+  "In[312]:=",ExpressionUUID->"f75d7596-e8fa-40ac-bef8-1db3378a3628"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The Calculation (Single Mass search)", "Abstract"]], \
+"Subsection",
  CellChangeTimes->{{3.860224045473876*^9, 3.860224047225518*^9}, 
    3.860284705561998*^9, {3.861676948808226*^9, 3.86167697034481*^9}, 
    3.862222354271736*^9, 3.862222389647099*^9, {3.863250071080227*^9, 
-   3.863250073780374*^9}},
+   3.863250073780374*^9}, 3.867972826759501*^9, 3.8679729210645237`*^9},
  FontSize->16,ExpressionUUID->"db6d0b1a-31fc-43a7-a059-29f2fdf09cca"],
 
 Cell[BoxData[
@@ -869,7 +1825,38 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"SaveToDisk", " ", "=", " ", "False"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"omegaNINonRel", "[", "parameters", "]"}], "<", "0"}], ",", 
+      RowBox[{
+       RowBox[{"Print", "[", 
+        RowBox[{
+        "\"\<Superradiant condition fails for parameter \
+(\[Mu],m,n,\[Chi],s)=(\>\"", "<>", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ", 
+           "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
+           "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
+           "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"parameters", "[", "\"\<\[Chi]\>\"", "]"}], ",", " ", 
+           "InputForm"}], "]"}], "<>", "\"\<,\>\"", "<>", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"parameters", "[", "\"\<s\>\"", "]"}], ",", " ", 
+           "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], ";", 
+       RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"printData", "=", 
      RowBox[{"parameters", "[", 
@@ -919,7 +1906,7 @@ Cell[BoxData[
     ";"}], "\[IndentingNewLine]", 
    RowBox[{"If", "[", 
     RowBox[{"WatchEvaluation", ",", " ", 
-     RowBox[{"Dynamic", "[", "KWP`RMMessenger", "]"}]}], "]"}], 
+     RowBox[{"Dynamic", "[", "RMMessenger", "]"}]}], "]"}], 
    "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{"Minimization", " ", "using", " ", "Nelder", " ", "Mead"}], 
@@ -1277,7 +2264,6 @@ coefficients\>\"", ",", "Blue", ",", " ", "Italic", ",", " ", "24"}], "]"}]}],
     RowBox[{"(", 
      RowBox[{"List", "@@", "TheSolution"}], ")"}]}]}]}]], "Input",
  PageWidth:>Infinity,
- CellGroupingRules->{"GroupTogetherGrouping", 10007.},
  CellChangeTimes->{{3.860218071935429*^9, 3.860218129753003*^9}, {
    3.8602182014582872`*^9, 3.860218235873823*^9}, {3.8602184532856073`*^9, 
    3.8602184674659567`*^9}, {3.860218514815071*^9, 3.860218538429093*^9}, {
@@ -1380,20 +2366,22 @@ coefficients\>\"", ",", "Blue", ",", " ", "Italic", ",", " ", "24"}], "]"}]}],
    3.8632224761555643`*^9, 3.863222476388475*^9}, {3.863327374864794*^9, 
    3.863327391794018*^9}, {3.863677735079962*^9, 3.8636777695378*^9}, {
    3.864256721708733*^9, 3.864256722849125*^9}, {3.864264197689608*^9, 
-   3.864264216166597*^9}},
- CellLabel->"In[90]:=",ExpressionUUID->"1cdf1743-22cc-4298-945b-b4b5d651dc93"]
+   3.864264216166597*^9}, {3.867936964224986*^9, 3.86793707827348*^9}, {
+   3.867937151701666*^9, 3.867937194049159*^9}, {3.867937235041394*^9, 
+   3.8679372444468927`*^9}, 
+   3.867972921065797*^9},ExpressionUUID->"1cdf1743-22cc-4298-945b-\
+b4b5d651dc93"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["        The Calculation (Serial routine over \[Mu]-n-m space)", \
-"Subsection",
- CellGroupingRules->{"GroupTogetherGrouping", 10008.},
+Cell[TextData[StyleBox["The Calculation (Serial routine over \[Mu]-n-m \
+space)", "Abstract"]], "Subsection",
  CellChangeTimes->{{3.860224045473876*^9, 3.860224047225518*^9}, 
    3.860284705561998*^9, {3.861676948808226*^9, 3.861676953867208*^9}, {
    3.8621996987623777`*^9, 3.8621997003073587`*^9}, 3.8622223566649714`*^9, 
    3.8622223896473722`*^9, 3.862222466824465*^9, {3.863250078694422*^9, 
-   3.863250087598233*^9}},
+   3.863250087598233*^9}, 3.86797282888741*^9, 3.8679729210660067`*^9},
  FontSize->16,ExpressionUUID->"a791602b-d17e-4f63-9c9a-bc14d52a3d4c"],
 
 Cell[BoxData[
@@ -1522,9 +2510,9 @@ Cell[BoxData[
       RowBox[{
        RowBox[{"ToString", "[", 
         RowBox[{"parameters", ",", " ", "InputForm"}], "]"}], "<>", 
-       "\"\<\\n\\n\>\""}]}], "]"}], ";"}], 
-   StyleBox["\[IndentingNewLine]", "MessageName"], "\[IndentingNewLine]", 
+       "\"\<\\n\\n\>\""}]}], "]"}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
+   StyleBox["\[IndentingNewLine]", "MessageName"], 
    RowBox[{"(*", 
     RowBox[{
     "Initialize", " ", "various", " ", "iteration", " ", "variables", " ", 
@@ -1619,754 +2607,16 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"runStartTime", " ", "=", " ", 
      RowBox[{"AbsoluteTime", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"WorkerFunction", "[", 
-     RowBox[{"mval_", ",", "nval_"}], "]"}], ":=", "\[IndentingNewLine]", 
-    RowBox[{"Block", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"$HistoryLength", "=", "0"}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{"With", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"k", "=", "mval"}], ",", " ", 
-          RowBox[{"j", "=", "nval"}]}], "}"}], ",", "\[IndentingNewLine]", 
-        " ", 
-        RowBox[{
-         RowBox[{"\[Mu]IterationCounter", "=", "1"}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"Do", "[", "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "=", "k"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<l\>\"", "]"}], "=", 
-              RowBox[{
-               RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "+", 
-               RowBox[{"parameters", "[", "\"\<s\>\"", "]"}]}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "=", "j"}], ";", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", 
-              RowBox[{"Setup", " ", "next", " ", "iteration"}], "*)"}], 
-             "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "=", 
-              RowBox[{"i", "*", 
-               RowBox[{"parameters", "[", "\"\<m\>\"", "]"}]}]}], ";", " ", 
-             RowBox[{"(*", 
-              RowBox[{
-               RowBox[{"account", " ", "for", " ", "m"}], "-", 
-               RowBox[{
-               "dependence", " ", "of", " ", "superradiant", " ", 
-                "threshold"}]}], "*)"}], "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}], "=", 
-              RowBox[{"calcEndingX", "[", "parameters", "]"}]}], ";", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             "\[IndentingNewLine]", 
-             RowBox[{"\[Mu]IterationMessenger", " ", "=", " ", 
-              RowBox[{"\"\< Current \[Mu] Iteration: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{"\[Mu]IterationCounter", ",", " ", "InputForm"}], 
-                "]"}], "<>", "\"\<:\>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{"\[Mu]Iterations", ",", " ", "InputForm"}], "]"}]}]}],
-              ";", "\[IndentingNewLine]", 
-             RowBox[{"\[Mu]Messenger", "=", " ", 
-              RowBox[{"\"\< Current \[Mu] value: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                 " ", "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{"\"\<m Iteration Count: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{"mIterationCounter", ",", " ", "InputForm"}], "]"}], 
-               "<>", "\"\<\\n\>\""}]}], ";", " ", "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{"Logger", "<>", " ", "\"\<m Value: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                 "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", " ", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{"Logger", "<>", "\"\<n Value: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
-                 "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Logger", "=", 
-              RowBox[{"Logger", "<>", "\"\<\[Mu] Value: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                 " ", "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", " ", 
-              RowBox[{
-               RowBox[{
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"--", 
-                    RowBox[{"-", " ", "Minimization"}]}]}]}]}], " ", "using", 
-                " ", "native", " ", "Nelder", " ", "Mead", " ", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"algorithm", " ", "--"}], "--"}], "--"}], "--"}]}],
-                "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-             RowBox[{"minimizetimestart", " ", "=", " ", 
-              RowBox[{"AbsoluteTime", "[", "]"}]}], ";", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", 
-              RowBox[{
-              "Determine", " ", "next", " ", "guess", " ", "for", " ", 
-               "\[Omega]", " ", "and", " ", "\[Nu]"}], "*)"}], 
-             "\[IndentingNewLine]", 
-             RowBox[{
-              RowBox[{"\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}],
-               " ", "=", " ", "Null"}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"\[Mu]IterationCounter", "\[GreaterEqual]", "6"}], ",",
-                "\[IndentingNewLine]", 
-               RowBox[{"(*", 
-                RowBox[{
-                 RowBox[{"If", " ", 
-                  RowBox[{"we", "'"}], "re", " ", "on", " ", "the", " ", 
-                  "fifth", " ", "iteration"}], ",", " ", 
-                 RowBox[{
-                  RowBox[{"use", " ", "previous", " ", "Q"}], "-", 
-                  RowBox[{
-                  "values", " ", "to", " ", "approximate", " ", "\[Omega]"}], 
-                  "-", "value"}], ",", " ", 
-                 RowBox[{
-                  RowBox[{"instead", " ", "of", " ", "non"}], "-", 
-                  RowBox[{"rel", ".", " ", "limit"}]}]}], "*)"}], 
-               "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"\[Omega]ValHistory", " ", "=", " ", 
-                 RowBox[{"Table", "[", 
-                  RowBox[{
-                   RowBox[{"\[Omega]Holder", "[", "iter", "]"}], ",", " ", 
-                   RowBox[{"{", 
-                    RowBox[{"iter", ",", "1", ",", 
-                    RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
-                  "]"}]}], ";", "\[IndentingNewLine]", 
-                RowBox[{"\[Nu]ValHistory", " ", "=", " ", 
-                 RowBox[{"Table", "[", 
-                  RowBox[{
-                   RowBox[{"\[Nu]Holder", "[", "iter", "]"}], ",", " ", 
-                   RowBox[{"{", 
-                    RowBox[{"iter", ",", "1", ",", 
-                    RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
-                  "]"}]}], ";", "\[IndentingNewLine]", 
-                RowBox[{"\[Mu]ValHistory", " ", "=", " ", 
-                 RowBox[{"Table", "[", 
-                  RowBox[{
-                   RowBox[{"\[Mu]Holder", "[", "iter", "]"}], ",", " ", 
-                   RowBox[{"{", 
-                    RowBox[{"iter", ",", "1", ",", 
-                    RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
-                  "]"}]}], ";", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], 
-                 " ", "=", " ", 
-                 RowBox[{"Fit", "[", 
-                  RowBox[{
-                   RowBox[{"Thread", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], 
-                    "}"}], "]"}], ",", " ", 
-                   RowBox[{"{", 
-                    RowBox[{"1", ",", "\[Zeta]", ",", 
-                    SuperscriptBox["\[Zeta]", "2"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "3"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", 
-                   "\[Zeta]", ",", " ", 
-                   RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], 
-                  "]"}]}], " ", 
-                RowBox[{"(*", 
-                 RowBox[{"InterpolatingPolynomial", "[", 
-                  RowBox[{
-                   RowBox[{"Thread", "[", 
-                    RowBox[{"{", 
-                    RowBox[{
-                    "\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], 
-                    "}"}], "]"}], ",", "\[Zeta]"}], "]"}], "*)"}], 
-                RowBox[{"(*", 
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{
-                    RowBox[{"Interp", ".", " ", "Poly"}], " ", "seems", " ", 
-                    "to", " ", "fail", " ", "for", " ", "\[Omega]"}], "-", 
-                   RowBox[{"values", " ", "near", " ", "\[Mu]"}]}], "=", 
-                  "0.4"}], "*)"}], ";", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "=", 
-                 RowBox[{"Fit", "[", 
-                  RowBox[{
-                   RowBox[{"Thread", "[", 
-                    RowBox[{"{", 
-                    RowBox[{"\[Mu]ValHistory", ",", " ", "\[Nu]ValHistory"}], 
-                    "}"}], "]"}], ",", "  ", 
-                   RowBox[{"{", 
-                    RowBox[{"1", ",", "\[Zeta]", ",", 
-                    SuperscriptBox["\[Zeta]", "2"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "3"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", 
-                   "\[Zeta]", ",", " ", 
-                   RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], 
-                  "]"}]}], ";", "\[IndentingNewLine]", 
-                RowBox[{"Current\[Omega]Guess", " ", "=", " ", 
-                 RowBox[{
-                  RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], 
-                  "/.", 
-                  RowBox[{"\[Zeta]", "\[Rule]", 
-                   RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], 
-                ";", "\[IndentingNewLine]", 
-                RowBox[{"Current\[Nu]Guess", " ", "=", " ", 
-                 RowBox[{
-                  RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
-                  RowBox[{"\[Zeta]", "->", 
-                   RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], 
-                ";", "\[IndentingNewLine]", 
-                RowBox[{"omegaGuess", " ", "=", " ", "Current\[Omega]Guess"}],
-                 ";", "\[IndentingNewLine]", 
-                RowBox[{"nuGuess", " ", "=", " ", 
-                 RowBox[{
-                  RowBox[{"getNuValue", "[", 
-                   RowBox[{
-                   "omegaGuess", ",", " ", "parameters", ",", " ", 
-                    "Current\[Nu]Guess"}], "]"}], "//", "N"}]}], ";", 
-                "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{
-                 "\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}], " ",
-                  "=", " ", 
-                 RowBox[{"Function", "[", 
-                  RowBox[{
-                   RowBox[{"{", "\[Zeta]", "}"}], ",", " ", 
-                   RowBox[{"Evaluate", "@", 
-                    RowBox[{
-                    "\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}]}]}], 
-                  "]"}]}]}], "\[IndentingNewLine]", ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"(*", 
-                RowBox[{
-                 RowBox[{"use", " ", "non"}], "-", 
-                 RowBox[{
-                 "rel", " ", "limit", " ", "for", " ", "initial", " ", 
-                  "guess", " ", "of", " ", "\[Omega]", " ", "in", " ", 
-                  "first", " ", "5", " ", "iterations"}]}], "*)"}], 
-               "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"omegaGuess", " ", "=", " ", 
-                 RowBox[{"N", "[", 
-                  RowBox[{
-                   RowBox[{"omegaNRNonRel", "[", "parameters", "]"}], " ", 
-                   "+", " ", 
-                   RowBox[{"I", "*", 
-                    RowBox[{"omegaNINonRel", "[", "parameters", "]"}]}]}], 
-                  "]"}]}], ";", "\[IndentingNewLine]", 
-                RowBox[{"nuGuess", " ", "=", " ", 
-                 RowBox[{
-                  RowBox[{"getNuValue", "[", 
-                   RowBox[{"omegaGuess", ",", " ", "parameters", ",", 
-                    RowBox[{"nuNNonRel", "[", 
-                    RowBox[{"omegaGuess", ",", "parameters"}], "]"}]}], "]"}],
-                   "//", "N"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"omegaBoundarySize", " ", "=", " ", 
-              RowBox[{
-               FractionBox["1", "2"], "*", 
-               RowBox[{"(", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"omegaNRNonRel", "[", 
-                   RowBox[{"ReplacePart", "[", 
-                    RowBox[{"parameters", ",", 
-                    RowBox[{"\"\<n\>\"", "\[Rule]", 
-                    RowBox[{
-                    RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "+", 
-                    "1"}]}]}], "]"}], "]"}], " ", "-", " ", "omegaGuess"}], "//",
-                  "Re"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"omegaBoundary", " ", "=", " ", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"omegaGuess", " ", "-", " ", "omegaBoundarySize"}], 
-                ",", " ", 
-                RowBox[{"omegaGuess", "+", "omegaBoundarySize"}]}], "}"}]}], 
-             ";", "\[IndentingNewLine]", 
-             RowBox[{"(*", 
-              RowBox[{"Perform", " ", "minimization"}], "*)"}], 
-             "\[IndentingNewLine]", 
-             RowBox[{"MinimizationResults", "=", 
-              RowBox[{"RadialMinimize", "[", 
-               RowBox[{
-               "omegaGuess", ",", "  ", "nuGuess", ",", " ", "omegaBoundary", 
-                ",", "  ", "parameters", ",", " ", "WatchEvaluation", ",", 
-                RowBox[{
-                "\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}]}], 
-               "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{"Logger", "<>", " ", "\"\<Minimization Results: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"MinimizationResults", "//", "N"}], ",", " ", 
-                 "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"minimizetimestop", " ", "=", " ", 
-              RowBox[{"AbsoluteTime", "[", "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{"Logger", "<>", " ", "\"\<\\nMinimization Time: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"N", "[", 
-                  RowBox[{"minimizetimestop", "-", "minimizetimestart"}], 
-                  "]"}], ",", " ", "InputForm"}], "]"}]}]}], ";", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", " ", 
-              RowBox[{
-               RowBox[{
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"--", 
-                    RowBox[{"-", " ", "Solve"}]}]}]}]}], " ", "for", " ", 
-                "kernel", " ", "of", " ", "angular", " ", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"matrix", " ", "--"}], "--"}], "--"}], "--"}]}], 
-               "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-             RowBox[{"angulartimestart", " ", "=", " ", 
-              RowBox[{"AbsoluteTime", "[", "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Sfunctemp", " ", "=", " ", 
-              RowBox[{"Sum", "[", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"C", "[", "tempiter", "]"}], "*", 
-                 RowBox[{"SphericalHarmonicY", "[", 
-                  RowBox[{
-                   RowBox[{
-                    RowBox[{"Abs", "[", 
-                    RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "]"}], "+", 
-                    RowBox[{"2", "*", "tempiter"}], "+", 
-                    RowBox[{"parameters", "[", "\"\<\[Eta]\>\"", "]"}]}], ",", 
-                   RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", 
-                   "\[Theta]", ",", "\[Phi]"}], "]"}], "*", 
-                 RowBox[{"Exp", "[", 
-                  RowBox[{
-                   RowBox[{"-", "I"}], "*", 
-                   RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "*", 
-                   "\[Phi]"}], "]"}]}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"tempiter", ",", "0", ",", 
-                  RowBox[{"parameters", "[", "\"\<KMax\>\"", "]"}]}], "}"}]}],
-                "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"coeffs", " ", "=", " ", 
-              RowBox[{"SolveAngularSystem", "[", 
-               RowBox[{
-                RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}],
-                 ",", " ", 
-                RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], 
-                ",", "parameters"}], "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"Sfunc", "=", 
-              RowBox[{"FunctionInterpolation", "[", 
-               RowBox[{
-                RowBox[{"Evaluate", "[", 
-                 RowBox[{"Sfunctemp", "/.", "coeffs"}], "]"}], ",", " ", 
-                RowBox[{"{", 
-                 RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}]}], 
-               "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"angulartimestop", " ", "=", " ", 
-              RowBox[{"AbsoluteTime", "[", "]"}]}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{"Logger", "<>", "\"\<\\nAngular Solver Time: \>\"", "<>", 
-               RowBox[{"ToString", "[", 
-                RowBox[{
-                 RowBox[{"N", "[", 
-                  RowBox[{"angulartimestop", "-", "angulartimestart"}], "]"}],
-                  ",", " ", "InputForm"}], "]"}]}]}], ";", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             "\[IndentingNewLine]", 
-             RowBox[{"(*", " ", 
-              RowBox[{
-               RowBox[{
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"--", 
-                    RowBox[{"-", " ", "Safety"}]}]}]}]}], " ", "checks", " ", 
-                "on", " ", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"solution", " ", "--"}], "--"}], "--"}], "--"}]}], 
-               "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{
-                SuperscriptBox[
-                 RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "2"], 
-                "\[LessEqual]", 
-                SuperscriptBox[
-                 RowBox[{"Abs", "[", 
-                  RowBox[{
-                  "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], 
-                  "]"}], "2"]}], ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Print", "[", 
-                 RowBox[{"\"\<Kernel \>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
-                  "\"\< says: Error! Converged on unbound state! Breaking \
-\[Mu] iteration ... (Parameter Point: m=\>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{
-                    RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                    "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "]"}], 
-                  "<>", "\"\< \[Mu]=\>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{
-                    RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                    " ", "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], 
-                ";", "\[IndentingNewLine]", 
-                RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
-              "]"}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{
-                RowBox[{
-                 RowBox[{"TheSolution", "[", "\"\<R\>\"", "]"}], "[", 
-                 RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}], "]"}], "//", 
-                RowBox[{"Log10", ">", "1"}]}], ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Print", "[", 
-                 RowBox[{"\"\<Kernel \>\"", "<>", 
-                  RowBox[{"ToString", "[", "$KernelID", "]"}], "<>", 
-                  "\"\< says: Error! Minimization failed! Breaking \[Mu] \
-Iteration ... (Parameter Point: m=\>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{
-                    RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                    "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "]"}], 
-                  "<>", "\"\< \[Mu]=\>\"", "<>", 
-                  RowBox[{"ToString", "[", 
-                   RowBox[{
-                    RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                    " ", "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], 
-                ";", "\[IndentingNewLine]", 
-                RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
-              "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", " ", 
-              RowBox[{
-               RowBox[{
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"--", 
-                    RowBox[{"-", " ", "Output"}]}]}]}]}], " ", "solution", 
-                " ", "and", " ", "save", " ", "to", " ", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"disk", " ", "--"}], "--"}], "--"}], "--"}]}], 
-               "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"\[Mu]IterationCounter", "<", "6"}], ",", " ", 
-               RowBox[{
-               "\[Omega]fitOutVariable", "=", 
-                "\"\<Not enough iterations to construct fit\>\""}], ",", " ", 
-               
-               RowBox[{"\[Omega]fitOutVariable", "=", 
-                RowBox[{"\[Omega]Fit", "//", "DownValues"}]}]}], "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"TheSolution", " ", "=", " ", 
-              RowBox[{"<|", 
-               RowBox[{
-                RowBox[{"\"\<\[Omega]\>\"", " ", "\[Rule]", " ", 
-                 RowBox[{
-                 "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}]}], ",",
-                 "\[IndentingNewLine]", "\t\t\t    ", 
-                RowBox[{"\"\<\[Nu]\>\"", "\[Rule]", "  ", 
-                 RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}]}],
-                 ",", "\[IndentingNewLine]", "\t\t    \t", 
-                RowBox[{"\"\<R\>\"", "\[Rule]", " ", 
-                 RowBox[{"getRadialSolution", "[", 
-                  RowBox[{
-                   RowBox[{
-                   "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], ",",
-                    " ", 
-                   RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}],
-                    ",", " ", "parameters"}], "]"}]}], ",", 
-                "\[IndentingNewLine]", "\t\t             ", 
-                RowBox[{"\"\<S\>\"", "\[Rule]", " ", "Sfunc"}], ",", 
-                "\[IndentingNewLine]", "\t\t\t    ", 
-                RowBox[{
-                "\"\<AngularKernelVector\>\"", "\[Rule]", " ", "coeffs"}], 
-                ",", "\[IndentingNewLine]", "\t\t\t    ", 
-                RowBox[{"\"\<Q\>\"", "\[Rule]", " ", 
-                 RowBox[{"QValue", "[", 
-                  RowBox[{
-                   RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                   " ", 
-                   RowBox[{
-                   "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}]}], 
-                  "]"}]}], ",", "\[IndentingNewLine]", "\t\t\t    ", 
-                RowBox[{
-                "\"\<\[Omega]fit\>\"", "\[Rule]", " ", 
-                 "\[Omega]fitOutVariable"}]}], "\[IndentingNewLine]", 
-               "\t\t\t", "|>"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"RadialPlot", "=", 
-              RowBox[{"Plot", "[", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"TheSolution", "[", "\"\<R\>\"", "]"}], "[", "x", 
-                  "]"}], "//", "Abs"}], ",", " ", "\[IndentingNewLine]", 
-                RowBox[{"{", 
-                 RowBox[{"x", ",", 
-                  RowBox[{"parameters", "[", "\"\<StartingX\>\"", "]"}], ",", 
-                  " ", 
-                  RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}]}], 
-                 "}"}], ",", " ", "\[IndentingNewLine]", 
-                RowBox[{
-                "PlotLabel", "\[Rule]", 
-                 "\"\<|R(\!\(\*SubscriptBox[\(x\), \(N\)]\))|\>\""}], ",", 
-                "\[IndentingNewLine]", " ", 
-                RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
-                "\[IndentingNewLine]", " ", 
-                RowBox[{"AxesLabel", "\[Rule]", 
-                 RowBox[{"{", 
-                  RowBox[{
-                  "\"\<\!\(\*SubscriptBox[\(x\), \(N\)]\)\>\"", ",", " ", 
-                   "\"\<R(\!\(\*SubscriptBox[\(x\), \(N\)]\))\>\""}], "}"}]}],
-                 ",", "\[IndentingNewLine]", " ", 
-                RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", " ", 
-                "\[IndentingNewLine]", 
-                RowBox[{"Epilog", "\[Rule]", " ", 
-                 RowBox[{"Inset", "[", 
-                  RowBox[{"Style", "[", 
-                   RowBox[{
-                    RowBox[{"Grid", "[", 
-                    RowBox[{
-                    RowBox[{"Partition", "[", 
-                    RowBox[{
-                    RowBox[{"Table", "[", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Keys"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}], " ", "\[Rule]", 
-                    " ", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Values"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}]}], ",", " ", 
-                    RowBox[{"{", 
-                    RowBox[{"tempiter", ",", "1", ",", " ", 
-                    RowBox[{"Length", "@", "parameters"}]}], "}"}]}], "]"}], 
-                    ",", "2"}], "]"}], ",", " ", 
-                    RowBox[{"ItemSize", "\[Rule]", "18"}]}], "]"}], ",", " ", 
-                    "10"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-             ";", "\[IndentingNewLine]", 
-             RowBox[{"AngularPlot", " ", "=", 
-              RowBox[{"Plot", "[", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"TheSolution", "[", "\"\<S\>\"", "]"}], "[", 
-                  "\[Theta]", "]"}], "//", "Abs"}], ",", " ", 
-                "\[IndentingNewLine]", 
-                RowBox[{"{", 
-                 RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", 
-                " ", "\[IndentingNewLine]", 
-                RowBox[{"PlotLabel", "\[Rule]", "\"\<|S(\[Theta])|\>\""}], 
-                ",", " ", "\[IndentingNewLine]", 
-                RowBox[{"AxesLabel", "\[Rule]", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<\[Theta]\>\"", ",", " ", "\"\<\>\""}], "}"}]}],
-                 ",", "\[IndentingNewLine]", 
-                RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
-                "\[IndentingNewLine]", 
-                RowBox[{"Epilog", "\[Rule]", " ", 
-                 RowBox[{"Inset", "[", 
-                  RowBox[{"Style", "[", 
-                   RowBox[{
-                    RowBox[{"Grid", "[", 
-                    RowBox[{
-                    RowBox[{"Partition", "[", 
-                    RowBox[{
-                    RowBox[{"Table", "[", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Keys"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}], " ", "\[Rule]", 
-                    " ", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Values"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}]}], ",", " ", 
-                    RowBox[{"{", 
-                    RowBox[{"tempiter", ",", "1", ",", " ", 
-                    RowBox[{"Length", "@", "parameters"}]}], "}"}]}], "]"}], 
-                    ",", "2"}], "]"}], ",", " ", 
-                    RowBox[{"ItemSize", "\[Rule]", "18"}]}], "]"}], ",", " ", 
-                    "10"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"AppendTo", "[", 
-              RowBox[{"TheSolution", ",", " ", 
-               RowBox[{"\"\<RadialPlot\>\"", "\[Rule]", " ", "RadialPlot"}]}],
-               "]"}], ";", "\[IndentingNewLine]", 
-             RowBox[{"AppendTo", "[", 
-              RowBox[{"TheSolution", ",", " ", 
-               RowBox[{
-               "\"\<AngularPlot\>\"", "\[Rule]", " ", "AngularPlot"}]}], 
-              "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             "\[IndentingNewLine]", "\[IndentingNewLine]", 
-             RowBox[{"(*", 
-              RowBox[{
-              "Prepare", " ", "solution", " ", "data", " ", "and", " ", 
-               "write", " ", "to", " ", "disk"}], "*)"}], 
-             "\[IndentingNewLine]", 
-             RowBox[{"printData", "=", 
-              RowBox[{"parameters", "[", 
-               RowBox[{"[", 
-                RowBox[{"{", 
-                 RowBox[{
-                 "\"\<\[Epsilon]\>\"", ",", " ", "\"\<\[Mu]Nv\>\"", ",", " ", 
-                  "\"\<m\>\"", ",", " ", "\"\<\[Eta]\>\"", ",", " ", 
-                  "\"\<n\>\"", ",", " ", "\"\<l\>\"", ",", " ", "\"\<s\>\"", 
-                  ",", " ", "\"\<\[Chi]\>\"", ",", " ", "\"\<KMax\>\""}], 
-                 "}"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"CacheData", " ", "=", " ", 
-              RowBox[{"<|", " ", 
-               RowBox[{
-                RowBox[{"\"\<Parameters\>\"", "\[Rule]", " ", "parameters"}], 
-                ",", " ", 
-                RowBox[{"\"\<Solution\>\"", "\[Rule]", " ", "TheSolution"}]}],
-                "|>"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"Logger", " ", "=", " ", 
-              RowBox[{
-              "Logger", "<>", " ", "\"\<\\nCaching results to: \>\"", "<>", 
-               RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
-               "\"\<.mx\\n\\n\>\""}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{"SaveToDisk", ",", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Export", "[", 
-                 RowBox[{
-                  RowBox[{"$SolutionPath", "<>", "\"\<RunData_\>\"", "<>", 
-                   RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
-                   "\"\<.mx\>\""}], ",", " ", "CacheData"}], "]"}], ";"}]}], 
-              "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{"LogRun", ",", 
-               RowBox[{
-                RowBox[{"WriteString", "[", 
-                 RowBox[{"LogStream", ",", " ", "Logger"}], "]"}], ";"}]}], 
-              "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"--", 
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"-", " ", "Prepare"}]}]}]}]}], " ", "next", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"loop", " ", "--"}], "--"}], "--"}], "--"}]}], 
-              "-"}], " ", "*)"}], ";", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Mu]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
-             
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "//", 
-              RowBox[{
-               RowBox[{"SetPrecision", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], 
-                "]"}], "&"}]}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Omega]Holder", "[", "\[Mu]IterationCounter", "]"}], 
-             "=", 
-             RowBox[{
-              RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], "//", 
-              RowBox[{
-               RowBox[{"SetPrecision", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], 
-                "]"}], "&"}]}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Nu]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
-             
-             RowBox[{
-              RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], "//", 
-              RowBox[{
-               RowBox[{"SetPrecision", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], 
-                "]"}], "&"}]}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"\[Mu]IterationCounter", "++"}], ";"}], 
-           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-           RowBox[{"{", 
-            RowBox[{"i", ",", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]range\>\"", "]"}], "//", 
-              "First"}], ",", " ", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]range\>\"", "]"}], "//", 
-              "Last"}], ",", 
-             RowBox[{"parameters", "[", "\"\<\[Delta]\[Mu]\>\"", "]"}]}], 
-            "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
-         RowBox[{"ClearAll", "[", 
-          RowBox[{
-          "\[Mu]Holder", ",", " ", "\[Omega]Holder", ",", " ", "\[Nu]Holder", 
-           ",", " ", "TheSolution", ",", " ", "AngularPlot", ",", " ", 
-           "RadialPlot", ",", "CacheData", ",", " ", "Logger", ",", " ", 
-           "\[Omega]Fit", ",", " ", "\[Nu]Fit", ",", "\[Nu]FitFunction"}], 
-          "]"}], ";", "\[IndentingNewLine]", 
-         RowBox[{"ClearSystemCache", "[", "]"}], ";"}]}], 
-       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"Do", "[", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WorkerFunction", "[", 
       RowBox[{"mval", ",", " ", "nval"}], "]"}], ",", " ", 
      "\[IndentingNewLine]", 
      RowBox[{"{", 
-      RowBox[{"mval", ",", " ", 
+      RowBox[{"mval", ",", 
        RowBox[{
         RowBox[{"parameters", "[", "\"\<mrange\>\"", "]"}], "//", "First"}], 
-       ",", " ", 
+       ",", 
        RowBox[{
         RowBox[{"parameters", "[", "\"\<mrange\>\"", "]"}], "//", "Last"}]}], 
       "}"}], ",", "\[IndentingNewLine]", 
@@ -2374,7 +2624,7 @@ Iteration ... (Parameter Point: m=\>\"", "<>",
       RowBox[{"nval", ",", " ", 
        RowBox[{
         RowBox[{"parameters", "[", "\"\<nrange\>\"", "]"}], "//", "First"}], 
-       ",", " ", 
+       ",", 
        RowBox[{
         RowBox[{"parameters", "[", "\"\<nrange\>\"", "]"}], "//", "Last"}]}], 
       "}"}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
@@ -2397,7 +2647,6 @@ Iteration ... (Parameter Point: m=\>\"", "<>",
            " ", "InputForm"}], "]"}], "<>", "\"\< Minutes\>\""}], ",", "Blue",
         ",", " ", "Italic", ",", " ", "24"}], "]"}]}], ";"}]}]}]], "Input",
  PageWidth:>Infinity,
- CellGroupingRules->{"GroupTogetherGrouping", 10008.},
  CellChangeTimes->{{3.860218071935429*^9, 3.860218129753003*^9}, {
    3.8602182014582872`*^9, 3.860218235873823*^9}, {3.8602184532856073`*^9, 
    3.8602184674659567`*^9}, {3.860218514815071*^9, 3.860218538429093*^9}, {
@@ -2584,40 +2833,32 @@ Iteration ... (Parameter Point: m=\>\"", "<>",
    3.867549011787765*^9, {3.8678476255797462`*^9, 3.867847641740012*^9}, {
    3.8678476718803253`*^9, 3.86784768178745*^9}, {3.867847724868535*^9, 
    3.8678477434138412`*^9}, {3.8678478288480263`*^9, 3.867847846682456*^9}, {
-   3.8678486119482107`*^9, 3.867848627603351*^9}},
- CellLabel->
-  "In[146]:=",ExpressionUUID->"cf7c96fd-2cb1-4459-9fa8-c235c0656ebb"]
+   3.8678486119482107`*^9, 3.867848627603351*^9}, 3.867972921067038*^9, {
+   3.867977040917808*^9, 3.8679770436061163`*^9}, {3.8679776446709137`*^9, 
+   3.867977654206362*^9}, 3.867978453599512*^9, {3.867978719403584*^9, 
+   3.867978733959692*^9}},ExpressionUUID->"cf7c96fd-2cb1-4459-9fa8-\
+c235c0656ebb"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
-Cell["\<\
-        The Calculation (Parallelized routine over m-n space, serial over \
-\[Mu] space)\
-\>", "Subsection",
+Cell[TextData[StyleBox["The Calculation (Parallelized routine over m-n space, \
+serial over \[Mu] space)", "Abstract"]], "Subsection",
  CellChangeTimes->{{3.860224045473876*^9, 3.860224047225518*^9}, 
    3.860284705561998*^9, {3.861676948808226*^9, 3.861676953867208*^9}, {
    3.8621996987623777`*^9, 3.8621997003073587`*^9}, 3.8622223566649714`*^9, 
    3.8622223896473722`*^9, 3.862222466824465*^9, {3.863250059236438*^9, 
-   3.863250097798524*^9}},
+   3.863250097798524*^9}, 3.867972830526935*^9},
  FontSize->16,ExpressionUUID->"65ca2ede-3c4e-4450-aeab-1eb1c21a354d"],
 
 Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Specify", " ", "if", " ", "iterations", " ", "should", " ", "produces", 
+    " ", "logs", " ", "during", " ", "evaluation", " ", "that", " ", "get", 
+    " ", "printed", " ", "to", " ", "output"}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"Import", "[", 
-    RowBox[{"FileNameJoin", "[", 
-     RowBox[{"{", 
-      RowBox[{
-      "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
-       "\"\<KerrWithProca.wl\>\""}], "}"}], "]"}], "]"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Specify", " ", "if", " ", "iterations", " ", "should", " ", "produces", 
-     " ", "logs", " ", "during", " ", "evaluation", " ", "that", " ", "get", 
-     " ", "printed", " ", "to", " ", "output"}], "*)"}], 
-   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"WatchEvaluation", " ", "=", " ", "True"}], ";"}], 
    "\[IndentingNewLine]", 
@@ -2626,7 +2867,7 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"LogRun", " ", "=", " ", "True"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"SaveToDisk", "=", "False"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"SaveToDisk", "=", "True"}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
@@ -2658,822 +2899,6 @@ Cell[BoxData[
     ";"}], "\[IndentingNewLine]", 
    RowBox[{"Dynamic", "[", "Messenger", "]"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
-   RowBox[{"(*", " ", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"--", 
-       RowBox[{"--", 
-        RowBox[{"-", " ", "Define"}]}]}], " ", "Worker", " ", 
-      RowBox[{
-       RowBox[{"function", " ", "--"}], "--"}]}], "-"}], " ", "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"WorkerFunction", "[", 
-     RowBox[{"mval_", ",", "nval_"}], "]"}], ":=", "\[IndentingNewLine]", 
-    RowBox[{"Block", "[", 
-     RowBox[{
-      RowBox[{"{", 
-       RowBox[{"$HistoryLength", "=", "0"}], "}"}], ",", 
-      "\[IndentingNewLine]", 
-      RowBox[{"With", "[", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"k", "=", "mval"}], ",", " ", 
-          RowBox[{"j", "=", "nval"}]}], "}"}], ",", "\[IndentingNewLine]", 
-        " ", 
-        RowBox[{
-         RowBox[{"\[Mu]IterationCounter", "=", "1"}], ";", 
-         "\[IndentingNewLine]", 
-         RowBox[{"Do", "[", "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "=", "k"}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"parameters", "[", "\"\<l\>\"", "]"}], "=", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "+", 
-              RowBox[{"parameters", "[", "\"\<s\>\"", "]"}]}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "=", "j"}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{"Setup", " ", "next", " ", "iteration"}], "*)"}], 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "=", 
-             RowBox[{"i", "*", 
-              RowBox[{"parameters", "[", "\"\<m\>\"", "]"}]}]}], ";", " ", 
-            RowBox[{"(*", 
-             RowBox[{
-              RowBox[{"account", " ", "for", " ", "m"}], "-", 
-              RowBox[{
-              "dependence", " ", "of", " ", "superradiant", " ", 
-               "threshold"}]}], "*)"}], "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}], "=", 
-             RowBox[{"calcEndingX", "[", "parameters", "]"}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"CurrentParameterPoint", "[", 
-              RowBox[{"[", 
-               RowBox[{"$KernelID", "/.", "KernelsRule"}], "]"}], "]"}], "=", 
-             
-             RowBox[{"\"\<Kernel \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
-              "\"\< executing search with parameters m=\>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
-                "InputForm"}], "]"}], "<>", "\"\< \[Mu]=\>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ",
-                 "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"\[Mu]IterationMessenger", " ", "=", " ", 
-             RowBox[{"\"\< Current \[Mu] Iteration: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{"\[Mu]IterationCounter", ",", " ", "InputForm"}], 
-               "]"}], "<>", "\"\<:\>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{"\[Mu]Iterations", ",", " ", "InputForm"}], "]"}]}]}], 
-            ";", "\[IndentingNewLine]", 
-            RowBox[{"\[Mu]Messenger", "=", " ", 
-             RowBox[{"\"\< Current \[Mu] value: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ",
-                 "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"\"\<m Iteration Count: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{"mIterationCounter", ",", " ", "InputForm"}], "]"}], 
-              "<>", "\"\<\\n\>\""}]}], ";", " ", "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"Logger", "<>", " ", "\"\<m Value: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", " ", 
-            "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"Logger", "<>", "\"\<n Value: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
-                "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"Logger", "=", 
-             RowBox[{"Logger", "<>", "\"\<\[Mu] Value: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", " ",
-                 "InputForm"}], "]"}], "<>", "\"\<\\n\>\""}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"--", 
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"-", " ", "Minimization"}]}]}]}]}], " ", "using", 
-               " ", "native", " ", "Nelder", " ", "Mead", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"algorithm", " ", "--"}], "--"}], "--"}], "--"}]}], 
-              "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-            RowBox[{"minimizetimestart", " ", "=", " ", 
-             RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]",
-             "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{
-             "Determine", " ", "next", " ", "guess", " ", "for", " ", 
-              "\[Omega]", " ", "and", " ", "\[Nu]"}], "*)"}], 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}], 
-             " ", "=", " ", "Null"}], ";", "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{"\[Mu]IterationCounter", "\[GreaterEqual]", "6"}], ",", 
-              "\[IndentingNewLine]", 
-              RowBox[{"(*", 
-               RowBox[{
-                RowBox[{"If", " ", 
-                 RowBox[{"we", "'"}], "re", " ", "on", " ", "the", " ", 
-                 "fifth", " ", "iteration"}], ",", " ", 
-                RowBox[{
-                 RowBox[{"use", " ", "previous", " ", "Q"}], "-", 
-                 RowBox[{
-                 "values", " ", "to", " ", "approximate", " ", "\[Omega]"}], 
-                 "-", "value"}], ",", " ", 
-                RowBox[{
-                 RowBox[{"instead", " ", "of", " ", "non"}], "-", 
-                 RowBox[{"rel", ".", " ", "limit"}]}]}], "*)"}], 
-              "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"\[Omega]ValHistory", " ", "=", " ", 
-                RowBox[{"Table", "[", 
-                 RowBox[{
-                  RowBox[{"\[Omega]Holder", "[", "iter", "]"}], ",", " ", 
-                  RowBox[{"{", 
-                   RowBox[{"iter", ",", "1", ",", 
-                    RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
-                 "]"}]}], ";", "\[IndentingNewLine]", 
-               RowBox[{"\[Nu]ValHistory", " ", "=", " ", 
-                RowBox[{"Table", "[", 
-                 RowBox[{
-                  RowBox[{"\[Nu]Holder", "[", "iter", "]"}], ",", " ", 
-                  RowBox[{"{", 
-                   RowBox[{"iter", ",", "1", ",", 
-                    RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
-                 "]"}]}], ";", "\[IndentingNewLine]", 
-               RowBox[{"\[Mu]ValHistory", " ", "=", " ", 
-                RowBox[{"Table", "[", 
-                 RowBox[{
-                  RowBox[{"\[Mu]Holder", "[", "iter", "]"}], ",", " ", 
-                  RowBox[{"{", 
-                   RowBox[{"iter", ",", "1", ",", 
-                    RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], 
-                 "]"}]}], ";", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], 
-                " ", "=", " ", 
-                RowBox[{"Fit", "[", 
-                 RowBox[{
-                  RowBox[{"Thread", "[", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], 
-                    "}"}], "]"}], ",", " ", 
-                  RowBox[{"{", 
-                   RowBox[{"1", ",", "\[Zeta]", ",", 
-                    SuperscriptBox["\[Zeta]", "2"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "3"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", 
-                  "\[Zeta]", ",", " ", 
-                  RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], 
-                 "]"}]}], " ", 
-               RowBox[{"(*", 
-                RowBox[{"InterpolatingPolynomial", "[", 
-                 RowBox[{
-                  RowBox[{"Thread", "[", 
-                   RowBox[{"{", 
-                    RowBox[{
-                    "\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], 
-                    "}"}], "]"}], ",", "\[Zeta]"}], "]"}], "*)"}], 
-               RowBox[{"(*", 
-                RowBox[{
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"Interp", ".", " ", "Poly"}], " ", "seems", " ", 
-                   "to", " ", "fail", " ", "for", " ", "\[Omega]"}], "-", 
-                  RowBox[{"values", " ", "near", " ", "\[Mu]"}]}], "=", 
-                 "0.4"}], "*)"}], ";", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "=", 
-                
-                RowBox[{"Fit", "[", 
-                 RowBox[{
-                  RowBox[{"Thread", "[", 
-                   RowBox[{"{", 
-                    RowBox[{"\[Mu]ValHistory", ",", " ", "\[Nu]ValHistory"}], 
-                    "}"}], "]"}], ",", "  ", 
-                  RowBox[{"{", 
-                   RowBox[{"1", ",", "\[Zeta]", ",", 
-                    SuperscriptBox["\[Zeta]", "2"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "3"], ",", " ", 
-                    SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", 
-                  "\[Zeta]", ",", " ", 
-                  RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], 
-                 "]"}]}], ";", "\[IndentingNewLine]", 
-               RowBox[{"Current\[Omega]Guess", " ", "=", " ", 
-                RowBox[{
-                 RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
-                 RowBox[{"\[Zeta]", "\[Rule]", 
-                  RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], 
-               ";", "\[IndentingNewLine]", 
-               RowBox[{"Current\[Nu]Guess", " ", "=", " ", 
-                RowBox[{
-                 RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
-                 RowBox[{"\[Zeta]", "->", 
-                  RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], 
-               ";", "\[IndentingNewLine]", 
-               RowBox[{"omegaGuess", " ", "=", " ", "Current\[Omega]Guess"}], 
-               ";", "\[IndentingNewLine]", 
-               RowBox[{"nuGuess", " ", "=", " ", 
-                RowBox[{
-                 RowBox[{"getNuValue", "[", 
-                  RowBox[{
-                  "omegaGuess", ",", " ", "parameters", ",", " ", 
-                   "Current\[Nu]Guess"}], "]"}], "//", "N"}]}], ";", 
-               "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{
-                "\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}], " ", 
-                "=", " ", 
-                RowBox[{"Function", "[", 
-                 RowBox[{
-                  RowBox[{"{", "\[Zeta]", "}"}], ",", " ", 
-                  RowBox[{"Evaluate", "@", 
-                   RowBox[{
-                   "\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}]}]}], 
-                 "]"}]}]}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-              RowBox[{"(*", 
-               RowBox[{
-                RowBox[{"use", " ", "non"}], "-", 
-                RowBox[{
-                "rel", " ", "limit", " ", "for", " ", "initial", " ", "guess",
-                  " ", "of", " ", "\[Omega]", " ", "in", " ", "first", " ", 
-                 "4", " ", "iterations"}]}], "*)"}], "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"omegaGuess", " ", "=", " ", 
-                RowBox[{"N", "[", 
-                 RowBox[{
-                  RowBox[{"omegaNRNonRel", "[", "parameters", "]"}], " ", "+",
-                   " ", 
-                  RowBox[{"I", "*", 
-                   RowBox[{"omegaNINonRel", "[", "parameters", "]"}]}]}], 
-                 "]"}]}], ";", "\[IndentingNewLine]", 
-               RowBox[{"nuGuess", " ", "=", " ", 
-                RowBox[{
-                 RowBox[{"getNuValue", "[", 
-                  RowBox[{"omegaGuess", ",", " ", "parameters", ",", 
-                   RowBox[{"nuNNonRel", "[", 
-                    RowBox[{"omegaGuess", ",", "parameters"}], "]"}]}], "]"}],
-                  "//", "N"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"omegaBoundarySize", " ", "=", " ", 
-             RowBox[{
-              FractionBox["1", "2"], "*", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"omegaNRNonRel", "[", 
-                  RowBox[{"ReplacePart", "[", 
-                   RowBox[{"parameters", ",", 
-                    RowBox[{"\"\<n\>\"", "\[Rule]", 
-                    RowBox[{
-                    RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "+", 
-                    "1"}]}]}], "]"}], "]"}], " ", "-", " ", "omegaGuess"}], "//",
-                 "Re"}], ")"}]}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"omegaBoundary", " ", "=", " ", 
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"omegaGuess", " ", "-", " ", "omegaBoundarySize"}], 
-               ",", " ", 
-               RowBox[{"omegaGuess", "+", "omegaBoundarySize"}]}], "}"}]}], 
-            ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{"Perform", " ", "minimization"}], "*)"}], 
-            "\[IndentingNewLine]", 
-            RowBox[{"MinimizationResults", "=", 
-             RowBox[{"RadialMinimize", "[", 
-              RowBox[{
-              "omegaGuess", ",", "  ", "nuGuess", ",", " ", "omegaBoundary", 
-               ",", "  ", "parameters", ",", " ", "WatchEvaluation", ",", 
-               RowBox[{
-               "\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}]}], 
-              "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"Logger", "<>", " ", "\"\<Minimization Results: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"MinimizationResults", "//", "N"}], ",", " ", 
-                "InputForm"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"minimizetimestop", " ", "=", " ", 
-             RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"Logger", "<>", " ", "\"\<\\nMinimization Time: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"N", "[", 
-                 RowBox[{"minimizetimestop", "-", "minimizetimestart"}], 
-                 "]"}], ",", " ", "InputForm"}], "]"}]}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"--", 
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"-", " ", "Solve"}]}]}]}]}], " ", "for", " ", 
-               "kernel", " ", "of", " ", "angular", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"matrix", " ", "--"}], "--"}], "--"}], "--"}]}], 
-              "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-            RowBox[{"angulartimestart", " ", "=", " ", 
-             RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"Sfunctemp", " ", "=", " ", 
-             RowBox[{"Sum", "[", 
-              RowBox[{
-               RowBox[{
-                RowBox[{"C", "[", "tempiter", "]"}], "*", 
-                RowBox[{"SphericalHarmonicY", "[", 
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{"Abs", "[", 
-                    RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "]"}], "+", 
-                   RowBox[{"2", "*", "tempiter"}], "+", 
-                   RowBox[{"parameters", "[", "\"\<\[Eta]\>\"", "]"}]}], ",", 
-                  
-                  RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", 
-                  "\[Theta]", ",", "\[Phi]"}], "]"}], "*", 
-                RowBox[{"Exp", "[", 
-                 RowBox[{
-                  RowBox[{"-", "I"}], "*", 
-                  RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], "*", 
-                  "\[Phi]"}], "]"}]}], ",", " ", 
-               RowBox[{"{", 
-                RowBox[{"tempiter", ",", "0", ",", 
-                 RowBox[{"parameters", "[", "\"\<KMax\>\"", "]"}]}], "}"}]}], 
-              "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"coeffs", " ", "=", " ", 
-             RowBox[{"SolveAngularSystem", "[", 
-              RowBox[{
-               RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], 
-               ",", " ", 
-               RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], 
-               ",", "parameters"}], "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"Sfunc", "=", 
-             RowBox[{"FunctionInterpolation", "[", 
-              RowBox[{
-               RowBox[{"Evaluate", "[", 
-                RowBox[{"Sfunctemp", "/.", "coeffs"}], "]"}], ",", " ", 
-               RowBox[{"{", 
-                RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}]}], 
-              "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"angulartimestop", " ", "=", " ", 
-             RowBox[{"AbsoluteTime", "[", "]"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"Logger", "<>", "\"\<\\nAngular Solver Time: \>\"", "<>", 
-              RowBox[{"ToString", "[", 
-               RowBox[{
-                RowBox[{"N", "[", 
-                 RowBox[{"angulartimestop", "-", "angulartimestart"}], "]"}], 
-                ",", " ", "InputForm"}], "]"}]}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"--", 
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"-", " ", "Safety"}]}]}]}]}], " ", "checks", " ", 
-               "on", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"solution", " ", "--"}], "--"}], "--"}], "--"}]}], 
-              "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{
-               SuperscriptBox[
-                RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "2"], 
-               "\[LessEqual]", 
-               SuperscriptBox[
-                RowBox[{"Abs", "[", 
-                 RowBox[{
-                 "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], "]"}],
-                 "2"]}], ",", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"Print", "[", 
-                RowBox[{"\"\<Kernel \>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
-                 "\"\< says: Error! Frequency larger than field mass! \
-Breaking \[Mu] iteration ... (Parameter Point: m=\>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{
-                   RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                   "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "]"}], "<>", 
-                 "\"\< \[Mu]=\>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{
-                   RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                   " ", "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], ";",
-                "\[IndentingNewLine]", 
-               RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
-             "]"}], ";", "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                RowBox[{"TheSolution", "[", "\"\<R\>\"", "]"}], "[", 
-                RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}], "]"}], "//", 
-               RowBox[{"Log10", ">", "1"}]}], ",", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"Print", "[", 
-                RowBox[{"\"\<Kernel \>\"", "<>", 
-                 RowBox[{"ToString", "[", "$KernelID", "]"}], "<>", 
-                 "\"\< says: Error! Minimization failed! Breaking \[Mu] \
-Iteration ... (Parameter Point: m=\>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{
-                   RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                   "InputForm"}], "]"}], "<>", "\"\< n=\>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], "]"}], "<>", 
-                 "\"\< \[Mu]=\>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{
-                   RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                   " ", "InputForm"}], "]"}], "<>", "\"\<)\>\""}], "]"}], ";",
-                "\[IndentingNewLine]", 
-               RowBox[{"Break", "[", "]"}], ";"}]}], "\[IndentingNewLine]", 
-             "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"--", 
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"-", " ", "Output"}]}]}]}]}], " ", "solution", " ",
-                "and", " ", "save", " ", "to", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"disk", " ", "--"}], "--"}], "--"}], "--"}]}], 
-              "-"}], " ", "*)"}], "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{
-              RowBox[{"\[Mu]IterationCounter", "<", "6"}], ",", " ", 
-              "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{
-               "\[Omega]fitOutVariable", "=", 
-                "\"\<Not enough iterations to construct fit\>\""}], ";", 
-               "\[IndentingNewLine]", 
-               RowBox[{
-               "\[Nu]fitOutVariable", "=", 
-                "\"\<Not enough iterations to construct fit\>\""}], ";"}], 
-              ",", " ", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"\[Nu]fitOutVariable", "=", 
-                RowBox[{"\[Nu]Fit", "//", "DownValues"}]}], ";", 
-               "\[IndentingNewLine]", " ", 
-               RowBox[{"\[Omega]fitOutVariable", "=", 
-                RowBox[{"\[Omega]Fit", "//", "DownValues"}]}], ";"}]}], 
-             "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-            RowBox[{"TheSolution", " ", "=", " ", 
-             RowBox[{"<|", 
-              RowBox[{
-               RowBox[{"\"\<\[Omega]\>\"", " ", "\[Rule]", " ", 
-                RowBox[{
-                "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}]}], ",", 
-               "\[IndentingNewLine]", "\t\t\t    ", 
-               RowBox[{"\"\<\[Nu]\>\"", "\[Rule]", "  ", 
-                RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}]}], 
-               ",", "\[IndentingNewLine]", "\t\t    \t", 
-               RowBox[{"\"\<R\>\"", "\[Rule]", " ", 
-                RowBox[{"getRadialSolution", "[", 
-                 RowBox[{
-                  RowBox[{
-                  "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], ",", 
-                  " ", 
-                  RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], 
-                  ",", " ", "parameters"}], "]"}]}], ",", 
-               "\[IndentingNewLine]", "\t\t             ", 
-               RowBox[{"\"\<S\>\"", "\[Rule]", " ", "Sfunc"}], ",", 
-               "\[IndentingNewLine]", "\t\t\t    ", 
-               RowBox[{
-               "\"\<AngularKernelVector\>\"", "\[Rule]", " ", "coeffs"}], ",",
-                "\[IndentingNewLine]", "\t\t\t    ", 
-               RowBox[{"\"\<Q\>\"", "\[Rule]", " ", 
-                RowBox[{"QValue", "[", 
-                 RowBox[{
-                  RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                  " ", 
-                  RowBox[{
-                  "MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}]}], 
-                 "]"}]}], ",", "\[IndentingNewLine]", "\t\t\t    ", 
-               RowBox[{
-               "\"\<\[Omega]fit\>\"", "\[Rule]", " ", 
-                "\[Omega]fitOutVariable"}], ",", "\[IndentingNewLine]", 
-               "\t\t\t    ", 
-               RowBox[{
-               "\"\<\[Nu]fit\>\"", "->", " ", "\[Nu]fitOutVariable"}]}], 
-              "\[IndentingNewLine]", "\t\t\t", "|>"}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"RadialPlot", "=", 
-             RowBox[{"LogLinearPlot", "[", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{
-                RowBox[{
-                 RowBox[{"TheSolution", "[", "\"\<R\>\"", "]"}], "[", "r", 
-                 "]"}], "//", "Abs"}], ",", " ", "\[IndentingNewLine]", 
-               RowBox[{"{", 
-                RowBox[{"r", ",", 
-                 RowBox[{"parameters", "[", "\"\<StartingX\>\"", "]"}], ",", 
-                 " ", 
-                 RowBox[{"parameters", "[", "\"\<EndingX\>\"", "]"}]}], "}"}],
-                ",", " ", "\[IndentingNewLine]", 
-               RowBox[{
-               "PlotLabel", "\[Rule]", 
-                "\"\<|R(\!\(\*SubscriptBox[\(x\), \(N\)]\))|\>\""}], ",", 
-               "\[IndentingNewLine]", " ", 
-               RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
-               "\[IndentingNewLine]", " ", 
-               RowBox[{"AxesLabel", "\[Rule]", 
-                RowBox[{"{", 
-                 RowBox[{
-                 "\"\<\!\(\*SubscriptBox[\(x\), \(N\)]\)\>\"", ",", " ", 
-                  "\"\<R(\!\(\*SubscriptBox[\(x\), \(N\)]\))\>\""}], "}"}]}], 
-               ",", "\[IndentingNewLine]", " ", 
-               RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", " ", 
-               "\[IndentingNewLine]", 
-               RowBox[{"Epilog", "\[Rule]", " ", 
-                RowBox[{"Inset", "[", 
-                 RowBox[{"Style", "[", 
-                  RowBox[{
-                   RowBox[{"Grid", "[", 
-                    RowBox[{
-                    RowBox[{"Partition", "[", 
-                    RowBox[{
-                    RowBox[{"Table", "[", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Keys"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}], " ", "\[Rule]", 
-                    " ", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Values"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}]}], ",", " ", 
-                    RowBox[{"{", 
-                    RowBox[{"tempiter", ",", "1", ",", " ", 
-                    RowBox[{"Length", "@", "parameters"}]}], "}"}]}], "]"}], 
-                    ",", "2"}], "]"}], ",", " ", 
-                    RowBox[{"ItemSize", "\[Rule]", "18"}]}], "]"}], ",", " ", 
-                   "10"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-            ";", "\[IndentingNewLine]", 
-            RowBox[{"AngularPlot", " ", "=", 
-             RowBox[{"Plot", "[", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{
-                RowBox[{
-                 RowBox[{"TheSolution", "[", "\"\<S\>\"", "]"}], "[", 
-                 "\[Theta]", "]"}], "//", "Abs"}], ",", " ", 
-               "\[IndentingNewLine]", 
-               RowBox[{"{", 
-                RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", " ",
-                "\[IndentingNewLine]", 
-               RowBox[{"PlotLabel", "\[Rule]", "\"\<|S(\[Theta])|\>\""}], ",",
-                " ", "\[IndentingNewLine]", 
-               RowBox[{"AxesLabel", "\[Rule]", 
-                RowBox[{"{", 
-                 RowBox[{"\"\<\[Theta]\>\"", ",", " ", "\"\<\>\""}], "}"}]}], 
-               ",", "\[IndentingNewLine]", 
-               RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
-               "\[IndentingNewLine]", 
-               RowBox[{"Epilog", "\[Rule]", " ", 
-                RowBox[{"Inset", "[", 
-                 RowBox[{"Style", "[", 
-                  RowBox[{
-                   RowBox[{"Grid", "[", 
-                    RowBox[{
-                    RowBox[{"Partition", "[", 
-                    RowBox[{
-                    RowBox[{"Table", "[", 
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Keys"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}], " ", "\[Rule]", 
-                    " ", 
-                    RowBox[{
-                    RowBox[{"(", 
-                    RowBox[{"parameters", "//", "Values"}], ")"}], "[", 
-                    RowBox[{"[", "tempiter", "]"}], "]"}]}], ",", " ", 
-                    RowBox[{"{", 
-                    RowBox[{"tempiter", ",", "1", ",", " ", 
-                    RowBox[{"Length", "@", "parameters"}]}], "}"}]}], "]"}], 
-                    ",", "2"}], "]"}], ",", " ", 
-                    RowBox[{"ItemSize", "\[Rule]", "18"}]}], "]"}], ",", " ", 
-                   "10"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-            ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"AppendTo", "[", 
-             RowBox[{"TheSolution", ",", " ", 
-              RowBox[{"\"\<RadialPlot\>\"", "\[Rule]", " ", "RadialPlot"}]}], 
-             "]"}], ";", "\[IndentingNewLine]", 
-            RowBox[{"AppendTo", "[", 
-             RowBox[{"TheSolution", ",", " ", 
-              RowBox[{
-              "\"\<AngularPlot\>\"", "\[Rule]", " ", "AngularPlot"}]}], "]"}],
-             ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{
-             "Append", " ", "solution", " ", "data", " ", "to", " ", 
-              "parallelization", " ", "watcher"}], "*)"}], 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"CurrentResult", "[", 
-              RowBox[{"[", 
-               RowBox[{"$KernelID", "/.", "KernelsRule"}], "]"}], "]"}], " ", 
-             "=", " ", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", 
-               RowBox[{
-                RowBox[{"\"\<Result for Kernel \>\"", "<>", 
-                 RowBox[{"ToString", "[", 
-                  RowBox[{"$KernelID", ",", " ", "InputForm"}], "]"}], "<>", 
-                 "\"\<: \>\""}], ",", " ", 
-                RowBox[{"Show", "[", 
-                 RowBox[{"RadialPlot", ",", " ", 
-                  RowBox[{"ImageSize", "->", "Small"}], ",", " ", 
-                  RowBox[{"Epilog", "->", " ", 
-                   RowBox[{"Inset", "[", 
-                    RowBox[{
-                    RowBox[{"Framed", "[", 
-                    RowBox[{"\"\<\[Mu]Nv: \>\"", "<>", 
-                    RowBox[{"ToString", "[", 
-                    RowBox[{
-                    RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], ",", 
-                    " ", "InputForm"}], "]"}], "<>", "\"\<\\nm: \>\"", "<>", 
-                    RowBox[{"ToString", "[", 
-                    RowBox[{
-                    RowBox[{"parameters", "[", "\"\<m\>\"", "]"}], ",", " ", 
-                    "InputForm"}], "]"}], "<>", "\"\<\\nn: \>\"", "<>", 
-                    RowBox[{"ToString", "[", 
-                    RowBox[{
-                    RowBox[{"parameters", "[", "\"\<n\>\"", "]"}], ",", " ", 
-                    "InputForm"}], "]"}]}], "]"}], ",", " ", "Center"}], 
-                    "]"}]}]}], "]"}], ",", " ", 
-                RowBox[{"Spacer", "[", "5", "]"}]}], "}"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"(*", 
-             RowBox[{
-             "Prepare", " ", "solution", " ", "data", " ", "and", " ", 
-              "write", " ", "to", " ", "disk"}], "*)"}], 
-            "\[IndentingNewLine]", 
-            RowBox[{"printData", "=", 
-             RowBox[{"parameters", "[", 
-              RowBox[{"[", 
-               RowBox[{"{", 
-                RowBox[{
-                "\"\<\[Epsilon]\>\"", ",", " ", "\"\<\[Mu]Nv\>\"", ",", " ", 
-                 "\"\<m\>\"", ",", " ", "\"\<\[Eta]\>\"", ",", " ", 
-                 "\"\<n\>\"", ",", " ", "\"\<l\>\"", ",", " ", "\"\<s\>\"", 
-                 ",", " ", "\"\<\[Chi]\>\"", ",", " ", "\"\<KMax\>\"", ",", 
-                 " ", "\"\<branch\>\""}], "}"}], "]"}], "]"}]}], ";", 
-            "\[IndentingNewLine]", 
-            RowBox[{"CacheData", " ", "=", " ", 
-             RowBox[{"<|", " ", 
-              RowBox[{
-               RowBox[{"\"\<Parameters\>\"", "\[Rule]", " ", "parameters"}], 
-               ",", " ", 
-               RowBox[{"\"\<Solution\>\"", "\[Rule]", " ", "TheSolution"}]}], 
-              "|>"}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"Logger", " ", "=", " ", 
-             RowBox[{"Logger", "<>", " ", "\"\<\\nCaching results to: \>\"", "<>", 
-              RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
-              "\"\<.mx\\n\\n\>\""}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{"SaveToDisk", ",", "\[IndentingNewLine]", 
-              RowBox[{
-               RowBox[{"Export", "[", 
-                RowBox[{
-                 RowBox[{"$SolutionPath", "<>", "\"\<RunData_\>\"", "<>", 
-                  RowBox[{"assocToString", "[", "printData", "]"}], "<>", 
-                  "\"\<.mx\>\""}], ",", " ", "CacheData"}], "]"}], ";"}]}], 
-             "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-            RowBox[{"If", "[", 
-             RowBox[{"LogRun", ",", 
-              RowBox[{"Logger", ">>>", "LogFile"}]}], "]"}], ";", 
-            "\[IndentingNewLine]", "\[IndentingNewLine]", 
-            RowBox[{"(*", " ", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"--", 
-                RowBox[{"--", 
-                 RowBox[{"--", 
-                  RowBox[{"--", 
-                   RowBox[{"-", " ", "Prepare"}]}]}]}]}], " ", "next", " ", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  RowBox[{"loop", " ", "--"}], "--"}], "--"}], "--"}]}], 
-              "-"}], " ", "*)"}], ";", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Mu]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
-             
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}], "//", 
-              RowBox[{
-               RowBox[{"SetPrecision", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], 
-                "]"}], "&"}]}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Omega]Holder", "[", "\[Mu]IterationCounter", "]"}], 
-             "=", 
-             RowBox[{
-              RowBox[{"MinimizationResults", "[", "\"\<\[Omega]\>\"", "]"}], "//", 
-              RowBox[{
-               RowBox[{"SetPrecision", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], 
-                "]"}], "&"}]}]}], ";", "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"\[Nu]Holder", "[", "\[Mu]IterationCounter", "]"}], "=", 
-             
-             RowBox[{
-              RowBox[{"MinimizationResults", "[", "\"\<\[Nu]\>\"", "]"}], "//", 
-              RowBox[{
-               RowBox[{"SetPrecision", "[", 
-                RowBox[{"#", ",", 
-                 RowBox[{"parameters", "[", "\"\<precision\>\"", "]"}]}], 
-                "]"}], "&"}]}]}], ";", "\[IndentingNewLine]", 
-            "\[IndentingNewLine]", 
-            RowBox[{"\[Mu]IterationCounter", "++"}], ";"}], 
-           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
-           RowBox[{"{", 
-            RowBox[{"i", ",", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]range\>\"", "]"}], "//", 
-              "First"}], ",", " ", 
-             RowBox[{
-              RowBox[{"parameters", "[", "\"\<\[Mu]range\>\"", "]"}], "//", 
-              "Last"}], ",", 
-             RowBox[{"parameters", "[", "\"\<\[Delta]\[Mu]\>\"", "]"}]}], 
-            "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
-         RowBox[{"ClearAll", "[", 
-          RowBox[{
-          "\[Mu]Holder", ",", " ", "\[Omega]Holder", ",", " ", "\[Nu]Holder", 
-           ",", " ", "TheSolution", ",", " ", "AngularPlot", ",", " ", 
-           "RadialPlot", ",", "CacheData", ",", " ", "Logger", ",", " ", 
-           "\[Omega]Fit", ",", " ", "\[Nu]Fit", ",", "\[Nu]FitFunction"}], 
-          "]"}], ";", "\[IndentingNewLine]", 
-         RowBox[{"ClearSystemCache", "[", "]"}], ";"}]}], 
-       "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", " ", 
     RowBox[{
      RowBox[{
@@ -3844,10 +3269,16 @@ Iteration ... (Parameter Point: m=\>\"", "<>",
    3.867850990367594*^9}, {3.867851097217211*^9, 3.867851100623987*^9}, {
    3.8678517017319603`*^9, 3.8678517027031393`*^9}, {3.8678517624604673`*^9, 
    3.8678517672120867`*^9}, {3.867852350941918*^9, 3.867852352228747*^9}, 
-   3.867900175402791*^9, 3.867900320760133*^9},
- CellLabel->"In[40]:=",ExpressionUUID->"42f8a604-ae9a-4065-9966-d42107d60481"]
+   3.867900175402791*^9, 3.867900320760133*^9, {3.867922024947173*^9, 
+   3.867922025348239*^9}, 3.867922090561597*^9, {3.867922180155077*^9, 
+   3.867922200835054*^9}, {3.8679372587730207`*^9, 3.8679372663021193`*^9}, {
+   3.867937315486479*^9, 3.867937321677486*^9}, {3.867937352092514*^9, 
+   3.8679373928529043`*^9}, {3.867937424084188*^9, 3.867937453891058*^9}, {
+   3.8679374859849367`*^9, 3.867937609945511*^9}, {3.8679729634470253`*^9, 
+   3.867972974800158*^9}, {3.867973166641494*^9, 3.867973171317254*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"42f8a604-ae9a-4065-9966-d42107d60481"]
 }, Closed]]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -4964,7 +4395,7 @@ frhluTmI7pgjuu0qkD7o+noviFYUVJjEdvKN46Sw2ukgGgDcbN+g
 }, Closed]],
 
 Cell["", "Section",ExpressionUUID->"0680d68d-7614-4e5b-af91-b81663b98071"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -5225,11 +4656,11 @@ Cell[BoxData[
 }, Closed]]
 }, Open  ]]
 },
-WindowSize->{720, 756},
-WindowMargins->{{Automatic, 0}, {0, Automatic}},
+WindowSize->{1440, 792},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 TaggingRules-><|"TryRealOnly" -> False|>,
 Magnification:>0.75 Inherited,
-FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"d54a4841-54dd-424d-bcdd-de508451de63"
 ]
@@ -5239,135 +4670,135 @@ ExpressionUUID->"d54a4841-54dd-424d-bcdd-de508451de63"
 (*CellTagsOutline
 CellTagsIndex->{
  "CalculationParameters"->{
-  Cell[18107, 524, 16942, 316, 1155, "Input",ExpressionUUID->"2d372041-7545-4f64-ba88-a8d6900c9986",
+  Cell[18183, 525, 17118, 319, 1480, "Input",ExpressionUUID->"2d372041-7545-4f64-ba88-a8d6900c9986",
    CellGroupingRules->{"GroupTogetherGrouping", 10009.},
    CellTags->"CalculationParameters"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"CalculationParameters", 238907, 5240}
+ {"CalculationParameters", 210753, 4671}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 208, 3, 86, "Title",ExpressionUUID->"a520f2fe-30e2-445d-9acc-363a9a1c0ab5"],
+Cell[580, 22, 208, 3, 106, "Title",ExpressionUUID->"a520f2fe-30e2-445d-9acc-363a9a1c0ab5"],
 Cell[CellGroupData[{
-Cell[813, 29, 161, 3, 52, "Chapter",ExpressionUUID->"49477c42-b03c-4122-976e-ee09d9710d3b"],
-Cell[977, 34, 3335, 88, 377, "Input",ExpressionUUID->"0a8963d9-1258-4765-941f-27f15cb0a19d",
+Cell[813, 29, 161, 3, 64, "Chapter",ExpressionUUID->"49477c42-b03c-4122-976e-ee09d9710d3b"],
+Cell[977, 34, 3339, 89, 469, "Input",ExpressionUUID->"0a8963d9-1258-4765-941f-27f15cb0a19d",
  InitializationCell->True]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[4349, 127, 179, 3, 45, "Chapter",ExpressionUUID->"df48b12c-51f1-4ad9-8ea2-45bd9e6e503b"],
+Cell[4353, 128, 179, 3, 54, "Chapter",ExpressionUUID->"df48b12c-51f1-4ad9-8ea2-45bd9e6e503b"],
 Cell[CellGroupData[{
-Cell[4553, 134, 173, 3, 40, "Subsection",ExpressionUUID->"dd52479d-ea50-4784-a350-bc34131f0e0a"],
-Cell[4729, 139, 1538, 41, 130, "Input",ExpressionUUID->"30d1db00-df40-4fd1-9db0-cdcf650ecbc8"]
+Cell[4557, 135, 173, 3, 40, "Subsection",ExpressionUUID->"dd52479d-ea50-4784-a350-bc34131f0e0a"],
+Cell[4733, 140, 1538, 41, 130, "Input",ExpressionUUID->"30d1db00-df40-4fd1-9db0-cdcf650ecbc8"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[6304, 185, 177, 2, 28, "Subsection",ExpressionUUID->"ea9ac301-8558-472f-bdb1-802de9550baa"],
-Cell[6484, 189, 1189, 34, 53, "Input",ExpressionUUID->"aca69425-6b64-4811-a536-1b6edee34364"]
+Cell[6308, 186, 177, 2, 28, "Subsection",ExpressionUUID->"ea9ac301-8558-472f-bdb1-802de9550baa"],
+Cell[6488, 190, 1189, 34, 53, "Input",ExpressionUUID->"aca69425-6b64-4811-a536-1b6edee34364"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[7710, 228, 189, 3, 28, "Subsection",ExpressionUUID->"afdb163e-d71b-45c1-82b3-251942227ab9"],
-Cell[7902, 233, 202, 5, 21, "Input",ExpressionUUID->"55f3cee1-490c-4f94-a89c-1da637252a83"]
+Cell[7714, 229, 189, 3, 28, "Subsection",ExpressionUUID->"afdb163e-d71b-45c1-82b3-251942227ab9"],
+Cell[7906, 234, 202, 5, 21, "Input",ExpressionUUID->"55f3cee1-490c-4f94-a89c-1da637252a83"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[8141, 243, 172, 3, 28, "Subsection",ExpressionUUID->"d7e57549-5c04-4622-ba6e-e8eeec5978fc"],
+Cell[8145, 244, 172, 3, 28, "Subsection",ExpressionUUID->"d7e57549-5c04-4622-ba6e-e8eeec5978fc"],
 Cell[CellGroupData[{
-Cell[8338, 250, 367, 8, 33, "Subsubsection",ExpressionUUID->"5470a568-efaf-4798-8e08-dabda5bae63a"],
-Cell[8708, 260, 2903, 68, 221, "Input",ExpressionUUID->"2b353289-d1a9-4b2a-a64d-c504e0a438d6"]
+Cell[8342, 251, 367, 8, 33, "Subsubsection",ExpressionUUID->"5470a568-efaf-4798-8e08-dabda5bae63a"],
+Cell[8712, 261, 2903, 68, 221, "Input",ExpressionUUID->"2b353289-d1a9-4b2a-a64d-c504e0a438d6"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[11648, 333, 339, 10, 27, "Subsubsection",ExpressionUUID->"a2f779c5-7d31-4050-93ec-787e0a9ca755"],
-Cell[11990, 345, 788, 20, 88, "Input",ExpressionUUID->"6fcf914e-67af-4512-b94e-3984ccb62ab8"],
-Cell[12781, 367, 4275, 125, 222, "Input",ExpressionUUID->"95798df5-921e-4da8-9066-58f1004e79de"]
+Cell[11652, 334, 339, 10, 27, "Subsubsection",ExpressionUUID->"a2f779c5-7d31-4050-93ec-787e0a9ca755"],
+Cell[11994, 346, 788, 20, 88, "Input",ExpressionUUID->"6fcf914e-67af-4512-b94e-3984ccb62ab8"],
+Cell[12785, 368, 4275, 125, 222, "Input",ExpressionUUID->"95798df5-921e-4da8-9066-58f1004e79de"]
 }, Closed]]
 }, Closed]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[17117, 499, 166, 3, 45, "Chapter",ExpressionUUID->"2091a228-ef80-4d16-a310-cad9135d04d4"],
+Cell[17121, 500, 166, 3, 54, "Chapter",ExpressionUUID->"2091a228-ef80-4d16-a310-cad9135d04d4"],
 Cell[CellGroupData[{
-Cell[17308, 506, 218, 4, 50, "Section",ExpressionUUID->"686bc62d-5e64-4273-aacc-5af0f84a0162"],
+Cell[17312, 507, 218, 4, 64, "Section",ExpressionUUID->"686bc62d-5e64-4273-aacc-5af0f84a0162"],
 Cell[CellGroupData[{
-Cell[17551, 514, 553, 8, 39, "Subsection",ExpressionUUID->"b93c60da-0d21-4555-8038-a4293d7370bd",
+Cell[17555, 515, 625, 8, 44, "Subsection",ExpressionUUID->"b93c60da-0d21-4555-8038-a4293d7370bd",
  CellGroupingRules->{"GroupTogetherGrouping", 10009.}],
-Cell[18107, 524, 16942, 316, 1155, "Input",ExpressionUUID->"2d372041-7545-4f64-ba88-a8d6900c9986",
+Cell[18183, 525, 17118, 319, 1480, "Input",ExpressionUUID->"2d372041-7545-4f64-ba88-a8d6900c9986",
  CellGroupingRules->{"GroupTogetherGrouping", 10009.},
  CellTags->"CalculationParameters"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[35086, 845, 426, 6, 26, "Subsection",ExpressionUUID->"db6d0b1a-31fc-43a7-a059-29f2fdf09cca",
- CellGroupingRules->{"GroupTogetherGrouping", 10007.}],
-Cell[35515, 853, 24501, 530, 1117, "Input",ExpressionUUID->"1cdf1743-22cc-4298-945b-b4b5d651dc93",
- CellGroupingRules->{"GroupTogetherGrouping", 10007.}]
+Cell[35338, 849, 202, 3, 29, "Subsection",ExpressionUUID->"226bb6ba-afc0-4d37-829f-7405c78c10a9"],
+Cell[35543, 854, 44966, 942, 3572, "Input",ExpressionUUID->"f75d7596-e8fa-40ac-bef8-1db3378a3628"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[60053, 1388, 526, 8, 26, "Subsection",ExpressionUUID->"a791602b-d17e-4f63-9c9a-bc14d52a3d4c",
- CellGroupingRules->{"GroupTogetherGrouping", 10008.}],
-Cell[60582, 1398, 60363, 1190, 3188, "Input",ExpressionUUID->"cf7c96fd-2cb1-4459-9fa8-c235c0656ebb",
- CellGroupingRules->{"GroupTogetherGrouping", 10008.}]
+Cell[80546, 1801, 443, 6, 29, "Subsection",ExpressionUUID->"db6d0b1a-31fc-43a7-a059-29f2fdf09cca"],
+Cell[80992, 1809, 25874, 563, 1480, "Input",ExpressionUUID->"1cdf1743-22cc-4298-945b-b4b5d651dc93"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[120982, 2593, 504, 9, 26, "Subsection",ExpressionUUID->"65ca2ede-3c4e-4450-aeab-1eb1c21a354d"],
-Cell[121489, 2604, 62502, 1243, 3234, "Input",ExpressionUUID->"42f8a604-ae9a-4065-9966-d42107d60481"]
+Cell[106903, 2377, 540, 7, 29, "Subsection",ExpressionUUID->"a791602b-d17e-4f63-9c9a-bc14d52a3d4c"],
+Cell[107446, 2386, 24449, 453, 1254, "Input",ExpressionUUID->"cf7c96fd-2cb1-4459-9fa8-c235c0656ebb"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[131932, 2844, 542, 7, 29, "Subsection",ExpressionUUID->"65ca2ede-3c4e-4450-aeab-1eb1c21a354d"],
+Cell[132477, 2853, 23362, 425, 985, "Input",ExpressionUUID->"42f8a604-ae9a-4065-9966-d42107d60481"]
+}, Closed]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[155888, 3284, 168, 3, 64, "Section",ExpressionUUID->"0f0159d4-aae5-4778-ad0f-df114d41c87d"],
+Cell[CellGroupData[{
+Cell[156081, 3291, 161, 3, 40, "Subsection",ExpressionUUID->"2ef3a4d8-28fa-47e4-a320-f4193f419f5a"],
+Cell[156245, 3296, 3397, 94, 208, "Input",ExpressionUUID->"f2ba615f-113b-48fc-8d83-653055ff1a8b"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[159679, 3395, 157, 3, 28, "Subsection",ExpressionUUID->"f972d1d7-bd5c-4ef6-8ac2-b353ef509d74"],
+Cell[CellGroupData[{
+Cell[159861, 3402, 440, 13, 36, "Subsubsection",ExpressionUUID->"2b1d7e6f-dcee-4621-b5dc-146ec7010549"],
+Cell[160304, 3417, 11580, 267, 924, "Input",ExpressionUUID->"0e9013f5-13f5-4ef4-b734-509d2323fcd8"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[171921, 3689, 464, 12, 27, "Subsubsection",ExpressionUUID->"12d3a0bb-5ece-4d8d-85f3-6ce0001e769a"],
+Cell[172388, 3703, 4619, 111, 39, "Input",ExpressionUUID->"f044434d-7393-4784-9bbb-b2afdad14b32"],
+Cell[177010, 3816, 200, 4, 39, "Input",ExpressionUUID->"ba0d9ba9-e471-4b4e-a4b5-cb518f35eb56"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[177247, 3825, 275, 5, 27, "Subsubsection",ExpressionUUID->"b8311731-8dce-48b3-8eb3-12408408a25c"],
+Cell[177525, 3832, 2709, 67, 39, "Input",ExpressionUUID->"993e5d16-caae-46cd-8607-b80059ab54ab"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[180271, 3904, 309, 5, 27, "Subsubsection",ExpressionUUID->"9627d492-1f6c-48bc-9267-65adcc75042f"],
+Cell[180583, 3911, 15002, 348, 39, "Input",ExpressionUUID->"a457ea1a-a38a-4b6a-ac86-37cd9dca030a"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[195622, 4264, 358, 6, 27, "Subsubsection",ExpressionUUID->"bf93cd77-8b54-49e3-bd60-976f39019417"],
+Cell[195983, 4272, 4990, 119, 39, "Input",ExpressionUUID->"d285c069-b263-41aa-bedb-5472ab7728e2"]
+}, Closed]]
+}, Closed]]
+}, Closed]],
+Cell[201012, 4396, 74, 0, 51, "Section",ExpressionUUID->"0680d68d-7614-4e5b-af91-b81663b98071"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[201123, 4401, 169, 3, 64, "Chapter",ExpressionUUID->"b6ad402b-a606-42fe-80b9-907a1bd7ddee"],
+Cell[CellGroupData[{
+Cell[201317, 4408, 156, 3, 51, "Section",ExpressionUUID->"b2232ef9-8ebe-40b2-86a8-1b75ec4d4d02"],
+Cell[201476, 4413, 1221, 27, 21, "Input",ExpressionUUID->"a8b7b696-ff34-4915-8ea7-93939818e6c8"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[202734, 4445, 160, 3, 40, "Section",ExpressionUUID->"6c03c1fc-50a4-48ca-aac8-e7a7759679ad"],
+Cell[202897, 4450, 285, 6, 26, "Text",ExpressionUUID->"baa5c382-90db-48ed-ab99-50a4cf0a13d9"],
+Cell[203185, 4458, 1382, 29, 99, "Input",ExpressionUUID->"180d938b-c76a-404a-998a-c5258f1fb554"]
 }, Closed]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[184040, 3853, 168, 3, 40, "Section",ExpressionUUID->"0f0159d4-aae5-4778-ad0f-df114d41c87d"],
+Cell[204616, 4493, 187, 3, 54, "Chapter",ExpressionUUID->"cc81f585-dbb3-4427-8c6c-d8c8e7a9dde2"],
 Cell[CellGroupData[{
-Cell[184233, 3860, 161, 3, 40, "Subsection",ExpressionUUID->"2ef3a4d8-28fa-47e4-a320-f4193f419f5a"],
-Cell[184397, 3865, 3397, 94, 208, "Input",ExpressionUUID->"f2ba615f-113b-48fc-8d83-653055ff1a8b"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[187831, 3964, 157, 3, 28, "Subsection",ExpressionUUID->"f972d1d7-bd5c-4ef6-8ac2-b353ef509d74"],
-Cell[CellGroupData[{
-Cell[188013, 3971, 440, 13, 36, "Subsubsection",ExpressionUUID->"2b1d7e6f-dcee-4621-b5dc-146ec7010549"],
-Cell[188456, 3986, 11580, 267, 924, "Input",ExpressionUUID->"0e9013f5-13f5-4ef4-b734-509d2323fcd8"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[200073, 4258, 464, 12, 27, "Subsubsection",ExpressionUUID->"12d3a0bb-5ece-4d8d-85f3-6ce0001e769a"],
-Cell[200540, 4272, 4619, 111, 39, "Input",ExpressionUUID->"f044434d-7393-4784-9bbb-b2afdad14b32"],
-Cell[205162, 4385, 200, 4, 39, "Input",ExpressionUUID->"ba0d9ba9-e471-4b4e-a4b5-cb518f35eb56"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[205399, 4394, 275, 5, 27, "Subsubsection",ExpressionUUID->"b8311731-8dce-48b3-8eb3-12408408a25c"],
-Cell[205677, 4401, 2709, 67, 39, "Input",ExpressionUUID->"993e5d16-caae-46cd-8607-b80059ab54ab"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[208423, 4473, 309, 5, 27, "Subsubsection",ExpressionUUID->"9627d492-1f6c-48bc-9267-65adcc75042f"],
-Cell[208735, 4480, 15002, 348, 39, "Input",ExpressionUUID->"a457ea1a-a38a-4b6a-ac86-37cd9dca030a"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[223774, 4833, 358, 6, 27, "Subsubsection",ExpressionUUID->"bf93cd77-8b54-49e3-bd60-976f39019417"],
-Cell[224135, 4841, 4990, 119, 39, "Input",ExpressionUUID->"d285c069-b263-41aa-bedb-5472ab7728e2"]
-}, Closed]]
-}, Closed]]
-}, Closed]],
-Cell[229164, 4965, 74, 0, 40, "Section",ExpressionUUID->"0680d68d-7614-4e5b-af91-b81663b98071"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[229275, 4970, 169, 3, 45, "Chapter",ExpressionUUID->"b6ad402b-a606-42fe-80b9-907a1bd7ddee"],
-Cell[CellGroupData[{
-Cell[229469, 4977, 156, 3, 51, "Section",ExpressionUUID->"b2232ef9-8ebe-40b2-86a8-1b75ec4d4d02"],
-Cell[229628, 4982, 1221, 27, 21, "Input",ExpressionUUID->"a8b7b696-ff34-4915-8ea7-93939818e6c8"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[230886, 5014, 160, 3, 40, "Section",ExpressionUUID->"6c03c1fc-50a4-48ca-aac8-e7a7759679ad"],
-Cell[231049, 5019, 285, 6, 26, "Text",ExpressionUUID->"baa5c382-90db-48ed-ab99-50a4cf0a13d9"],
-Cell[231337, 5027, 1382, 29, 99, "Input",ExpressionUUID->"180d938b-c76a-404a-998a-c5258f1fb554"]
-}, Closed]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[232768, 5062, 187, 3, 45, "Chapter",ExpressionUUID->"cc81f585-dbb3-4427-8c6c-d8c8e7a9dde2"],
-Cell[CellGroupData[{
-Cell[232980, 5069, 164, 3, 51, "Section",ExpressionUUID->"7effbeaf-fcea-4309-852f-f71dc546b812"],
-Cell[233147, 5074, 1012, 26, 54, "Text",ExpressionUUID->"2c531abd-4478-472b-ac46-7a8c9c859ab3"],
-Cell[234162, 5102, 492, 11, 38, "Input",ExpressionUUID->"198aea45-f49d-4cbb-8804-2b7904622ef0"],
-Cell[234657, 5115, 1145, 32, 66, "Text",ExpressionUUID->"6302690b-57ec-4015-a568-76e809b545bf"],
-Cell[235805, 5149, 819, 18, 69, "Input",ExpressionUUID->"e66e92f4-14eb-460c-bec2-af15c564d717"],
-Cell[236627, 5169, 1447, 43, 101, "Text",ExpressionUUID->"963c74b4-a79b-4e72-910c-946e92abd747"],
-Cell[238077, 5214, 363, 8, 21, "Input",ExpressionUUID->"e6fded0f-9d8e-4cb8-9730-b1618829cb0f"]
+Cell[204828, 4500, 164, 3, 51, "Section",ExpressionUUID->"7effbeaf-fcea-4309-852f-f71dc546b812"],
+Cell[204995, 4505, 1012, 26, 54, "Text",ExpressionUUID->"2c531abd-4478-472b-ac46-7a8c9c859ab3"],
+Cell[206010, 4533, 492, 11, 38, "Input",ExpressionUUID->"198aea45-f49d-4cbb-8804-2b7904622ef0"],
+Cell[206505, 4546, 1145, 32, 66, "Text",ExpressionUUID->"6302690b-57ec-4015-a568-76e809b545bf"],
+Cell[207653, 4580, 819, 18, 69, "Input",ExpressionUUID->"e66e92f4-14eb-460c-bec2-af15c564d717"],
+Cell[208475, 4600, 1447, 43, 101, "Text",ExpressionUUID->"963c74b4-a79b-4e72-910c-946e92abd747"],
+Cell[209925, 4645, 363, 8, 21, "Input",ExpressionUUID->"e6fded0f-9d8e-4cb8-9730-b1618829cb0f"]
 }, Closed]]
 }, Closed]]
 }, Open  ]]
