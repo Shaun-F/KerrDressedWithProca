@@ -5,7 +5,7 @@ LogRun=True;
 SaveToDisk=True;
 
 
-$FKKSRoot = "/home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/Mathematica/";
+$FKKSRoot = "/home/shaunf/Documents/Computer/Code/Project/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/";
 $SolutionPath = $FKKSRoot<>"Solutions/";
 LogFile = $FKKSRoot<>"Logs/LogFile";
 
@@ -14,7 +14,7 @@ Import[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]];
 
 parameterlist = Import[$FKKSRoot<>"WolframScript/parameters.ini"]//ToExpression;
 parameters = KeyMap[ToString[ToExpression[#]]&, parameterlist];
-
+parameters["StartingX"] = parameters["\[Epsilon]"];
 
 
 If[FileExistsQ[LogFile], DeleteFile[LogFile]];
@@ -36,6 +36,11 @@ WorkerFunction[mval_,nval_]:=
 				(*Setup iteration*)
 				parameters["\[Mu]Nv"]=i*parameters["m"]; (*account for m-dependence of superradiant threshold*)
 				parameters["EndingX"]=calcEndingX[parameters]; (*Determine cutoff radius for radial equation integrator*)
+				
+				If[omegaNINonRel[parameters] < 0, Print["Superradiant condition fails for parameter (\[Mu],m,n,\[Chi],s)=("<>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"]; 
+  					Goto[SuperradiantConditionFailure]
+  				];
+				
 				
 				(*Output current iteration to terminal*)
 				Print["Kernel "<>ToString[$KernelID]<>" working on parameter point (\[Mu], m, n) = ("<>ToString[parameters["\[Mu]Nv"], InputForm]<>", "<>ToString[parameters["m"], InputForm]<>" ,"<>ToString[parameters["n"], InputForm]<>")"];
@@ -156,7 +161,16 @@ WorkerFunction[mval_,nval_]:=
 				nuHolder[muIterationCounter] =  MinimizationResults["\[Nu]"]//SetPrecision[#, parameters["precision"]]&;
 				
 				muIterationCounter++;
+				Continue[];
 				
+				Label[SuperradiantConditionFailure];
+				Logger = Logger<>"\nSuperradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")";
+				If[LogRun, Logger >>> LogFile];	
+				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
+				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
+				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
+				
+					
 				,
 				{i, parameters["\[Mu]range"]//First, parameters["\[Mu]range"]//Last, parameters["\[Delta]\[Mu]"]}
 			]; (*mu iteration loop end*)
