@@ -6,41 +6,41 @@ Import[$FKKSRoot<>"Packages/HelperFunctions.wl"];
 RadialMinimize::usage = "Use Nelder Mead to find the minimum value of Log(|R(\!\(\*SubscriptBox[\(r\), \(max\)]\))|) over complex \[Omega]-space
 RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ,
      parameters_?AssociationQ, Watcher_?BooleanQ, \[Nu]fit_:Null] 
-"
+";
 
 ProcaDiffOpRad::usage = "Radial differential operator from FKKS Decomposition of Proca equations of motions";
 
-omegaNRNonRel::usage = "non-relativistic approximation to real part of proca frequency"
+omegaNRNonRel::usage = "non-relativistic approximation to real part of proca frequency";
 
-omegaNINonRel::usage = "non-relativistic approximation to imaginary part of proca frequency"
+omegaNINonRel::usage = "non-relativistic approximation to imaginary part of proca frequency";
 
-nuNNonRel::usage = "non-relativistic approximation to angular eigenvalue"
+nuNNonRel::usage = "non-relativistic approximation to angular eigenvalue";
 
-SolveAngularSystem::usage = "Solve angular FKKS equation in matrix form for kernel vectors"
+SolveAngularSystem::usage = "Solve angular FKKS equation in matrix form for kernel vectors";
 
-getRadialSolution::usage = "Solve radial equation numerically for input \[Omega], \[Nu], and parameter association"
+getRadialSolution::usage = "Solve radial equation numerically for input \[Omega], \[Nu], and parameter association";
 
-FrobeniusSystem::usage = "System of equations resulting from expanding radial function near horizon and solving radial equation order by order"
+FrobeniusSystem::usage = "System of equations resulting from expanding radial function near horizon and solving radial equation order by order";
 
-functomin::usage = "input is frequency. Output is value of radial function at upper boundary"
+functomin::usage = "input is frequency. Output is value of radial function at upper boundary";
 
-Mmatrix::usage = "Angular equation in matrix form"
+Mmatrix::usage = "Angular equation in matrix form";
 
-Mmatrixdet::usage = "Determinant of angular equation"
+Mmatrixdet::usage = "Determinant of angular equation";
 
-getNuValue::usage = "Get non-relativistic approximation to angular eigenvalue"
+getNuValue::usage = "Get non-relativistic approximation to angular eigenvalue";
 
 
 
-QValue::usage = "Compute Q value (numerical variable) for given \[Mu] and \[Omega]"
+QValue::usage = "Compute Q value (numerical variable) for given \[Mu] and \[Omega]";
 
-QApprox::usage = "linear approximation to Q-value over \[Mu]-space"
+QApprox::usage = "linear approximation to Q-value over \[Mu]-space";
 
-calcEndingX::usage = "calculate the ending value of the radial coordinate given input parameter association"
+calcEndingX::usage = "calculate the ending value of the radial coordinate given input parameter association";
 
-calcOrbital::usage = "calculate the orbital angular momentum number given input parameter association"
+calcOrbital::usage = "calculate the orbital angular momentum number given input parameter association";
 
-ToPrecision::usage = "Set precision of expression according to parameter association. Usage: expr//ToPrecision[parameters]"
+ToPrecision::usage = "Set precision of expression according to parameter association. Usage: expr//ToPrecision[parameters]";
 
 
 (*
@@ -86,9 +86,13 @@ QValue[\[Mu]_, \[Omega]_] :=
     Sqrt[\[Mu]^2 - \[Omega]^2];
 
 
+tophat[x_]:=1-1/2*Erfc[3*x];
+
+
 calcEndingX[parameters_] :=
-    2 * 10 * (parameters["m"] + parameters["n"]) / parameters["\[Mu]Nv"] ^
+    (1+0.4*tophat[(parameters["\[Chi]"]-0.95)/0.05])*2 * 10 * (parameters["m"] + parameters["n"]) / parameters["\[Mu]Nv"] ^
          2;
+(*Prefactor accounts for less boundedness of proca cloud for higher spin*)
 
 
 calcOrbital[parameters_] :=
@@ -201,9 +205,6 @@ SolveAngularSystem[\[Omega]value_?NumberQ, \[Nu]value_?NumberQ, parameters_] :=
 
 qr[\[Nu]_, r_] :=
     1 + \[Nu]^2 * r^2;
-
-\[Sigma][a_, m_, \[Omega]_, \[Nu]_] :=
-    a * \[Nu]^2 (m - a * \[Omega]) + \[Omega];
 
 Kr[a_, m_, r_] :=
     -a * m + (a^2 + r^2) \[Omega];
@@ -366,12 +367,12 @@ nuNNonRel[parameters_] :=
                 Switch[PolarizationSigned,
                     -1,(-\[Omega]NNonRel) / (m - \[Chi] * \[Omega]NNonRel),
                     0,(1 / (2 * \[Chi])) (m + 1 - \[Chi] * \[Omega]NNonRel + \[Sqrt]((\[Chi] * \[Omega]NNonRel - m - 1) ^ 2 + 4 * \[Chi] * \[Omega]NNonRel)),
-                    1,Evaluate @Block[{X = \[Chi], \[Nu]},
-                                Roots[X * \[Nu]^3 (m - X * \[Omega]NNonRel) - \[Nu]^
+                    1,Evaluate@Block[{X = \[Chi], \[Nu]},
+                               Last[Roots[X * \[Nu]^3 (m - X * \[Omega]NNonRel) - \[Nu]^
                                     2 ((m + 1) (m + 2) - X * \[Omega]NNonRel (2 m - X * \[Omega]NNonRel)) + \[Omega]NNonRel * 
-                                    \[Nu] + \[Omega]NNonRel^2 == 0, \[Nu]][[2]]
-                            ]
-                ]
+                                    \[Nu] + \[Omega]NNonRel^2 == 0, \[Nu]][[2]]]
+									]
+					]
         ]
     ];(*Block[{\[Chi]=X},Roots[\[Chi]*\[Nu]^3(m - \[Chi]*\[Omega]NNonRel)-\[Nu]^2((m+1)(m+2) - \[Chi]*\[Omega]NNonRel(2m-\[Chi]*\[Omega]NNonRel)) + \[Omega]NNonRel*\[Nu] + \[Omega]NNonRel^2\[Equal]0,\[Nu]][[2]]//Simplify]*)
 
@@ -383,10 +384,9 @@ nuNNonRel[\[Omega]NNonRel_, parameters_] :=
                 -1,(-\[Omega]NNonRel) / (m - \[Chi] * \[Omega]NNonRel),
                 0,(1 / (2 * \[Chi])) (m + 1 - \[Chi] * \[Omega]NNonRel + \[Sqrt]((\[Chi] * \[Omega]NNonRel- m - 1) ^ 2 + 4 * \[Chi] * \[Omega]NNonRel)),
                 1,Evaluate @
-                        Block[{X = \[Chi], \[Nu]},
-                            Roots[X * \[Nu]^3 (m - X * \[Omega]NNonRel) - \[Nu]^2 ((
-                                m + 1) (m + 2) - X * \[Omega]NNonRel (2 m - X * \[Omega]NNonRel)) + \[Omega]NNonRel * \[Nu] + 
-                                \[Omega]NNonRel^2 == 0, \[Nu]][[2]]
+                        Block[{X = \[Chi], \[Nu], rootequ},
+                            rootequ = X*\[Nu]^3*(m-X*\[Omega]NNonRel) - \[Nu]^2 ((m+1)(m+2)-X*\[Omega]NNonRel*(2*m-X*\[Omega]NNonRel)) + \[Omega]NNonRel *\[Nu] + \[Omega]NNonRel^2;
+                            Roots[rootequ== 0, \[Nu]][[2]]//Last
                         ]
             ]
     ];
@@ -394,7 +394,7 @@ nuNNonRel[\[Omega]NNonRel_, parameters_] :=
 
 getNuValue[\[Omega]N_?NumberQ, parameters_, ClosestGuess_?NumberQ] :=
     Block[{eta = parameters["\[Eta]"], m = parameters["m"], \[Chi] = parameters[
-        "\[Chi]"], \[Mu]N = parameters["\[Mu]Nv"]},
+        "\[Chi]"], \[Mu]N = parameters["\[Mu]Nv"],\[Nu]N},
         thedet = Function[{w, \[Nu]N}, Evaluate @ Mmatrixdet[w, \[Nu]N, parameters]];
         FindRoot[thedet[\[Omega]N, \[Nu]N] // ToPrecision[parameters], {\[Nu]N, 
                 ClosestGuess}, WorkingPrecision -> parameters["precision"], MaxIterations
@@ -452,20 +452,23 @@ RadialMinimize[\[Omega]Guess_?NumberQ, \[Nu]Guess_?NumberQ, OmegaBoundary_?ListQ
         ImaginaryConstraint[\[Psi]_]:=100*Im[\[Omega]Guess]>\[Psi]>10^((-12)*(parameters["m"]+1)/2);
         BoundStateConstraint[\[Xi]_,\[Psi]_]:=parameters["\[Mu]Nv"]^2>\[Xi]^2+\[Psi]^2;
         BoundaryConstraint[\[Xi]_]:=Re[omegaBoundary[[2]]]>\[Xi]>Re[omegaBoundary[[1]]];
-        If[\[Not](ImaginaryConstraint[Im[\[Omega]Guess]]||BoundStateConstraint[ReIm[\[Omega]Guess]]||BoundaryConstraint[Re[\[Omega]Guess]]),
+        If[\[Not](ImaginaryConstraint[Im[\[Omega]Guess]]&&BoundStateConstraint@@ReIm[\[Omega]Guess]&&BoundaryConstraint[Re[\[Omega]Guess]]),
         Print[
              Column[{
-                      "Minimization constraints failed: ",
+                      "Minimization constraints failed for \[Mu]Nv="<>ToString[parameters["\[Mu]Nv"], InputForm]<>" m="<>ToString[parameters["m"], InputForm]<>" n="<>ToString[parameters["n"], InputForm]<>": ",
                       "\t ImaginaryConstraint: "<>ToString[ImaginaryConstraint[Im[\[Omega]Guess]], InputForm], 
+                      "\t ImaginaryConstraint Condition: "<>ToString[N[100*Im[\[Omega]Guess]>Im[\[Omega]]>10^((-12)*(parameters["m"]+1)/2)], InputForm],
                       "\t BoundStateConstraint: "<>ToString[BoundStateConstraint[Sequence@@ReIm[\[Omega]Guess]], InputForm], 
                       "\t BoundaryConstraint: "<>ToString[BoundaryConstraint[Re[\[Omega]Guess]], InputForm],
                       "\t \[Omega] = "<>ToString[\[Omega]Guess, InputForm],
                       "\t \[Nu] = "<>ToString[\[Nu]Guess, InputForm],
                       "\t \[Omega]Boundary = "<>ToString[OmegaBoundary, InputForm]
                       }]
-             ]
+             ];
+        Continue[];
         ];
-		With[{
+        
+        With[{
 				Contraints = Evaluate@{ImaginaryConstraint[\[Psi]]&&BoundStateConstraint[\[Xi],\[Psi]]&&BoundaryConstraint[\[Xi]]}//ToPrecision[parameters],
 				method = MinimizationMethod
 		},
