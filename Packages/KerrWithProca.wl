@@ -90,7 +90,7 @@ tophat[x_]:=1-1/2*Erfc[3*x];
 
 
 calcEndingX[parameters_] :=
-    (1+0.4*tophat[(parameters["\[Chi]"]-0.95)/0.05])*2 * 10 * (parameters["m"] + parameters["n"]) / parameters["\[Mu]Nv"] ^
+    (1+0.4*tophat[(parameters["\[Chi]"]-0.95)/0.05])*4 * 10 * (parameters["m"] + parameters["n"]) / parameters["\[Mu]Nv"] ^
          2;
 (*Prefactor accounts for less boundedness of proca cloud for higher spin*)
 
