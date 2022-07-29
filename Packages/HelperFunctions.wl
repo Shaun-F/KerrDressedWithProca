@@ -60,14 +60,14 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
         indexer = StringContainsQ[#, "RunData"]& /@ localfiles;
         filenames = Pick[localfiles, indexer];
         If[parameterSet == Null,
-            Return[Import /@ filenames, Module]
+            DataList = Import /@ filenames;
         ];
         If[ListQ @ parameterSet,
             If[Length @ Dimensions @ parameterSet == 1,
                 ParameterSetIndicies = StringContainsQ[ToString[parameterSet
                     [[1]]] <> ToString[parameterSet[[2]]]] /@ filenames;
-                Return[Import /@ Pick[filenames, ParameterSetIndicies
-                    ], Module];
+                DataList = Import /@ Pick[filenames, ParameterSetIndicies
+                    ];
             ];
             If[Length @ Dimensions @ parameterSet > 1,
                 ParameterSetIndicies = Table[StringContainsQ[ToString[
@@ -75,10 +75,15 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
                      {i, 1, Length @ parameterSet}];
                 ParameterSetIndiciesAll = Table[AllTrue[ParameterSetIndicies
                     [[All, i]], TrueQ], {i, 1, Length @ First @ ParameterSetIndicies}];
-                Return[Import /@ Pick[filenames, ParameterSetIndiciesAll
-                    ], Module];
+                DataList = Import /@ Pick[filenames, ParameterSetIndiciesAll
+                    ];
             ];
         ];
+        CleansedDataList = DeleteCases[DataList, <|___,"Solution"->x_/;StringQ[x]|>];
+        CleansedDataList = DeleteCases[CleansedDataList,<|___, "Solution"-><|___,"\[Omega]"->Null,___|>|>];
+        CleansedDataList = DeleteCases[CleansedDataList,<|___, "Solution"-><|___,"\[Omega]"->Indeterminate,___|>|>];
+        MassOrderingIndices = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
+        Return[CleansedDataList[[MassOrderingIndices]], Module];
     ];
 
 
