@@ -1,13 +1,14 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-LogRun=True;
-SaveToDisk=True;
-
-
-$FKKSRoot = "/home/shaunf/Documents/Computer/Code/Project/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/";
+$FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";
 $SolutionPath = $FKKSRoot<>"Solutions/";
 LogFile = $FKKSRoot<>"Logs/LogFile";
+
+ConfigurationParameters = Import[$FKKSRoot<>"WolframScript/Config.ini"]//ToExpression;
+Print["FKKSRoot: "<>$FKKSRoot];
+Print/@Flatten@{"Configuration parameters: \n", Thread[Keys[ConfigurationParameters]->Values[ConfigurationParameters]]};
+
 
 Import[FileNameJoin[{$FKKSRoot,"Packages", "KerrWithProca.wl"}]];
 Import[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]];
@@ -20,7 +21,7 @@ parameters["StartingX"] = parameters["\[Epsilon]"];
 If[FileExistsQ[LogFile], DeleteFile[LogFile]];
 CreateFile[LogFile];
 If[\[Not]DirectoryQ[$SolutionPath], CreateDirectory[$SolutionPath]];
-Messenger = "Beginning Parallelized Proca Solver\n";
+Messenger = "\n\n-----------------------\nBeginning Parallelized Proca Solver\n";
 Print[Messenger];
 
 WorkerFunction[mval_,nval_]:=
@@ -33,14 +34,20 @@ WorkerFunction[mval_,nval_]:=
 				parameters["l"]=parameters["m"]+parameters["s"];
 				parameters["n"]=j;
 				
-				(*Setup iteration*)
+				(*Setup iteration*)	
 				parameters["\[Mu]Nv"]=i*parameters["m"]; (*account for m-dependence of superradiant threshold*)
 				parameters["EndingX"]=calcEndingX[parameters]; (*Determine cutoff radius for radial equation integrator*)
 				
-				If[omegaNINonRel[parameters] < 0, Print["Superradiant condition fails for parameter (\[Mu],m,n,\[Chi],s)=("<>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"]; 
-  					Goto[SuperradiantConditionFailure]
-  				];
-				
+				(*Construct name for file to save data in*)
+				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
+				SolutionFileName = $SolutionPath<>"RunData_"<>assocToString[printData]<>".mx";
+
+				(*If OverwritePrevious option is false and if the solution file already exists, skip current loop iteration*)
+				If[! OptionValue[OverwritePrevious],
+					If[FileExistsQ[SolutionFileName],
+						Continue[]
+					];
+				];
 				
 				(*Output current iteration to terminal*)
 				Print["Kernel "<>ToString[$KernelID]<>" working on parameter point (\[Mu], m, n) = ("<>ToString[parameters["\[Mu]Nv"], InputForm]<>", "<>ToString[parameters["m"], InputForm]<>" ,"<>ToString[parameters["n"], InputForm]<>")"];
@@ -73,6 +80,12 @@ WorkerFunction[mval_,nval_]:=
 					nuGuess = getNuValue[omegaGuess, parameters, nuNNonRel[omegaGuess, parameters]];
 				];
 				
+				(*If guess for imaginary part is negative, bound state is not superradiantly growing -> skip iteration*)
+				If[Im[omegaGuess] < 0, 
+					Print["Superradiant condition fails for parameter (\[Mu],m,n,\[Chi],s)=("<>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"]; 
+  					Goto[SuperradiantConditionFailure]
+				];
+				
 				omegaBoundarySize = (1/2)*(omegaNRNonRel[ReplacePart[parameters, "n"->parameters["n"]+1]] - Re[omegaGuess]); (*Use next overtone frequency to construct boundary for omega search*)
 				omegaBoundary = {omegaGuess - omegaBoundarySize, omegaGuess + omegaBoundarySize};
 				
@@ -87,7 +100,7 @@ WorkerFunction[mval_,nval_]:=
 				angulartimestart = AbsoluteTime[];
 				Sfunctemp = Sum[C[tempiter]*SphericalHarmonicY[Abs[parameters["m"]] + 2*tempiter + parameters["\[Eta]"],parameters["m"],\[Theta], \[Phi]]*Exp[-I*parameters["m"]*\[Phi]], {tempiter,0, parameters["KMax"]}];
 				coeffs = SolveAngularSystem[MinimizationResults["\[Omega]"], MinimizationResults["\[Nu]"],parameters];
-				Sfunc = Evaluate[Sfunctemp/.coeffs];
+				Sfunc = Function[{\[Theta]},Evaluate[Sfunctemp/.coeffs]];
 				angulartimestop = AbsoluteTime[];
 				Logger = Logger<>"\nAngular Solver Time: "<>ToString[N[angulartimestop-angulartimestart], InputForm];
 				
@@ -134,11 +147,11 @@ WorkerFunction[mval_,nval_]:=
 						|>;
 						
 				(*Safety checks on solution*)
-				If[parameters["\[Mu]Nv"]^2 <= Abs[MinimizationResults["\[Omega]"]]^2,
+				If[TrueQ[parameters["\[Mu]Nv"]^2 <= Abs[MinimizationResults["\[Omega]"]]^2],
 					Print["Kernel "<>ToString[$KernelID,InputForm]<>" says: Error! Frequency larger than field mass! Breaking mu iteration ... (Parameter Point : m = "<>ToString[parameters["m"], InputForm]<>" n = "<>ToString[parameters["n"]]<>" \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]<>") "];                
 					Break[];
 				];
-				If[TheSolution["R"][parameters["EndingX"]]//Log10 > 1,
+				If[TrueQ[TheSolution["R"][parameters["EndingX"]]//Log10 > 1],
 					Print["Kernel "<>ToString[$KernelID]<>" says: Error! Minimization failed! Breaking mu iteration ... (Parameter Point : m = "<>ToString[parameters["m"], InputForm]<>" n = "<>ToString[parameters["n"]]<>" \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]<>") "];
 					Break[];
 				];
@@ -150,10 +163,10 @@ WorkerFunction[mval_,nval_]:=
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <| "Parameters" -> parameters, "Solution" -> TheSolution|>;
 				Logger = Logger<>"\nCaching results to: "<>assocToString[printData]<>".mx\n\n";
-				If[SaveToDisk,
+				If[ConfigurationParameters["SaveToDisk"],
 					Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx",CacheData];
 				];
-				If[LogRun, Logger >>> LogFile];
+				If[ConfigurationParameters["LogRun"], Logger >>> LogFile];
 				
 				(*Prepare next loop*)
 				muHolder[muIterationCounter] = parameters["\[Mu]Nv"]//SetPrecision[#, parameters["precision"]]&;
@@ -165,10 +178,10 @@ WorkerFunction[mval_,nval_]:=
 				
 				Label[SuperradiantConditionFailure];
 				Logger = Logger<>"\nSuperradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")";
-				If[LogRun, Logger >>> LogFile];	
+				If[ConfigurationParameters["LogRun"], Logger >>> LogFile];	
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
-				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
+				If[ConfigurationParameters["SaveToDisk"],Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
 				
 					
 				,
@@ -186,7 +199,7 @@ WorkerFunction[mval_,nval_]:=
 
 (*Setup parallelization*)
 CloseKernels[];
-NumberKernels = Min[$ProcessorCount, (Last[parameters["mrange"]] - First[parameters["mrange"]]+1)*(Last@parameters["nrange"] - First@parameters["nrange"] + 1)];
+NumberKernels = Min[ConfigurationParameters["NumberofSlaveKernels"], (Last[parameters["mrange"]] - First[parameters["mrange"]]+1)*(Last@parameters["nrange"] - First@parameters["nrange"] + 1)];
 LaunchKernels[NumberKernels];
 DistributeDefinitions[parameters, WorkerFunction, $SolutionPath, $FKKSRoot];
 ParallelEvaluate[Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]];
