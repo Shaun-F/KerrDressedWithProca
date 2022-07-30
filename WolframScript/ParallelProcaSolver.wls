@@ -1,13 +1,25 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-$FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";
-$SolutionPath = $FKKSRoot<>"Solutions/";
-LogFile = $FKKSRoot<>"Logs/LogFile";
+$FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/";
+(*$FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";*)
+LogFile = $FKKSRoot<>"Logs/LogFile.log";
 
-ConfigurationParameters = Import[$FKKSRoot<>"WolframScript/Config.ini"]//ToExpression;
+ConfigurationParameters = Import[$FKKSRoot<>"WolframScript/Config.ini"];
+LogRun = ToExpression[ConfigurationParameters["LogRun"]];
+SaveToDisk = ToExpression[ConfigurationParameters["SaveToDisk"]];
+NumberOfKernels = ConfigurationParameters["NumberofSlaveKernels"]//ToExpression;
+
+If[!TrueQ[(ConfigurationParameters["SolutionFilePath"]==Automatic)],
+	$SolutionPath = ConfigurationParameters["SolutionFilePath"];,
+	$SolutionPath = $FKKSRoot<>"Solutions/";
+];
+
 Print["FKKSRoot: "<>$FKKSRoot];
-Print/@Flatten@{"Configuration parameters: \n", Thread[Keys[ConfigurationParameters]->Values[ConfigurationParameters]]};
+Print["Solution Path: "];Print[$SolutionPath];
+Print["Log File Path: "];Print[LogFile];
+Print["/nLog Run: "<>ToString[TrueQ[LogRun], InputForm]];
+Print["Save to disk: "<>ToString[TrueQ[SaveToDisk], InputForm]];
 
 
 Import[FileNameJoin[{$FKKSRoot,"Packages", "KerrWithProca.wl"}]];
@@ -24,7 +36,8 @@ If[\[Not]DirectoryQ[$SolutionPath], CreateDirectory[$SolutionPath]];
 Messenger = "\n\n-----------------------\nBeginning Parallelized Proca Solver\n";
 Print[Messenger];
 
-WorkerFunction[mval_,nval_]:=
+Options[WorkerFunction]={OverwritePrevious->False};
+WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 	Block[{HistoryLength=0},
 		With[{k=mval, j=nval},
 			muIterationCounter=1;
@@ -63,6 +76,7 @@ WorkerFunction[mval_,nval_]:=
 				(*Determine next guess for frequency and angular eigenvalue*)
 				nuFitFunction[muIterationCounter] = Null;
 				If[TrueQ[muIterationCounter >= 6],
+					
 					(*If we're on the 6th iteration, use previous values to approximate current frequency value using fit functions*)
 					omegaValHistory = Table[omegaHolder[iter], {iter, 1, muIterationCounter-1}];
 					nuValHistory = Table[nuHolder[iter], {iter, 1, muIterationCounter-1}];
@@ -82,8 +96,8 @@ WorkerFunction[mval_,nval_]:=
 				
 				(*If guess for imaginary part is negative, bound state is not superradiantly growing -> skip iteration*)
 				If[Im[omegaGuess] < 0, 
-					Print["Superradiant condition fails for parameter (\[Mu],m,n,\[Chi],s)=("<>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"]; 
-  					Goto[SuperradiantConditionFailure]
+					Print["Superradiant condition fails for parameter (\[Mu],m,n,\[Chi],s)=("<>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"];
+					Goto[SuperradiantConditionFailure];
 				];
 				
 				omegaBoundarySize = (1/2)*(omegaNRNonRel[ReplacePart[parameters, "n"->parameters["n"]+1]] - Re[omegaGuess]); (*Use next overtone frequency to construct boundary for omega search*)
@@ -163,10 +177,13 @@ WorkerFunction[mval_,nval_]:=
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <| "Parameters" -> parameters, "Solution" -> TheSolution|>;
 				Logger = Logger<>"\nCaching results to: "<>assocToString[printData]<>".mx\n\n";
-				If[ConfigurationParameters["SaveToDisk"],
+				If[SaveToDisk,
 					Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx",CacheData];
 				];
-				If[ConfigurationParameters["LogRun"], Logger >>> LogFile];
+				Logger = Logger<>"\n\n";
+				If[LogRun, 
+					PutAppend[Logger, LogFile];
+				];
 				
 				(*Prepare next loop*)
 				muHolder[muIterationCounter] = parameters["\[Mu]Nv"]//SetPrecision[#, parameters["precision"]]&;
@@ -178,11 +195,11 @@ WorkerFunction[mval_,nval_]:=
 				
 				Label[SuperradiantConditionFailure];
 				Logger = Logger<>"\nSuperradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")";
-				If[ConfigurationParameters["LogRun"], Logger >>> LogFile];	
+				If[LogRun, Logger >>> LogFile];	
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
-				If[ConfigurationParameters["SaveToDisk"],Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
-				
+				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
+			
 					
 				,
 				{i, parameters["\[Mu]range"]//First, parameters["\[Mu]range"]//Last, parameters["\[Delta]\[Mu]"]}
@@ -199,9 +216,10 @@ WorkerFunction[mval_,nval_]:=
 
 (*Setup parallelization*)
 CloseKernels[];
-NumberKernels = Min[ConfigurationParameters["NumberofSlaveKernels"], (Last[parameters["mrange"]] - First[parameters["mrange"]]+1)*(Last@parameters["nrange"] - First@parameters["nrange"] + 1)];
+NumberKernels = Min[NumberOfKernels, (Last[parameters["mrange"]] - First[parameters["mrange"]]+1)*(Last@parameters["nrange"] - First@parameters["nrange"] + 1)];
+Print["Launching "<>ToString[NumberKernels,InputForm]<>" Kernels."];
 LaunchKernels[NumberKernels];
-DistributeDefinitions[parameters, WorkerFunction, $SolutionPath, $FKKSRoot];
+DistributeDefinitions[parameters, WorkerFunction, $SolutionPath, $FKKSRoot, LogFile, LogRun];
 ParallelEvaluate[Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]];
 
 (*turn off irrelevant error messages*)
