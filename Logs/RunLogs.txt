@@ -1,4 +1,0 @@
-Mon 27 Jun 2022 11:12:07
-
-<|"\[Mu]range" -> {1/20, 1/2}, "\[Delta]\[Mu]" -> 1/100, "nrange" -> {0, 4}, "\[Delta]n" -> 1, "mrange" -> {1, 4}, "\[Delta]m" -> 1, "EndingX" -> 8000, "StartingX" -> 1/10000, "precision" -> 26, "omegaRes" -> 800, "MaxInterationsMinimization" -> 1000, "integratorMaxStep" -> 1000000, "integratorPrecisionGoal" -> 8, "OptimizationPrecision" -> 8, "OptimizationAccuracy" -> 18, "branch" -> 1, "KMax" -> 4, "\[Epsilon]" -> 1/10000, "\[Mu]Nv" -> 1/20, "m" -> 1, "\[Eta]" -> 0, "n" -> 0, "l" -> 0, "s" -> -1, "\[Chi]" -> 9/10, "M" -> 1|>
-
