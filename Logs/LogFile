@@ -1,0 +1,4 @@
+Mon 1 Aug 2022 10:50:08
+
+<|"\[Mu]range" -> {1/20, 1/2}, "\[Delta]\[Mu]" -> 1/100, "nrange" -> {0, 3}, "\[Delta]n" -> 1, "mrange" -> {1, 4}, "\[Delta]m" -> 1, "EndingX" -> (16000*(1 + 0.4*(1 - Erfc[60.*(-0.95 + Missing["KeyAbsent", "\[Chi]"])]/2)))/9, "StartingX" -> 1/10000, "precision" -> 22, "omegaRes" -> 800, "MaxIterationsMinimization" -> 1000, "RadialIntegratorMaxStep" -> 1000000, "RadialIntegratorPrecisionGoal" -> 8, "OptimizationPrecision" -> 8, "OptimizationAccuracy" -> 18, "branch" -> 1, "KMax" -> 4, "\[Epsilon]" -> 1/10000, "\[Mu]Nv" -> 3/10, "m" -> 2, "\[Eta]" -> 0, "n" -> 2, "l" -> 1, "s" -> -1, "\[Chi]" -> 9/10, "M" -> 1|>
+

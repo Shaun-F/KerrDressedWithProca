@@ -56,7 +56,8 @@ getResults::usage = "Retrieve results from disk. second argument is optional and
 					example: getResults[NotebookDirectory[]<>'Solutions/', {{'m',1},{'n',1}, {'\[Mu]Nv', '1_20'}}]
 ";
 getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
-    Module[{localfiles = FileNames[All, absolDir]},
+	Block[{m,n,\[Chi],\[Mu]Nv,\[Delta]\[Mu],\[Delta]n,\[Delta]m,\[Epsilon],eta,mode,overtone,polarization,s,orbitalnumber,l,\[Chi]v,KMax,branch},   
+     Module[{localfiles = FileNames[All, absolDir]},
         indexer = StringContainsQ[#, "RunData"]& /@ localfiles;
         filenames = Pick[localfiles, indexer];
         If[parameterSet == Null,
@@ -80,7 +81,8 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
         CleansedDataList = DeleteCases[CleansedDataList,<|___, "Solution"-><|___,"\[Omega]"->Null,___|>|>];
         CleansedDataList = DeleteCases[CleansedDataList,<|___, "Solution"-><|___,"\[Omega]"->Indeterminate,___|>|>];
         MassOrderingIndices = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
-        Return[CleansedDataList[[MassOrderingIndices]], Module];
+        CleansedDataList[[MassOrderingIndices]]
+    ]
     ];
 
 
@@ -139,7 +141,7 @@ ToxActVariables[expr_]:=expr/.{t->t[], r->r[], \[Theta]->\[Theta][], \[Phi]->\[P
 FromxActVariables[expr_]:=expr/.{t[]->t, r[]->r, \[Theta][]->\[Theta], \[Phi][]->\[Phi]};
 
 
-OvertoneModeGroup[nvalue_?NumberQ, mvalue_?NumberQ]:=Select[Select[AllSolutions, #["Parameters"]["n"]==nvalue&], #["Parameters"]["m"]==mvalue&];
+OvertoneModeGroup[nvalue_?NumberQ, mvalue_?NumberQ, SolutionSet_]:=Select[Select[SolutionSet, #["Parameters"]["n"]==nvalue&], #["Parameters"]["m"]==mvalue&];
 
 
 DetMet[r_,\[Theta]_,\[Chi]_]:= (r^2+\[Chi]^2*Cos[\[Theta]]^2)^2*Sin[\[Theta]]^2;
@@ -150,9 +152,6 @@ Kerrmetweight[r_,\[Theta]_,\[Chi]_]:=(r^2+\[Chi]^2*Cos[\[Theta]]^2)*Sin[\[Theta]
 
 TortoiseR::usage="Tortoise coordinates in terms of Boyer Lindquist coordinates";
 TortoiseR[r_,\[Chi]_,M_]:=Block[{rp = M*rplusN[\[Chi]], rm = M*rminusN[\[Chi]]}, r + 2*M*rp/(rp-rm)*Log[(r-rp)/(2*M)] - 2*M*rm/(rp-rm)*Log[(r-rm)/(2*M)]];
-
-
-OvertoneModeGroup[nvalue_?NumberQ, mvalue_?NumberQ]:=Select[Select[AllSolutions, #["Parameters"]["n"]==nvalue&], #["Parameters"]["m"]==mvalue&];
 
 
 HorizonCoordToRadial[xN_, \[Chi]_]:=xN * (rplusN[\[Chi]] - rminusN[\[Chi]])  +  rplusN[\[Chi]];
