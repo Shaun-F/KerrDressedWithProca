@@ -53,7 +53,7 @@ styleMarkdown[str_String] :=
 
 
 getResults::usage = "Retrieve results from disk. second argument is optional and specifies which parameters we wish to retrieve 
-					example: getResults[NotebookDirectory[]<>'Solutions/', {{'m',1},{'n',1}}]
+					example: getResults[NotebookDirectory[]<>'Solutions/', {{'m',1},{'n',1}, {'\[Mu]Nv', '1_20'}}]
 ";
 getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
     Module[{localfiles = FileNames[All, absolDir]},
@@ -64,19 +64,16 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
         ];
         If[ListQ @ parameterSet,
             If[Length @ Dimensions @ parameterSet == 1,
-                ParameterSetIndicies = StringContainsQ[ToString[parameterSet
-                    [[1]]] <> ToString[parameterSet[[2]]]] /@ filenames;
-                DataList = Import /@ Pick[filenames, ParameterSetIndicies
-                    ];
+                ParameterSetIndicies = Thread[StringContainsQ[ToString[parameterSet[[1]]] <> ToString[parameterSet[[2]]]] /@ filenames || StringContainsQ[ToString[FullForm[ToExpression@parameterSet[[1]]]] <> ToString[parameterSet[[2]]]]/@filenames];
+                DataList = Import /@ Pick[filenames, ParameterSetIndicies];
             ];
             If[Length @ Dimensions @ parameterSet > 1,
-                ParameterSetIndicies = Table[StringContainsQ[ToString[
-                    parameterSet[[i]][[1]]] <> ToString[parameterSet[[i]][[2]]]] /@ filenames,
-                     {i, 1, Length @ parameterSet}];
-                ParameterSetIndiciesAll = Table[AllTrue[ParameterSetIndicies
-                    [[All, i]], TrueQ], {i, 1, Length @ First @ ParameterSetIndicies}];
-                DataList = Import /@ Pick[filenames, ParameterSetIndiciesAll
-                    ];
+                ParameterSetIndicies = Table[
+                                             Thread[StringContainsQ[ToString[parameterSet[[i]][[1]]] <> ToString[parameterSet[[i]][[2]]]] /@ filenames || StringContainsQ[ToString[FullForm[ToExpression@parameterSet[[i]][[1]]]] <> ToString[parameterSet[[i]][[2]]]]/@filenames],
+                                             {i, 1, Length @ parameterSet}
+                                             ];
+                ParameterSetIndiciesAll = Table[AllTrue[ParameterSetIndicies[[All, i]], TrueQ], {i, 1, Length @ First @ ParameterSetIndicies}];
+                DataList = Import /@ Pick[filenames, ParameterSetIndiciesAll];
             ];
         ];
         CleansedDataList = DeleteCases[DataList, <|___,"Solution"->x_/;StringQ[x]|>];
