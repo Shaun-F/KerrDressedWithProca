@@ -41,6 +41,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 	Block[{HistoryLength=0},
 		With[{k=mval, j=nval},
 			muIterationCounter=1;
+			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"}
 			Do[
 				(*Prepare parameter values*)
 				parameters["m"]=k;
@@ -65,10 +66,10 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				(*Output current iteration to terminal*)
 				Print["Kernel "<>ToString[$KernelID]<>" working on parameter point (\[Mu], m, n) = ("<>ToString[parameters["\[Mu]Nv"], InputForm]<>", "<>ToString[parameters["m"], InputForm]<>" ,"<>ToString[parameters["n"], InputForm]<>")"];
 				
-				Logger = "m Iteration Count: "<>ToString[mIterationCounter, InputForm]<>"\n";
-				Logger = Logger<>"m value: "<>ToString[parameters["m"], InputForm]<>"\n";
-				Logger = Logger<>"n value: "<>ToString[parameters["n"], InputForm]<>"\n";
-				Logger = Logger<>"mu value: "<>ToString[parameters["\[Mu]Nv"], InputForm]<>"\n";
+				AppendTo[Logger,"m Iteration Count: "<>ToString[mIterationCounter, InputForm]];
+				AppendTo[Logger,"m value: "<>ToString[parameters["m"], InputForm]];
+				AppendTo[Logger,"n value: "<>ToString[parameters["n"], InputForm]];
+				AppendTo[Logger,"mu value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 				
 				(*Minimization using native Nelder Mead algorithm*)
 				minimizetimestart = AbsoluteTime[];
@@ -81,14 +82,14 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 					omegaValHistory = Table[omegaHolder[iter], {iter, 1, muIterationCounter-1}];
 					nuValHistory = Table[nuHolder[iter], {iter, 1, muIterationCounter-1}];
 					muValHistory = Table[muHolder[iter], {iter, 1, muIterationCounter-1}];
-					omegaFit[muIterationCounter] = Fit[Thread[{muValHistory,omegaValHistory}], {1, zeta, zeta^2, zeta^3, zeta^4}, zeta, WorkingPrecision->parameters["precision"]];
-					nuFit[muIterationCounter] = Fit[Thread[{muValHistory,nuValHistory}], {1, zeta, zeta^2, zeta^3, zeta^4}, zeta, WorkingPrecision->parameters["precision"]];
-					CurrentomegaGuess = omegaFit[muIterationCounter]/.zeta->parameters["\[Mu]Nv"];
-					CurrentnuGuess = nuFit[muIterationCounter]/.zeta->parameters["\[Mu]Nv"];
+					omegaFit[muIterationCounter] = Interpolation[Thread[{muValHistory, omegaValHistory}], InterpolationOrder->2];
+					nuFit[muIterationCounter] = Interpolation[Thread[{muValHistory, nuValHistory}], InterpolationOrder->2];
+					CurrentomegaGuess = omegaFit[muIterationCounter][parameters["\[Mu]Nv"]];
+					CurrentnuGuess = nuFit[muIterationCounter][parameters["\[Mu]Nv"]];
 					omegaGuess = CurrentomegaGuess;
-					nuGuess = getNuValue[omegaGuess,parameters, CurrentnuGuess];
-					nuFitFunction[muIterationCounter] = Function[{zeta}, Evaluate@nuFit[muIterationCounter]]; (*To be used later for the radial minimization*),
-					
+					nuGuess = getNuValue[omegaGuess, parameters, CurrentnuGuess];
+					nuFitFunction[muIterationCounter] = nuFit[muIterationCounter]; (*To be used later for the radial minimization*)
+					,
 					(*Use non-relativistic limit for initial guess of omega in first 5 iterations*)
 					omegaGuess = N[omegaNRNonRel[parameters] + I*omegaNINonRel[parameters]];
 					nuGuess = getNuValue[omegaGuess, parameters, nuNNonRel[omegaGuess, parameters]];
@@ -105,9 +106,9 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				
 				(*Perform Minimization*)
 				MinimizationResults = RadialMinimize[omegaGuess, nuGuess, omegaBoundary, parameters, False, nuFitFunction[muIterationCounter]];
-				Logger = Logger<>"Minimization Results: "<>ToString[MinimizationResults//N, InputForm];
+				AppendTo[Logger,"Minimization Results: "<>ToString[MinimizationResults//N, InputForm]];
 				minimizetimestop = AbsoluteTime[];
-				Logger = Logger<>"\nMinimization Time: "<>ToString[N[minimizetimestop-minimizetimestart], InputForm];
+				AppendTo[Logger,"Minimization Time: "<>ToString[N[minimizetimestop-minimizetimestart], InputForm]];
 				
 				
 				(*Solve for Kernel of angular matrix*)
@@ -116,7 +117,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				coeffs = SolveAngularSystem[MinimizationResults["\[Omega]"], MinimizationResults["\[Nu]"],parameters];
 				Sfunc = Function[{\[Theta]},Evaluate[Sfunctemp/.coeffs]];
 				angulartimestop = AbsoluteTime[];
-				Logger = Logger<>"\nAngular Solver Time: "<>ToString[N[angulartimestop-angulartimestart], InputForm];
+				AppendTo[Logger,"Angular Solver Time: "<>ToString[N[angulartimestop-angulartimestart], InputForm]];
 				
 				
 				(*Format solution*)
@@ -176,13 +177,13 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				(*Prepare solution data and write to disk*)
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <| "Parameters" -> parameters, "Solution" -> TheSolution|>;
-				Logger = Logger<>"\nCaching results to: "<>assocToString[printData]<>".mx\n\n";
+				AppendTo[Logger,"Caching results to: "<>assocToString[printData]<>".mx"];
+				AppendTo[Logger, ""];AppendTo[Logger, ""];
 				If[SaveToDisk,
 					Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx",CacheData];
 				];
-				Logger = Logger<>"\n\n";
 				If[LogRun, 
-					PutAppend[Logger, LogFile];
+					PutAppend[Sequence@@Logger, LogFile];
 				];
 				
 				(*Prepare next loop*)
@@ -194,8 +195,8 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				Continue[];
 				
 				Label[SuperradiantConditionFailure];
-				Logger = Logger<>"\nSuperradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")";
-				If[LogRun, Logger >>> LogFile];	
+				AppendTo[Logger,"Superradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"];
+				If[LogRun, PutAppend[Sequence@@Logger,LogFile];	
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
 				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
