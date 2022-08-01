@@ -10,16 +10,167 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    224600,       5309]
-NotebookOptionsPosition[    223218,       5276]
-NotebookOutlinePosition[    223820,       5298]
-CellTagsIndexPosition[    223735,       5293]
+NotebookDataLength[    230981,       5461]
+NotebookOptionsPosition[    229498,       5427]
+NotebookOutlinePosition[    230101,       5449]
+CellTagsIndexPosition[    230016,       5444]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Guess", " ", "routine", " ", "for", " ", "\[Omega]"}], "-", " ", 
+    "\[Nu]", "-", "values"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"\[Mu]IterationCounter", "\[GreaterEqual]", "6"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"If", " ", 
+        RowBox[{"we", "'"}], "re", " ", "on", " ", "the", " ", "6", "th", " ",
+         "iteration"}], ",", " ", 
+       RowBox[{
+       "use", " ", "previous", " ", "values", " ", "to", " ", "approximate", 
+        " ", "current", " ", "frequency", " ", "value", " ", "using", " ", 
+        "fit", " ", "functions"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\[Omega]ValHistory", " ", "=", " ", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"\[Omega]Holder", "[", "iter", "]"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"iter", ",", 
+           RowBox[{"\[Mu]IterationCounter", "-", "5"}], ",", 
+           RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"\[Nu]ValHistory", " ", "=", " ", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"\[Nu]Holder", "[", "iter", "]"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"iter", ",", 
+           RowBox[{"\[Mu]IterationCounter", "-", "5"}], ",", 
+           RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"\[Mu]ValHistory", " ", "=", " ", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"\[Mu]Holder", "[", "iter", "]"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"iter", ",", 
+           RowBox[{"\[Mu]IterationCounter", "-", "5"}], ",", 
+           RowBox[{"\[Mu]IterationCounter", "-", "1"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], " ", "=", 
+       " ", 
+       RowBox[{"Fit", "[", 
+        RowBox[{
+         RowBox[{"Thread", "[", 
+          RowBox[{"{", 
+           RowBox[{"\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], "}"}],
+           "]"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "\[Zeta]", ",", 
+           SuperscriptBox["\[Zeta]", "2"], ",", " ", 
+           SuperscriptBox["\[Zeta]", "3"], ",", " ", 
+           SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", "\[Zeta]", ",", 
+         " ", 
+         RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], "]"}]}], " ", 
+      RowBox[{"(*", 
+       RowBox[{"InterpolatingPolynomial", "[", 
+        RowBox[{
+         RowBox[{"Thread", "[", 
+          RowBox[{"{", 
+           RowBox[{"\[Mu]ValHistory", ",", " ", "\[Omega]ValHistory"}], "}"}],
+           "]"}], ",", "\[Zeta]"}], "]"}], "*)"}], 
+      RowBox[{"(*", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Interp", ".", " ", "Poly"}], " ", "seems", " ", "to", " ", 
+          "fail", " ", "for", " ", "\[Omega]"}], "-", 
+         RowBox[{"values", " ", "near", " ", "\[Mu]"}]}], "=", "0.4"}], 
+       "*)"}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "=", 
+       RowBox[{"Fit", "[", 
+        RowBox[{
+         RowBox[{"Thread", "[", 
+          RowBox[{"{", 
+           RowBox[{"\[Mu]ValHistory", ",", " ", "\[Nu]ValHistory"}], "}"}], 
+          "]"}], ",", "  ", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "\[Zeta]", ",", 
+           SuperscriptBox["\[Zeta]", "2"], ",", " ", 
+           SuperscriptBox["\[Zeta]", "3"], ",", " ", 
+           SuperscriptBox["\[Zeta]", "4"]}], "}"}], ",", " ", "\[Zeta]", ",", 
+         " ", 
+         RowBox[{"WorkingPrecision", "\[Rule]", "precision"}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"Current\[Omega]Guess", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"\[Omega]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
+        RowBox[{"\[Zeta]", "\[Rule]", 
+         RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Current\[Nu]Guess", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}], "/.", 
+        RowBox[{"\[Zeta]", "->", 
+         RowBox[{"parameters", "[", "\"\<\[Mu]Nv\>\"", "]"}]}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"omegaGuess", " ", "=", " ", "Current\[Omega]Guess"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"nuGuess", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"getNuValue", "[", 
+         RowBox[{
+         "omegaGuess", ",", " ", "parameters", ",", " ", 
+          "Current\[Nu]Guess"}], "]"}], "//", "N"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Nu]FitFunction", "[", "\[Mu]IterationCounter", "]"}], " ", 
+       "=", " ", 
+       RowBox[{"Function", "[", 
+        RowBox[{
+         RowBox[{"{", "\[Zeta]", "}"}], ",", " ", 
+         RowBox[{"Evaluate", "@", 
+          RowBox[{"\[Nu]Fit", "[", "\[Mu]IterationCounter", "]"}]}]}], 
+        "]"}]}]}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"use", " ", "non"}], "-", 
+       RowBox[{
+       "rel", " ", "limit", " ", "for", " ", "initial", " ", "guess", " ", 
+        "of", " ", "\[Omega]", " ", "in", " ", "first", " ", "4", " ", 
+        "iterations"}]}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"omegaGuess", " ", "=", " ", 
+       RowBox[{"N", "[", 
+        RowBox[{
+         RowBox[{"omegaNRNonRel", "[", "parameters", "]"}], " ", "+", " ", 
+         RowBox[{"I", "*", 
+          RowBox[{"omegaNINonRel", "[", "parameters", "]"}]}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"nuGuess", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"getNuValue", "[", 
+         RowBox[{"omegaGuess", ",", " ", "parameters", ",", 
+          RowBox[{"nuNNonRel", "[", 
+           RowBox[{"omegaGuess", ",", "parameters"}], "]"}]}], "]"}], "//", 
+        "N"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.868332301972781*^9, 
+  3.868332310552238*^9}},ExpressionUUID->"b0602965-dfc1-41f7-b9ca-\
+eacc8b02c1dc"],
 
 Cell[CellGroupData[{
+
 Cell["        Functions", "Subsection",
  CellChangeTimes->{{3.860198747935575*^9, 3.860198748606625*^9}, {
   3.8602848790395737`*^9, 
@@ -5286,30 +5437,31 @@ ExpressionUUID->"1fcb6970-7300-45bf-aaca-b05b7b809134"
 (*CellTagsOutline
 CellTagsIndex->{
  "CalculationFunctions"->{
-  Cell[1559, 49, 138554, 3344, 14510, "Input",ExpressionUUID->"ab866a9e-9a86-42d8-9743-8ad7a09dea3d",
+  Cell[7839, 200, 138554, 3344, 14510, "Input",ExpressionUUID->"ab866a9e-9a86-42d8-9743-8ad7a09dea3d",
    CellTags->"CalculationFunctions"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"CalculationFunctions", 223571, 5287}
+ {"CalculationFunctions", 229851, 5438}
  }
 *)
 (*NotebookFileOutline
 Notebook[{
+Cell[558, 20, 6277, 149, 619, "Input",ExpressionUUID->"b0602965-dfc1-41f7-b9ca-eacc8b02c1dc"],
 Cell[CellGroupData[{
-Cell[580, 22, 218, 4, 54, "Subsection",ExpressionUUID->"821cf547-bc04-4bb9-a3f8-20108d5951a7"],
-Cell[801, 28, 755, 19, 71, "Input",ExpressionUUID->"e93cffd4-3faa-46cb-9096-8d3ba53c08f1"],
-Cell[1559, 49, 138554, 3344, 14510, "Input",ExpressionUUID->"ab866a9e-9a86-42d8-9743-8ad7a09dea3d",
+Cell[6860, 173, 218, 4, 54, "Subsection",ExpressionUUID->"821cf547-bc04-4bb9-a3f8-20108d5951a7"],
+Cell[7081, 179, 755, 19, 71, "Input",ExpressionUUID->"e93cffd4-3faa-46cb-9096-8d3ba53c08f1"],
+Cell[7839, 200, 138554, 3344, 14510, "Input",ExpressionUUID->"ab866a9e-9a86-42d8-9743-8ad7a09dea3d",
  CellTags->"CalculationFunctions"],
-Cell[140116, 3395, 39755, 882, 4990, "Input",ExpressionUUID->"b427287e-6470-4bd2-96fe-d8b7e07f5bb0"]
+Cell[146396, 3546, 39755, 882, 4990, "Input",ExpressionUUID->"b427287e-6470-4bd2-96fe-d8b7e07f5bb0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[179908, 4282, 272, 4, 54, "Subsection",ExpressionUUID->"518c50da-c7a6-45eb-8b1f-e2749f381851"],
-Cell[180183, 4288, 3409, 85, 417, "Input",ExpressionUUID->"433b2a71-144e-4207-9bad-82ae40d9be12",
+Cell[186188, 4433, 272, 4, 54, "Subsection",ExpressionUUID->"518c50da-c7a6-45eb-8b1f-e2749f381851"],
+Cell[186463, 4439, 3409, 85, 417, "Input",ExpressionUUID->"433b2a71-144e-4207-9bad-82ae40d9be12",
  InitializationCell->True],
-Cell[183595, 4375, 21359, 466, 2572, "Code",ExpressionUUID->"7c890fde-241c-472c-9ca2-e54471735f87"],
-Cell[204957, 4843, 18245, 430, 1647, "Code",ExpressionUUID->"cba8d921-82a5-441e-b497-f7fe2657b872"]
+Cell[189875, 4526, 21359, 466, 2572, "Code",ExpressionUUID->"7c890fde-241c-472c-9ca2-e54471735f87"],
+Cell[211237, 4994, 18245, 430, 1647, "Code",ExpressionUUID->"cba8d921-82a5-441e-b497-f7fe2657b872"]
 }, Closed]]
 }
 ]
