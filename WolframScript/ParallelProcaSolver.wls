@@ -9,6 +9,7 @@ ConfigurationParameters = Import[$FKKSRoot<>"WolframScript/Config.ini"];
 LogRun = ToExpression[ConfigurationParameters["LogRun"]];
 SaveToDisk = ToExpression[ConfigurationParameters["SaveToDisk"]];
 NumberOfKernels = ConfigurationParameters["NumberofSlaveKernels"]//ToExpression;
+OverwriteExisting = ConfigurationParameters["OverwriteExisting"]//ToExpression;
 
 If[!TrueQ[(ConfigurationParameters["SolutionFilePath"]==Automatic)],
 	$SolutionPath = ConfigurationParameters["SolutionFilePath"];,
@@ -18,9 +19,9 @@ If[!TrueQ[(ConfigurationParameters["SolutionFilePath"]==Automatic)],
 Print["FKKSRoot: "<>$FKKSRoot];
 Print["Solution Path: "];Print[$SolutionPath];
 Print["Log File Path: "];Print[LogFile];
-Print["/nLog Run: "<>ToString[TrueQ[LogRun], InputForm]];
+Print["Log Run: "<>ToString[TrueQ[LogRun], InputForm]];
 Print["Save to disk: "<>ToString[TrueQ[SaveToDisk], InputForm]];
-
+Print["Overwrite Previous Solutions: "<>ToString[TrueQ[OverwriteExisting], InputForm]];
 
 Import[FileNameJoin[{$FKKSRoot,"Packages", "KerrWithProca.wl"}]];
 Import[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]];
@@ -41,7 +42,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 	Block[{HistoryLength=0},
 		With[{k=mval, j=nval},
 			muIterationCounter=1;
-			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"}
+			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
 			Do[
 				(*Prepare parameter values*)
 				parameters["m"]=k;
@@ -231,7 +232,7 @@ Off[NMinimize::nnum]; ParallelEvaluate[Off[NMinimize::nnum]];
 (*Execute parallelized kerr solver*)
 runStartTime = AbsoluteTime[];
 Evaluators = Flatten@Table[
-				ParallelSubmit[{mv, nv}, WorkerFunction[mv,nv]],
+				ParallelSubmit[{mv, nv}, WorkerFunction[mv,nv, OverwritePrevious->OverwriteExisting]],
 				{nv, parameters["nrange"] // First, parameters["nrange"] // Last}, 
 				{mv, parameters["mrange"] // First, parameters["mrange"] // Last}
 			];
