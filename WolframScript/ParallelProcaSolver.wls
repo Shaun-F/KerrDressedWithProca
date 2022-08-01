@@ -196,7 +196,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				
 				Label[SuperradiantConditionFailure];
 				AppendTo[Logger,"Superradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"];
-				If[LogRun, PutAppend[Sequence@@Logger,LogFile];	
+				If[LogRun, PutAppend[Sequence@@Logger,LogFile]];	
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
 				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
@@ -245,76 +245,3 @@ Print["Finished! Total Time: "<>ToString[N[Round[runEndTime-runStartTime]/60], I
 			
 (*Cleanup*)
 CloseKernels[];	
-				
-				
-				
-				
-					
-					
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				
