@@ -50,7 +50,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				parameters["n"]=j;
 				
 				(*Setup iteration*)	
-				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]] + \[Mu]IterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
+				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]] + muIterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
 				(*If the Imaginary part of the frequency is starting to decrease, we half the step size and remove the mode postfactor to more accurately probe the fall off*)
 				If[muIterationCounter>3,
 					If[Im[omegaHolder[muIterationCounter-2]]>Im[omegaHolder[muIterationCounter-1]],
@@ -209,10 +209,6 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
 				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
-			
-					
-				,
-				{i, parameters["\[Mu]range"]//First, parameters["\[Mu]range"]//Last, parameters["\[Delta]\[Mu]"]}
 			]; (*mu iteration loop end*)
 			
 			(*Clear symbols used in mu iteration to prevent memory leaks*)
