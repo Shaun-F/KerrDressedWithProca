@@ -43,14 +43,21 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 		With[{k=mval, j=nval},
 			muIterationCounter=1;
 			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
-			Do[
+			While[True,
 				(*Prepare parameter values*)
 				parameters["m"]=k;
 				parameters["l"]=parameters["m"]+parameters["s"];
 				parameters["n"]=j;
 				
 				(*Setup iteration*)	
-				parameters["\[Mu]Nv"]=i*parameters["m"]; (*account for m-dependence of superradiant threshold*)
+				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]] + \[Mu]IterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
+				(*If the Imaginary part of the frequency is starting to decrease, we half the step size and remove the mode postfactor to more accurately probe the fall off*)
+				If[muIterationCounter>3,
+					If[Im[omegaHolder[muIterationCounter-2]]>Im[omegaHolder[muIterationCounter-1]],
+						parameters["\[Mu]Nv"]=parameters["\[Mu]range"][[1]] + muIterationCounter*parameters["\[Delta]\[Mu]"]/2;
+					];
+				];
+				
 				parameters["EndingX"]=calcEndingX[parameters]; (*Determine cutoff radius for radial equation integrator*)
 				
 				(*Construct name for file to save data in*)
@@ -78,8 +85,8 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				(*Determine next guess for frequency and angular eigenvalue*)
 				nuFitFunction[muIterationCounter] = Null;
 				If[TrueQ[muIterationCounter >= 6],
-					
 					(*If we're on the 6th iteration, use previous values to approximate current frequency value using fit functions*)
+					Off[InterpolatingFunction::dmval];
 					omegaValHistory = Table[omegaHolder[iter], {iter, 1, muIterationCounter-1}];
 					nuValHistory = Table[nuHolder[iter], {iter, 1, muIterationCounter-1}];
 					muValHistory = Table[muHolder[iter], {iter, 1, muIterationCounter-1}];
@@ -90,6 +97,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 					omegaGuess = CurrentomegaGuess;
 					nuGuess = getNuValue[omegaGuess, parameters, CurrentnuGuess];
 					nuFitFunction[muIterationCounter] = nuFit[muIterationCounter]; (*To be used later for the radial minimization*)
+					On[InterpolatingFunction::dmval];
 					,
 					(*Use non-relativistic limit for initial guess of omega in first 5 iterations*)
 					omegaGuess = N[omegaNRNonRel[parameters] + I*omegaNINonRel[parameters]];
