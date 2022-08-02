@@ -2,3 +2,921 @@ Tue 2 Aug 2022 11:37:54
 
 <|"\[Mu]range" -> {1/20, 1/2}, "\[Delta]\[Mu]" -> 1/100, "nrange" -> {0, 0}, "\[Delta]n" -> 1, "mrange" -> {3, 3}, "\[Delta]m" -> 1, "EndingX" -> (4000*(1 + 0.4*(1 - Erfc[60.*(-0.95 + Missing["KeyAbsent", "\[Chi]"])]/2)))/3, "StartingX" -> 1/10000, "precision" -> 22, "omegaRes" -> 800, "MaxIterationsMinimization" -> 1000, "RadialIntegratorMaxStep" -> 1000000, "RadialIntegratorPrecisionGoal" -> 8, "OptimizationPrecision" -> 8, "OptimizationAccuracy" -> 18, "branch" -> 1, "KMax" -> 4, "\[Epsilon]" -> 1/10000, "\[Mu]Nv" -> 3/10, "m" -> 3, "\[Eta]" -> 0, "n" -> 0, "l" -> 2, "s" -> -1, "\[Chi]" -> 9/10, "M" -> 1|>
 
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.1199036656729847 + \
+1.5536389107119142*^-19*I, \"\[Nu]\" -> -0.0414877738237525 - \
+9.679114339446883*^-21*I|>"
+"Minimization Time: 255.491572"
+"\nAngular Solver Time: 0.067438"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.1199036656729847 + \
+1.5536389107119142*^-19*I, \"\[Nu]\" -> -0.0414877738237525 - \
+9.679114339446883*^-21*I|>"
+"Minimization Time: 255.491572"
+"\nAngular Solver Time: 0.067438"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 13/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.12987744775224894 + \
+4.772801731094324*^-19*I, \"\[Nu]\" -> -0.04508412118667168 - \
+3.036347790628134*^-20*I|>"
+"Minimization Time: 279.744881"
+"\nAngular Solver Time: 0.070377"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.1199036656729847 + \
+1.5536389107119142*^-19*I, \"\[Nu]\" -> -0.0414877738237525 - \
+9.679114339446883*^-21*I|>"
+"Minimization Time: 255.491572"
+"\nAngular Solver Time: 0.067438"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 13/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.12987744775224894 + \
+4.772801731094324*^-19*I, \"\[Nu]\" -> -0.04508412118667168 - \
+3.036347790628134*^-20*I|>"
+"Minimization Time: 279.744881"
+"\nAngular Solver Time: 0.070377"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.13984683917273272 + \
+1.342206669731492*^-18*I, \"\[Nu]\" -> -0.04870264742249461 - \
+8.717267993956099*^-20*I|>"
+"Minimization Time: 260.757804"
+"\nAngular Solver Time: 0.070403"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.1199036656729847 + \
+1.5536389107119142*^-19*I, \"\[Nu]\" -> -0.0414877738237525 - \
+9.679114339446883*^-21*I|>"
+"Minimization Time: 255.491572"
+"\nAngular Solver Time: 0.067438"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 13/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.12987744775224894 + \
+4.772801731094324*^-19*I, \"\[Nu]\" -> -0.04508412118667168 - \
+3.036347790628134*^-20*I|>"
+"Minimization Time: 279.744881"
+"\nAngular Solver Time: 0.070377"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.13984683917273272 + \
+1.342206669731492*^-18*I, \"\[Nu]\" -> -0.04870264742249461 - \
+8.717267993956099*^-20*I|>"
+"Minimization Time: 260.757804"
+"\nAngular Solver Time: 0.070403"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/20"
+"Minimization Results: <|\"\[Omega]\" -> 0.14981149277674957 + \
+3.4991490777775546*^-18*I, \"\[Nu]\" -> -0.05234352292679792 - \
+2.319657292101686*^-19*I|>"
+"Minimization Time: 271.988711"
+"\nAngular Solver Time: 0.07162"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.1199036656729847 + \
+1.5536389107119142*^-19*I, \"\[Nu]\" -> -0.0414877738237525 - \
+9.679114339446883*^-21*I|>"
+"Minimization Time: 255.491572"
+"\nAngular Solver Time: 0.067438"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 13/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.12987744775224894 + \
+4.772801731094324*^-19*I, \"\[Nu]\" -> -0.04508412118667168 - \
+3.036347790628134*^-20*I|>"
+"Minimization Time: 279.744881"
+"\nAngular Solver Time: 0.070377"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.13984683917273272 + \
+1.342206669731492*^-18*I, \"\[Nu]\" -> -0.04870264742249461 - \
+8.717267993956099*^-20*I|>"
+"Minimization Time: 260.757804"
+"\nAngular Solver Time: 0.070403"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/20"
+"Minimization Results: <|\"\[Omega]\" -> 0.14981149277674957 + \
+3.4991490777775546*^-18*I, \"\[Nu]\" -> -0.05234352292679792 - \
+2.319657292101686*^-19*I|>"
+"Minimization Time: 271.988711"
+"\nAngular Solver Time: 0.07162"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 4/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.15977105940547587 + \
+8.546936422787663*^-18*I, \"\[Nu]\" -> -0.05600691831618454 - \
+5.782184431479835*^-19*I|>"
+"Minimization Time: 278.861907"
+"\nAngular Solver Time: 0.070767"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv4_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Tue 2 Aug 2022 11:37:54 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.059987989258889145 + \
+1.046572530814937*^-23*I, \"\[Nu]\" -> -0.020365941634892196|>"
+"Minimization Time: 139.183019"
+"\nAngular Solver Time: 0.072257"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.06998092133995767 + \
+7.2321257309651*^-23*I, \"\[Nu]\" -> -0.023832776747176567|>"
+"Minimization Time: 159.55415"
+"\nAngular Solver Time: 0.066253"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 2/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.07997151072195194 + \
+4.918013893154692*^-22*I, \"\[Nu]\" -> -0.027320775171922027|>"
+"Minimization Time: 173.997577"
+"\nAngular Solver Time: 0.065451"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 9/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.08995941958312606 + \
+2.6476451637293415*^-21*I, \"\[Nu]\" -> -0.030830105180292548|>"
+"Minimization Time: 150.679088"
+"\nAngular Solver Time: 0.065639"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 1/10"
+"Minimization Results: <|\"\[Omega]\" -> 0.09994430887967969 + \
+1.1849488980102865*^-20*I, \"\[Nu]\" -> -0.03436093548332415 - \
+7.075721106733862*^-22*I|>"
+"Minimization Time: 161.64732"
+"\nAngular Solver Time: 0.067153"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 11/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.10992583820833327 + \
+4.565963688294161*^-20*I, \"\[Nu]\" -> -0.037913435200023334 - \
+2.785200835574023*^-21*I|>"
+"Minimization Time: 264.840013"
+"\nAngular Solver Time: 0.068018"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.1199036656729847 + \
+1.5536389107119142*^-19*I, \"\[Nu]\" -> -0.0414877738237525 - \
+9.679114339446883*^-21*I|>"
+"Minimization Time: 255.491572"
+"\nAngular Solver Time: 0.067438"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 13/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.12987744775224894 + \
+4.772801731094324*^-19*I, \"\[Nu]\" -> -0.04508412118667168 - \
+3.036347790628134*^-20*I|>"
+"Minimization Time: 279.744881"
+"\nAngular Solver Time: 0.070377"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv13_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 7/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.13984683917273272 + \
+1.342206669731492*^-18*I, \"\[Nu]\" -> -0.04870264742249461 - \
+8.717267993956099*^-20*I|>"
+"Minimization Time: 260.757804"
+"\nAngular Solver Time: 0.070403"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 3/20"
+"Minimization Results: <|\"\[Omega]\" -> 0.14981149277674957 + \
+3.4991490777775546*^-18*I, \"\[Nu]\" -> -0.05234352292679792 - \
+2.319657292101686*^-19*I|>"
+"Minimization Time: 271.988711"
+"\nAngular Solver Time: 0.07162"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 4/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.15977105940547587 + \
+8.546936422787663*^-18*I, \"\[Nu]\" -> -0.05600691831618454 - \
+5.782184431479835*^-19*I|>"
+"Minimization Time: 278.861907"
+"\nAngular Solver Time: 0.070767"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv4_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m Value: 3"
+"n Value: 0"
+"\[Mu] Value: 17/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.16972518776866963 + \
+1.9690766016590495*^-17*I, \"\[Nu]\" -> -0.05969300438438682 - \
+1.3591808944870294*^-18*I|>"
+"Minimization Time: 248.555456"
+"\nAngular Solver Time: 0.067179"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv17_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
