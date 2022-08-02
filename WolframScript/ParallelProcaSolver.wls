@@ -57,9 +57,11 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				If[muIterationCounter>3,
 					If[Im[omegaHolder[muIterationCounter-2]]>Im[omegaHolder[muIterationCounter-1]],
 						Print["Im(omega) decreasing. Reducing mass resolution..."];
-						If[!NumberQ[ResolutionReductionPoint],(*Determine the muIterationCounter at which the resolution should be reduced*)
+						(*Determine the muIterationCounter at which the resolution should be reduced*)
+						If[!NumberQ[ResolutionReductionPoint],
 							ResolutionReductionPoint=muIterationCounter;
 						];
+						(*Reduce resolution and continue from last value*)
 						parameters["\[Mu]Nv"]=parameters["\[Mu]range"][[1]] + (muIterationCounter+ResolutionReductionPoint)*parameters["\[Delta]\[Mu]"]/2;
 					];
 				];
