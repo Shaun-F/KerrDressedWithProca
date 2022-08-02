@@ -215,6 +215,7 @@ WorkerFunction[mval_,nval_, OptionsPattern[]]:=
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
 				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
+				muIterationCounter++;
 			]; (*mu iteration loop end*)
 			
 			(*Clear symbols used in mu iteration to prevent memory leaks*)
