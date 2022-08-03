@@ -1,10 +1,18 @@
 (* ::Package:: *)
 
+ModeOvertoneWorker;
+
+(*Import Helper functions*)
+If["HelperFunctions"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]]
+(*Import xAct Setup*)
+If["xActSetup"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]]
+
+
 Options[WorkerFunction]={OverwritePrevious->False};
-WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
+WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPattern[]]:=
 	Block[{HistoryLength=0, 
 			parameters=InitialParameters,
-			ResolutionReductionPoint, 
+			ResolutionReductionPoint, muIterationCounter,
 			Logger, printData,SolutionFileName,
 			minimizetimestart,minimizetimestop,
 			nuFitFunction,omegaValHistory,nuValHistory,muValHistory,omegaHolder,nuHolder,muHolder,omegaFit,nuFit,CurrentomegaGuess,CurrentnuGuess,omegaGuess,nuGuess,
@@ -22,12 +30,12 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 			ResolutionReductionPoint=Null;
 			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
 			While[True,
-				(*Prepare parameter values*)
+				(*-----------Prepare parameter values-----------*)
 				parameters["m"]=k;
 				parameters["l"]=parameters["m"]+parameters["s"];
 				parameters["n"]=j;
 				
-				(*Determine new mass value*)	
+				(*-----------Determine new mass value-----------*)	
 				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]] + muIterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
 				(*If the Imaginary part of the frequency is starting to decrease, we half the step size and remove the mode postfactor to more accurately probe the fall off*)
 				If[muIterationCounter>3,
@@ -40,33 +48,44 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 						(*Reduce resolution and continue from last value*)
 						parameters["\[Mu]Nv"]=First[parameters["\[Mu]range"]] + (muIterationCounter+ResolutionReductionPoint)*parameters["\[Delta]\[Mu]"]/2;
 					];
+					
+					If[Im[omegaHolder[muIterationCounter-3]]>Im[omegaHolder[muIterationCounter-2]]<Im[omegaHolder[muIterationCounter]-1],
+						(*If the instability rate decreases then increases, we probably jumped across the superradiant threshold gap \[Omega]=m*\[CapitalOmega]. Break the loop.*)
+						Print["Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
+						AppendTo[Logger, "Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
+						PutAppend[Sequence@@Logger, LogFile];
+						Break[];	
+					];
 				];
-				(*Safety check on mass value*)
+				
+				(*-----------Safety check on mass value-----------*)
 				If[!NumberQ[parameters["\[Mu]Nv"]],
 					Print["Error! Mass value is not a number! \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]];
+					AppendTo[Logger, "Error! Mass value is not a number! \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]];
+					PutAppend[Sequence@@Logger, LogFile];
 					Break[];
 				];
 				parameters["EndingX"]=calcEndingX[parameters]; (*Determine cutoff radius for radial equation integrator*)
 				
-				(*Construct name for file to save data in*)
+				(*-----------Construct name for file to save data in-----------*)
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
 				SolutionFileName = $SolutionPath<>"RunData_"<>assocToString[printData]<>".mx";
 
-				(*If OverwritePrevious option is false and if the solution file already exists, skip current loop iteration*)
+				(*-----------If OverwritePrevious option is false and if the solution file already exists, skip current loop iteration-----------*)
 				If[! OptionValue[OverwritePrevious],
 					If[FileExistsQ[SolutionFileName],
 						Continue[]
 					];
 				];
 				
-				(*Output current iteration to terminal*)
+				(*-----------Output current iteration to terminal-----------*)
 				Print["Kernel "<>ToString[$KernelID]<>" working on parameter point (\[Mu], m, n) = ("<>ToString[parameters["\[Mu]Nv"], InputForm]<>", "<>ToString[parameters["m"], InputForm]<>" ,"<>ToString[parameters["n"], InputForm]<>")"];
 				
 				AppendTo[Logger,"m value: "<>ToString[parameters["m"], InputForm]];
 				AppendTo[Logger,"n value: "<>ToString[parameters["n"], InputForm]];
 				AppendTo[Logger,"mu value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 				
-				(*Minimization using native Nelder Mead algorithm*)
+				(*-----------Minimization using native Nelder Mead algorithm-----------*)
 				minimizetimestart = AbsoluteTime[];
 				
 				(*Determine next guess for frequency and angular eigenvalue*)
@@ -98,14 +117,14 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 				omegaBoundarySize = (1/2)*(omegaNRNonRel[ReplacePart[parameters, "n"->parameters["n"]+1]] - Re[omegaGuess]); (*Use next overtone frequency to construct boundary for omega search*)
 				omegaBoundary = {omegaGuess - omegaBoundarySize, omegaGuess + omegaBoundarySize};
 				
-				(*Perform Minimization*)
+				(*Perform Minimization-*)
 				MinimizationResults = RadialMinimize[omegaGuess, nuGuess, omegaBoundary, parameters, False, nuFitFunction[muIterationCounter]];
 				AppendTo[Logger,"Minimization Results: "<>ToString[MinimizationResults//N, InputForm]];
 				minimizetimestop = AbsoluteTime[];
 				AppendTo[Logger,"Minimization Time: "<>ToString[N[minimizetimestop-minimizetimestart], InputForm]];
 				
 				
-				(*Solve for Kernel of angular matrix*)
+				(*-----------Solve for Kernel of angular matrix-----------*)
 				angulartimestart = AbsoluteTime[];
 				Sfunctemp = Sum[C[tempiter]*SphericalHarmonicY[Abs[parameters["m"]] + 2*tempiter + parameters["\[Eta]"],parameters["m"],\[Theta], \[Phi]]*Exp[-I*parameters["m"]*\[Phi]], {tempiter,0, parameters["KMax"]}];
 				coeffs = SolveAngularSystem[MinimizationResults["\[Omega]"], MinimizationResults["\[Nu]"],parameters];
@@ -114,7 +133,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 				AppendTo[Logger,"Angular Solver Time: "<>ToString[N[angulartimestop-angulartimestart], InputForm]];
 				
 				
-				(*Format solution*)
+				(*-----------Format solution-----------*)
 				If[muIterationCounter < 6,
 					omegafitOutVariable = "Not enough iterations to construct fit";
 					nufitOutVariable = "Not enough iterations to construct fit";,
@@ -155,7 +174,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 						"AngularPlot"->AngularPlot
 						|>;
 						
-				(*Safety checks on solution*)
+				(*-----------Safety checks on solution-----------*)
 				If[TrueQ[parameters["\[Mu]Nv"]^2 <= Abs[MinimizationResults["\[Omega]"]]^2],
 					Print["Kernel "<>ToString[$KernelID,InputForm]<>" says: Error! Frequency larger than field mass! Breaking mu iteration ... (Parameter Point : m = "<>ToString[parameters["m"], InputForm]<>" n = "<>ToString[parameters["n"]]<>" \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]<>") "];                
 					Break[];
@@ -165,10 +184,10 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 					Break[];
 				];
 						
-				(*Print solution to terminal*)
+				(*-----------Print solution to terminal-----------*)
 				Print["Result for Kernel "<>ToString[$KernelID, InputForm]<>": \n\t \[Omega] = "<>ToString[Evaluate@MinimizationResults["\[Omega]"], InputForm]];
 				
-				(*Prepare solution data and write to disk*)
+				(*-----------Prepare solution data and write to disk-----------*)
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <| "Parameters" -> parameters, "Solution" -> TheSolution|>;
 				AppendTo[Logger,"Caching results to: "<>assocToString[printData]<>".mx"];
@@ -180,7 +199,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 					PutAppend[Sequence@@Logger, LogFile];
 				];
 				
-				(*Prepare next loop*)
+				(*-----------Prepare next loop-----------*)
 				muHolder[muIterationCounter] = parameters["\[Mu]Nv"]//SetPrecision[#, parameters["precision"]]&;
 				omegaHolder[muIterationCounter] = MinimizationResults["\[Omega]"]//SetPrecision[#, parameters["precision"]]&;
 				nuHolder[muIterationCounter] =  MinimizationResults["\[Nu]"]//SetPrecision[#, parameters["precision"]]&;
@@ -188,6 +207,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, OptionsPattern[]]:=
 				muIterationCounter++;
 				Continue[];
 				
+				(*-----------Fallback if superradiatn condition fails-----------*);
 				Label[SuperradiantConditionFailure];
 				AppendTo[Logger,"Superradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> "). Breaking mass loop..."];
 				If[LogRun, PutAppend[Sequence@@Logger,LogFile]];	
