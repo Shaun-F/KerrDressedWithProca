@@ -29,6 +29,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 			muIterationCounter=1;
 			ResolutionReductionPoint=Null;
 			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
+			Print@@Logger;
 			While[True,
 				(*-----------Prepare parameter values-----------*)
 				parameters["m"]=k;
