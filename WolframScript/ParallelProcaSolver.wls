@@ -46,18 +46,15 @@ CloseKernels[];
 NumberKernels = Min[NumberOfKernels, (Last[parameters["mrange"]] - First[parameters["mrange"]]+1)*(Last@parameters["nrange"] - First@parameters["nrange"] + 1)];
 Print["Launching "<>ToString[NumberKernels,InputForm]<>" Kernels."];
 LaunchKernels[NumberKernels];
+Print["Launched "<>ToString[NumberKernels, InputForm]<>" Kernels. Distributing definitions and import packages."];
 DistributeDefinitions[parameters, WorkerFunction, $SolutionPath, $FKKSRoot, LogFile, LogRun];
 ParallelEvaluate[Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]];
 
-(*turn off irrelevant error messages*)
-Off[ClebschGordan::phy]; ParallelEvaluate[Off[ClebschGordan::phy]];
-Off[NMinimize::nnum]; ParallelEvaluate[Off[NMinimize::nnum]];
-
-
 (*Execute parallelized kerr solver*)
+Print["Executing parallel routine..."];
 runStartTime = AbsoluteTime[];
 Evaluators = Flatten@Table[
-				ParallelSubmit[{mv, nv}, WorkerFunction[mv,nv, parameters, OverwritePrevious->OverwriteExisting]],
+				ParallelSubmit[{mv, nv}, WorkerFunction[mv,nv, parameters, LogFile, OverwritePrevious->OverwriteExisting]],
 				{nv, parameters["nrange"] // First, parameters["nrange"] // Last}, 
 				{mv, parameters["mrange"] // First, parameters["mrange"] // Last}
 			];

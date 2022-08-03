@@ -57,7 +57,6 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 						Break[];	
 					];
 				];
-				
 				(*-----------Safety check on mass value-----------*)
 				If[!NumberQ[parameters["\[Mu]Nv"]],
 					Print["Error! Mass value is not a number! \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]];
@@ -70,7 +69,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 				(*-----------Construct name for file to save data in-----------*)
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
 				SolutionFileName = $SolutionPath<>"RunData_"<>assocToString[printData]<>".mx";
-
+				
 				(*-----------If OverwritePrevious option is false and if the solution file already exists, skip current loop iteration-----------*)
 				If[! OptionValue[OverwritePrevious],
 					If[FileExistsQ[SolutionFileName],
