@@ -23,3 +23,81 @@
 \[Epsilon]1_10000\[Mu]Nv3_10m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
 ""
 ""
+"Beginning search routine:   time:Wed 3 Aug 2022 08:11:40 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m value: 3"
+"n value: 0"
+"mu value: 9/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.179673524326872 + \
+4.3152056614872564*^-17*I, \"\[Nu]\" -> -0.06340195205693688 - \
+3.0386704823774487*^-18*I|>"
+"Minimization Time: 165.351199"
+"Angular Solver Time: 0.071392"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Wed 3 Aug 2022 08:11:40 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m value: 3"
+"n value: 0"
+"mu value: 9/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.179673524326872 + \
+4.3152056614872564*^-17*I, \"\[Nu]\" -> -0.06340195205693688 - \
+3.0386704823774487*^-18*I|>"
+"Minimization Time: 165.351199"
+"Angular Solver Time: 0.071392"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m value: 3"
+"n value: 0"
+"mu value: 21/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.20948021150253007 + \
+3.5145991465914717*^-16*I, \"\[Nu]\" -> -0.07466767491203176 - \
+2.6249642674435063*^-17*I|>"
+"Minimization Time: 171.471687"
+"Angular Solver Time: 0.065955"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"Beginning search routine:   time:Wed 3 Aug 2022 08:11:40 Parameter values: \
+(m,n,\[Chi]) = (3,0,9/10)"
+"m value: 3"
+"n value: 0"
+"mu value: 9/50"
+"Minimization Results: <|\"\[Omega]\" -> 0.179673524326872 + \
+4.3152056614872564*^-17*I, \"\[Nu]\" -> -0.06340195205693688 - \
+3.0386704823774487*^-18*I|>"
+"Minimization Time: 165.351199"
+"Angular Solver Time: 0.071392"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m value: 3"
+"n value: 0"
+"mu value: 21/100"
+"Minimization Results: <|\"\[Omega]\" -> 0.20948021150253007 + \
+3.5145991465914717*^-16*I, \"\[Nu]\" -> -0.07466767491203176 - \
+2.6249642674435063*^-17*I|>"
+"Minimization Time: 171.471687"
+"Angular Solver Time: 0.065955"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
+"m value: 3"
+"n value: 0"
+"mu value: 6/25"
+"Minimization Results: <|\"\[Omega]\" -> 0.2392218040712142 + \
+2.118519679866763*^-15*I, \"\[Nu]\" -> -0.08614530768868928 - \
+1.6758345215903706*^-16*I|>"
+"Minimization Time: 174.449787"
+"Angular Solver Time: 0.067494"
+"Caching results to: \
+\[Epsilon]1_10000\[Mu]Nv6_25m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx"
+""
+""
