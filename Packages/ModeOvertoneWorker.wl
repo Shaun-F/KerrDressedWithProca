@@ -242,8 +242,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				ContinueLoop=False;
 			]; (*mu iteration loop end*)
 			
-			(*Clear symbols used in mu iteration to prevent memory leaks*)
-			ClearAll[muHolder, omegaHolder, nuHolder, TheSolution, AngularPlot, RadialPlot, CacheData, Logger, omegaFit, nuFit, nuFitFunction];
+			(*Clear cache to prevent memory leaks*)
 			ClearSystemCache[];
 		]; (*With statement end*)
 	];(*Block statement end*)
