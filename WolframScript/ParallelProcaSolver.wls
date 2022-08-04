@@ -50,6 +50,14 @@ Print["Launched "<>ToString[NumberKernels, InputForm]<>" Kernels. Distributing d
 DistributeDefinitions[parameters, WorkerFunction, $SolutionPath, $FKKSRoot, LogFile, LogRun];
 ParallelEvaluate[Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]];
 
+(*Add downvalue to Print function to remove unnecessary print statements in terminal*)
+Unprotect[Print];
+Print[expr_] /; ! FreeQ[expr, _KernelObject] = Null;
+Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "KernelObject"]] = Null;
+Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "remote kernel"]] = Null;
+Protect[Print];
+
+
 (*Execute parallelized kerr solver*)
 Print["Executing parallel routine..."];
 runStartTime = AbsoluteTime[];
