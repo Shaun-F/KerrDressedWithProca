@@ -242,6 +242,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 							|>;
 				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
 				ContinueLoop=False;
+				Break[];
 			]; (*mu iteration loop end*)
 			
 			(*Clear cache to prevent memory leaks*)
