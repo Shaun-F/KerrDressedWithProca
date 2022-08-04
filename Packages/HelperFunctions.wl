@@ -77,9 +77,12 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
                 DataList = Import /@ Pick[filenames, ParameterSetIndiciesAll];
             ];
         ];
-        CleansedDataList = DeleteCases[DataList, <|___,"Solution"->x_/;StringQ[x]|>];
-        CleansedDataList = DeleteCases[CleansedDataList,<|___, "Solution"-><|___,"\[Omega]"->Null,___|>|>];
-        CleansedDataList = DeleteCases[CleansedDataList,<|___, "Solution"-><|___,"\[Omega]"->Indeterminate,___|>|>];
+        CleansedDataList = Apply[Intersection, 
+                                 DeleteCases[DataList, #]&/@ {
+                                                             <|___, "Solution"-><|___, "\[Omega]"->s_/;Not[NumericQ[s]], ___|>|>, 
+                                                             <|___, "Solution"->s_/;StringQ[s]|>
+                                                             }
+                                 ];
         MassOrderingIndices = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
         CleansedDataList[[MassOrderingIndices]]
     ]
