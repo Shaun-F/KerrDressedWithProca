@@ -9,9 +9,10 @@ If["xActSetup"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Pack
 
 
 Options[WorkerFunction]={OverwritePrevious->False};
-WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPattern[]]:=
-	Block[{HistoryLength=0, 
+WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Association, LogFile_String, OptionsPattern[]]:=
+	Block[{$HistoryLength=0, 
 			parameters=InitialParameters,
+			ContinueLoop,
 			ResolutionReductionPoint, muIterationCounter,
 			Logger, printData,SolutionFileName,
 			minimizetimestart,minimizetimestop,
@@ -26,45 +27,60 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 			Off[ClebschGordan::phy];
 			Off[NMinimize::nnum];
 			Off[InterpolatingFunction::dmval];
+			ContinueLoop=True;
 			muIterationCounter=1;
 			ResolutionReductionPoint=Null;
 			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
-			Print@@Logger;
-			While[True,
+			
+			(*-----------Main Loop-----------*)
+			While[ContinueLoop,
 				(*-----------Prepare parameter values-----------*)
 				parameters["m"]=k;
 				parameters["l"]=parameters["m"]+parameters["s"];
 				parameters["n"]=j;
 				
 				(*-----------Determine new mass value-----------*)	
-				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]] + muIterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
+				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]]/parameters["m"] + muIterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
 				(*If the Imaginary part of the frequency is starting to decrease, we half the step size and remove the mode postfactor to more accurately probe the fall off*)
 				If[muIterationCounter>3,
 					If[Im[omegaHolder[muIterationCounter-2]]>Im[omegaHolder[muIterationCounter-1]],
 						Print["Im(omega) decreasing. Reducing mass resolution..."];
+						AppendTo[Logger, "Im(omega) decreasing. Reducing mass resolution..."];
 						(*Determine the muIterationCounter at which the resolution should be reduced*)
 						If[!NumberQ[ResolutionReductionPoint],
-							ResolutionReductionPoint=muIterationCounter-1;
+							ResolutionReductionPoint=muIterationCounter-2;
 						];
+						AppendTo[Logger, "Resolution Reduction index: "<>ToString[ResolutionReductionPoint, InputForm]];
 						(*Reduce resolution and continue from last value*)
-						parameters["\[Mu]Nv"]=First[parameters["\[Mu]range"]] + (muIterationCounter+ResolutionReductionPoint)*parameters["\[Delta]\[Mu]"]/2;
+						parameters["\[Mu]Nv"]=(First[parameters["\[Mu]range"]/parameters["m"]] + parameters["\[Delta]\[Mu]"]*(ResolutionReductionPoint + (muIterationCounter-ResolutionReductionPoint)/(2*parameters["m"])))*parameters["m"];
 					];
-					
-					If[Im[omegaHolder[muIterationCounter-3]]>Im[omegaHolder[muIterationCounter-2]]<Im[omegaHolder[muIterationCounter]-1],
+					If[Im[omegaHolder[muIterationCounter-3]]>Im[omegaHolder[muIterationCounter-2]]<Im[omegaHolder[muIterationCounter-1]],
 						(*If the instability rate decreases then increases, we probably jumped across the superradiant threshold gap \[Omega]=m*\[CapitalOmega]. Break the loop.*)
 						Print["Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
 						AppendTo[Logger, "Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
 						PutAppend[Sequence@@Logger, LogFile];
-						Break[];	
+						ContinueLoop=False;
+						Break[];
 					];
 				];
+				
 				(*-----------Safety check on mass value-----------*)
 				If[!NumberQ[parameters["\[Mu]Nv"]],
 					Print["Error! Mass value is not a number! \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 					AppendTo[Logger, "Error! Mass value is not a number! \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 					PutAppend[Sequence@@Logger, LogFile];
+					ContinueLoop=False;
 					Break[];
 				];
+				If[parameters["\[Mu]Nv"]>1.2*parameters["m"]*KerrSurfaceRotationN[parameters["\[Chi]"]],
+					Print["Error! Significantly past superradiant cutoff. Breaking mass loop. mass iterater value: "<>ToString[muIterationCounter, InputForm]<> "Mass Value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
+					AppendTo[Logger, "Error! Significantly past superradiant cutoff. Breaking mass loop. mass iterater value: "<>ToString[muIterationCounter, InputForm]<> "Mass Value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
+					PutAppend[Sequence@@Logger, LogFile];
+					ContinueLoop=False;
+					Break[];
+				];
+					
+				
 				parameters["EndingX"]=calcEndingX[parameters]; (*Determine cutoff radius for radial equation integrator*)
 				
 				(*-----------Construct name for file to save data in-----------*)
@@ -108,6 +124,7 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 					nuGuess = getNuValue[omegaGuess, parameters, nuNNonRel[omegaGuess, parameters]];
 				];
 				
+				(*-----------Safety check on frequency value-----------*)
 				(*If guess for imaginary part is negative, bound state is not superradiantly growing -> skip iteration*)
 				If[Im[omegaGuess] < 0, 
 					Print["Superradiant condition fails for parameter (\[Mu],m,n,\[Chi],s)=("<>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> ")"];
@@ -177,10 +194,12 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 				(*-----------Safety checks on solution-----------*)
 				If[TrueQ[parameters["\[Mu]Nv"]^2 <= Abs[MinimizationResults["\[Omega]"]]^2],
 					Print["Kernel "<>ToString[$KernelID,InputForm]<>" says: Error! Frequency larger than field mass! Breaking mu iteration ... (Parameter Point : m = "<>ToString[parameters["m"], InputForm]<>" n = "<>ToString[parameters["n"]]<>" \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]<>") "];                
+					ContinueLoop=False;
 					Break[];
 				];
 				If[TrueQ[TheSolution["R"][parameters["EndingX"]]//Log10 > 1],
 					Print["Kernel "<>ToString[$KernelID]<>" says: Error! Minimization failed! Breaking mu iteration ... (Parameter Point : m = "<>ToString[parameters["m"], InputForm]<>" n = "<>ToString[parameters["n"]]<>" \[Mu] = "<>ToString[parameters["\[Mu]Nv"], InputForm]<>") "];
+					ContinueLoop=False;
 					Break[];
 				];
 						
@@ -189,7 +208,10 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 				
 				(*-----------Prepare solution data and write to disk-----------*)
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
-				CacheData = <| "Parameters" -> parameters, "Solution" -> TheSolution|>;
+				CacheData = <|"Parameters" -> parameters, 
+								"Solution" -> TheSolution, 
+								"Metadata"-><|"muIterationCounter"->muIterationCounter, "date"->DateString[], "WorkerKernel"->$KernelID|>
+								|>;
 				AppendTo[Logger,"Caching results to: "<>assocToString[printData]<>".mx"];
 				AppendTo[Logger, ""];AppendTo[Logger, ""];
 				If[SaveToDisk,
@@ -207,14 +229,17 @@ WorkerFunction[modeval_,overtoneval_, InitialParameters_, LogFile_, OptionsPatte
 				muIterationCounter++;
 				Continue[];
 				
-				(*-----------Fallback if superradiatn condition fails-----------*);
+				(*-----------Fallback if superradiant condition fails-----------*);
 				Label[SuperradiantConditionFailure];
 				AppendTo[Logger,"Superradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> "). Breaking mass loop..."];
 				If[LogRun, PutAppend[Sequence@@Logger,LogFile]];	
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
-				CacheData = <|"Parameters" -> parameters, "Solution" -> "Superradiant condition failed"|>;
+				CacheData = <|"Parameters" -> parameters, 
+							"Solution" -> "Superradiant condition failed", 
+							"Metadata"-><|"muIterationCounter"->muIterationCounter, "date"->DateString[], "WorkerKernel"->$KernelID|>
+							|>;
 				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
-				Break[];
+				ContinueLoop=False;
 			]; (*mu iteration loop end*)
 			
 			(*Clear symbols used in mu iteration to prevent memory leaks*)
