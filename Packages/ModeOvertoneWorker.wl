@@ -48,19 +48,21 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 						AppendTo[Logger, "Im(omega) decreasing. Reducing mass resolution..."];
 						(*Determine the muIterationCounter at which the resolution should be reduced*)
 						If[!NumberQ[ResolutionReductionPoint],
-							ResolutionReductionPoint=muIterationCounter-2;
+							ResolutionReductionPoint=muIterationCounter-1;
 						];
 						AppendTo[Logger, "Resolution Reduction index: "<>ToString[ResolutionReductionPoint, InputForm]];
 						(*Reduce resolution and continue from last value*)
 						parameters["\[Mu]Nv"]=(First[parameters["\[Mu]range"]/parameters["m"]] + parameters["\[Delta]\[Mu]"]*(ResolutionReductionPoint + (muIterationCounter-ResolutionReductionPoint)/(2*parameters["m"])))*parameters["m"];
 					];
-					If[Im[omegaHolder[muIterationCounter-3]]>Im[omegaHolder[muIterationCounter-2]]<Im[omegaHolder[muIterationCounter-1]],
-						(*If the instability rate decreases then increases, we probably jumped across the superradiant threshold gap \[Omega]=m*\[CapitalOmega]. Break the loop.*)
-						Print["Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
-						AppendTo[Logger, "Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
-						PutAppend[Sequence@@Logger, LogFile];
-						ContinueLoop=False;
-						Break[];
+					If[muIterationCounter-ResolutionReductionPoint>1*2, (*1 from the definition of ResolutionReductionpoint and 2 from the reduction in resolution*)
+						If[Im[omegaHolder[muIterationCounter-3]]>Im[omegaHolder[muIterationCounter-2]]<Im[omegaHolder[muIterationCounter-1]],
+							(*If the instability rate decreases then increases, we probably jumped across the superradiant threshold gap \[Omega]=m*\[CapitalOmega]. Break the loop.*)
+							Print["Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
+							AppendTo[Logger, "Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
+							PutAppend[Sequence@@Logger, LogFile];
+							ContinueLoop=False;
+							Break[];
+						];
 					];
 				];
 				
