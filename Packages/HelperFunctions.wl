@@ -1,7 +1,7 @@
 (* ::Package:: *)
 
+(*File title to know if package has already been imported*)
 HelperFunctions;
-
 
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
