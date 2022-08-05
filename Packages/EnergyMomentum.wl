@@ -446,9 +446,10 @@ MRatio*MInitial
 
 
 Options[FKKSNormalization]={Recalculate->False};
+SetAttributes[FKKSNormalization, Listable];
 FKKSNormalization[solution_, InitialMass_, OptionsPattern[]]:=
 Block[{totalenergy, finalmass, normalization,wv = solution["Solution", "\[Omega]"]//Re, mv = solution["Parameters", "m"], \[Chi]v = solution["Parameters", "\[Chi]"]},
-If[\[Not]OptionValue[Recalculate],
+If[!OptionValue[Recalculate],
 If[KeyExistsQ[solution, "Derived"],
 If[KeyExistsQ[solution["Derived"], "Normalization"],
 Return[solution["Derived", "Normalization"]];
