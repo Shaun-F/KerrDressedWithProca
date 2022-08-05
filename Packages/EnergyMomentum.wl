@@ -385,6 +385,7 @@ If[Total@Errors>0.01,
 Print["ERROR: integration errors greater than 1%"];
 ];
 TotalEnergyMessenger = Row[{"Integration complete. Returning result ", ProgressIndicator[Appearance->"Percolate"]}];
+
 result = <|"Total"->res, "Errors"->Total@IntegrationErrors|>;
 Return[result]
 ]
@@ -456,5 +457,19 @@ totalenergyresults = FKKSTotalEnergy[solution];
 totalenergy = totalenergyresults["Total"];
 finalmass = FKKSFinalMass[wv, mv, \[Chi]v, InitialMass];
 normalization = Sqrt[(InitialMass-finalmass)/totalenergy];
-<|"Normalization"->normalization, "TotalEnergy"->totalenergy,"FinalMass"->finalmass, "FinalSpin"->FinalDimlessSpin[\[Chi]v,wv,mv,InitialMass, finalmass/InitialMass]|>
+
+(*Error Analysis*)
+NormalizationError = normalization*totalenergyresults["Errors"]/totalenergy//Total;
+If[NormalizationError/normalization>10^-2,
+	Print["Error! normalization uncertainty greater than 0.01 %"];
+];
+
+<|
+	"Normalization"->normalization, 
+	"NormalizationFractionalError"->NormalizationError/normalization,
+	"TotalEnergy"->totalenergy, 
+	"TotalEnergyErrors"->totalenergyresults["Errors"], 
+	"FinalMass"->finalmass, 
+	"FinalSpin"->FinalDimlessSpin[\[Chi]v,wv,mv,InitialMass, finalmass/InitialMass]
+|>
 ]
