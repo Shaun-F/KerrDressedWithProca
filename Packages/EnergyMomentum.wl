@@ -13,6 +13,7 @@ If["HelperFunctions"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot,
 
 
 M=1;
+\[Delta]\[Theta]=10^-5;
 SolutionPath =$FKKSRoot<>"Solutions/";
 
 $EMMinRecursion = 0;
@@ -206,7 +207,7 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
-FKKSEnergyMomentum[solution_, OptionsPattern[{SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True}]]:=
+FKKSEnergyMomentum[solution_Association, OptionsPattern[{SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True}]]:=
 Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyMomentumRealCTensor.mx";,
@@ -246,9 +247,46 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 
 
 (*
+Subscript[\[ScriptCapitalT]^\[Sigma], \[Sigma]]
+*)
+FKKSEnergyMomentumTrace[solution_Association, OptionsPattern[{SymbolicExpression->False,Optimized->True, RealPart->True}]]:=
+Block[{res, resOE,fkksEM,OptimizedResult, tmp, Filename},
+If[OptionValue[RealPart],
+Filename = "FKKSEnergyMomentumTraceReal.mx";,
+Filename = "FKKSEnergyMomentumTrace.mx";
+];
+With[{ENFilePath =$FKKSRoot<>"Expressions/"<>Filename},
+If[FileExistsQ[ENFilePath],
+res = Import[ENFilePath];,
+fkksEM = FKKSEnergyMomentum[analytic, RealPart->OptionValue[RealPart]];
+res = fkksEM[{\[Zeta],sphericalchart},{\[Xi],sphericalchart}]met[{-\[Zeta],-sphericalchart},{-\[Xi],-sphericalchart}]//TraceBasisDummy;
+Export[ENFilePath, res];
+];
+];
+(*Format output based on input arguments*)
+If[TrueQ[solution==analytic],
+Return[res/.ToParamSymbols]
+];
+If[OptionValue[RealPart],
+tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution];,
+tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
+];
+If[OptionValue[SymbolicExpression], 
+Return[tmp]
+];
+
+If[OptionValue[Optimized],
+Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
+];
+
+Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
+]
+
+
+(*
 \[Rho] == Subscript[\[ScriptCapitalT]^t, t]
 *)
-FKKSEnergyDensity[solution_, OptionsPattern[{SymbolicExpression->False,Optimized->True,ToCompiled->False, RealPart->True , WithProperties->True,Experimental`OptimizeExpression, Compile}]]:=
+FKKSEnergyDensity[solution_Association, OptionsPattern[{SymbolicExpression->False,Optimized->True,ToCompiled->False, RealPart->True , WithProperties->True,Experimental`OptimizeExpression, Compile}]]:=
 Block[{res, resOE,T,OptimizedResult, tmp,UnOptimizedResult, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyDensityReal.mx";,
@@ -302,12 +340,11 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 E = \[Integral]\[Rho]\[Sqrt](-g)dV
 *)
-FKKSTotalEnergy[solution_]:=
+FKKSTotalEnergy[solution_Association]:=
 Block[{TotalEnergyMessenger,
 energydensity,
 res, 
 weight,
-integrationdomain, 
 integrand,
 result,
 IntegrationErrors, 
@@ -319,9 +356,6 @@ n\[Phi]points,
 \[Chi] = solution["Parameters", "\[Chi]"],
 Radialdomain = HorizonCoordToRadial[solution["Solution", "R"]["Domain"][[1]], solution["Parameters", "\[Chi]"]]
 },
-PrintTemporary@Dynamic[TotalEnergyMessenger];
-
-TotalEnergyMessenger = Row[{"Computing energy density", ProgressIndicator[Appearance->"Percolate"]}];
 
 energydensity = FKKSEnergyDensity[solution, ToCompiled->True];
 
@@ -329,16 +363,16 @@ SpacialEnergyDensity = {r,\[Theta],\[Phi]}|->energydensity[0,r,\[Theta],\[Phi]];
 
 weight = {r,\[Theta]}|->Evaluate[Kerrmetweight[r,\[Theta],\[Chi]]];
 
-TotalEnergyMessenger = Row[{"Integrating energy density", ProgressIndicator[Appearance->"Percolate"]}];
-integrationdomain = Radialdomain;
-(*
-integrand[r_?NumericQ, \[Theta]_?NumericQ, \[Phi]_?NumericQ]:=Evaluate[energydensityInterpolation[r,\[Theta],\[Phi]]*weight[r,\[Theta]]];
-*)
 integrand[r_?NumericQ, \[Theta]_?NumericQ, \[Phi]_?NumericQ]:=SpacialEnergyDensity[r,\[Theta],\[Phi]]*weight[r,\[Theta]];
 
+(*Safety check on integrand*)
+If[!NumericQ[integrand[2,2,2]],
+	Print["Error! Integrand not a number! integrand[2,2,2] = "<>ToString[integrand[2,2,2], InputForm]];
+	Return[Null];
+];
 res = NIntegrate[
 integrand[r,\[Theta],\[Phi]], 
-{r,integrationdomain[[1]],integrationdomain[[1]],integrationdomain[[2]]}, (*Exclude r=Subscript[r, initial]*)
+{r,Radialdomain[[1]],Radialdomain[[1]],Radialdomain[[2]]}, (*Exclude r=Subscript[r, initial]*)
 {\[Theta],\[Theta]\[Epsilon],\[Theta]\[Epsilon], \[Pi]-\[Theta]\[Epsilon], \[Pi]-\[Theta]\[Epsilon]},(*Exclude \[Theta]=0,\[Pi]*)
 {\[Phi],0,2\[Pi]},
 MaxRecursion->$EMMaxRecursion,
@@ -353,43 +387,6 @@ Print["ERROR: integration errors greater than 1%"];
 TotalEnergyMessenger = Row[{"Integration complete. Returning result ", ProgressIndicator[Appearance->"Percolate"]}];
 result = <|"Total"->res, "Errors"->Total@IntegrationErrors|>;
 Return[result]
-]
-
-
-(*
-Subscript[\[ScriptCapitalT]^\[Sigma], \[Sigma]]
-*)
-FKKSEnergyMomentumTrace[solution_, OptionsPattern[{SymbolicExpression->False,Optimized->True, RealPart->True}]]:=
-Block[{res, resOE,fkksEM,OptimizedResult, tmp, Filename},
-If[OptionValue[RealPart],
-Filename = "FKKSEnergyMomentumTraceReal.mx";,
-Filename = "FKKSEnergyMomentumTrace.mx";
-];
-With[{ENFilePath =$FKKSRoot<>"Expressions/"<>Filename},
-If[FileExistsQ[ENFilePath],
-res = Import[ENFilePath];,
-fkksEM = FKKSEnergyMomentum[analytic, RealPart->OptionValue[RealPart]];
-res = fkksEM[{\[Zeta],sphericalchart},{\[Xi],sphericalchart}]met[{-\[Zeta],-sphericalchart},{-\[Xi],-sphericalchart}]//TraceBasisDummy;
-Export[ENFilePath, res];
-];
-];
-(*Format output based on input arguments*)
-If[TrueQ[solution==analytic],
-Return[res/.ToParamSymbols]
-];
-If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution];,
-tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
-];
-If[OptionValue[SymbolicExpression], 
-Return[tmp]
-];
-
-If[OptionValue[Optimized],
-Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
-];
-
-Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 ]
 
 
@@ -446,9 +443,8 @@ MRatio*MInitial
 
 
 Options[FKKSNormalization]={Recalculate->False};
-SetAttributes[FKKSNormalization, Listable];
-FKKSNormalization[solution_, InitialMass_, OptionsPattern[]]:=
-Block[{totalenergy, finalmass, normalization,wv = solution["Solution", "\[Omega]"]//Re, mv = solution["Parameters", "m"], \[Chi]v = solution["Parameters", "\[Chi]"]},
+FKKSNormalization[solution_?AssociationQ, InitialMass_, OptionsPattern[]]:=
+Block[{totalenergy, totalenergyresults,finalmass, normalization,wv = solution["Solution", "\[Omega]"]//Re, mv = solution["Parameters", "m"], \[Chi]v = solution["Parameters", "\[Chi]"]},
 If[!OptionValue[Recalculate],
 If[KeyExistsQ[solution, "Derived"],
 If[KeyExistsQ[solution["Derived"], "Normalization"],
@@ -456,8 +452,8 @@ Return[solution["Derived", "Normalization"]];
 ]
 ];
 ];
-
-totalenergy = FKKSTotalEnergy[solution]["Total"];
+totalenergyresults = FKKSTotalEnergy[solution];
+totalenergy = totalenergyresults["Total"];
 finalmass = FKKSFinalMass[wv, mv, \[Chi]v, InitialMass];
 normalization = Sqrt[(InitialMass-finalmass)/totalenergy];
 <|"Normalization"->normalization, "TotalEnergy"->totalenergy,"FinalMass"->finalmass, "FinalSpin"->FinalDimlessSpin[\[Chi]v,wv,mv,InitialMass, finalmass/InitialMass]|>
