@@ -79,8 +79,8 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
         ];
         CleansedDataList = Apply[Intersection, 
                                  DeleteCases[DataList, #]&/@ {
-                                                             <|___, "Solution"-><|___, "\[Omega]"->s_/;Not[NumericQ[s]], ___|>|>, 
-                                                             <|___, "Solution"->s_/;StringQ[s]|>
+                                                             <|___, "Solution"-><|___, "\[Omega]"->s_/;Not[NumericQ[s]], ___|>,___|>, 
+                                                             <|___, "Solution"->s_/;StringQ[s], ___|>
                                                              }
                                  ];
         MassOrderingIndices = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
