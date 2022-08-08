@@ -53,7 +53,7 @@ Print[Messenger];
 
 
 Print["Importing data"];
-AllFileNames = FileNames[All, $FKKSRoot<>"Solutions/"];
+AllFileNames = FileNames[All, $SolutionPath];
 
 AllFileNames = AllFileNames[[1;;6]];
 
