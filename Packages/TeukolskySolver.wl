@@ -39,6 +39,7 @@ $TSNIntegrateMethod = {"GlobalAdaptive", "MaxErrorIncreases"->2000, Method->{"Cl
 $TSNIntegratePrecision = 5;
 $TSNIntegrateMaxRecursion = 30;
 $TSNIntegrateMinRecursion=0;
+$TSRadialPoints = Automatic;
 
 Teukrho = 1/(r[]-I*a*Cos[\[Theta][]]);
 Teukrhob = 1/(r[]+I*a*Cos[\[Theta][]]);
@@ -114,11 +115,11 @@ Return[tmp$]
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
-Block[{rdom, Dmat, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
+Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
-
-With[{rpoints = solution["Solution", "R"]["Domain"]//First//Last, \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+radialdomain = solution["Solution", "R"]["Domain"]//First;
+With[{rpoints = If[radialdomain[[-1]]<300, 300, 300+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
@@ -194,10 +195,11 @@ Return[tmp$]
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(\*OverscriptBox[\(m\), \(_\)] \*OverscriptBox[\(m\), \(_\)]\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
-Block[{rdom, Dmat, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
+Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
-With[{rpoints = solution["Solution", "R"]["Domain"]//First//Last, \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
+radialdomain=solution["Solution", "R"]["Domain"]//First;
+With[{rpoints = If[radialdomain[[-1]]<300, 300, 300+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
 Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
@@ -269,10 +271,11 @@ Return[tmp$]
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(\*OverscriptBox[\(m\), \(_\)] n\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
-Block[{rdom, Dmat, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
+Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
-With[{rpoints = solution["Solution", "R"]["Domain"]//First//Last, \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
+radialdomain=solution["Solution", "R"]["Domain"]//First;
+With[{rpoints = If[radialdomain[[-1]]<300, 300, 300+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
 Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
@@ -353,8 +356,8 @@ Subscript[\[ScriptCapitalT], lm\[Omega]] = \[Integral]d\[Theta]d\[Phi] sin(\[The
 *)
 Options[TeukolskySourceModal]={Recalculate->False};
 TeukolskySourceModal[solution_,l_,m_, OptionsPattern[]]:=
-Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&},
-radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rdom[[2]]}];
+Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&, rpoints = If[TrueQ[$TSRadialPoints==Automatic],solution["Solution", "R"]["Domain"]//First//Last, $TSRadialPoints]},
+radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rpoints}];
 If[OptionValue[Recalculate]||!KeyExistsQ[solution, "Derived"],
 $Messenger = "Generating Teukolsky Integrand";
 SourceIntegrand = TeukolskySourceModalIntegrand[solution,l,m];
@@ -386,10 +389,10 @@ SuperscriptBox[\(R\), \(in\)], \(lm\[Omega]\)]\((r)\)\), \(
 *)
 TeukolskyZInfinity[ProcaSolution_, TeukolskyLM\[Omega]_,l_,m_]:=
 Block[{
-(*DeltaFunction,*)
+DeltaFunction,
 RenormedAngMom,
 SWSHEigenvalue,
-(*TeukRin, *)
+TeukRin,
 integrand,
 integration,
 Amplitude,
