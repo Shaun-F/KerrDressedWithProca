@@ -1,10 +1,11 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-Unprotect[CellPrint];
-CellPrint[Cell[s_, "Print", label_, ShowCellLabel->True]]:=Block[{},
-CellPrint[Cell[s,"Print",ShowCellLabel->False]]];
-Protect[CellPrint];
+Unprotect[Print];
+Print[expr_] /; ! FreeQ[expr, _KernelObject] = Null;
+Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "KernelObject"]] = Null;
+Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "remote kernel"]] = Null;
+Protect[Print];
 
 
 (*$FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/";*) (*directory on ITP cluster to git repo*)
@@ -35,11 +36,12 @@ Print["Log Run: "<>ToString[TrueQ[LogRun], InputForm]];
 Print["----------------------------------"];
 
 
-Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]];
-Import[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]];
-Get[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]
-Import[FileNameJoin[{$FKKSRoot, "Packages", "EnergyMomentum.wl"}]]
-Import[FileNameJoin[{$FKKSRoot, "Packages", "TeukolskySolver.wl"}]];
+Block[{Print, CellPrint, Return},Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]];
+Block[{Print, CellPrint, Return},Import[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]];
+Block[{Print, CellPrint, Return},Import[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]];
+Block[{Print, CellPrint, Return},Import[FileNameJoin[{$FKKSRoot, "Packages", "EnergyMomentum.wl"}]]];
+Block[{Print, CellPrint, Return},Import[FileNameJoin[{$FKKSRoot, "Packages", "MSTSolver.wl"}]]];
+Block[{Print, CellPrint, Return},Import[FileNameJoin[{$FKKSRoot, "Packages", "TeukolskySolver.wl"}]]];
 
 
 CreateFile[LogFile, OverwriteTarget->True];
@@ -62,9 +64,9 @@ Print["Number of solution sets imported: "<>ToString[Length@AllData, InputForm]]
 
 Print["Launching "<>ToString[NumberOfKernels, InputForm]<>" kernels."];
 CloseKernels[];
+Off[PrintAsCharacter::argx];
 LaunchKernels[NumberOfKernels];
 ParallelEvaluate[Off[PrintAsCharacter::argx]];
-Off[PrintAsCharacter::argx];
 If[$KernelCount==NumberOfKernels,
 Print["Launched "<>ToString[NumberOfKernels, InputForm]<>" kernels."];,
 Print["Failed to launch all requested kernels. Number of launched kernels: "<>ToString[$KernelCount, InputForm]];
@@ -72,43 +74,50 @@ Print["Failed to launch all requested kernels. Number of launched kernels: "<>To
 
 
 Print["Data Imported. Running normalization procedure on "<>ToString[$KernelCount,InputForm]<>" kernels."];
-DistributeDefinitions[FKKSNormalization, AllData, FKKSTotalEnergy, FKKSEnergyDensity,TeukolskySourceModal];
-TaskList = Table[ParallelSubmit[{j}, FKKSNormalization[AllData[[j]], 1, Recalculate->OverwriteExisting]], {j,1,Length@AllData}]
-Normalizations = WaitAll[TaskList];
-
-If[SaveToDisk,
-Print["Normalization complete. Appending data to solution sets and normalizing radial functions."];
-Do[AppendToSolution[AllData[[j]]]["Normalization", Normalizations[[j]]], {i,1,Length@AllData}];
-];
-AllNormedData = Table[RenormalizeProcaSolution[AllData[[j]], Normalizations[[j]]["Normalization"]], {j,1,Length@AllData}];
-Print["Black hole evolution code complete. Proceeding to Teukolsky solver."];
-
-
-Print["Calculating mode decomposition of Teukolsky source term"];
-TaskListModeDecomp = Table[ParallelSubmit[{OrbitalNumber, ModeNumber,j}, TeukolskySourceModal[AllNormedData[[j]], OrbitalNumber, ModeNumber]], {j,1,Length@AllNormedData}];
-AllTlmw = WaitAll[TaskListModeDecomp];
-If[SaveToDisk,
-Do[AppendToSolution[AllData[[j]]]["Tlmw", AllTlmw[[j]]], {j,1,Length@AllData}];
-];
+Do[
+	Block[{Normalization,NormedData, Tlmw, AsymptoticAmplitude,AsymptoticFlux},
+	With[{SingleSolution = AllData[[i]]},
+		Print["\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
+		
+		(*----------Black hole evolution----------*)
+		Normalization=FKKSNormalization[SingleSolution, 1, Recalculate->OverwriteExisting];
+		If[SaveToDisk,
+			Print["Normalization complete. Appending data to solution set and normalizing radial functions."];
+			AppendToSolution[SingleSolution]["Normalization", Normalization];
+		];
+		NormedData = RenormalizeProcaSolution[SingleSolution, Normalization["Normalization"]];
+		Print["Black hole evolution code complete. Proceeding to Teukolsky solver."];
 
 
-Print["Mode decomposition calculation complete. Calculating asymptotic amplitudes"];
-Block[{$MSTMaxN=15},
-TaskListAsympAmps = Table[ParallelSubmit[{AllNormedData, AllTlmw, OrbitalNumber, ModeNumber,j},TeukolskyZInfinity[AllNormedData[[j]], AllTlmw[[j]],OrbitalNumber, ModeNumber]], {j,1,Length@AllNormedData}];
-AllAsymptoticAmplitudes = WaitAll[TaskListAsympAmps];
-];
-If[SaveToDisk,
-Print["Asymptotic amplitude calculation complete. Appending data to solution"];
-Do[AppendToSolution[AllData[[j]]]["Zinf", AllAsymptoticAmplitudes[[j]]], {j,1,Length@AllData}];
-];
+		(*----------mode decomposition of Teukolsky source function----------*)
+		Print["Calculating mode decomposition of Teukolsky source term"];
+		Tlmw = TeukolskySourceModal[NormedData, OrbitalNumber, ModeNumber];
+		If[SaveToDisk,
+			AppendToSolution[SingleSolution]["Tlmw", Tlmw];
+		];
 
 
-Print["Calculating asymptotic energy flux"]
-TaskListAsympFlux = Table[ParallelSubmit[{AllNormedData,AllTlmw,AllAsymptoticAmplitudes,i},EnergyFlux[AllNormedData[[i]],2,2, TeukolskyTlmw->AllTlmw[[i]], ZCoefficient->AllAsymptoticAmplitudes[[i]]]], {i,1,Length@AllNormedData}];
-AllAsymptoticFluxes = WaitAll[TaskListAsympFlux];
-If[SaveToDisk,
-Print["Asymptotic flux calculation complete. Appending data to solution"];
-Do[AppendToSolution[AllData[[j]]]["Einf", AllAsymptoticFluxes[[j]]], {j,1,Length@AllData}];
+		(*----------Asymptotic amplitude----------*)
+		Print["Mode decomposition calculation complete. Calculating asymptotic amplitudes"];
+		Block[{$MSTMaxN=15},
+			AsymptoticAmplitude = TeukolskyZInfinity[NormedData, Tlmw, OrbitalNumber, ModeNumber];
+		];
+		If[SaveToDisk,
+			Print["Asymptotic amplitude calculation complete. Appending data to solution"];
+			AppendToSolution[SingleSolution]["Zinf", AsymptoticAmplitude];
+		];
+
+
+		(*----------Asymptotic energy flux----------*)
+		Print["Calculating asymptotic energy flux"];
+		AsymptoticFlux = EnergyFlux[NormedData,OrbitalNumber,ModeNumber, TeukolskyTlmw->Tlmw, ZCoefficient->AsymptoticAmplitude];
+		If[SaveToDisk,
+			Print["Asymptotic flux calculation complete. Appending data to solution"];
+			AppendToSolution[SingleSolution]["Einf", AsymptoticFlux];
+		];
+	];
+	];,
+	{i,1,Length@AllData}
 ];
 
 

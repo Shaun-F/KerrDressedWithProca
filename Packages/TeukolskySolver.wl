@@ -360,7 +360,7 @@ Options[TeukolskySourceModal]={Recalculate->False};
 TeukolskySourceModal[solution_,l_,m_, OptionsPattern[]]:=
 Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&},
 radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rdom[[2]]}];
-If[OptionValue[Recalculate],
+If[OptionValue[Recalculate]||!KeyExistsQ[solution, "Derived"],
 $Messenger = "Generating Teukoslky Integrand";
 SourceIntegrand = TeukolskySourceModalIntegrand[solution,l,m];
 SourceIntegrandFunction[x_?NumericQ,\[Theta]_?NumericQ]:=SourceIntegrand[x,\[Theta]];
