@@ -1,0 +1,1190 @@
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 1\n\[Mu] Value: \
+1/20\nMinimization Results: <|\"\[Omega]\" -> 0.04998428475203524 + \
+6.580404132752519*^-22*I, \"\[Nu]\" -> -0.05234976060697431 - \
+2.6212400605477934*^-22*I|>\nMinimization Time: 87.258765\nAngular Solver \
+Time: 0.138868\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_20m1\[Eta]0n1l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+1/20\nMinimization Results: <|\"\[Omega]\" -> 0.04993707478808977, \"\[Nu]\" \
+-> -0.05233095785597747|>\nMinimization Time: 91.207026\nAngular Solver Time: \
+0.14224\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_20m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 0\n\[Mu] Value: \
+1/10\nMinimization Results: <|\"\[Omega]\" -> 0.09987430600986706, \"\[Nu]\" \
+-> -0.052339761119065645|>\nMinimization Time: 91.64515\nAngular Solver Time: \
+0.146838\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m2\[Eta]0n0l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 4\nn Value: 0\n\[Mu] Value: \
+1/5\nMinimization Results: <|\"\[Omega]\" -> 0.19974867213403275, \"\[Nu]\" \
+-> -0.0523456118750361|>\nMinimization Time: 103.216631\nAngular Solver Time: \
+0.150033\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_5m4\[Eta]0n0l3s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 1\n\[Mu] Value: \
+1/10\nMinimization Results: <|\"\[Omega]\" -> 0.09994412149296826, \"\[Nu]\" \
+-> -0.052348791793319936|>\nMinimization Time: 103.574552\nAngular Solver \
+Time: 0.149595\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m2\[Eta]0n1l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 3\nn Value: 1\n\[Mu] Value: \
+3/20\nMinimization Results: <|\"\[Omega]\" -> 0.14989391837749316, \"\[Nu]\" \
+-> -0.05234898728074507|>\nMinimization Time: 128.075924\nAngular Solver \
+Time: 0.146149\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n1l2s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 3\nn Value: 0\n\[Mu] Value: \
+3/20\nMinimization Results: <|\"\[Omega]\" -> 0.14981149277770597, \"\[Nu]\" \
+-> -0.05234352292686132|>\nMinimization Time: 137.126449\nAngular Solver \
+Time: 0.14804\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_20m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 4\nn Value: 1\n\[Mu] Value: \
+1/5\nMinimization Results: <|\"\[Omega]\" -> 0.19983907776947443, \"\[Nu]\" \
+-> -0.052349355818029776|>\nMinimization Time: 144.237918\nAngular Solver \
+Time: 0.147335\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_5m4\[Eta]0n1l3s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 1\n\[Mu] Value: \
+3/50\nMinimization Results: <|\"\[Omega]\" -> 0.05997277641155468 + \
+8.16856144454773*^-18*I, \"\[Nu]\" -> -0.06341371280546065 - \
+3.370650804846515*^-18*I|>\nMinimization Time: 79.795815\nAngular Solver \
+Time: 0.111953\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m1\[Eta]0n1l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+3/50\nMinimization Results: <|\"\[Omega]\" -> 0.0598909539055475, \"\[Nu]\" \
+-> -0.06337995776166852|>\nMinimization Time: 95.571766\nAngular Solver Time: \
+0.106147\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 0\n\[Mu] Value: \
+3/25\nMinimization Results: <|\"\[Omega]\" -> 0.11978229379342722, \"\[Nu]\" \
+-> -0.06339537338285384|>\nMinimization Time: 95.417112\nAngular Solver Time: \
+0.110579\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m2\[Eta]0n0l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 1\n\[Mu] Value: \
+3/25\nMinimization Results: <|\"\[Omega]\" -> 0.11990320080705968, \"\[Nu]\" \
+-> -0.06341179575538466|>\nMinimization Time: 92.990731\nAngular Solver Time: \
+0.118321\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m2\[Eta]0n1l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+7/100\nMinimization Results: <|\"\[Omega]\" -> 0.06982656811279288 + \
+4.621989893395361*^-9*I, \"\[Nu]\" -> -0.07463240136098415 - \
+1.9741146118861587*^-9*I|>\nMinimization Time: 9.571876\nAngular Solver Time: \
+0.107823\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 1\n\[Mu] Value: \
+7/100\nMinimization Results: <|\"\[Omega]\" -> 0.06995664341776857, \"\[Nu]\" \
+-> -0.07468797722570333|>\nMinimization Time: 83.064304\nAngular Solver Time: \
+0.103811\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_100m1\[Eta]0n1l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 3\nn Value: 1\n\[Mu] Value: \
+9/50\nMinimization Results: <|\"\[Omega]\" -> 0.17981623505639147, \"\[Nu]\" \
+-> -0.06341200245794897|>\nMinimization Time: 132.102818\nAngular Solver \
+Time: 0.119019\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n1l2s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 4\nn Value: 0\n\[Mu] Value: \
+6/25\nMinimization Results: <|\"\[Omega]\" -> 0.23956473655203034, \"\[Nu]\" \
+-> -0.06340560444324692|>\nMinimization Time: 158.625723\nAngular Solver \
+Time: 0.113609\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv6_25m4\[Eta]0n0l3s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 3\nn Value: 0\n\[Mu] Value: \
+9/50\nMinimization Results: <|\"\[Omega]\" -> 0.17967352432842676, \"\[Nu]\" \
+-> -0.06340195205704637|>\nMinimization Time: 124.936697\nAngular Solver \
+Time: 0.114917\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_50m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 0\n\[Mu] Value: \
+7/50\nMinimization Results: <|\"\[Omega]\" -> 0.13965335414537167, \"\[Nu]\" \
+-> -0.07465709711354304|>\nMinimization Time: 88.737454\nAngular Solver Time: \
+0.11512\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m2\[Eta]0n0l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+2/25\nMinimization Results: <|\"\[Omega]\" -> 0.07973968250669235, \"\[Nu]\" \
+-> -0.0860917004200303|>\nMinimization Time: 93.259143\nAngular Solver Time: \
+0.104246\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 1\n\[Mu] Value: \
+7/50\nMinimization Results: <|\"\[Omega]\" -> 0.1398458362578437, \"\[Nu]\" \
+-> -0.07468452992489566|>\nMinimization Time: 101.88348\nAngular Solver Time: \
+0.110186\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m2\[Eta]0n1l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 4\nn Value: 1\n\[Mu] Value: \
+6/25\nMinimization Results: <|\"\[Omega]\" -> 0.2397212414785901, \"\[Nu]\" \
+-> -0.06341255841978297|>\nMinimization Time: 172.213975\nAngular Solver \
+Time: 0.120807\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv6_25m4\[Eta]0n1l3s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 1\n\[Mu] Value: \
+2/25\nMinimization Results: <|\"\[Omega]\" -> 0.07993506354512346, \"\[Nu]\" \
+-> -0.08617814713863557|>\nMinimization Time: 93.528917\nAngular Solver Time: \
+0.172769\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_25m1\[Eta]0n1l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 0\n\[Mu] Value: \
+4/25\nMinimization Results: <|\"\[Omega]\" -> 0.15948096861616212, \"\[Nu]\" \
+-> -0.08612931199341739|>\nMinimization Time: 96.614176\nAngular Solver Time: \
+0.143514\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv4_25m2\[Eta]0n0l1s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 3\nn Value: 1\n\[Mu] Value: \
+21/100\nMinimization Results: <|\"\[Omega]\" -> 0.20970733853421455, \
+\"\[Nu]\" -> -0.07468464103687589|>\nMinimization Time: 124.905805\nAngular \
+Solver Time: 0.115479\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n1l2s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+9/100\nMinimization Results: <|\"\[Omega]\" -> 0.08962779344945312, \"\[Nu]\" \
+-> -0.09776197830688163|>\nMinimization Time: 106.299358\nAngular Solver \
+Time: 0.109618\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+1/10\nMinimization Results: RadialMinimize[\[Omega]Fit[6.], \
+getNuValue[\[Omega]Fit[6.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 2000., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.1, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+\[Nu]Fit[6.]], {0.5*(-0.099875 + Re[\[Omega]Fit[6.]]) + \[Omega]Fit[6.], \
+0.5*(0.099875 - 1.*Re[\[Omega]Fit[6.]]) + \[Omega]Fit[6.]}, <|\"\[Mu]range\" \
+-> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \
+\"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" \
+-> 2000., \"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> \
+800., \"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> \
+1.*^6, \"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.1, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, \[Nu]Fit[6.]]]\nMinimization Time: \
+0.042029\nAngular Solver Time: 0.116326\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_10m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+11/100\nMinimization Results: RadialMinimize[\[Omega]Fit[7.], \
+getNuValue[\[Omega]Fit[7.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1652.892561983471, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.11, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[7.]], {0.5*(-0.109833625 + \
+Re[\[Omega]Fit[7.]]) + \[Omega]Fit[7.], 0.5*(0.109833625 - \
+1.*Re[\[Omega]Fit[7.]]) + \[Omega]Fit[7.]}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1652.892561983471, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.11, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \[Nu]Fit[7.]]]\nMinimization \
+Time: 0.0008320000000000001\nAngular Solver Time: 0.018153\nCaching results \
+to: \
+\[Epsilon]1_10000\[Mu]Nv11_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+3/25\nMinimization Results: RadialMinimize[\[Omega]Fit[8.], \
+getNuValue[\[Omega]Fit[8.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1388.888888888889, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.12, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[8.]], {0.5*(-0.119784 + Re[\[Omega]Fit[8.]]) \
++ \[Omega]Fit[8.], 0.5*(0.119784 - 1.*Re[\[Omega]Fit[8.]]) + \
+\[Omega]Fit[8.]}, <|\"\[Mu]range\" -> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \
+\"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \
+\"\[Delta]m\" -> 1., \"EndingX\" -> 1388.888888888889, \"StartingX\" -> \
+0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.12, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, \[Nu]Fit[8.]]]\nMinimization Time: \
+0.000564\nAngular Solver Time: 0.017661\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+13/100\nMinimization Results: RadialMinimize[\[Omega]Fit[9.], \
+getNuValue[\[Omega]Fit[9.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1183.4319526627219, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.13, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[9.]], {0.5*(-0.129725375 + \
+Re[\[Omega]Fit[9.]]) + \[Omega]Fit[9.], 0.5*(0.129725375 - \
+1.*Re[\[Omega]Fit[9.]]) + \[Omega]Fit[9.]}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1183.4319526627219, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.13, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \[Nu]Fit[9.]]]\nMinimization \
+Time: 0.0005690000000000001\nAngular Solver Time: 0.018707\nCaching results \
+to: \
+\[Epsilon]1_10000\[Mu]Nv13_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+7/50\nMinimization Results: RadialMinimize[\[Omega]Fit[10.], \
+getNuValue[\[Omega]Fit[10.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1020.4081632653061, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.14, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[10.]], {0.5*(-0.139657 + \
+Re[\[Omega]Fit[10.]]) + \[Omega]Fit[10.], 0.5*(0.139657 - \
+1.*Re[\[Omega]Fit[10.]]) + \[Omega]Fit[10.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+1020.4081632653061, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.14, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[10.]]]\nMinimization Time: 0.000592\nAngular Solver Time: \
+0.017767\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+3/20\nMinimization Results: RadialMinimize[\[Omega]Fit[11.], \
+getNuValue[\[Omega]Fit[11.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+888.8888888888889, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.15, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[11.]], {0.5*(-0.149578125 + \
+Re[\[Omega]Fit[11.]]) + \[Omega]Fit[11.], 0.5*(0.149578125 - \
+1.*Re[\[Omega]Fit[11.]]) + \[Omega]Fit[11.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+888.8888888888889, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.15, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[11.]]]\nMinimization Time: 0.0006540000000000001\nAngular Solver \
+Time: 0.020093\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_20m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+4/25\nMinimization Results: RadialMinimize[\[Omega]Fit[12.], \
+getNuValue[\[Omega]Fit[12.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 781.25, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.16, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+\[Nu]Fit[12.]], {0.5*(-0.159488 + Re[\[Omega]Fit[12.]]) + \[Omega]Fit[12.], \
+0.5*(0.159488 - 1.*Re[\[Omega]Fit[12.]]) + \[Omega]Fit[12.]}, \
+<|\"\[Mu]range\" -> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> \
+{0., 4.}, \"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \
+\"EndingX\" -> 781.25, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.16, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[12.]]]\nMinimization Time: 0.0007099999999999999\nAngular Solver \
+Time: 0.017676\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv4_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+17/100\nMinimization Results: RadialMinimize[\[Omega]Fit[13.], \
+getNuValue[\[Omega]Fit[13.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+692.0415224913495, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.17, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[13.]], {0.5*(-0.169385875 + \
+Re[\[Omega]Fit[13.]]) + \[Omega]Fit[13.], 0.5*(0.169385875 - \
+1.*Re[\[Omega]Fit[13.]]) + \[Omega]Fit[13.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+692.0415224913495, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.17, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[13.]]]\nMinimization Time: 0.0007210000000000001\nAngular Solver \
+Time: 0.01902\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv17_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+9/50\nMinimization Results: RadialMinimize[\[Omega]Fit[14.], \
+getNuValue[\[Omega]Fit[14.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 617.283950617284, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.18, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+\[Nu]Fit[14.]], {0.5*(-0.179271 + Re[\[Omega]Fit[14.]]) + \[Omega]Fit[14.], \
+0.5*(0.179271 - 1.*Re[\[Omega]Fit[14.]]) + \[Omega]Fit[14.]}, \
+<|\"\[Mu]range\" -> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> \
+{0., 4.}, \"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \
+\"EndingX\" -> 617.283950617284, \"StartingX\" -> 0.0001, \"precision\" -> \
+26., \"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.18, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[14.]]]\nMinimization Time: 0.000648\nAngular Solver Time: \
+0.020064\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+19/100\nMinimization Results: RadialMinimize[\[Omega]Fit[15.], \
+getNuValue[\[Omega]Fit[15.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 554.016620498615, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.19, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+\[Nu]Fit[15.]], {0.5*(-0.189142625 + Re[\[Omega]Fit[15.]]) + \
+\[Omega]Fit[15.], 0.5*(0.189142625 - 1.*Re[\[Omega]Fit[15.]]) + \
+\[Omega]Fit[15.]}, <|\"\[Mu]range\" -> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> \
+0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \
+\"\[Delta]m\" -> 1., \"EndingX\" -> 554.016620498615, \"StartingX\" -> \
+0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.19, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, \[Nu]Fit[15.]]]\nMinimization Time: \
+0.0006900000000000001\nAngular Solver Time: 0.01926\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv19_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+1/5\nMinimization Results: RadialMinimize[\[Omega]Fit[16.], \
+getNuValue[\[Omega]Fit[16.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 500., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.2, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+\[Nu]Fit[16.]], {0.5*(-0.199 + Re[\[Omega]Fit[16.]]) + \[Omega]Fit[16.], \
+0.5*(0.199 - 1.*Re[\[Omega]Fit[16.]]) + \[Omega]Fit[16.]}, <|\"\[Mu]range\" \
+-> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \
+\"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" \
+-> 500., \"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.2, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, \[Nu]Fit[16.]]]\nMinimization Time: \
+0.000724\nAngular Solver Time: 0.017783\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_5m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+21/100\nMinimization Results: RadialMinimize[\[Omega]Fit[17.], \
+getNuValue[\[Omega]Fit[17.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+453.51473922902494, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.21, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[17.]], {0.5*(-0.208842375 + \
+Re[\[Omega]Fit[17.]]) + \[Omega]Fit[17.], 0.5*(0.208842375 - \
+1.*Re[\[Omega]Fit[17.]]) + \[Omega]Fit[17.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+453.51473922902494, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.21, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[17.]]]\nMinimization Time: 0.000732\nAngular Solver Time: \
+0.017195\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv21_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+11/50\nMinimization Results: RadialMinimize[\[Omega]Fit[18.], \
+getNuValue[\[Omega]Fit[18.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+413.22314049586777, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.22, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[18.]], {0.5*(-0.218669 + \
+Re[\[Omega]Fit[18.]]) + \[Omega]Fit[18.], 0.5*(0.218669 - \
+1.*Re[\[Omega]Fit[18.]]) + \[Omega]Fit[18.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+413.22314049586777, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.22, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[18.]]]\nMinimization Time: 0.00081\nAngular Solver Time: \
+0.017851\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+23/100\nMinimization Results: RadialMinimize[\[Omega]Fit[19.], \
+getNuValue[\[Omega]Fit[19.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+378.0718336483932, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.23, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[19.]], {0.5*(-0.228479125 + \
+Re[\[Omega]Fit[19.]]) + \[Omega]Fit[19.], 0.5*(0.228479125 - \
+1.*Re[\[Omega]Fit[19.]]) + \[Omega]Fit[19.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+378.0718336483932, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.23, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[19.]]]\nMinimization Time: 0.0007650000000000001\nAngular Solver \
+Time: 0.017194\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv23_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+6/25\nMinimization Results: RadialMinimize[\[Omega]Fit[20.], \
+getNuValue[\[Omega]Fit[20.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+347.22222222222223, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.24, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[20.]], {0.5*(-0.238272 + \
+Re[\[Omega]Fit[20.]]) + \[Omega]Fit[20.], 0.5*(0.238272 - \
+1.*Re[\[Omega]Fit[20.]]) + \[Omega]Fit[20.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+347.22222222222223, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.24, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[20.]]]\nMinimization Time: 0.0008439999999999999\nAngular Solver \
+Time: 0.018398\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv6_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+1/4\nMinimization Results: RadialMinimize[\[Omega]Fit[21.], \
+getNuValue[\[Omega]Fit[21.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 320., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.25, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+\[Nu]Fit[21.]], {0.5*(-0.248046875 + Re[\[Omega]Fit[21.]]) + \
+\[Omega]Fit[21.], 0.5*(0.248046875 - 1.*Re[\[Omega]Fit[21.]]) + \
+\[Omega]Fit[21.]}, <|\"\[Mu]range\" -> {0.05, 0.5}, \"\[Delta]\[Mu]\" -> \
+0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \"mrange\" -> {1., 4.}, \
+\"\[Delta]m\" -> 1., \"EndingX\" -> 320., \"StartingX\" -> 0.0001, \
+\"precision\" -> 26., \"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> \
+1000., \"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.25, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[21.]]]\nMinimization Time: 0.0008420000000000001\nAngular Solver \
+Time: 0.017667\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_4m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 3\nn Value: 0\n\[Mu] Value: \
+21/100\nMinimization Results: <|\"\[Omega]\" -> 0.2094802115048277, \"\[Nu]\" \
+-> -0.07466767491220336|>\nMinimization Time: 138.449554\nAngular Solver \
+Time: 0.116125\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv21_100m3\[Eta]0n0l2s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+13/50\nMinimization Results: RadialMinimize[\[Omega]Fit[22.], \
+getNuValue[\[Omega]Fit[22.], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+295.85798816568047, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.26, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, \[Nu]Fit[22.]], {0.5*(-0.257803 + \
+Re[\[Omega]Fit[22.]]) + \[Omega]Fit[22.], 0.5*(0.257803 - \
+1.*Re[\[Omega]Fit[22.]]) + \[Omega]Fit[22.]}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+295.85798816568047, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.26, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+\[Nu]Fit[22.]]]\nMinimization Time: 0.000833\nAngular Solver Time: \
+0.017641\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv13_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+27/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+274.34842249657066, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.27, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.267539625 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.267539625 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+274.34842249657066, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.27, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.0008420000000000001\nAngular \
+Solver Time: 0.018127\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv27_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+7/25\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+255.10204081632654, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.28, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.277256 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.277256 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+255.10204081632654, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.28, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000825\nAngular Solver Time: \
+0.016935\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+29/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+237.81212841854935, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.29, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.286951375 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.286951375 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+237.81212841854935, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.29, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000785\nAngular Solver Time: \
+0.017779\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv29_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+3/10\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+222.22222222222223, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.3, \"m\" -> \
+1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> \
+0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.296625 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.296625 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+222.22222222222223, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.3, \"m\" -> \
+1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> \
+0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000786\nAngular Solver Time: \
+0.016567\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv3_10m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+31/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+208.1165452653486, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.31, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.306276125 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.306276125 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+208.1165452653486, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.31, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000883\nAngular Solver Time: \
+0.016284\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv31_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+8/25\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 195.3125, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.32, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + 0.5*(-0.315904 + \
+Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + 0.5*(0.315904 - \
+1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 195.3125, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.32, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, Removed[\"$$Failure\"]]]\nMinimization Time: \
+0.000781\nAngular Solver Time: 0.017387\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv8_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+33/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+183.65472910927457, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.33, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.325507875 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.325507875 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+183.65472910927457, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.33, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000833\nAngular Solver Time: \
+0.016839\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv33_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+17/50\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+173.01038062283737, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.34, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.335087 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.335087 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+173.01038062283737, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.34, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000833\nAngular Solver Time: \
+0.017254\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv17_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+7/20\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+163.26530612244898, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.35, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.344640625 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.344640625 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+163.26530612244898, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.35, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000823\nAngular Solver Time: \
+0.015616\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv7_20m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+9/25\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 154.320987654321, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.36, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + 0.5*(-0.354168 + \
+Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + 0.5*(0.354168 - \
+1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 154.320987654321, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.36, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, Removed[\"$$Failure\"]]]\nMinimization Time: \
+0.000815\nAngular Solver Time: 0.015964\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+37/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+146.09203798392988, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.37, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.363668375 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.363668375 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+146.09203798392988, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.37, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000807\nAngular Solver Time: \
+0.015614\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv37_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+19/50\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+138.50415512465375, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.38, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.373141 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.373141 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+138.50415512465375, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.38, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000866\nAngular Solver Time: \
+0.017536\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv19_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+39/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+131.49243918474687, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.39, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.382585125 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.382585125 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+131.49243918474687, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.39, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000896\nAngular Solver Time: \
+0.017398\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv39_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+2/5\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 125., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.4, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + 0.5*(-0.392 + \
+Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + 0.5*(0.392 - \
+1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 125., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.4, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, Removed[\"$$Failure\"]]]\nMinimization Time: \
+0.000804\nAngular Solver Time: 0.016259\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv2_5m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+41/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+118.9767995240928, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.41, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.401384875 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.401384875 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+118.9767995240928, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.41, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.0008359999999999999\nAngular \
+Solver Time: 0.016142\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv41_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+21/50\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+113.37868480725623, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.42, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.410739 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.410739 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+113.37868480725623, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.42, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.0008600000000000001\nAngular \
+Solver Time: 0.015851\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv21_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+43/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+108.1665765278529, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.43, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.420061625 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.420061625 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+108.1665765278529, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.43, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.00082\nAngular Solver Time: \
+0.01534\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv43_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+11/25\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+103.30578512396694, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.44, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.429352 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.429352 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+103.30578512396694, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.44, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000841\nAngular Solver Time: \
+0.016514\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv11_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+9/20\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+98.76543209876543, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.45, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.438609375 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.438609375 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+98.76543209876543, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.45, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.001009\nAngular Solver Time: \
+0.017623\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv9_20m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+23/50\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 94.5179584120983, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.46, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + 0.5*(-0.447833 + \
+Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + 0.5*(0.447833 - \
+1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 94.5179584120983, \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.46, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, Removed[\"$$Failure\"]]]\nMinimization Time: \
+0.000914\nAngular Solver Time: 0.016671\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv23_50m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+47/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+90.53870529651427, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.47, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.457022125 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.457022125 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+90.53870529651427, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.47, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000906\nAngular Solver Time: \
+0.016702\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv47_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+12/25\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+86.80555555555556, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.48, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.466176 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.466176 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, \
+0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+86.80555555555556, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.48, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000876\nAngular Solver Time: \
+0.015792\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv12_25m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+49/100\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+83.29862557267805, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.49, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + \
+0.5*(-0.475293875 + Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + \
+0.5*(0.475293875 - 1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> \
+{0.05, 0.5}, \"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" \
+-> 1., \"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> \
+83.29862557267805, \"StartingX\" -> 0.0001, \"precision\" -> 26., \
+\"omegaRes\" -> 800., \"MaxInterationsMinimization\" -> 1000., \
+\"integratorMaxStep\" -> 1.*^6, \"integratorPrecisionGoal\" -> 8., \
+\"OptimizationPrecision\" -> 8., \"OptimizationAccuracy\" -> 18., \"branch\" \
+-> 1., \"KMax\" -> 4., \"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.49, \"m\" \
+-> 1., \"\[Eta]\" -> 0., \"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" \
+-> 0.9, \"M\" -> 1.|>, True, Function[{\[Zeta]}, \
+Removed[\"$$Failure\"]]]\nMinimization Time: 0.000963\nAngular Solver Time: \
+0.016781\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv49_100m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 1\nn Value: 0\n\[Mu] Value: \
+1/2\nMinimization Results: RadialMinimize[Removed[\"$$Failure\"], \
+getNuValue[Removed[\"$$Failure\"], <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 80., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.5, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+Removed[\"$$Failure\"]], {Removed[\"$$Failure\"] + 0.5*(-0.484375 + \
+Re[Removed[\"$$Failure\"]]), Removed[\"$$Failure\"] + 0.5*(0.484375 - \
+1.*Re[Removed[\"$$Failure\"]])}, <|\"\[Mu]range\" -> {0.05, 0.5}, \
+\"\[Delta]\[Mu]\" -> 0.01, \"nrange\" -> {0., 4.}, \"\[Delta]n\" -> 1., \
+\"mrange\" -> {1., 4.}, \"\[Delta]m\" -> 1., \"EndingX\" -> 80., \
+\"StartingX\" -> 0.0001, \"precision\" -> 26., \"omegaRes\" -> 800., \
+\"MaxInterationsMinimization\" -> 1000., \"integratorMaxStep\" -> 1.*^6, \
+\"integratorPrecisionGoal\" -> 8., \"OptimizationPrecision\" -> 8., \
+\"OptimizationAccuracy\" -> 18., \"branch\" -> 1., \"KMax\" -> 4., \
+\"\[Epsilon]\" -> 0.0001, \"\[Mu]Nv\" -> 0.5, \"m\" -> 1., \"\[Eta]\" -> 0., \
+\"n\" -> 0., \"l\" -> 0., \"s\" -> -1., \"\[Chi]\" -> 0.9, \"M\" -> 1.|>, \
+True, Function[{\[Zeta]}, Removed[\"$$Failure\"]]]\nMinimization Time: \
+0.00096\nAngular Solver Time: 0.0164\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv1_2m1\[Eta]0n0l0s-1\[Chi]9_10KMax4branch1.mx\n\n"
+"m Iteration Count: mIterationCounter\nm Value: 2\nn Value: 1\n\[Mu] Value: \
+4/25\nMinimization Results: <|\"\[Omega]\" -> 0.1597691053731998, \"\[Nu]\" \
+-> -0.08617237202344269|>\nMinimization Time: 107.268213\nAngular Solver \
+Time: 0.11479\nCaching results to: \
+\[Epsilon]1_10000\[Mu]Nv4_25m2\[Eta]0n1l1s-1\[Chi]9_10KMax4branch1.mx\n\n"

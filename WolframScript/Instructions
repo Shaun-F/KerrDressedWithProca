@@ -1,0 +1,43 @@
+The code in this directory solves the proca equation on a Kerr background for a range of parameters specified in the parameters.ini file, leveraging Mathematicas parallel processes infrastructure to execute the computation over many slave kernels. 
+
+The computation is parallelized over a range of mode and overtone numbers and each slave kernel solves the proca equation for a given mode and overtone number and for a range of proca mass values, i.e. each slave kernel takes in a single mode and overtone number and iterates over a mass range.
+
+
+In the parameters.ini file:
+	The mass range is specified by \[Mu]range and is dimensionless.
+		The mass step size is specified by \[Delta]\[Mu]
+		
+	The mode range is specified by mrange and takes integer values starting from 1
+		The mode step size is specified by \[Delta]m
+		
+	The overtone range is specified by nrange and also takes integer values but starting from 0.
+		The overtone step size is specified by \[Delta]n
+		
+	'precision' specifies the number of digits to keep track of in the computation
+	
+	'omegares' determines the initial size of the simplex to be used in the Nelder Mead Minimization of the radial function when determining the bound state frequencies. Larger values correspond to a smaller initial simplex size.
+	'OptimizationPrecision' sets the precision goal used by the Nelder Mead algorithm
+	
+	'OptimizationAccuracy' sets the accuracy goal used by the Nelder Mead algorithm
+	
+	'MaxIterationsMinimization' sets the cutoff for the number of iterations NMinimize is allowed when performing the minimization.
+	
+	'RadialIntegratorMaxStep' sets the cutoff for the number of iterations NDSolve is allowed when calculating the radial function
+	
+	'RadialIntegratorPrecisionGoal' sets the precision goal for NDSolve in calculating the Radial function
+	
+	'branch' determines which branch of solutions to use for the Frobenius expansion of the radial function near the horizon. The branch should be chosen (as determined by the kerr spin parameter) such that the radial function is regular across the horizon.
+	
+	'KMax' sets the max number of spherical harmonics to expand the angular function in. A value larger than 3 typically is sufficient.
+	
+	'\[Epsilon]' is the radial offset to use when solving the radial equation near the horizon. For example, a value of 10^-5 tells the integrator to start the integration from 10^-5 instead of at 0 (corresponding to directly on the horizon)
+	
+	'\[Eta]' determines the parity of the angular function
+	
+	's' determines the spin the proca feild
+	
+	'\[Chi]' determines the dimensionless spin of the Kerr black hole
+	
+	'M' determines the mass of the Kerr black hole in units of Solar masses. NOTE: this parameter has not yet been implemented.
+	
+	
