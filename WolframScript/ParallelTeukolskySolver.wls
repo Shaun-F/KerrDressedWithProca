@@ -38,3 +38,28 @@ If[\[Not]DirectoryQ[$SolutionPath], CreateDirectory[$SolutionPath]];
 
 Messenger = "\n\n-----------------------\nBeginning Parallelized Teukolsky Solver\n";
 Print[Messenger];
+
+
+Print["Importing data"];
+AllFileNames = FileNames[All, $FKKSRoot<>"Solutions/";]
+AllData = Import/@AllFileNames;
+Print["Data Imported. Running normalization procedure on "<>ToString[NumberOfKernels,InputForm]<>" kernels."];
+
+DistributeDefinitions[FKKSNormalization, AllData, FKKSTotalEnergy, FKKSEnergyDensity];
+TaskList = Table[ParallelSubmit[{j}, FKKSNormalization[AllData[[j]], 1, Recalculate->True]], {j,1,Length@AllData}]
+Normalizations = WaitAll[TaskList];
+
+Print["Normalization complete. Appending data to solution sets and normalizing radial functions."];
+Do[AppendToSolution[AllData[[j]]]["Normalization", Normalizations[[j]]], {i,1,Length@AllData}];
+AllNormedData = Table[RenormalizeProcaSolution[AllData[[j]], Normalizations[[j]]["Normalization"]], {j,1,Length@AllData}];
+
+Print["Black hole evolution code complete. Proceeding to Teukolsky solver."];
+
+
+
+
+
+
+
+
+
