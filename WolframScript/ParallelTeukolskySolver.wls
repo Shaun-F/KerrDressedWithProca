@@ -55,9 +55,6 @@ Print[Messenger];
 Print["Importing data"];
 AllFileNames = FileNames[All, $SolutionPath];
 
-AllFileNames = AllFileNames[[1;;6]];
-
-
 AllData = Import/@AllFileNames;
 Print["Number of solution sets imported: "<>ToString[Length@AllData, InputForm]];
 
