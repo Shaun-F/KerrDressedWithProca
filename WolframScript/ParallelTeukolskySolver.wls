@@ -65,8 +65,10 @@ Print["Number of solution sets imported: "<>ToString[Length@AllData, InputForm]]
 Print["Launching "<>ToString[NumberOfKernels, InputForm]<>" kernels."];
 CloseKernels[];
 Off[PrintAsCharacter::argx];
+Off[NIntegrate::slwcon];
 LaunchKernels[NumberOfKernels];
 ParallelEvaluate[Off[PrintAsCharacter::argx]];
+ParallelEvaluate[Off[NIntegrate::slwcon]];
 If[$KernelCount==NumberOfKernels,
 Print["Launched "<>ToString[NumberOfKernels, InputForm]<>" kernels."];,
 Print["Failed to launch all requested kernels. Number of launched kernels: "<>ToString[$KernelCount, InputForm]];
