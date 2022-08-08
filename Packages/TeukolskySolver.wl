@@ -204,16 +204,14 @@ Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[P
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
 (\[NoBreak]T[0,r,\[Theta],p1]
 T[0,r,\[Theta],p2]
-T[0,r,\[Theta],p3]
-
-\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
+T[0,r,\[Theta],p3]\[NoBreak]) 
+= 
+(\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
-Cos[2m p3]	Sin[2m p3]	1
-
-\[NoBreak])(\[NoBreak]A
+Cos[2m p3]	Sin[2m p3]	1\[NoBreak])
+(\[NoBreak]A
 B
 C
-
 \[NoBreak])
 *)
 CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Theta]sampling], {Aa,Bb,Cc}];
@@ -321,7 +319,6 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]},  Evaluate[FromxActVariables[res]
 \[ScriptCapitalT] = 2 (-1/2\[Rho]^8*Overscript[\[Rho], _]*Subscript[L, -1](\[Rho]^-4*Subscript[L, 0]((\[Rho]^-2*Overscript[\[Rho], _]^-1*Subscript[\[ScriptCapitalT], nn]))) - 1/(2*Sqrt[2])\[Rho]^8*Overscript[\[Rho], _]*\[CapitalDelta]^2*Subscript[L, -1](\[Rho]^-4*Overscript[\[Rho], _]^2Subscript[J, +]((\[Rho]^-2*Overscript[\[Rho], _]^-2*\[CapitalDelta]^-1*Subscript[\[ScriptCapitalT], Overscript[m, _]n]))) + -1/4\[Rho]^8*Overscript[\[Rho], _]*\[CapitalDelta]^2*Subscript[J, +] (\[Rho]^-4*Subscript[J, +] ((\[Rho]^-2*Overscript[\[Rho], _]*Subscript[\[ScriptCapitalT], Overscript[m, _]Overscript[m, _]])))  -  1/(2*Sqrt[2])\[Rho]^8*Overscript[\[Rho], _]*\[CapitalDelta]^2Subscript[J, +](\[Rho]^-4*Overscript[\[Rho], _]^2*\[CapitalDelta]^-1*Subscript[L, -1]((\[Rho]^-2*Overscript[\[Rho], _]^-2*Subscript[\[ScriptCapitalT], Overscript[m, _]n]))))
 *)
 TeukolskySource[solution_]:=Block[{\[ScriptCapitalT], B, BPrime,expr},
-Monitor[
 $Messenger="Beginning Teukolsky Source Calculation...";
 With[{
 tmbmb = Tmbmb[solution, AsInterpolatingFunction->True],
@@ -336,8 +333,6 @@ BPrime = -1/4 \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jp[\[Rho]^-4*Jp[(\[Rho]^-2*\[Rh
 expr = (2(B+BPrime))//FromxActVariables//ApplySolutionSet[solution];
 \[ScriptCapitalT] = OptimizedFunction[{t,r,\[Theta],\[Phi]},expr];
 Return[\[ScriptCapitalT]];
-],
-$Messenger
 ]
 ];
 
@@ -360,8 +355,8 @@ Options[TeukolskySourceModal]={Recalculate->False};
 TeukolskySourceModal[solution_,l_,m_, OptionsPattern[]]:=
 Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&},
 radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rdom[[2]]}];
-If[OptionValue[Recalculate],
-$Messenger = "Generating Teukoslky Integrand";
+If[OptionValue[Recalculate]||!KeyExistsQ[solution, "Derived"],
+$Messenger = "Generating Teukolsky Integrand";
 SourceIntegrand = TeukolskySourceModalIntegrand[solution,l,m];
 SourceIntegrandFunction[x_?NumericQ,\[Theta]_?NumericQ]:=SourceIntegrand[x,\[Theta]];
 IntegrationFunction[x_?NumericQ]:=NIntegrate[SourceIntegrandFunction[x,\[Theta]]*Sin[\[Theta]], {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon]}, WorkingPrecision->10, MaxRecursion->100];
