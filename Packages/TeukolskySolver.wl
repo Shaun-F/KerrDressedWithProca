@@ -204,16 +204,14 @@ Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[P
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
 (\[NoBreak]T[0,r,\[Theta],p1]
 T[0,r,\[Theta],p2]
-T[0,r,\[Theta],p3]
-
-\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
+T[0,r,\[Theta],p3]\[NoBreak]) 
+= 
+(\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
-Cos[2m p3]	Sin[2m p3]	1
-
-\[NoBreak])(\[NoBreak]A
+Cos[2m p3]	Sin[2m p3]	1\[NoBreak])
+(\[NoBreak]A
 B
 C
-
 \[NoBreak])
 *)
 CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Theta]sampling], {Aa,Bb,Cc}];
