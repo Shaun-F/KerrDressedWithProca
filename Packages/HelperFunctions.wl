@@ -23,8 +23,8 @@ temporarySolution["Solution", "R"] = InterpolatingFunction@@temporaryRadialInter
 Return[temporarySolution];
 ];
 
-
-AppendToSolution[solution_][name_, expr_]:=Block[{TemporarySolution,AssociationKey,printData},
+Options[AppendToSolution] = {Prelabel->None};
+AppendToSolution[solution_][name_, expr_, OptionsPattern[{}]]:=Block[{TemporarySolution,AssociationKey,printData},
 TemporarySolution = solution;
 If[TrueQ[Head[name]==String],
 AssociationKey = name,
@@ -35,7 +35,11 @@ TemporarySolution["Derived"]=<||>
 ];
 TemporarySolution["Derived",AssociationKey]=expr;
 printData = solution["Parameters"][[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
-Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx", TemporarySolution];
+If[TrueQ[OptionValue[Prelabel]==None],
+PrelabelString = "",
+PrelabelString = OptionValue[Prelabel]
+];
+Export[$SolutionPath<>OptionValue[Prelabel]<>"RunData_"<>assocToString[printData]<>".mx", TemporarySolution];
 ]
 
 
