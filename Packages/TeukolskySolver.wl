@@ -40,6 +40,7 @@ $TSNIntegratePrecision = 5;
 $TSNIntegrateMaxRecursion = 30;
 $TSNIntegrateMinRecursion=0;
 $TSMaxRadialPoints=100;
+$TSRuntimeOptions = {"CatchMachineOverflow"->False, "CatchMachineIntegerOverflow"->False, "CompareWithTolerance"->False, "EvaluateSymbolically"->False, "RuntimeErrorHandler"->Null, "WarningMessages"->True};
 
 Teukrho = 1/(r[]-I*a*Cos[\[Theta][]]);
 Teukrhob = 1/(r[]+I*a*Cos[\[Theta][]]);
@@ -117,7 +118,7 @@ Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
-tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->{"CatchMachineOverflow"->False, "CatchMachineIntegerOverflow"->False, "CompareWithTolerance"->False, "EvaluateSymbolically"->False, "RuntimeErrorHandler"->Null, "WarningMessages"->True}];
+tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
@@ -138,21 +139,23 @@ C
 
 \[NoBreak])
 *)
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
+coefftimestart = AbsoluteTime[];
 CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Theta]sampling], {Aa,Bb,Cc}];
 reprrule = {Aa->tmp$[0,r,\[Theta],\[Theta]sampling[[1]]/2], Bb->tmp$[0,r,\[Theta],\[Theta]sampling[[2]]/2], Cc->tmp$[0,r,\[Theta],\[Theta]sampling[[3]]/2]};
-coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True];
-coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True];
-coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True];
+coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
 coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 coeff3 = GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points},DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
-
+coefftimestop = AbsoluteTime[];
 TnnDecomposed = {t,r,\[Theta],\[Phi]}|->Evaluate[coeff1[r,\[Theta]]*Cos[-2*\[Omega]value*t + 2*mvalue*\[Phi]]+coeff2[r,\[Theta]]*Sin[-2*\[Omega]value*t + 2*mvalue*\[Phi]]+coeff3[r,\[Theta]]]
 ];(*end With statement*)
 
-$Messenger = "Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function ... Done.";
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
 Return[TnnDecomposed]
 ];(*end Block statement*)
 ]; (*end If statement*)
