@@ -227,7 +227,7 @@ ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParam
 ToParamSymbols:={a->\[Chi]};
 
 
- Options[OptimizedFunction]={WithProperties->True,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
+Options[OptimizedFunction]={WithProperties->True,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
 OptimizedFunction[vars_, expr_, OptionsPattern[]]:=Module[{i,exproe, res,ret},
 exproe = Experimental`OptimizeExpression[expr,
 ExcludedForms->OptionValue[ExcludedForms],
@@ -323,7 +323,7 @@ funcOnPoints = With[{operand = {func,Sequence@@CoordinateRanges}},
 					];
 
 Messenger="Generating Interpolation function";
-retval = ListInterpolation[funcOnPoints, CoordinateRanges];
+retval = ListInterpolation[funcOnPoints, CoordinateRanges, Method->"Spline"];
 If[OptionValue[Metadata],
 Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>],
 Return[retval]
@@ -332,21 +332,25 @@ Return[retval]
 
 
 ApplyRealSolutionSet[solution_][expr_]:=
-Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"]},
-repr =Flatten[{
-Thread[{\[Omega]r,\[Omega]i}->ReIm[solution["Solution","\[Omega]"]]],
-Thread[{\[Nu]r,\[Nu]i}->ReIm[solution["Solution","\[Nu]"]]],
-HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][x]],
-HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][x]],
-HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][x]],
-HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][x]],
-Rr->( Re[solR[#]]&),
-Ri->( Im[solR[#]]&),
-Sr->( Re[solS[#]]&),
-Si->( Im[solS[#]]&),
-\[Chi]->solution["Parameters", "\[Chi]"],
-m-> solution["Parameters", "m"],
-\[Mu]Nv->solution["Parameters", "\[Mu]Nv"]
-}];
-expr//.repr
-];
+	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"]},
+		repr = {
+			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][x]],
+			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][x]],
+			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][x]],
+			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][x]],
+			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
+			\[Omega]i->Im[solution["Solution","\[Omega]"]],
+			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
+			\[Nu]i->Im[solution["Solution","\[Nu]"]],
+			\[Chi]->solution["Parameters", "\[Chi]"], 
+			m->solution["Parameters", "m"], 
+			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
+			Rr->( Re[solR[#]]&), 
+			Ri->( Im[solR[#]]&), 
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
+			};
+		res = expr/.repr;
+		Return[res]
+	];
+
