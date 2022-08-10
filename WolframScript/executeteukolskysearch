@@ -4,5 +4,6 @@
 #PBS -l nodes=1:ppn=16:bigmem1
 export PATH=$PATH:/opt/bin:/opt/Wolfram/Mathematica/13.1/SystemFiles/Kernel/Binaries/Linux-x86-64/
 
-cd /home/fell/Documents/Github/KerrDressedWithProca/WolframScript/
+#cd /home/fell/Documents/Github/KerrDressedWithProca/WolframScript/
+cd /home/shaunf/Documents/Computer/Code/Project/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/WolframScript
 ./ParallelTeukolskySolver.wls
