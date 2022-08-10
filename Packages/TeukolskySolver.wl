@@ -39,7 +39,7 @@ $TSNIntegrateMethod = {"GlobalAdaptive", "MaxErrorIncreases"->2000, Method->{"Cl
 $TSNIntegratePrecision = 5;
 $TSNIntegrateMaxRecursion = 30;
 $TSNIntegrateMinRecursion=0;
-$TSRadialPoints = Automatic;
+$TSMaxRadialPoints=100;
 
 Teukrho = 1/(r[]-I*a*Cos[\[Theta][]]);
 Teukrhob = 1/(r[]+I*a*Cos[\[Theta][]]);
@@ -104,12 +104,10 @@ If[OptionValue[AsSymbolic],
 Return[res];
 ];
 
-$Messenger="Generating Optimized function for \!\(\*SubscriptBox[\(\[CapitalTau]\), \(nn\)]\) with properties: Compiled->"<>ToString[OptionValue[ToCompiled]]<>" WithProperties->"<>ToString[OptionValue[WithProperties]];
-tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->OptionValue[ToCompiled],
-WithProperties->OptionValue[WithProperties]];
-
 If[OptionValue[AsOptimized],
-Return[tmp$]
+	$Messenger="Generating Optimized function for \!\(\*SubscriptBox[\(\[CapitalTau]\), \(nn\)]\) with properties: Compiled->"<>ToString[OptionValue[ToCompiled]]<>" WithProperties->"<>ToString[OptionValue[WithProperties]];
+	tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->OptionValue[ToCompiled], WithProperties->OptionValue[WithProperties]];
+	Return[tmp$]
 ];
 
 If[OptionValue[AsInterpolatingFunction], 
@@ -119,7 +117,8 @@ Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
-With[{rpoints = If[radialdomain[[-1]]<300, 300, 300+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->{"CatchMachineOverflow"->False, "CatchMachineIntegerOverflow"->False, "CompareWithTolerance"->False, "EvaluateSymbolically"->False, "RuntimeErrorHandler"->Null, "WarningMessages"->True}];
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
@@ -199,7 +198,7 @@ Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
 radialdomain=solution["Solution", "R"]["Domain"]//First;
-With[{rpoints = If[radialdomain[[-1]]<300, 300, 300+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
 Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
@@ -275,7 +274,7 @@ Block[{rdom, Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_,phi3_] := {{Cos[phi1],Sin[phi1],1},{Cos[phi2],Sin[phi2],1},{Cos[phi3], Sin[phi3], 1}};
 radialdomain=solution["Solution", "R"]["Domain"]//First;
-With[{rpoints = If[radialdomain[[-1]]<300, 300, 300+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points,\[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Theta]sampling = {0,\[Pi]/2, \[Pi]}, \[Omega]value = solution["Solution", "\[Omega]"]//Re, mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
 Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
@@ -356,7 +355,10 @@ Subscript[\[ScriptCapitalT], lm\[Omega]] = \[Integral]d\[Theta]d\[Phi] sin(\[The
 *)
 Options[TeukolskySourceModal]={Recalculate->False};
 TeukolskySourceModal[solution_,l_,m_, OptionsPattern[]]:=
-Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&, rpoints = If[TrueQ[$TSRadialPoints==Automatic],solution["Solution", "R"]["Domain"]//First//Last, $TSRadialPoints]},
+Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rpoints,
+rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&, 
+},
+rpoints = If[rdom[[-1]]<$TSMaxRadialPoints, rdom[[-1]], $TSMaxRadialPoints+10*Log[rdom[[-1]]]];
 radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rpoints}];
 If[OptionValue[Recalculate]||!KeyExistsQ[solution, "Derived"],
 $Messenger = "Generating Teukolsky Integrand";
