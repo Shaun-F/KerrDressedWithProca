@@ -81,6 +81,16 @@ Do[
 	Block[{Normalization,NormedData, Tlmw, AsymptoticAmplitude,AsymptoticFlux, Logger},
 	Logger = {};
 	With[{SingleSolution = AllData[[i]]},
+
+		(*Skip solution if already calculated*)
+		If[KeyExistsQ[SingleSolution, "Derived"]&&KeyExistsQ[SingleSolution["Derived"], "Einf"],
+			Print["Solution already exists, skipping iteration."];
+			AppendTo[Logger, ""]; AppendTo[Logger, ""];
+			AppendTo[Logger, "Solution already exists, skipping iteration."];
+			AppendTo[Logger, ""]; AppendTo[Logger, ""];
+			PutAppend[Logger, LogFile];
+			Continue[]
+		];
 		Print["\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		AppendTo[Logger, "\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		(*----------Black hole evolution----------*)
