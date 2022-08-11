@@ -28,10 +28,9 @@ If[!TrueQ[(ConfigurationParameters["SolutionFilePath"]==Automatic)],
 
 
 Print["----------------------------------"];
-Print["FKKSRoot: "<>$FKKSRoot];
+Print["FKKSRoot: "];Print["    "<>$FKKSRoot];
 Print["Solution Path: "];Print["     "<>ToString@$SolutionPath];
 Print["Log File Path: "];Print["     "<>ToString@LogFile];
-Print["Solution Path: "];Print["     "<>ToString@$SolutionPath];
 Print["Log Run: "<>ToString[TrueQ[LogRun], InputForm]];
 Print["Save to Disk: "<>ToString[TrueQ[SaveToDisk], InputForm]];
 Print["Number of Kernels: "<>ToString[NumberOfKernels]];
@@ -94,11 +93,10 @@ Do[
 		Print["\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		AppendTo[Logger, "\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		(*----------Black hole evolution----------*)
+		Print["Beginning normalization routine of solution"];
+		AppendTo[Logger, "Beginning normalization routine of solution"];
 		Normalization=FKKSNormalization[SingleSolution, 1, Recalculate->OverwriteExisting];
-		If[SaveToDisk,
-			Print["Normalization complete. Appending data to solution set and normalizing radial functions."];
-			AppendToSolution[SingleSolution]["Normalization", Normalization];
-		];
+
 		NormedData = RenormalizeProcaSolution[SingleSolution, Normalization["Normalization"]];
 		Print["Black hole evolution code complete. Proceeding to Teukolsky solver."];
 		AppendTo[Logger, "Black hole evolution code complete. Proceeding to Teukolsky solver."];
@@ -107,9 +105,6 @@ Do[
 		Print["Calculating mode decomposition of Teukolsky source term"];
 		AppendTo[Logger, "Calculating mode decomposition of Teukolsky source term"];
 		Tlmw = TeukolskySourceModal[NormedData, OrbitalNumber, ModeNumber];
-		If[SaveToDisk,
-			AppendToSolution[SingleSolution]["Tlmw", Tlmw];
-		];
 
 
 		(*----------Asymptotic amplitude----------*)
@@ -117,10 +112,6 @@ Do[
 		AppendTo[Logger, "Mode decomposition calculation complete. Calculating asymptotic amplitudes"];
 		Block[{$MSTMaxN=15},
 			AsymptoticAmplitude = TeukolskyZInfinity[NormedData, Tlmw, OrbitalNumber, ModeNumber];
-		];
-		If[SaveToDisk,
-			Print["Asymptotic amplitude calculation complete. Appending data to solution"];
-			AppendToSolution[SingleSolution]["Zinf", AsymptoticAmplitude];
 		];
 
 
@@ -130,7 +121,7 @@ Do[
 		AsymptoticFlux = EnergyFlux[NormedData,OrbitalNumber,ModeNumber, TeukolskyTlmw->Tlmw, ZCoefficient->AsymptoticAmplitude];
 		If[SaveToDisk,
 			Print["Asymptotic flux calculation complete. Appending data to solution"];
-			AppendToSolution[SingleSolution]["Einf", AsymptoticFlux];
+			AppendToSolution[SingleSolution, Prelabel->"FullSolutionSet"][{{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Normalization", Normalization}, {"Zinf", AsymptoticAmplitude}}];
 		];
 		AppendTo[Logger, "Energy Flux: "<>ToString[AsymptoticFlux, InputForm]<>"/n/n"];
 		PutAppend[Logger, LogFile];

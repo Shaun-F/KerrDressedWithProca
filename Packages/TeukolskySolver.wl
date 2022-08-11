@@ -349,8 +349,7 @@ Subscript[\[ScriptCapitalT], lm\[Omega], integrand] = 2 2/Sqrt[2*\[Pi]]*\[Rho]^-
 *)
 TeukolskySourceModalIntegrand[solution_,l_,m_]:=
 With[{Gamma = solution[["Parameters","\[Chi]"]]*2*solution[["Solution","\[Omega]"]]//Re},
-OptimizedFunction[{r,\[Theta]},
-Evaluate[ApplySolutionSet[solution][FromxActVariables[2/Sqrt[2*\[Pi]]*Teukrho^-5*Teukrhob^-1*TeukolskySource[solution][0,r,\[Theta],0]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]
+OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2/Sqrt[2*\[Pi]]*Teukrho^-5*Teukrhob^-1*TeukolskySource[solution][0,r,\[Theta],0]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]
 ]
 ];
 
@@ -361,7 +360,7 @@ Subscript[\[ScriptCapitalT], lm\[Omega]] = \[Integral]d\[Theta]d\[Phi] sin(\[The
 Options[TeukolskySourceModal]={Recalculate->False};
 TeukolskySourceModal[solution_,l_,m_, OptionsPattern[]]:=
 Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rpoints,
-rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&, 
+rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&
 },
 rpoints = If[rdom[[-1]]<$TSMaxRadialPoints, rdom[[-1]], $TSMaxRadialPoints+10*Log[rdom[[-1]]]];
 radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rpoints}];

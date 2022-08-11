@@ -3,6 +3,7 @@
 (*File title to know if package has already been imported*)
 HelperFunctions;
 
+
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
 OutputSolution = solution;
@@ -23,24 +24,30 @@ temporarySolution["Solution", "R"] = InterpolatingFunction@@temporaryRadialInter
 Return[temporarySolution];
 ];
 
-Options[AppendToSolution] = {Prelabel->None};
-AppendToSolution[solution_][name_, expr_, OptionsPattern[{}]]:=Block[{TemporarySolution,AssociationKey,printData},
+
+AppendToSolution[solution_, OptionsPattern[{Prelabel->Null}]][NameValuePair_List]:=Block[{TemporarySolution,AssociationKey,printData},
 TemporarySolution = solution;
-If[TrueQ[Head[name]==String],
-AssociationKey = name,
-AssociationKey=ToString[name]
-];
 If[\[Not]KeyExistsQ[TemporarySolution, "Derived"],
 TemporarySolution["Derived"]=<||>
 ];
-TemporarySolution["Derived",AssociationKey]=expr;
+If[Length@Dimensions@NameValuePair>1,
+(*True*)
+Do[
+TemporarySolution["Derived",ToString[NameValuePair[[i]][[1]]]]=NameValuePair[[i]][[2]];,
+{i,1,Length@NameValuePair}
+];,
+
+(*Else*)
+TemporarySolution["Derived",ToString[NameValuePair[[1]]]]=NameValuePair[[2]];
+];
+
 printData = solution["Parameters"][[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
-If[TrueQ[OptionValue[Prelabel]==None],
+If[TrueQ[OptionValue[Prelabel]==Null],
 PrelabelString = "",
 PrelabelString = OptionValue[Prelabel]
 ];
-Export[$SolutionPath<>OptionValue[Prelabel]<>"RunData_"<>assocToString[printData]<>".mx", TemporarySolution];
-]
+Export[FileNameJoin[{$SolutionPath,PrelabelString<>"RunData_"<>assocToString[printData]<>".mx"}], TemporarySolution];
+];
 
 
 styleMarkdown::usage = "pretty printing";
