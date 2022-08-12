@@ -464,10 +464,13 @@ If[NormalizationError/normalization>10^-2,
 	Print["Error! normalization uncertainty greater than 0.01 %"];
 ];
 
+(*Renormalize energy*)
+RenormalizedEnergy = totalenergy*normalization^2;
+
 <|
 	"Normalization"->normalization, 
 	"NormalizationFractionalError"->NormalizationError/normalization,
-	"TotalEnergy"->totalenergy, 
+	"TotalEnergy"->RenormalizedEnergy, 
 	"TotalEnergyErrors"->totalenergyresults["Errors"], 
 	"FinalMass"->finalmass, 
 	"FinalSpin"->FinalDimlessSpin[\[Chi]v,wv,mv,InitialMass, finalmass/InitialMass]
