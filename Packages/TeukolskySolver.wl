@@ -86,7 +86,7 @@ Block[{nn,mm,mmbar},
 
 (*Calculate various projections of EM-tensor onto kinnersley tetrad*)
 Options[Tnn]={AsSymbolic->False, AsInterpolatingFunction->False, AsOptimized->False, ToCompiled->False, WithProperties->False};
-Tnn[solution_, OptionsPattern[]]:=
+Tnn[solution_?AssociationQ, OptionsPattern[]]:=
 Block[{TLL,tmp, tmp$, tmp$OE,tmp$$, tmp$IP, tmp$r, ww$, mm$, res, rmin$, rmax$,Messengernn},
 With[{TnnFilePath = FileNameJoin[{$FKKSRoot, "Expressions", "FKKSEnergyMomentumNN.mx"}]},
 If[FileExistsQ[TnnFilePath],
@@ -119,7 +119,7 @@ rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,soluti
 Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*data["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
@@ -165,7 +165,7 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]},  Evaluate[{t,r,\[Theta],\[Phi]}|
 
 
 Options[Tmbmb]=Options[Tnn];
-Tmbmb[solution_,  OptionsPattern[]]:=
+Tmbmb[solution_?AssociationQ,  OptionsPattern[]]:=
 Block[{TLL,tmp, tmp$, tmp$OE, tmp$IP, tmp$r, ww$, mm$, res,rmin$,rmax$,Messengermbmb},
 With[{TmbmbFilePath = FileNameJoin[{$FKKSRoot, "Expressions", "FKKSEnergyMomentumMbarMbar.mx"}]},
 If[FileExistsQ[TmbmbFilePath],
@@ -198,7 +198,7 @@ rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,soluti
 Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*data["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
@@ -243,7 +243,7 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]},  Evaluate[FromxActVariables[res]
 
 
 Options[Tmbn]=Options[Tnn];
-Tmbn[solution_, OptionsPattern[]]:=
+Tmbn[solution_?AssociationQ, OptionsPattern[]]:=
 Block[{TLL,tmp, tmp$, tmp$OE, tmp$IP, tmp$r, ww$, mm$, res,rmin$, rmax$,Messengermbn},
 With[{TmbnFilePath = FileNameJoin[{$FKKSRoot, "Expressions", "FKKSEnergyMomentumMbarN.mx"}]},
 If[FileExistsQ[TmbnFilePath],
@@ -278,7 +278,7 @@ rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,soluti
 Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*data["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
@@ -325,7 +325,7 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]},  Evaluate[FromxActVariables[res]
 (*
 \[ScriptCapitalT] = 2 (-1/2\[Rho]^8*Overscript[\[Rho], _]*Subscript[L, -1](\[Rho]^-4*Subscript[L, 0]((\[Rho]^-2*Overscript[\[Rho], _]^-1*Subscript[\[ScriptCapitalT], nn]))) - 1/(2*Sqrt[2])\[Rho]^8*Overscript[\[Rho], _]*\[CapitalDelta]^2*Subscript[L, -1](\[Rho]^-4*Overscript[\[Rho], _]^2Subscript[J, +]((\[Rho]^-2*Overscript[\[Rho], _]^-2*\[CapitalDelta]^-1*Subscript[\[ScriptCapitalT], Overscript[m, _]n]))) + -1/4\[Rho]^8*Overscript[\[Rho], _]*\[CapitalDelta]^2*Subscript[J, +] (\[Rho]^-4*Subscript[J, +] ((\[Rho]^-2*Overscript[\[Rho], _]*Subscript[\[ScriptCapitalT], Overscript[m, _]Overscript[m, _]])))  -  1/(2*Sqrt[2])\[Rho]^8*Overscript[\[Rho], _]*\[CapitalDelta]^2Subscript[J, +](\[Rho]^-4*Overscript[\[Rho], _]^2*\[CapitalDelta]^-1*Subscript[L, -1]((\[Rho]^-2*Overscript[\[Rho], _]^-2*Subscript[\[ScriptCapitalT], Overscript[m, _]n]))))
 *)
-TeukolskySource[solution_]:=Block[{\[ScriptCapitalT], B, BPrime,expr},
+TeukolskySource[solution_?AssociationQ]:=Block[{\[ScriptCapitalT], B, BPrime,expr},
 $Messenger="Beginning Teukolsky Source Calculation...";
 With[{
 tmbmb = Tmbmb[solution, AsInterpolatingFunction->True],
@@ -347,7 +347,7 @@ Return[\[ScriptCapitalT]];
 (*
 Subscript[\[ScriptCapitalT], lm\[Omega], integrand] = 2 2/Sqrt[2*\[Pi]]*\[Rho]^-5*Overscript[\[Rho], _]^-1 \[ScriptCapitalT]Subscript[(r,\[Theta]) , -2]Subscript[S^a\[Omega], lm](\[Theta])
 *)
-TeukolskySourceModalIntegrand[solution_,l_,m_]:=
+TeukolskySourceModalIntegrand[solution_?AssociationQ,l_?IntegerQ,m_?IntegerQ]:=
 With[{Gamma = solution[["Parameters","\[Chi]"]]*2*solution[["Solution","\[Omega]"]]//Re},
 OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2/Sqrt[2*\[Pi]]*Teukrho^-5*Teukrhob^-1*TeukolskySource[solution][0,r,\[Theta],0]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]
 ]
@@ -358,7 +358,7 @@ OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVaria
 Subscript[\[ScriptCapitalT], lm\[Omega]] = \[Integral]d\[Theta]d\[Phi] sin(\[Theta]) Subscript[\[ScriptCapitalT], lm\[Omega], integrand]
 *)
 Options[TeukolskySourceModal]={Recalculate->False};
-TeukolskySourceModal[solution_,l_,m_, OptionsPattern[]]:=
+TeukolskySourceModal[solution_?AssociationQ,l_?IntegerQ,m_?IntegerQ, OptionsPattern[]]:=
 Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rpoints,
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&
 },
@@ -393,7 +393,7 @@ SubscriptBox[\(r\), \(+\)]]\(
 SuperscriptBox[\(R\), \(in\)], \(lm\[Omega]\)]\((r)\)\), \(
 \*SuperscriptBox[\(\[CapitalDelta]\), \(2\)]\((r)\)\)]dr\)\)
 *)
-TeukolskyZInfinity[ProcaSolution_, TeukolskyLM\[Omega]_,l_,m_]:=
+TeukolskyZInfinity[ProcaSolution_?AssociationQ, TeukolskyLM\[Omega]_InterpolatingFunction,l_?IntegerQ,m_?IntegerQ]:=
 Block[{
 DeltaFunction,
 RenormedAngMom,
@@ -435,7 +435,7 @@ Return[Zcoefficient]
 
 
 Options[EnergyFlux]={TeukolskyTlmw->Automatic, ZCoefficient->Automatic};
-EnergyFlux[ProcaSolution_,l_,m_,OptionsPattern[]]:=
+EnergyFlux[ProcaSolution_?AssociationQ,l_?IntegerQ,m_?IntegerQ,OptionsPattern[]]:=
 Block[{Zcoeff,
 TeukModal,
 EnFlux,
@@ -460,7 +460,7 @@ Return[EnFlux]
 
 NPPsi4::usage = "Compute the Newman-Penrose \!\(\*SubscriptBox[\(\[Psi]\), \(4\)]\) scalar at asymptotic null infinity";
 Options[NPPsi4] = {ZCoefficient->Automatic, l->2, m->2, TeukModal->Automatic};
-NPPsi4[ProcaSolution_, OptionsPattern[]]:=
+NPPsi4[ProcaSolution_?AssociationQ, OptionsPattern[]]:=
 Block[{ZCoeff, SWSH, Psi4,teuk\[Omega] = 2*Re[ProcaSolution["Solution", "\[Omega]"]], teuk\[Chi] = ProcaSolution["Parameters", "\[Chi]"]},
 If[TrueQ[OptionValue[ZCoefficient]==Automatic],
 ZCoeff = TeukolskyZInfinity[ProcaSolution, OptionValue[TeukModal],OptionValue[l], OptionValue[m]];,
