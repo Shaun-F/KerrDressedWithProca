@@ -1,0 +1,141 @@
+{"\n\nProgress: 1 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+3.5157659080828262236710205531116`17.69897000433368*^-7*Abs[NIntegrate[integr\
+and[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> $TSNIntegratePrecision, \
+MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 2 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00022720055107815665252838461157064991`17.698970004333628*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 3 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00024574394280040623816347017546437318`17.69897000433375*Abs[NIntegrate[int\
+egrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 4 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00028875128176509995482957803355014868`17.69897000433367*Abs[NIntegrate[int\
+egrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 5 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00045021334872188263450205010631500196`17.69897000433348*Abs[NIntegrate[int\
+egrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 6 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00026073939894731389807488750711991241`17.698970004333752*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 7 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00010139863296663463104077130255558248`17.698970004333436*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 8 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00001922531781211591841818874283638931`17.698970004333663*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 9 out of 684", "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00030045666804429225045984642967988195`17.698970004333656*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 10 out of 684", 
+ "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00046255011756589407647006887586241398`17.698970004333592*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 11 out of 684", 
+ "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00019256006487601235088939718117028853`17.698970004333507*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 12 out of 684", 
+ "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+2.880682285117905112661910922547`17.69897000433363*^-8*Abs[NIntegrate[integra\
+nd[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> $TSNIntegratePrecision, \
+MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 13 out of 684", 
+ "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00012660661766906256204548472040330412`17.6989700043335*Abs[NIntegrate[inte\
+grand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> $TSNIntegratePrecision, \
+MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 14 out of 684", 
+ "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00043975269750913134321187752910460436`17.698970004333596*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
+{"\n\nProgress: 15 out of 684", 
+ "Beginning normalization routine of solution", 
+ "Black hole evolution code complete. Proceeding to Teukolsky solver.", 
+ "Calculating mode decomposition of Teukolsky source term", 
+ "Mode decomposition calculation complete. Calculating asymptotic amplitudes"\
+, "Calculating asymptotic energy flux", "Energy Flux: \
+0.00047039000788932952200815447701600754`17.698970004333592*Abs[NIntegrate[in\
+tegrand[r], {r, rdom[[1]], rdom[[2]]}, PrecisionGoal -> \
+$TSNIntegratePrecision, MaxRecursion -> $TSNIntegrateMaxRecursion, Method -> \
+$TSNIntegrateMethod]]^2/n/n"}
