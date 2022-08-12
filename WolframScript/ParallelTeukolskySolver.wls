@@ -123,8 +123,8 @@ Do[
 			Print["Asymptotic flux calculation complete. Appending data to solution"];
 			AppendToSolution[SingleSolution, Prelabel->"FullSolutionSet"][{{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Normalization", Normalization}, {"Zinf", AsymptoticAmplitude}}];
 		];
-		AppendTo[Logger, "Energy Flux: "<>ToString[AsymptoticFlux, InputForm]<>"/n/n"];
-		PutAppend[Logger, LogFile];
+		AppendTo[Logger, "Energy Flux: "<>ToString[AsymptoticFlux, InputForm]];
+		PutAppend[Sequence@@Logger, LogFile];
 	];
 	];,
 	{i,1,Length@AllData}

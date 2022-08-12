@@ -5,7 +5,7 @@
 export PATH=$PATH:/opt/bin:/opt/Wolfram/Mathematica/13.1/SystemFiles/Kernel/Binaries/Linux-x86-64/
 
 ##ITPCluster
-#cd /home/fell/Documents/Github/KerrDressedWithProca/WolframScript/
+cd /home/fell/Documents/Github/KerrDressedWithProca/WolframScript/
 ##Laptop
-cd /home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/WolframScript
+#cd /home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/WolframScript
 ./ParallelTeukolskySolver.wls
