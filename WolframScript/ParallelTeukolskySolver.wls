@@ -80,7 +80,7 @@ Do[
 	Block[{Normalization,NormedData, Tlmw, AsymptoticAmplitude,AsymptoticFlux, Logger},
 	Logger = {};
 	With[{SingleSolution = AllData[[i]]},
-
+		IterationStartTime = AbsoluteTime[];
 		(*Skip solution if already calculated*)
 		If[KeyExistsQ[SingleSolution, "Derived"]&&KeyExistsQ[SingleSolution["Derived"], "Einf"],
 			Print["Solution already exists, skipping iteration."];
@@ -123,7 +123,12 @@ Do[
 			Print["Asymptotic flux calculation complete. Appending data to solution"];
 			AppendToSolution[SingleSolution, Prelabel->"FullSolutionSet"][{{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Normalization", Normalization}, {"Zinf", AsymptoticAmplitude}}];
 		];
+		IterationStopTime=AbsoluteTime[];
+		Print["Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
+		Print["Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
 		AppendTo[Logger, "Energy Flux: "<>ToString[AsymptoticFlux, InputForm]];
+		AppendTo[Logger, "Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
+		AppendTo[Logger, "Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
 		PutAppend[Sequence@@Logger, LogFile];
 	];
 	];,
