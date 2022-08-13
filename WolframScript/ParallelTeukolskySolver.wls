@@ -87,7 +87,7 @@ Do[
 			AppendTo[Logger, ""]; AppendTo[Logger, ""];
 			AppendTo[Logger, "Solution already exists, skipping iteration."];
 			AppendTo[Logger, ""]; AppendTo[Logger, ""];
-			PutAppend[Logger, LogFile];
+			PutAppend[Sequence@@Logger, LogFile];
 			Continue[]
 		];
 		Print["\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
