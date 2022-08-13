@@ -130,10 +130,11 @@ Do[
 		AppendTo[Logger, "Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
 		AppendTo[Logger, "Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
 		PutAppend[Sequence@@Logger, LogFile];
-	];
-	];,
+	];(*With*)
+	];(*Block*)
+	ClearSystemCache[],
 	{i,1,Length@AllData}
-];
+];(*do*)
 
 
 Print["Teukolsky solver complete."];
