@@ -272,7 +272,8 @@ InitialConditions,
 RSolution,
 SampleRadius,
 Normalization,
-Solution
+Solution,
+NormalizedRSolution
 
 },
 With[{
