@@ -19,7 +19,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 			nuFitFunction,omegaValHistory,nuValHistory,muValHistory,omegaHolder,nuHolder,muHolder,omegaFit,nuFit,CurrentomegaGuess,CurrentnuGuess,omegaGuess,nuGuess,
 			omegaBoundarySize,omegaBoundary,MinimizationResults,
 			angulartimestart, angulartimestop, angularcoeffs, Sfunc,Sfunctemp,coeffs,
-			omegafitOutVariable,nufitOutVariable,
+			omegafitOutVariable,nufitOutVariable,nufitOutVariables,
 			RadialSolution,RadialPlot,AngularPlot, TheSolution,CacheData,CacheResults
 			},
 		With[{k=modeval, j=overtoneval},
@@ -209,7 +209,6 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				Print["Result for Kernel "<>ToString[$KernelID, InputForm]<>": \n\t \[Omega] = "<>ToString[Evaluate@MinimizationResults["\[Omega]"], InputForm]];
 				
 				(*-----------Prepare solution data and write to disk-----------*)
-				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, 
 								"Solution" -> TheSolution, 
 								"Metadata"-><|"muIterationCounter"->muIterationCounter, "date"->DateString[], "WorkerKernel"->$KernelID|>
@@ -217,7 +216,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				AppendTo[Logger,"Caching results to: "<>assocToString[printData]<>".mx"];
 				AppendTo[Logger, ""];AppendTo[Logger, ""];
 				If[SaveToDisk,
-					Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx",CacheData];
+					Export[SolutionToFilename[CacheData, $SolutionPath],CacheData];
 				];
 				If[LogRun, 
 					PutAppend[Sequence@@Logger, LogFile];
@@ -235,12 +234,11 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				Label[SuperradiantConditionFailure];
 				AppendTo[Logger,"Superradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> "). Breaking mass loop..."];
 				If[LogRun, PutAppend[Sequence@@Logger,LogFile]];	
-				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, 
 							"Solution" -> "Superradiant condition failed", 
 							"Metadata"-><|"muIterationCounter"->muIterationCounter, "date"->DateString[], "WorkerKernel"->$KernelID|>
 							|>;
-				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
+				If[SaveToDisk,Export[SolutionToFilename[CacheData, $SolutionPath], CacheData];];
 				ContinueLoop=False;
 				Break[];
 			]; (*mu iteration loop end*)

@@ -1,10 +1,12 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-Unprotect[CellPrint];
-CellPrint[Cell[s_, "Print", label_, ShowCellLabel->True]]:=Block[{},
-CellPrint[Cell[s,"Print",ShowCellLabel->False]]];
-Protect[CellPrint];
+(*Add downvalue to Print function to remove unnecessary print statements in terminal*)
+Unprotect[Print];
+Print[expr_] /; ! FreeQ[expr, _KernelObject] = Null;
+Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "KernelObject"]] = Null;
+Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "remote kernel"]] = Null;
+Protect[Print];
 
 
 $FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/"; (*directory on ITP cluster to git repo*)
@@ -56,12 +58,7 @@ Print["Launched "<>ToString[NumberKernels, InputForm]<>" Kernels. Distributing d
 DistributeDefinitions[parameters, WorkerFunction, $SolutionPath, $FKKSRoot, LogFile, LogRun];
 ParallelEvaluate[Import[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]];
 
-(*Add downvalue to Print function to remove unnecessary print statements in terminal*)
-Unprotect[Print];
-Print[expr_] /; ! FreeQ[expr, _KernelObject] = Null;
-Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "KernelObject"]] = Null;
-Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "remote kernel"]] = Null;
-Protect[Print];
+
 
 
 (*Execute parallelized kerr solver*)
