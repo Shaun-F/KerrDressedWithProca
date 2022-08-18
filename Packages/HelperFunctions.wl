@@ -4,24 +4,6 @@
 HelperFunctions;
 
 
-Options[SolutionToFilename]={Prelabel->Null, KeyList->{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}, ExtensionType->".mx"};
-SolutionToFilename[Assoc_Association, parentdirectory_, OptionsPattern[]]:=
-Block[{printData, PrelabelString, parametersection,fileName,absoluteFileName},
-If[KeyExistsQ[Assoc, "Parameters"],
-printData = Assoc["Parameters"][[OptionValue[KeyList]]];,
-printData = Assoc[[OptionValue[KeyList]]];
-];
-If[TrueQ[OptionValue[Prelabel]==Null],
-PrelabelString = "",
-PrelabelString = OptionValue[Prelabel]
-];
-parametersection = assocToString[printData];
-fileName = PrelabelString<>"RunData_"<>parametersection<>OptionValue[ExtensionType];
-absoluteFileName = FileNameJoin[{parentdirectory,fileName}];
-Return[absoluteFileName]
-]
-
-
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
 OutputSolution = solution;
@@ -33,7 +15,7 @@ Return[OutputSolution]
 
 RenormalizeProcaSolution::usage="rescale a given proca solution by a given normalization factor";
 RenormalizeProcaSolution[solution_, normalizationfactor_]:=
-Block[{temporaryRadialInterpolatingFunction,temporaryRadialInterpolatingFunctionList, temporarySolution=solution},
+Block[{temporarySolution=solution},
 (*Rescale radial function by normalization factor*)
 temporaryRadialInterpolatingFunction = temporarySolution["Solution", "R"];
 temporaryRadialInterpolatingFunctionList = List@@temporaryRadialInterpolatingFunction; (*Convert interpolating function to list*)
@@ -43,7 +25,7 @@ Return[temporarySolution];
 ];
 
 
-AppendToSolution[solution_, OptionsPattern[{Prelabel->Null}]][NameValuePair_List]:=Block[{TemporarySolution,AssociationKey,AbsFilename},
+AppendToSolution[solution_, OptionsPattern[{Prelabel->Null}]][NameValuePair_List]:=Block[{TemporarySolution,AssociationKey,printData},
 TemporarySolution = solution;
 If[\[Not]KeyExistsQ[TemporarySolution, "Derived"],
 TemporarySolution["Derived"]=<||>
@@ -59,8 +41,12 @@ TemporarySolution["Derived",ToString[NameValuePair[[i]][[1]]]]=NameValuePair[[i]
 TemporarySolution["Derived",ToString[NameValuePair[[1]]]]=NameValuePair[[2]];
 ];
 
-AbsFilename = SolutionToFilename[solution, $SolutionPath, Prelabel->OptionValue[Prelabel]];
-Export[AbsFilename, TemporarySolution];
+printData = solution["Parameters"][[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
+If[TrueQ[OptionValue[Prelabel]==Null],
+PrelabelString = "",
+PrelabelString = OptionValue[Prelabel]
+];
+Export[FileNameJoin[{$SolutionPath,PrelabelString<>"RunData_"<>assocToString[printData]<>".mx"}], TemporarySolution];
 ];
 
 
@@ -81,7 +67,7 @@ getResults::usage = "Retrieve results from disk. second argument is optional and
 					example: getResults[NotebookDirectory[]<>'Solutions/', {{'m',1},{'n',1}, {'\[Mu]Nv', '1_20'}}]
 ";
 getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
-	Block[{m,n,\[Chi],\[Mu]Nv,\[Delta]\[Mu],\[Delta]n,\[Delta]m,\[Epsilon],eta,mode,overtone,polarization,s,orbitalnumber,l,\[Chi]v,KMax,branch, indexer, filenames,DataList,ParameterSetIndicies, ParameterSetIndiciesAll, CleansedDataList,MassOrderingIndicies},   
+	Block[{m,n,\[Chi],\[Mu]Nv,\[Delta]\[Mu],\[Delta]n,\[Delta]m,\[Epsilon],eta,mode,overtone,polarization,s,orbitalnumber,l,\[Chi]v,KMax,branch},   
      Module[{localfiles = FileNames[All, absolDir]},
         indexer = StringContainsQ[#, "RunData"]& /@ localfiles;
         filenames = Pick[localfiles, indexer];
@@ -108,8 +94,8 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
                                                              <|___, "Solution"->s_/;StringQ[s], ___|>
                                                              }
                                  ];
-        MassOrderingIndicies = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
-        CleansedDataList[[MassOrderingIndicies]]
+        MassOrderingIndices = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
+        CleansedDataList[[MassOrderingIndices]]
     ]
     ];
 
