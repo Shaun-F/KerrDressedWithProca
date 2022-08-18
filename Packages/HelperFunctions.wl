@@ -3,6 +3,25 @@
 (*File title to know if package has already been imported*)
 HelperFunctions;
 
+
+Options[SolutionToFilename]={Prelabel->Null, KeyList->{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}, ExtensionType->".mx"};
+SolutionToFilename[Assoc_Association, parentdirectory_, OptionsPattern[]]:=
+Block[{printData, PrelabelString, parametersection,fileName,absoluteFileName},
+If[KeyExistsQ[Assoc, "Parameters"],
+printData = Assoc["Parameters"][[OptionValue[KeyList]]];,
+printData = Assoc[[OptionValue[KeyList]]];
+];
+If[TrueQ[OptionValue[Prelabel]==Null],
+PrelabelString = "",
+PrelabelString = OptionValue[Prelabel]
+];
+parametersection = assocToString[printData];
+fileName = PrelabelString<>"RunData_"<>parametersection<>OptionValue[ExtensionType];
+absoluteFileName = FileNameJoin[{parentdirectory,fileName}];
+Return[absoluteFileName]
+]
+
+
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
 OutputSolution = solution;
@@ -14,7 +33,7 @@ Return[OutputSolution]
 
 RenormalizeProcaSolution::usage="rescale a given proca solution by a given normalization factor";
 RenormalizeProcaSolution[solution_, normalizationfactor_]:=
-Block[{temporarySolution=solution},
+Block[{temporaryRadialInterpolatingFunction,temporaryRadialInterpolatingFunctionList, temporarySolution=solution},
 (*Rescale radial function by normalization factor*)
 temporaryRadialInterpolatingFunction = temporarySolution["Solution", "R"];
 temporaryRadialInterpolatingFunctionList = List@@temporaryRadialInterpolatingFunction; (*Convert interpolating function to list*)
@@ -24,19 +43,25 @@ Return[temporarySolution];
 ];
 
 
-AppendToSolution[solution_][name_, expr_]:=Block[{TemporarySolution,AssociationKey,printData},
+AppendToSolution[solution_, OptionsPattern[{Prelabel->Null}]][NameValuePair_List]:=Block[{TemporarySolution,AssociationKey,AbsFilename},
 TemporarySolution = solution;
-If[TrueQ[Head[name]==String],
-AssociationKey = name,
-AssociationKey=ToString[name]
-];
 If[\[Not]KeyExistsQ[TemporarySolution, "Derived"],
 TemporarySolution["Derived"]=<||>
 ];
-TemporarySolution["Derived",AssociationKey]=expr;
-printData = solution["Parameters"][[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
-Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx", TemporarySolution];
-]
+If[Length@Dimensions@NameValuePair>1,
+(*True*)
+Do[
+TemporarySolution["Derived",ToString[NameValuePair[[i]][[1]]]]=NameValuePair[[i]][[2]];,
+{i,1,Length@NameValuePair}
+];,
+
+(*Else*)
+TemporarySolution["Derived",ToString[NameValuePair[[1]]]]=NameValuePair[[2]];
+];
+
+AbsFilename = SolutionToFilename[solution, $SolutionPath, Prelabel->OptionValue[Prelabel]];
+Export[AbsFilename, TemporarySolution];
+];
 
 
 styleMarkdown::usage = "pretty printing";
@@ -56,7 +81,7 @@ getResults::usage = "Retrieve results from disk. second argument is optional and
 					example: getResults[NotebookDirectory[]<>'Solutions/', {{'m',1},{'n',1}, {'\[Mu]Nv', '1_20'}}]
 ";
 getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
-	Block[{m,n,\[Chi],\[Mu]Nv,\[Delta]\[Mu],\[Delta]n,\[Delta]m,\[Epsilon],eta,mode,overtone,polarization,s,orbitalnumber,l,\[Chi]v,KMax,branch},   
+	Block[{m,n,\[Chi],\[Mu]Nv,\[Delta]\[Mu],\[Delta]n,\[Delta]m,\[Epsilon],eta,mode,overtone,polarization,s,orbitalnumber,l,\[Chi]v,KMax,branch, indexer, filenames,DataList,ParameterSetIndicies, ParameterSetIndiciesAll, CleansedDataList,MassOrderingIndicies},   
      Module[{localfiles = FileNames[All, absolDir]},
         indexer = StringContainsQ[#, "RunData"]& /@ localfiles;
         filenames = Pick[localfiles, indexer];
@@ -83,8 +108,8 @@ getResults[absolDir_?StringQ, parameterSet : (_?ListQ | Null) : Null] :=
                                                              <|___, "Solution"->s_/;StringQ[s], ___|>
                                                              }
                                  ];
-        MassOrderingIndices = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
-        CleansedDataList[[MassOrderingIndices]]
+        MassOrderingIndicies = Ordering@CleansedDataList[[All, "Parameters", "\[Mu]Nv"]];
+        CleansedDataList[[MassOrderingIndicies]]
     ]
     ];
 
@@ -223,7 +248,7 @@ ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParam
 ToParamSymbols:={a->\[Chi]};
 
 
- Options[OptimizedFunction]={WithProperties->True,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
+Options[OptimizedFunction]={WithProperties->True,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
 OptimizedFunction[vars_, expr_, OptionsPattern[]]:=Module[{i,exproe, res,ret},
 exproe = Experimental`OptimizeExpression[expr,
 ExcludedForms->OptionValue[ExcludedForms],
@@ -319,7 +344,7 @@ funcOnPoints = With[{operand = {func,Sequence@@CoordinateRanges}},
 					];
 
 Messenger="Generating Interpolation function";
-retval = ListInterpolation[funcOnPoints, CoordinateRanges];
+retval = ListInterpolation[funcOnPoints, CoordinateRanges, Method->"Spline"];
 If[OptionValue[Metadata],
 Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>],
 Return[retval]
@@ -328,21 +353,25 @@ Return[retval]
 
 
 ApplyRealSolutionSet[solution_][expr_]:=
-Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"]},
-repr =Flatten[{
-Thread[{\[Omega]r,\[Omega]i}->ReIm[solution["Solution","\[Omega]"]]],
-Thread[{\[Nu]r,\[Nu]i}->ReIm[solution["Solution","\[Nu]"]]],
-HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][x]],
-HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][x]],
-HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][x]],
-HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][x]],
-Rr->( Re[solR[#]]&),
-Ri->( Im[solR[#]]&),
-Sr->( Re[solS[#]]&),
-Si->( Im[solS[#]]&),
-\[Chi]->solution["Parameters", "\[Chi]"],
-m-> solution["Parameters", "m"],
-\[Mu]Nv->solution["Parameters", "\[Mu]Nv"]
-}];
-expr//.repr
-];
+	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"]},
+		repr = {
+			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][x]],
+			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][x]],
+			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][x]],
+			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][x]],
+			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
+			\[Omega]i->Im[solution["Solution","\[Omega]"]],
+			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
+			\[Nu]i->Im[solution["Solution","\[Nu]"]],
+			\[Chi]->solution["Parameters", "\[Chi]"], 
+			m->solution["Parameters", "m"], 
+			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
+			Rr->( Re[solR[#]]&), 
+			Ri->( Im[solR[#]]&), 
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
+			};
+		res = expr/.repr;
+		Return[res]
+	];
+

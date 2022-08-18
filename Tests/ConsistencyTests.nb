@@ -1,0 +1,690 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26014,        682]
+NotebookOptionsPosition[     24129,        643]
+NotebookOutlinePosition[     24520,        659]
+CellTagsIndexPosition[     24477,        656]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Initialization", "Chapter",
+ CellChangeTimes->{{3.8673677641749287`*^9, 
+  3.867367766222218*^9}},ExpressionUUID->"a0c18c35-1175-4a3f-8d91-\
+21c3a0e5c84a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$FKKSRoot", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"$SolutionPath", " ", "=", " ", 
+   RowBox[{"$FKKSRoot", "<>", "\"\<Solutions/\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PlotPath", " ", "=", " ", 
+   RowBox[{"$FKKSRoot", "<>", "\"\<Plots/\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"LogFile", " ", "=", " ", 
+   RowBox[{"$FKKSRoot", "<>", "\"\<Logs/LogFile\>\""}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PlotFileExtension", " ", "=", " ", "\"\<.png\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NumberofSlaveKernels", " ", "=", " ", "Automatic"}], ";"}], " ", 
+  RowBox[{"(*", 
+   RowBox[{"Default", " ", "should", " ", "be", " ", "Automatic"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Import", " ", "some", " ", "helper", " ", "functions"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
+      "\"\<HelperFunctions.wl\>\""}], "}"}], "]"}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Setup", " ", "xAct", " ", "definitions"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
+      "\"\<xActSetup.wl\>\""}], "}"}], "]"}], "]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Setup", " ", "Proca", " ", "Solver"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
+      "\"\<KerrWithProca.wl\>\""}], "}"}], "]"}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Setup", " ", "Energy", " ", "Momentum", " ", "Definitions"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
+      "\"\<EnergyMomentum.wl\>\""}], "}"}], "]"}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Setup", " ", "MST", " ", "Solver"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Import", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
+      "\"\<MSTSolver.wl\>\""}], "}"}], "]"}], "]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Setup", " ", "Inhomogeneous", " ", "Teukolsky", " ", "Solver"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Import", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+    "$FKKSRoot", ",", " ", "\"\<Packages\>\"", ",", " ", 
+     "\"\<TeukolskySolver.wl\>\""}], "}"}], "]"}], "]"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.867367772674797*^9, 3.867367824697199*^9}, {
+   3.867367868484721*^9, 3.867367988547168*^9}, {3.8673758747552023`*^9, 
+   3.867375895844741*^9}, {3.867381152880926*^9, 3.8673811670077333`*^9}, {
+   3.867478790401656*^9, 3.867478801977219*^9}, {3.86748066826404*^9, 
+   3.867480673468967*^9}, 3.86754897620187*^9, {3.8678415238267813`*^9, 
+   3.867841549337219*^9}, {3.867988137044244*^9, 3.867988172007448*^9}, 
+   3.8680029784103413`*^9, {3.8680035822901983`*^9, 3.868003582399714*^9}, {
+   3.868004287023408*^9, 3.868004287287722*^9}, {3.868005117299487*^9, 
+   3.8680051173899508`*^9}, {3.868060893686482*^9, 3.86806089864186*^9}, {
+   3.8680770063188343`*^9, 3.8680770074134483`*^9}, {3.868334142036818*^9, 
+   3.868334143808476*^9}},
+ EmphasizeSyntaxErrors->True,
+ CellLabel->
+  "In[117]:=",ExpressionUUID->"d6da2366-e1a5-4617-b531-ad11bf4ab4cf"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Teukolsky Kinnersly projection consistency tests", "Chapter",
+ CellChangeTimes->{
+  3.869135381499498*^9},ExpressionUUID->"d02840a9-74c9-4da8-8d98-\
+fb9471ac1e06"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  SubscriptBox["T", "nn"], TraditionalForm]],
+ FormatType->
+  TraditionalForm,ExpressionUUID->"35282e82-7f26-477e-817c-6f6311e8061f"]], \
+"Section",
+ CellChangeTimes->{{3.8691367667810907`*^9, 
+  3.869136768000708*^9}},ExpressionUUID->"a53fc4fb-2dba-4216-9934-\
+a45f0a8ef424"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SampleData", " ", "=", " ", 
+   RowBox[{"Import", "@", 
+    RowBox[{
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<../Debugging/*.mx\>\"", ",", " ", 
+       RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], "[", 
+     RowBox[{"[", "2", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rdom", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"SampleData", "[", 
+       RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<R\>\""}], "]"}], "[", 
+      "\"\<Domain\>\"", "]"}], "//", "First"}], "//", 
+    RowBox[{
+     RowBox[{"HorizonCoordToRadial", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"data", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Chi]\>\""}], "]"}]}], 
+      "]"}], "&"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PrintTemporary", "@", 
+   RowBox[{"Dynamic", "[", "$Messenger", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tnnSymbolic", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"t", ",", "r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], "|->", 
+    RowBox[{"Evaluate", "@", 
+     RowBox[{"Tnn", "[", 
+      RowBox[{"SampleData", ",", " ", 
+       RowBox[{"AsSymbolic", "->", "True"}]}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tnnOptimized", " ", "=", " ", 
+   RowBox[{"Tnn", "[", 
+    RowBox[{"SampleData", ",", " ", 
+     RowBox[{"AsOptimized", "->", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tnnInterpolating", " ", "=", " ", 
+   RowBox[{"Tnn", "[", 
+    RowBox[{"SampleData", ",", " ", 
+     RowBox[{"AsInterpolatingFunction", "->", "True"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.869135387335328*^9, 3.869135472486245*^9}, {
+  3.869136078054281*^9, 3.869136080760263*^9}, {3.869136163324048*^9, 
+  3.8691361658779907`*^9}, {3.869136544251934*^9, 
+  3.869136550127644*^9}},ExpressionUUID->"595d5f41-788d-4f7c-a8e1-\
+a6fb88b1afe6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Symbolic", " ", "form", " ", "of", " ", "Tnn", " ", "takes", " ", "a", 
+     " ", "very", " ", "long", " ", "time", " ", "to", " ", "calculate", " ", 
+     "a", " ", "single", " ", "point"}], ",", " ", 
+    RowBox[{"let", " ", "alone", " ", "plot"}], ",", " ", 
+    RowBox[{
+    "so", " ", "we", " ", "just", " ", "verify", " ", "the", " ", "symbolic", 
+     " ", "form", " ", "agrees", " ", "well", " ", "with", " ", "the", " ", 
+     "Optimized", " ", "form"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[Theta]point", " ", "=", " ", 
+       FractionBox["\[Pi]", "2"]}], ",", " ", 
+      RowBox[{"radialpoint", " ", "=", " ", "50"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "Print", "[", 
+      "\"\<Fractional difference between Optimized form of Tnn and Symbolic \
+form at (r,\[Theta])=(50,\!\(\*FractionBox[\(\[Pi]\), \(2\)]\)):\>\"", "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"tnnOptimized", "[", 
+          RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+          "]"}], "-", 
+         RowBox[{"tnnSymbolic", "[", 
+          RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+          "]"}]}], ")"}], "/", 
+       RowBox[{"tnnSymbolic", "[", 
+        RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+        "]"}]}], ")"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.869136198053851*^9, 3.8691362434828453`*^9}, {
+  3.869136361535144*^9, 3.869136374229107*^9}, {3.8691366097134943`*^9, 
+  3.8691366338767*^9}},ExpressionUUID->"070d9bb7-98c7-4795-b2f4-1f663c090dc2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Plot", " ", "the", " ", "fractional", " ", "difference", " ", "between", 
+    " ", "the", " ", "Optimized", " ", "form", " ", "of", " ", "Tnn", " ", 
+    "and", " ", "the", " ", "function", " ", "that", " ", "Interpolates", " ",
+     "Tnn"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Theta]point", " ", "=", " ", 
+      FractionBox["\[Pi]", "2"]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "Print", "[", 
+      "\"\<Fractional difference between Optimized form of Tnn and the \
+InterpolationFunction form at \[Theta]=\!\(\*FractionBox[\(\[Pi]\), \(2\)]\):\
+\>\"", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       FractionBox[
+        RowBox[{
+         RowBox[{"tnnInterpolating", "[", 
+          RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}], "-", 
+         RowBox[{
+          StyleBox["tnnOptimized",
+           FontSize->14], "[", 
+          RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}]}], 
+        RowBox[{"tnnOptimized", "[", 
+         RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}]], ",",
+        " ", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "1.44", ",", 
+         FractionBox[
+          RowBox[{"rdom", "[", 
+           RowBox[{"[", 
+            RowBox[{"-", "1"}], "]"}], "]"}], "1.5"]}], "}"}], ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.869136019850161*^9, 3.869136142682763*^9}, {
+  3.869136249104907*^9, 3.86913625592517*^9}, {3.8691366715305967`*^9, 
+  3.86913674254128*^9}},
+ CellLabel->
+  "In[159]:=",ExpressionUUID->"747043d1-2e49-4081-b473-8e0913c96882"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  SubscriptBox["T", 
+   RowBox[{
+    OverscriptBox["m", "_"], 
+    OverscriptBox["m", "_"]}]], TraditionalForm]],
+ InitializationCell->True,
+ FormatType->
+  TraditionalForm,ExpressionUUID->"36f3d08b-3377-4bb4-86c3-154c22ca2ae4"]], \
+"Section",
+ CellChangeTimes->{{3.8691367667810907`*^9, 
+  3.869136780543597*^9}},ExpressionUUID->"896da3bc-1637-4ab4-ac13-\
+717e86ee7259"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SampleData", " ", "=", " ", 
+   RowBox[{"Import", "@", 
+    RowBox[{
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<../Debugging/*.mx\>\"", ",", " ", 
+       RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], "[", 
+     RowBox[{"[", "2", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rdom", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"SampleData", "[", 
+       RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<R\>\""}], "]"}], "[", 
+      "\"\<Domain\>\"", "]"}], "//", "First"}], "//", 
+    RowBox[{
+     RowBox[{"HorizonCoordToRadial", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"data", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Chi]\>\""}], "]"}]}], 
+      "]"}], "&"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PrintTemporary", "@", 
+   RowBox[{"Dynamic", "[", "$Messenger", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmbmbSymbolic", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"t", ",", "r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], "|->", 
+    RowBox[{"Evaluate", "@", 
+     RowBox[{"Tmbmb", "[", 
+      RowBox[{"SampleData", ",", " ", 
+       RowBox[{"AsSymbolic", "->", "True"}]}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmbmbOptimized", " ", "=", " ", 
+   RowBox[{"Tmbmb", "[", 
+    RowBox[{"SampleData", ",", " ", 
+     RowBox[{"AsOptimized", "->", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmbmbInterpolating", " ", "=", " ", 
+   RowBox[{"Tmbmb", "[", 
+    RowBox[{"SampleData", ",", " ", 
+     RowBox[{"AsInterpolatingFunction", "->", "True"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.869135387335328*^9, 3.869135472486245*^9}, {
+  3.869136078054281*^9, 3.869136080760263*^9}, {3.869136163324048*^9, 
+  3.8691361658779907`*^9}, {3.869136544251934*^9, 3.869136550127644*^9}, {
+  3.869136794658008*^9, 3.869136810400083*^9}},
+ CellLabel->
+  "In[209]:=",ExpressionUUID->"075c529e-eaba-41e0-a7c9-f1603e884898"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Symbolic", " ", "form", " ", "of", " ", "Tmbmb", " ", "takes", " ", "a", 
+     " ", "very", " ", "long", " ", "time", " ", "to", " ", "calculate", " ", 
+     "a", " ", "single", " ", "point"}], ",", " ", 
+    RowBox[{"let", " ", "alone", " ", "plot"}], ",", " ", 
+    RowBox[{
+    "so", " ", "we", " ", "just", " ", "verify", " ", "the", " ", "symbolic", 
+     " ", "form", " ", "agrees", " ", "well", " ", "with", " ", "the", " ", 
+     "Optimized", " ", "form"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[Theta]point", " ", "=", " ", 
+       FractionBox["\[Pi]", "2"]}], ",", " ", 
+      RowBox[{"radialpoint", " ", "=", " ", "50"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "Print", "[", 
+      "\"\<Fractional difference between Optimized form of Tmbmb and Symbolic \
+form at (r,\[Theta])=(50,\!\(\*FractionBox[\(\[Pi]\), \(2\)]\)):\>\"", "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"tmbmbOptimized", "[", 
+          RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+          "]"}], "-", 
+         RowBox[{"tmbmbSymbolic", "[", 
+          RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+          "]"}]}], ")"}], "/", 
+       RowBox[{"tmbmbSymbolic", "[", 
+        RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+        "]"}]}], ")"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.869136198053851*^9, 3.8691362434828453`*^9}, {
+  3.869136361535144*^9, 3.869136374229107*^9}, {3.8691366097134943`*^9, 
+  3.8691366338767*^9}, {3.8691368150322323`*^9, 3.869136842878124*^9}},
+ CellLabel->
+  "In[215]:=",ExpressionUUID->"951f4a39-1997-48fc-ae08-124079a8b9fb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Plot", " ", "the", " ", "fractional", " ", "difference", " ", "between", 
+    " ", "the", " ", "Optimized", " ", "form", " ", "of", " ", "Tmbmb", " ", 
+    "and", " ", "the", " ", "function", " ", "that", " ", "Interpolates", " ",
+     "Tnn"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Theta]point", " ", "=", " ", 
+      FractionBox["\[Pi]", "2"]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "Print", "[", 
+      "\"\<Fractional difference between Optimized form of Tmbmb and the \
+InterpolationFunction form at \[Theta]=\!\(\*FractionBox[\(\[Pi]\), \(2\)]\):\
+\>\"", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"Abs", "@", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"tmbmbInterpolating", "[", 
+           RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}], 
+          "-", 
+          RowBox[{
+           StyleBox["tmbmbOptimized",
+            FontSize->14], "[", 
+           RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}]}], 
+         RowBox[{"tmbmbOptimized", "[", 
+          RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}]]}], 
+       ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "1.44", ",", 
+         FractionBox[
+          RowBox[{"rdom", "[", 
+           RowBox[{"[", 
+            RowBox[{"-", "1"}], "]"}], "]"}], "1.5"]}], "}"}], ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.869136019850161*^9, 3.869136142682763*^9}, {
+  3.869136249104907*^9, 3.86913625592517*^9}, {3.8691366715305967`*^9, 
+  3.86913674254128*^9}, {3.8691368264561872`*^9, 3.869136848386743*^9}, {
+  3.869137499464682*^9, 3.86913750264139*^9}},
+ CellLabel->
+  "In[218]:=",ExpressionUUID->"f9061da8-facd-44ab-b8ec-4fa64b4d0513"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ FormBox[
+  SubscriptBox["T", 
+   RowBox[{
+    OverscriptBox["m", "_"], "n"}]], TraditionalForm]],
+ InitializationCell->True,
+ FormatType->
+  TraditionalForm,ExpressionUUID->"2d37a25f-8be5-42a6-9919-7ef6411279bd"]], \
+"Section",
+ CellChangeTimes->{{3.8691367667810907`*^9, 3.869136780543597*^9}, {
+  3.8691368569170427`*^9, 
+  3.869136859759172*^9}},ExpressionUUID->"21d7ab97-27a8-4f9d-8c58-\
+00d6d24bbbe8"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SampleData", " ", "=", " ", 
+   RowBox[{"Import", "@", 
+    RowBox[{
+     RowBox[{"FileNames", "[", 
+      RowBox[{"\"\<../Debugging/*.mx\>\"", ",", " ", 
+       RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}], "[", 
+     RowBox[{"[", "2", "]"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rdom", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"SampleData", "[", 
+       RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<R\>\""}], "]"}], "[", 
+      "\"\<Domain\>\"", "]"}], "//", "First"}], "//", 
+    RowBox[{
+     RowBox[{"HorizonCoordToRadial", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"data", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Chi]\>\""}], "]"}]}], 
+      "]"}], "&"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PrintTemporary", "@", 
+   RowBox[{"Dynamic", "[", "$Messenger", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmbnSymbolic", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"t", ",", "r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], "|->", 
+    RowBox[{"Evaluate", "@", 
+     RowBox[{"Tmbn", "[", 
+      RowBox[{"SampleData", ",", " ", 
+       RowBox[{"AsSymbolic", "->", "True"}]}], "]"}]}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmbnOptimized", " ", "=", " ", 
+   RowBox[{"Tmbn", "[", 
+    RowBox[{"SampleData", ",", " ", 
+     RowBox[{"AsOptimized", "->", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmbnInterpolating", " ", "=", " ", 
+   RowBox[{"Tmbn", "[", 
+    RowBox[{"SampleData", ",", " ", 
+     RowBox[{"AsInterpolatingFunction", "->", "True"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.869135387335328*^9, 3.869135472486245*^9}, {
+  3.869136078054281*^9, 3.869136080760263*^9}, {3.869136163324048*^9, 
+  3.8691361658779907`*^9}, {3.869136544251934*^9, 3.869136550127644*^9}, {
+  3.869136794658008*^9, 3.869136810400083*^9}, {3.869136863452775*^9, 
+  3.869136874190262*^9}},
+ CellLabel->
+  "In[200]:=",ExpressionUUID->"efe8cf46-d575-4729-8cc5-176c288aff6d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "Symbolic", " ", "form", " ", "of", " ", "Tmbn", " ", "takes", " ", "a", 
+     " ", "very", " ", "long", " ", "time", " ", "to", " ", "calculate", " ", 
+     "a", " ", "single", " ", "point"}], ",", " ", 
+    RowBox[{"let", " ", "alone", " ", "plot"}], ",", " ", 
+    RowBox[{
+    "so", " ", "we", " ", "just", " ", "verify", " ", "the", " ", "symbolic", 
+     " ", "form", " ", "agrees", " ", "well", " ", "with", " ", "the", " ", 
+     "Optimized", " ", "form"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"\[Theta]point", " ", "=", " ", 
+       FractionBox["\[Pi]", "2"]}], ",", " ", 
+      RowBox[{"radialpoint", " ", "=", " ", "50"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "Print", "[", 
+      "\"\<Fractional difference between Optimized form of Tmbn and Symbolic \
+form at (r,\[Theta])=(50,\!\(\*FractionBox[\(\[Pi]\), \(2\)]\)):\>\"", "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"tmbnOptimized", "[", 
+          RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+          "]"}], "-", 
+         RowBox[{"tmbnSymbolic", "[", 
+          RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+          "]"}]}], ")"}], "/", 
+       RowBox[{"tmbnSymbolic", "[", 
+        RowBox[{"0", ",", "radialpoint", ",", "\[Theta]point", ",", "0"}], 
+        "]"}]}], ")"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.869136198053851*^9, 3.8691362434828453`*^9}, {
+  3.869136361535144*^9, 3.869136374229107*^9}, {3.8691366097134943`*^9, 
+  3.8691366338767*^9}, {3.8691368150322323`*^9, 3.869136842878124*^9}, {
+  3.869136878569721*^9, 3.869136889320977*^9}},
+ CellLabel->
+  "In[207]:=",ExpressionUUID->"19b0f665-c3d1-41c9-b735-fb4d73e65e7c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Plot", " ", "the", " ", "fractional", " ", "difference", " ", "between", 
+    " ", "the", " ", "Optimized", " ", "form", " ", "of", " ", "Tmbn", " ", 
+    "and", " ", "the", " ", "function", " ", "that", " ", "Interpolates", " ",
+     "Tnn"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"With", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\[Theta]point", " ", "=", " ", 
+      FractionBox["\[Pi]", "2"]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "Print", "[", 
+      "\"\<Fractional difference between Optimized form of Tmbn and the \
+InterpolationFunction form at \[Theta]=\!\(\*FractionBox[\(\[Pi]\), \(2\)]\):\
+\>\"", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"Abs", "@", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"tmbnInterpolating", "[", 
+           RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}], 
+          "-", 
+          RowBox[{
+           StyleBox["tmbnOptimized",
+            FontSize->14], "[", 
+           RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}]}], 
+         RowBox[{"tmbnOptimized", "[", 
+          RowBox[{"0", ",", "r", ",", "\[Theta]point", ",", "0"}], "]"}]]}], 
+       ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"r", ",", "1.44", ",", 
+         FractionBox[
+          RowBox[{"rdom", "[", 
+           RowBox[{"[", 
+            RowBox[{"-", "1"}], "]"}], "]"}], "1.5"]}], "}"}], ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
+       RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.869136019850161*^9, 3.869136142682763*^9}, {
+  3.869136249104907*^9, 3.86913625592517*^9}, {3.8691366715305967`*^9, 
+  3.86913674254128*^9}, {3.8691368264561872`*^9, 3.869136848386743*^9}, {
+  3.869136892930883*^9, 3.869136902780851*^9}, {3.869137174823945*^9, 
+  3.869137175453579*^9}},
+ CellLabel->
+  "In[208]:=",ExpressionUUID->"70ba1bbc-d787-4033-b1d9-98ef75031309"]
+}, Closed]]
+}, Closed]]
+},
+WindowSize->{720, 756},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"885eabad-ea95-4ecb-944a-98df7fbe29b4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 161, 3, 69, "Chapter",ExpressionUUID->"a0c18c35-1175-4a3f-8d91-21c3a0e5c84a"],
+Cell[744, 27, 4095, 105, 520, "Input",ExpressionUUID->"d6da2366-e1a5-4617-b531-ad11bf4ab4cf",
+ InitializationCell->True]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4876, 137, 169, 3, 106, "Chapter",ExpressionUUID->"d02840a9-74c9-4da8-8d98-fb9471ac1e06"],
+Cell[CellGroupData[{
+Cell[5070, 144, 314, 8, 67, "Section",ExpressionUUID->"a53fc4fb-2dba-4216-9934-a45f0a8ef424"],
+Cell[5387, 154, 1967, 53, 154, "Input",ExpressionUUID->"595d5f41-788d-4f7c-a8e1-a6fb88b1afe6"],
+Cell[7357, 209, 1826, 42, 280, "Input",ExpressionUUID->"070d9bb7-98c7-4795-b2f4-1f663c090dc2"],
+Cell[9186, 253, 1869, 45, 274, "Input",ExpressionUUID->"747043d1-2e49-4081-b473-8e0913c96882"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[11092, 303, 409, 12, 53, "Section",ExpressionUUID->"896da3bc-1637-4ab4-ac13-717e86ee7259"],
+Cell[11504, 317, 2051, 54, 174, "Input",ExpressionUUID->"075c529e-eaba-41e0-a7c9-f1603e884898"],
+Cell[13558, 373, 1912, 44, 280, "Input",ExpressionUUID->"951f4a39-1997-48fc-ae08-124079a8b9fb"],
+Cell[15473, 419, 2026, 48, 301, "Input",ExpressionUUID->"f9061da8-facd-44ab-b8ec-4fa64b4d0513"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[17536, 472, 435, 12, 53, "Section",ExpressionUUID->"21d7ab97-27a8-4f9d-8c58-00d6d24bbbe8"],
+Cell[17974, 486, 2094, 55, 154, "Input",ExpressionUUID->"efe8cf46-d575-4729-8cc5-176c288aff6d"],
+Cell[20071, 543, 1956, 45, 280, "Input",ExpressionUUID->"19b0f665-c3d1-41c9-b735-fb4d73e65e7c"],
+Cell[22030, 590, 2071, 49, 274, "Input",ExpressionUUID->"70ba1bbc-d787-4033-b1d9-98ef75031309"]
+}, Closed]]
+}, Closed]]
+}
+]
+*)
+
