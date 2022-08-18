@@ -9,8 +9,13 @@ Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "remote kernel"]] =
 Protect[Print];
 
 
+<<<<<<< HEAD
 (*$FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/";*) (*directory on ITP cluster to git repo*)
 $FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";
+=======
+$FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/"; (*directory on ITP cluster to git repo*)
+(*$FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";*)
+>>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 LogFile = $FKKSRoot<>"Logs/LogFile.log";
 
 ConfigurationParameters = Import[$FKKSRoot<>"WolframScript/Config.ini"];

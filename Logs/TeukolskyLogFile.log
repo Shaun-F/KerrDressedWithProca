@@ -1,0 +1,59 @@
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+{"", "", "Solution already exists, skipping iteration.", "", ""}
+"\n\nProgress: 33 out of 716"
+"Beginning normalization routine of solution"
+"Black hole evolution code complete. Proceeding to Teukolsky solver."
+"Calculating mode decomposition of Teukolsky source term"
+"Mode decomposition calculation complete. Calculating asymptotic amplitudes"
+"Calculating asymptotic energy flux"
+"Energy Flux: 5.958125381277543*^-11"
+"Memory in use by Wolfram Kernel: 575629760"
+"Time to complete iteration: 470.22187`9.12384781777328"
+"\n\nProgress: 34 out of 716"
+"Beginning normalization routine of solution"
+"Black hole evolution code complete. Proceeding to Teukolsky solver."
+"Calculating mode decomposition of Teukolsky source term"
+"Mode decomposition calculation complete. Calculating asymptotic amplitudes"
+"Calculating asymptotic energy flux"
+"Energy Flux: 1.4889870776606703*^-13"
+"Memory in use by Wolfram Kernel: 568946968"
+"Time to complete iteration: 489.365397`9.141178250658749"
+"\n\nProgress: 35 out of 716"
+"Beginning normalization routine of solution"
+"Black hole evolution code complete. Proceeding to Teukolsky solver."
+"Calculating mode decomposition of Teukolsky source term"
+"Mode decomposition calculation complete. Calculating asymptotic amplitudes"
+"Calculating asymptotic energy flux"
+"Energy Flux: 8.551550023180103*^-14"
+"Memory in use by Wolfram Kernel: 570068320"
+"Time to complete iteration: 500.615858`9.151049596124976"
