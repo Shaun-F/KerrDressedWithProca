@@ -77,7 +77,7 @@ Print["Failed to launch all requested kernels. Number of launched kernels: "<>To
 
 Print["Data Imported. Running normalization procedure on "<>ToString[$KernelCount,InputForm]<>" kernels."];
 Do[
-	Block[{Normalization,NormedData, Tlmw, AsymptoticAmplitude,AsymptoticFlux, Logger},
+	Block[{Normalization,NormedData, Tlmw, AsymptoticAmplitude,AsymptoticFlux, Logger,IterationStopTime,IterationStartTime},
 	Logger = {};
 	With[{SingleSolution = AllData[[i]]},
 		IterationStartTime = AbsoluteTime[];

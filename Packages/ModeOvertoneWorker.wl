@@ -19,7 +19,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 			nuFitFunction,omegaValHistory,nuValHistory,muValHistory,omegaHolder,nuHolder,muHolder,omegaFit,nuFit,CurrentomegaGuess,CurrentnuGuess,omegaGuess,nuGuess,
 			omegaBoundarySize,omegaBoundary,MinimizationResults,
 			angulartimestart, angulartimestop, angularcoeffs, Sfunc,Sfunctemp,coeffs,
-			omegafitOutVariable,nufitOutVariable,
+			omegafitOutVariable,nufitOutVariable,nufitOutVariables,
 			RadialSolution,RadialPlot,AngularPlot, TheSolution,CacheData,CacheResults
 			},
 		With[{k=modeval, j=overtoneval},
@@ -48,13 +48,13 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 						AppendTo[Logger, "Im(omega) decreasing. Reducing mass resolution..."];
 						(*Determine the muIterationCounter at which the resolution should be reduced*)
 						If[!NumberQ[ResolutionReductionPoint],
-							ResolutionReductionPoint=muIterationCounter-2;
+							ResolutionReductionPoint=muIterationCounter-1;
 						];
 						AppendTo[Logger, "Resolution Reduction index: "<>ToString[ResolutionReductionPoint, InputForm]];
 						(*Reduce resolution and continue from last value*)
 						parameters["\[Mu]Nv"]=(First[parameters["\[Mu]range"]/parameters["m"]] + parameters["\[Delta]\[Mu]"]*(ResolutionReductionPoint + (muIterationCounter-ResolutionReductionPoint)/(2*parameters["m"])))*parameters["m"];
 					];
-					If[muIterationCounter-ResolutionReductionPoint>2*2, (*2 from the definition of ResolutionReductionpoint and 2 from the reduction in resolution*)
+					If[muIterationCounter-ResolutionReductionPoint>1*2, (*2 from the definition of ResolutionReductionpoint and 2 from the reduction in resolution*)
 						If[Im[omegaHolder[muIterationCounter-3]]>Im[omegaHolder[muIterationCounter-2]]<Im[omegaHolder[muIterationCounter-1]],
 							(*If the instability rate decreases then increases, we probably jumped across the superradiant threshold gap \[Omega]=m*\[CapitalOmega]. Break the loop.*)
 							Print["Im(omega) decreased then increased! Possibly jumped superradiant threshold gap. Breaking..."];
@@ -209,7 +209,6 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				Print["Result for Kernel "<>ToString[$KernelID, InputForm]<>": \n\t \[Omega] = "<>ToString[Evaluate@MinimizationResults["\[Omega]"], InputForm]];
 				
 				(*-----------Prepare solution data and write to disk-----------*)
-				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, 
 								"Solution" -> TheSolution, 
 								"Metadata"-><|"muIterationCounter"->muIterationCounter, "date"->DateString[], "WorkerKernel"->$KernelID|>
@@ -217,7 +216,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				AppendTo[Logger,"Caching results to: "<>assocToString[printData]<>".mx"];
 				AppendTo[Logger, ""];AppendTo[Logger, ""];
 				If[SaveToDisk,
-					Export[$SolutionPath<>"RunData_"<>assocToString[printData]<>".mx",CacheData];
+					Export[SolutionToFilename[CacheData, $SolutionPath],CacheData];
 				];
 				If[LogRun, 
 					PutAppend[Sequence@@Logger, LogFile];
@@ -235,12 +234,11 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				Label[SuperradiantConditionFailure];
 				AppendTo[Logger,"Superradiant condition failed for parameters (\[Mu],m,n,\[Chi],s)=(" <>ToString[parameters["\[Mu]Nv"], InputForm] <> "," <>ToString[parameters["m"], InputForm] <> "," <>ToString[parameters["n"], InputForm] <> "," <>ToString[parameters["\[Chi]"], InputForm] <> "," <>ToString[parameters["s"], InputForm] <> "). Breaking mass loop..."];
 				If[LogRun, PutAppend[Sequence@@Logger,LogFile]];	
-				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s","\[Chi]", "KMax", "branch"}]];
 				CacheData = <|"Parameters" -> parameters, 
 							"Solution" -> "Superradiant condition failed", 
 							"Metadata"-><|"muIterationCounter"->muIterationCounter, "date"->DateString[], "WorkerKernel"->$KernelID|>
 							|>;
-				If[SaveToDisk,Export[$SolutionPath <> "RunData_" <> assocToString[printData]<>".mx", CacheData];];
+				If[SaveToDisk,Export[SolutionToFilename[CacheData, $SolutionPath], CacheData];];
 				ContinueLoop=False;
 				Break[];
 			]; (*mu iteration loop end*)
