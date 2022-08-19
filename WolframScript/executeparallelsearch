@@ -3,12 +3,7 @@
 #PBS -q bigmem1
 #PBS -l nodes=1:ppn=16:bigmem1
 export PATH=$PATH:/opt/bin:/opt/Wolfram/Mathematica/13.1/SystemFiles/Kernel/Binaries/Linux-x86-64/
-<<<<<<< HEAD
 SCRIPT_PATH=$(dirname "${BASH_SOURCE[0]}")
 
 cd $SCRIPT_PATH
-=======
-
-cd /home/fell/Documents/Github/KerrDressedWithProca/WolframScript/
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 ./ParallelProcaSolver.wls
