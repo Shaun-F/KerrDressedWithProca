@@ -10,17 +10,11 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-<<<<<<< HEAD
 NotebookDataLength[    623566,      13111]
 NotebookOptionsPosition[    610270,      12948]
 NotebookOutlinePosition[    610703,      12965]
 CellTagsIndexPosition[    610660,      12962]
-=======
-NotebookDataLength[    572881,      11427]
-NotebookOptionsPosition[    559059,      11240]
-NotebookOutlinePosition[    559492,      11257]
-CellTagsIndexPosition[    559449,      11254]
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
+
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -135,11 +129,9 @@ Cell[BoxData[{
    3.8680051173899508`*^9}, {3.868060893686482*^9, 3.86806089864186*^9}, {
    3.8680770063188343`*^9, 3.8680770074134483`*^9}, {3.868334142036818*^9, 
    3.868334143808476*^9}},
-<<<<<<< HEAD
+
  CellLabel->"In[1]:=",ExpressionUUID->"53a3e911-a1d5-41b7-8120-6dcc2b99f2fb"]
-=======
- CellLabel->"In[61]:=",ExpressionUUID->"53a3e911-a1d5-41b7-8120-6dcc2b99f2fb"]
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
+
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -235,62 +227,62 @@ Cell[BoxData[{
  CellLabel->"In[96]:=",ExpressionUUID->"ccdf9cdf-9334-46b2-be21-50a3c6f36502"],
 
 Cell[BoxData[
- RowBox[{"\[LeftAssociation]", 
+ RowBox[{"<|", 
   RowBox[{
-   RowBox[{"\<\"muIterationCounter\"\>", "\[Rule]", "27"}], ",", 
-   RowBox[{"\<\"date\"\>", "\[Rule]", "\<\"Wed 17 Aug 2022 21:40:31\"\>"}], 
+   RowBox[{"\<\"muIterationCounter\"\>", "->", "27"}], ",", 
+   RowBox[{"\<\"date\"\>", "->", "\<\"Wed 17 Aug 2022 21:40:31\"\>"}], 
    ",", 
-   RowBox[{"\<\"WorkerKernel\"\>", "\[Rule]", "12"}]}], 
-  "\[RightAssociation]"}]], "Output",
+   RowBox[{"\<\"WorkerKernel\"\>", "->", "12"}]}], 
+  "|>"}]], "Output",
  CellChangeTimes->{{3.869794241174446*^9, 3.8697942560717583`*^9}, {
    3.869794342208262*^9, 3.869794355863797*^9}, 3.869794930846751*^9},
  CellLabel->"Out[96]=",ExpressionUUID->"50023d8c-f1e9-4a12-9c30-ca009f87535a"],
 
 Cell[BoxData[
- RowBox[{"\[LeftAssociation]", 
+ RowBox[{"<|", 
   RowBox[{
-   RowBox[{"\<\"\[Mu]range\"\>", "\[Rule]", 
+   RowBox[{"\<\"\[Mu]range\"\>", "->", 
     RowBox[{"{", 
      RowBox[{
       FractionBox["1", "20"], ",", 
       FractionBox["1", "2"]}], "}"}]}], ",", 
-   RowBox[{"\<\"\[Delta]\[Mu]\"\>", "\[Rule]", 
+   RowBox[{"\<\"\[Delta]\[Mu]\"\>", "->", 
     FractionBox["1", "100"]}], ",", 
-   RowBox[{"\<\"nrange\"\>", "\[Rule]", 
+   RowBox[{"\<\"nrange\"\>", "->", 
     RowBox[{"{", 
      RowBox[{"0", ",", "4"}], "}"}]}], ",", 
-   RowBox[{"\<\"\[Delta]n\"\>", "\[Rule]", "1"}], ",", 
-   RowBox[{"\<\"mrange\"\>", "\[Rule]", 
+   RowBox[{"\<\"\[Delta]n\"\>", "->", "1"}], ",", 
+   RowBox[{"\<\"mrange\"\>", "->", 
     RowBox[{"{", 
      RowBox[{"1", ",", "4"}], "}"}]}], ",", 
-   RowBox[{"\<\"\[Delta]m\"\>", "\[Rule]", "1"}], ",", 
-   RowBox[{"\<\"precision\"\>", "\[Rule]", "26"}], ",", 
-   RowBox[{"\<\"omegaRes\"\>", "\[Rule]", "800"}], ",", 
-   RowBox[{"\<\"MaxIterationsMinimization\"\>", "\[Rule]", "1000"}], ",", 
-   RowBox[{"\<\"RadialIntegratorMaxStep\"\>", "\[Rule]", "1000000"}], ",", 
-   RowBox[{"\<\"RadialIntegratorPrecisionGoal\"\>", "\[Rule]", "8"}], ",", 
-   RowBox[{"\<\"OptimizationPrecision\"\>", "\[Rule]", "8"}], ",", 
-   RowBox[{"\<\"OptimizationAccuracy\"\>", "\[Rule]", "18"}], ",", 
-   RowBox[{"\<\"FrequencyInterpolatingOrder\"\>", "\[Rule]", "3"}], ",", 
-   RowBox[{"\<\"branch\"\>", "\[Rule]", "1"}], ",", 
-   RowBox[{"\<\"KMax\"\>", "\[Rule]", "4"}], ",", 
-   RowBox[{"\<\"\[Epsilon]\"\>", "\[Rule]", 
+   RowBox[{"\<\"\[Delta]m\"\>", "->", "1"}], ",", 
+   RowBox[{"\<\"precision\"\>", "->", "26"}], ",", 
+   RowBox[{"\<\"omegaRes\"\>", "->", "800"}], ",", 
+   RowBox[{"\<\"MaxIterationsMinimization\"\>", "->", "1000"}], ",", 
+   RowBox[{"\<\"RadialIntegratorMaxStep\"\>", "->", "1000000"}], ",", 
+   RowBox[{"\<\"RadialIntegratorPrecisionGoal\"\>", "->", "8"}], ",", 
+   RowBox[{"\<\"OptimizationPrecision\"\>", "->", "8"}], ",", 
+   RowBox[{"\<\"OptimizationAccuracy\"\>", "->", "18"}], ",", 
+   RowBox[{"\<\"FrequencyInterpolatingOrder\"\>", "->", "3"}], ",", 
+   RowBox[{"\<\"branch\"\>", "->", "1"}], ",", 
+   RowBox[{"\<\"KMax\"\>", "->", "4"}], ",", 
+   RowBox[{"\<\"\[Epsilon]\"\>", "->", 
     FractionBox["1", "10000"]}], ",", 
-   RowBox[{"\<\"\[Eta]\"\>", "\[Rule]", "0"}], ",", 
-   RowBox[{"\<\"s\"\>", "\[Rule]", 
+   RowBox[{"\<\"\[Eta]\"\>", "->", "0"}], ",", 
+   RowBox[{"\<\"s\"\>", "->", 
     RowBox[{"-", "1"}]}], ",", 
-   RowBox[{"\<\"\[Chi]\"\>", "\[Rule]", 
+   RowBox[{"\<\"\[Chi]\"\>", "->", 
     FractionBox["9", "10"]}], ",", 
-   RowBox[{"\<\"M\"\>", "\[Rule]", "1"}], ",", 
-   RowBox[{"\<\"StartingX\"\>", "\[Rule]", 
+   RowBox[{"\<\"M\"\>", "->", "1"}], ",", 
+   RowBox[{"\<\"StartingX\"\>", "->", 
     FractionBox["1", "10000"]}], ",", 
-   RowBox[{"\<\"m\"\>", "\[Rule]", "1"}], ",", 
-   RowBox[{"\<\"l\"\>", "\[Rule]", "0"}], ",", 
-   RowBox[{"\<\"n\"\>", "\[Rule]", "1"}], ",", 
-   RowBox[{"\<\"\[Mu]Nv\"\>", "\[Rule]", 
+   RowBox[{"\<\"m\"\>", "->", "1"}], ",", 
+   RowBox[{"\<\"l\"\>", "->", "0"}], ",", 
+   RowBox[{"\<\"n\"\>", "->", "1"}], ",", 
+   RowBox[{"\<\"\[Mu]Nv\"\>", "->", 
     FractionBox["8", "25"]}], ",", 
-   RowBox[{"\<\"EndingX\"\>", "\[Rule]", "781.253451640156`"}]}], 
-  "\[RightAssociation]"}]], "Output",
+   RowBox[{"\<\"EndingX\"\>", "->", "781.253451640156`"}]}], 
+  "|>"}]], "Output",
  CellChangeTimes->{{3.869794241174446*^9, 3.8697942560717583`*^9}, {
    3.869794342208262*^9, 3.869794355863797*^9}, 3.869794930853015*^9},
  CellLabel->"Out[97]=",ExpressionUUID->"623d53b0-6dda-46cc-b0fa-7bab4361bccd"],
@@ -373,7 +365,7 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "6", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "6", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -435,7 +427,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -443,7 +435,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -512,7 +504,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -520,19 +512,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -575,7 +567,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "7", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "7", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -637,7 +629,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -645,7 +637,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -714,7 +706,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -722,19 +714,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -780,7 +772,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "8", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "8", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -842,7 +834,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -850,7 +842,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -919,7 +911,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -927,19 +919,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -989,7 +981,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "9", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "9", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -1051,7 +1043,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1059,7 +1051,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1128,7 +1120,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1136,19 +1128,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1201,7 +1193,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "10", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "10", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -1263,7 +1255,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1271,7 +1263,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1340,7 +1332,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1348,19 +1340,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1416,7 +1408,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "11", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "11", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -1478,7 +1470,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1486,7 +1478,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1555,7 +1547,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1563,19 +1555,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1634,7 +1626,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "12", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "12", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -1696,7 +1688,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1704,7 +1696,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1773,7 +1765,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1781,19 +1773,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1855,7 +1847,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "13", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "13", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -1917,7 +1909,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -1925,7 +1917,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -1994,7 +1986,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2002,19 +1994,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2079,7 +2071,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "14", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "14", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -2141,7 +2133,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2149,7 +2141,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2219,7 +2211,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2227,19 +2219,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2307,7 +2299,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "15", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "15", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -2369,7 +2361,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2377,7 +2369,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2446,7 +2438,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2454,19 +2446,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2538,7 +2530,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "16", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "16", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -2600,7 +2592,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2608,7 +2600,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2677,7 +2669,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2685,19 +2677,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2772,7 +2764,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "17", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "17", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -2834,7 +2826,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2842,7 +2834,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -2911,7 +2903,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -2919,19 +2911,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3009,7 +3001,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "18", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "18", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -3071,7 +3063,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3079,7 +3071,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3148,7 +3140,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3156,19 +3148,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3249,7 +3241,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "19", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "19", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -3311,7 +3303,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3319,7 +3311,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3388,7 +3380,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3396,19 +3388,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3492,7 +3484,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "20", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "20", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -3554,7 +3546,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3562,7 +3554,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3631,7 +3623,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3639,19 +3631,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3738,7 +3730,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "21", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "21", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -3800,7 +3792,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3808,7 +3800,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3877,7 +3869,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -3885,19 +3877,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -3987,7 +3979,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "22", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "22", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -4049,7 +4041,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4057,7 +4049,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4126,7 +4118,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4134,19 +4126,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4240,7 +4232,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "23", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "23", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -4302,7 +4294,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4310,7 +4302,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4379,7 +4371,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4387,19 +4379,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4496,7 +4488,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "24", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "24", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -4558,7 +4550,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4566,7 +4558,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4635,7 +4627,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4643,19 +4635,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4755,7 +4747,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "25", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "25", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -4817,7 +4809,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4825,7 +4817,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -4894,7 +4886,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -4902,19 +4894,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -5017,7 +5009,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "26", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "26", "]"}], "]"}], ":>", 
     InterpretationBox[
      RowBox[{
       TagBox["InterpolatingFunction",
@@ -5079,7 +5071,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -5087,7 +5079,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -5156,7 +5148,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                GridBox[{{
                   RowBox[{
                     TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -5164,19 +5156,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"scalar\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["3", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                   RowBox[{
                     TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                    "\[InvisibleSpace]", 
+                    " ", 
                     TagBox["False", "SummaryItem"]}]}}, 
                 GridBoxAlignment -> {
                  "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -5282,7 +5274,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
      Selectable->False]}], ",", 
    RowBox[{
     RowBox[{"HoldPattern", "[", 
-     RowBox[{"omegaFit", "[", "27", "]"}], "]"}], "\[RuleDelayed]", 
+     RowBox[{"omegaFit", "[", "27", "]"}], "]"}], ":>", 
     RowBox[{"Interpolation", "[", 
      RowBox[{
       RowBox[{"{", 
@@ -5293,35 +5285,35 @@ q5SZmRFAL++xNeOlE0Dwt3AR
           "0.0599727764115268480971527787150723018`26.15051499783199", "+", 
            RowBox[{
            "3.8914693084310745595581793901`17.962674452637557*^-10", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.07`26.", ",", 
           RowBox[{
           "0.06995664341750460420478780285407854562`26.15051499783199", "+", 
            RowBox[{
            "1.07409197704661275371101751997`18.33672750698796*^-9", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.08`26.", ",", 
           RowBox[{
           "0.07993506354414263212026961505075855961`26.15051499783199", "+", 
            RowBox[{
            "2.57474784649833950237064641317`18.658512376870785*^-9", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.09`26.", ",", 
           RowBox[{
           "0.08990719050367068710489326303428984651`26.15051499783199", "+", 
            RowBox[{
            "5.5442483667255845609021544699`18.940563248368097*^-9", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.1`26.", ",", 
           RowBox[{
           "0.0998721500614667568952056821507449399`26.15051499783199", "+", 
            RowBox[{
            "1.09740153781311128631530589477`19.191436162750293*^-8", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.11`26.", ",", 
           RowBox[{
@@ -5329,7 +5321,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "2.029640198861353037960434735363`19.417216882607782*^-8", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.12`26.", ",", 
           RowBox[{
@@ -5337,14 +5329,14 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "3.550065786827361369760275558881`19.62237831262866*^-8", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.13`26.", ",", 
           RowBox[{
           "0.1297147723633909002417779099447478279`26.150514997831948", "+", 
            RowBox[{
            "5.926282723557826903230151452904`19.810307926392476*^-8", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.14`26.", ",", 
           RowBox[{
@@ -5352,28 +5344,28 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "9.508733575758413394571813928642`19.983622840421734*^-8", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.15`26.", ",", 
           RowBox[{
           "0.14955632200874264577623968294120235898`26.15051499783178", "+", 
            RowBox[{
            "1.4745994965703780928970554581563`20.14438430298348*^-7", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.16`26.", ",", 
           RowBox[{
           "0.15945777314835793124319606108310652826`26.15051499783157", "+", 
            RowBox[{
            "2.2200726326517150570956429333663`20.294236486228378*^-7", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.17`26.", ",", 
           RowBox[{
           "0.16934474573924357376031451682511556525`26.15051499783119", "+", 
            RowBox[{
            "3.2565507495324941793625116787107`20.43450112203391*^-7", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.18`26.", ",", 
           RowBox[{
@@ -5381,7 +5373,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "4.6677128987081623395567648586722`20.566242480081023*^-7", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.19`26.", ",", 
           RowBox[{
@@ -5389,14 +5381,14 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "6.5526214790033420379231074285464`20.690307457757793*^-7", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.2`26.", ",", 
           RowBox[{
           "0.19890541605792999099552297644132290162`26.15051499782752", "+", 
            RowBox[{
            "9.0256860796243340060224105764155`20.807348613348722*^-7", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.21`26.", ",", 
           RowBox[{
@@ -5404,14 +5396,14 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "1.22145620967837932311668373592589`20.917827583756512*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.22`26.", ",", 
           RowBox[{
           "0.21851381698724402667257615877961758235`26.15051499781998", "+", 
            RowBox[{
            "1.62541056824889784273249175646831`21.021999173655622*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.23`26.", ",", 
           RowBox[{
@@ -5419,14 +5411,14 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "2.12728835229381169122695776460977`21.119867464148847*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.24`26.", ",", 
           RowBox[{
           "0.23802657871299645703973007122075457612`26.15051499780329", "+", 
            RowBox[{
            "2.73660082491692962459818491197472`21.211100997041168*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.25`26.", ",", 
           RowBox[{
@@ -5434,7 +5426,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "3.45429608389420243487198207777441`21.294875386303293*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.26`26.", ",", 
           RowBox[{
@@ -5442,28 +5434,28 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "4.26321149642725581332875523276424`21.36959937618921*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.27`26.", ",", 
           RowBox[{
           "0.26707662869779857047888120776804840904`26.15051499775248", "+", 
            RowBox[{
            "5.11048105747228014358703155188636`21.432340895114823*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.28`26.", ",", 
           RowBox[{
           "0.27669013330041714267670791910850200215`26.15051499773404", "+", 
            RowBox[{
            "5.87651238808702850363624897301118`21.477640981158963*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.29`26.", ",", 
           RowBox[{
           "0.28626273518197316334604904645415672854`26.15051499772613", "+", 
            RowBox[{
            "6.32051559193897980522501581645928`21.494502688185335*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.3`26.", ",", 
           RowBox[{
@@ -5471,15 +5463,15 @@ q5SZmRFAL++xNeOlE0Dwt3AR
            
            RowBox[{
            "5.98701262670351377395103813086719`21.45674172864406*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}], ",", 
+            "I"}]}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"0.3`26.", ",", 
           RowBox[{
           "0.295789969894805300233438754262815936`26.150514997743027", "+", 
            RowBox[{
            "5.98701262670351377395103942716623`21.45674172864406*^-6", " ", 
-            "\[ImaginaryI]"}]}]}], "}"}]}], "}"}], ",", 
-      RowBox[{"InterpolationOrder", "\[Rule]", "3"}]}], "]"}]}]}], 
+            "I"}]}]}], "}"}]}], "}"}], ",", 
+      RowBox[{"InterpolationOrder", "->", "3"}]}], "]"}]}]}], 
   "}"}]], "Output",
  CellChangeTimes->{{3.8697945474647627`*^9, 3.869794563211401*^9}},
  CellLabel->"Out[94]=",ExpressionUUID->"88c66e41-f15a-479e-a543-8f41427acdd8"]
@@ -5565,11 +5557,9 @@ Cell[BoxData[
  CellLabel->
   "In[412]:=",ExpressionUUID->"1659c8ca-d752-45b9-9873-fb4e647e936d"],
 
-<<<<<<< HEAD
-=======
+
 Cell[CellGroupData[{
 
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 Cell[BoxData[
  RowBox[{"ListPlot", "[", "mem", "]"}]], "Input",
  CellChangeTimes->{{3.869477055283518*^9, 3.869477056937891*^9}},
@@ -5577,8 +5567,7 @@ Cell[BoxData[
   "In[413]:=",ExpressionUUID->"3b9bb171-efed-4392-bba0-c4a0a73bb97c"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  GraphicsBox[{{}, 
    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.012833333333333334`], 
     AbsoluteThickness[1.6], PointBox[CompressedData["
@@ -5647,11 +5636,9 @@ Cell[BoxData[
  CellChangeTimes->{{3.869134196195553*^9, 3.869134252187517*^9}},
  CellLabel->"In[73]:=",ExpressionUUID->"143f87d9-2f09-468a-9613-24eada3e0ac9"],
 
-<<<<<<< HEAD
-=======
+
 Cell[CellGroupData[{
 
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 Cell[BoxData[{
  RowBox[{"SolutionToFilename", "[", 
   RowBox[{
@@ -5662,8 +5649,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.869537413580134*^9, 3.869537437845867*^9}},
  CellLabel->"In[82]:=",ExpressionUUID->"e6211622-d45b-46f8-85e9-da94623a4f99"],
 
-<<<<<<< HEAD
-=======
+
 Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/projects/Massive_\
 Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/\
 KerrDressedWithProca/Debugging/../Solutions/RunData_\[Epsilon]1_10000\[Mu]Nv4_\
@@ -5681,14 +5667,11 @@ KerrDressedWithProca/Debugging/../Solutions/RunData_\[Epsilon]1_10000\[Mu]Nv4_\
 
 Cell[CellGroupData[{
 
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 Cell[BoxData[
  RowBox[{"Dynamic", "[", "$Messenger", "]"}]], "Input",
  CellChangeTimes->{{3.869027876273765*^9, 3.869027880030051*^9}},
  CellLabel->"In[34]:=",ExpressionUUID->"e048b0d9-5d84-454c-b134-6531433911cd"],
 
-<<<<<<< HEAD
-=======
 Cell[BoxData[
  DynamicBox[ToBoxes[$CellContext`$Messenger, StandardForm],
   ImageSizeCache->{76.40625, {3., 10.}}]], "Output",
@@ -5700,7 +5683,6 @@ Cell[BoxData[
 
 Cell[CellGroupData[{
 
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 Cell[BoxData[{
  RowBox[{"Timing", "[", 
   RowBox[{
@@ -5716,8 +5698,6 @@ Cell[BoxData[{
   3.8690284465312557`*^9}, {3.86912286229525*^9, 3.869122862513339*^9}},
  CellLabel->"In[37]:=",ExpressionUUID->"757a23f6-56e0-471c-bc16-ee2a2c72f960"],
 
-<<<<<<< HEAD
-=======
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{"65.808454`", ",", "Null"}], "}"}]], "Output",
@@ -5750,8 +5730,7 @@ Cell[BoxData[{
  CellLabel->"In[94]:=",ExpressionUUID->"4dd45b95-d048-4325-8466-319d0a5278dc"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  RowBox[{"{", 
   RowBox[{"99.140934`", ",", "Null"}], "}"}]], "Output",
  CellChangeTimes->{3.869134969115547*^9},
@@ -5799,8 +5778,7 @@ Cell[BoxData[
  CellLabel->
   "In[115]:=",ExpressionUUID->"5ee58af3-4cc0-4c70-a647-74aa6b7d0ca1"],
 
-<<<<<<< HEAD
-=======
+
 Cell[BoxData[
  TagBox[GridBox[{
     {"35.157953184935394`"},
@@ -5907,8 +5885,7 @@ Cell[BoxData[{
  CellLabel->"In[39]:=",ExpressionUUID->"d0a6cefd-967b-498e-92d2-e8763d3b4eee"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  RowBox[{"{", 
   RowBox[{"0", ",", 
    FractionBox["\[Pi]", "12"]}], "}"}]], "Output",
@@ -5969,8 +5946,7 @@ Cell[BoxData[
  CellLabel->"In[87]:=",ExpressionUUID->"c8b8d7c6-487d-4af8-b368-c8a5fda0c3a8"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  RowBox[{"{", 
   RowBox[{"3.722878`", ",", "Null"}], "}"}]], "Output",
  CellChangeTimes->{3.869122207393866*^9, 3.8691254372852163`*^9, 
@@ -6024,8 +6000,6 @@ Cell[BoxData[
   3.869125500979143*^9, 3.869125517963825*^9}},
  CellLabel->"In[47]:=",ExpressionUUID->"a0610daf-3e9b-4f1e-bead-3c277a8c6150"],
 
-<<<<<<< HEAD
-=======
 Cell[CellGroupData[{
 
 >>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
@@ -6059,12 +6033,11 @@ Cell[BoxData[
  CellLabel->"In[91]:=",ExpressionUUID->"6e8ac310-b507-4001-9f09-f0e68ffd0c75"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  TagBox[GridBox[{
     {
-     RowBox[{"0.00010381939447747444`", "\[VeryThinSpace]", "+", 
-      RowBox[{"0.`", " ", "\[ImaginaryI]"}]}]},
+     RowBox[{"0.00010381939447747444`", " ", "+", 
+      RowBox[{"0.`", " ", "I"}]}]},
     {"0.00010381939447747441`"}
    },
    DefaultBaseStyle->"Column",
@@ -6148,8 +6121,7 @@ Cell[BoxData[
  CellLabel->"In[49]:=",ExpressionUUID->"d8c635e1-541b-4aaf-ade3-2fcd2e6d8687"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  RowBox[{"{", 
   RowBox[{"14.510749`", ",", "Null"}], "}"}]], "Output",
  CellChangeTimes->{3.8691256349420433`*^9, 3.869134406380872*^9},
@@ -6192,15 +6164,14 @@ Cell[BoxData[
  CellLabel->"In[54]:=",ExpressionUUID->"4e3d6cc0-04b1-498e-92ea-1b8615621f33"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  TagBox[GridBox[{
     {
      RowBox[{"2.3002580114471214`*^-14", "+", 
-      RowBox[{"0.`", " ", "\[ImaginaryI]"}]}]},
+      RowBox[{"0.`", " ", "I"}]}]},
     {
      RowBox[{"3.2622176677161297`*^-14", "+", 
-      RowBox[{"0.`", " ", "\[ImaginaryI]"}]}]}
+      RowBox[{"0.`", " ", "I"}]}]}
    },
    DefaultBaseStyle->"Column",
    GridBoxAlignment->{"Columns" -> {{Left}}},
@@ -6260,8 +6231,7 @@ Cell[BoxData[
    3.869122219119372*^9, 3.869122220422791*^9}, 3.869125642572906*^9},
  CellLabel->"In[55]:=",ExpressionUUID->"e6dcc955-3cdc-42b6-9988-b39b6bbcd4fe"],
 
-<<<<<<< HEAD
-=======
+
 Cell[CellGroupData[{
 
 >>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
@@ -6302,8 +6272,7 @@ Cell[BoxData[
 37da7374c0c3"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  TagBox[GridBox[{
     {"84.8378083417345`"},
     {"0.8732271843558004`"},
@@ -6342,8 +6311,8 @@ Cell[BoxData[
          FractionBox["\[Pi]", "4"], ",", "0"}], "]"}]], ",", " ", 
       RowBox[{"{", 
        RowBox[{"r", ",", "1.44", ",", "100"}], "}"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
-      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+      RowBox[{"ImageSize", "->", "Medium"}], ",", " ", 
+      RowBox[{"PlotRange", "->", "All"}]}], "]"}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{"Plot", "[", 
      RowBox[{
@@ -6352,8 +6321,8 @@ Cell[BoxData[
         FractionBox["\[Pi]", "4"], ",", "0"}], "]"}], ",", " ", 
       RowBox[{"{", 
        RowBox[{"r", ",", "1.44", ",", "100"}], "}"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
-      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+      RowBox[{"ImageSize", "->", "Medium"}], ",", " ", 
+      RowBox[{"PlotRange", "->", "All"}]}], "]"}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{"Plot", "[", 
      RowBox[{
@@ -6362,16 +6331,15 @@ Cell[BoxData[
         FractionBox["\[Pi]", "4"], ",", "0"}], "]"}], ",", " ", 
       RowBox[{"{", 
        RowBox[{"r", ",", "1.44", ",", "100"}], "}"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
-      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], 
+      RowBox[{"ImageSize", "->", "Medium"}], ",", " ", 
+      RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], 
    "\[IndentingNewLine]", "}"}], "]"}]], "Input",
  CellChangeTimes->{{3.869122631880327*^9, 3.869122638673133*^9}, {
   3.8691345153814363`*^9, 3.8691346192420397`*^9}},
  CellLabel->"In[86]:=",ExpressionUUID->"c12a77d6-8d3c-4a65-b969-9a71d2354cc1"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  TemplateBox[{
    GraphicsBox[{{{{}, {}, 
        TagBox[{
@@ -8066,8 +8034,8 @@ Cell[BoxData[
          FractionBox["\[Pi]", "4"], ",", "0"}], "]"}]], ",", " ", 
       RowBox[{"{", 
        RowBox[{"r", ",", "1.44", ",", "100"}], "}"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
-      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+      RowBox[{"ImageSize", "->", "Medium"}], ",", " ", 
+      RowBox[{"PlotRange", "->", "All"}]}], "]"}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{"Plot", "[", 
      RowBox[{
@@ -8076,8 +8044,8 @@ Cell[BoxData[
         FractionBox["\[Pi]", "4"], ",", "0"}], "]"}], ",", " ", 
       RowBox[{"{", 
        RowBox[{"r", ",", "1.44", ",", "100"}], "}"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
-      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ",", 
+      RowBox[{"ImageSize", "->", "Medium"}], ",", " ", 
+      RowBox[{"PlotRange", "->", "All"}]}], "]"}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{"Plot", "[", 
      RowBox[{
@@ -8086,16 +8054,15 @@ Cell[BoxData[
         FractionBox["\[Pi]", "4"], ",", "0"}], "]"}], ",", " ", 
       RowBox[{"{", 
        RowBox[{"r", ",", "1.44", ",", "100"}], "}"}], ",", 
-      RowBox[{"ImageSize", "\[Rule]", "Medium"}], ",", " ", 
-      RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]}], 
+      RowBox[{"ImageSize", "->", "Medium"}], ",", " ", 
+      RowBox[{"PlotRange", "->", "All"}]}], "]"}]}], 
    "\[IndentingNewLine]", "}"}], "]"}]], "Input",
  CellChangeTimes->{{3.869135036427116*^9, 3.869135039754739*^9}},
  CellLabel->
   "In[116]:=",ExpressionUUID->"102831fd-9cdf-415f-b33c-e5729d6a2070"],
 
 Cell[BoxData[
-<<<<<<< HEAD
-=======
+
  TemplateBox[{
    GraphicsBox[{{{{}, {}, 
        TagBox[{
@@ -10234,7 +10201,7 @@ Cell[BoxData[{
    RowBox[{"CellPrint", "[", 
     RowBox[{"Cell", "[", 
      RowBox[{"s_", ",", " ", "\"\<Print\>\"", ",", " ", "label_", ",", " ", 
-      RowBox[{"ShowCellLabel", "\[Rule]", "True"}]}], "]"}], "]"}], ":=", 
+      RowBox[{"ShowCellLabel", "->", "True"}]}], "]"}], "]"}], ":=", 
    RowBox[{"Block", "[", 
     RowBox[{
      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
@@ -10627,7 +10594,7 @@ Cell[BoxData[{
           RowBox[{
            RowBox[{"\"\<n\>\"", "<>", 
             RowBox[{"ToString", "[", "ni", "]"}], "<>", "\"\<m\>\"", "<>", 
-            RowBox[{"ToString", "[", "mi", "]"}]}], "\[Rule]", " ", 
+            RowBox[{"ToString", "[", "mi", "]"}]}], "->", " ", 
            RowBox[{"Thread", "[", 
             RowBox[{"{", 
              RowBox[{"\[Mu]vs", ",", " ", 
@@ -10673,7 +10640,7 @@ Cell[BoxData[{
           RowBox[{
            RowBox[{"\"\<n\>\"", "<>", 
             RowBox[{"ToString", "[", "ni", "]"}], "<>", "\"\<m\>\"", "<>", 
-            RowBox[{"ToString", "[", "mi", "]"}]}], "\[Rule]", " ", 
+            RowBox[{"ToString", "[", "mi", "]"}]}], "->", " ", 
            RowBox[{"Thread", "[", 
             RowBox[{"{", 
              RowBox[{"\[Mu]vs", ",", " ", 
@@ -10742,7 +10709,7 @@ Cell[BoxData[{
      RowBox[{"Thread", "[", 
       RowBox[{"{", 
        RowBox[{"domain", ",", " ", "range"}], "}"}], "]"}], ",", " ", 
-     RowBox[{"InterpolationOrder", "\[Rule]", "3"}]}], "]"}]}], 
+     RowBox[{"InterpolationOrder", "->", "3"}]}], "]"}]}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.8684064317066402`*^9, 3.868406436164673*^9}, {
   3.868406544734117*^9, 3.868406547107483*^9}, {3.868406687576797*^9, 
@@ -10789,7 +10756,7 @@ Cell[BoxData[{
            RowBox[{"dat1", "[", 
             RowBox[{"[", 
              RowBox[{"i", "+", "6"}], "]"}], "]"}], "}"}], ",", " ", 
-          RowBox[{"PlotMarkers", "\[Rule]", "\"\<\[TensorProduct]\>\""}]}], 
+          RowBox[{"PlotMarkers", "->", "\"\<\[TensorProduct]\>\""}]}], 
          "]"}], ",", "\[IndentingNewLine]", 
         RowBox[{"LogPlot", "[", 
          RowBox[{
@@ -11185,7 +11152,7 @@ Cell[BoxData[
           RowBox[{"[", 
            RowBox[{"i", ";;", 
             RowBox[{"i", "+", "5"}]}], "]"}], "]"}], ",", " ", 
-         RowBox[{"InterpolationOrder", "\[Rule]", "3"}]}], "]"}]}], ";", 
+         RowBox[{"InterpolationOrder", "->", "3"}]}], "]"}]}], ";", 
       "\[IndentingNewLine]", 
       RowBox[{"Show", "[", 
        RowBox[{"{", "\[IndentingNewLine]", 
@@ -11308,9 +11275,9 @@ Dynamical_Friction/ProcaAroundKerr/FKKSsolver/Mathematica/\>\""}],
        RowBox[{"r", ">", "0"}], ",", 
        RowBox[{"M", ">", "0"}], ",", 
        RowBox[{"J", ">", "0"}], ",", 
-       RowBox[{"1", ">", "a", "\[GreaterEqual]", "0"}], ",", 
+       RowBox[{"1", ">", "a", ">=", "0"}], ",", 
        RowBox[{
-       "\[Pi]", "\[GreaterEqual]", "\[Theta]", "\[GreaterEqual]", "0"}], ",", 
+       "\[Pi]", ">=", "\[Theta]", ">=", "0"}], ",", 
        " ", 
        RowBox[{"\[Lambda]", "\[Element]", "Complexes"}], ",", 
        RowBox[{"\[Omega]", "\[Element]", "Complexes"}], ",", " ", 
@@ -11324,26 +11291,26 @@ Dynamical_Friction/ProcaAroundKerr/FKKSsolver/Mathematica/\>\""}],
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"AnalyticSolution", " ", "=", " ", 
-   RowBox[{"\[LeftAssociation]", 
+   RowBox[{"<|", 
     RowBox[{
-     RowBox[{"\"\<Parameters\>\"", "\[Rule]", 
-      RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\"\<Parameters\>\"", "->", 
+      RowBox[{"<|", 
        RowBox[{
-        RowBox[{"\"\<\[Epsilon]\>\"", "\[Rule]", "\[Epsilon]"}], ",", 
-        RowBox[{"\"\<\[Mu]Nv\>\"", "\[Rule]", "\[Mu]Nv"}], ",", 
-        RowBox[{"\"\<m\>\"", "\[Rule]", "m"}], ",", 
-        RowBox[{"\"\<n\>\"", "\[Rule]", "n"}], ",", 
-        RowBox[{"\"\<\[Chi]\>\"", "\[Rule]", "\[Chi]"}], ",", 
-        RowBox[{"\"\<M\>\"", "\[Rule]", "M"}]}], "\[RightAssociation]"}]}], 
+        RowBox[{"\"\<\[Epsilon]\>\"", "->", "\[Epsilon]"}], ",", 
+        RowBox[{"\"\<\[Mu]Nv\>\"", "->", "\[Mu]Nv"}], ",", 
+        RowBox[{"\"\<m\>\"", "->", "m"}], ",", 
+        RowBox[{"\"\<n\>\"", "->", "n"}], ",", 
+        RowBox[{"\"\<\[Chi]\>\"", "->", "\[Chi]"}], ",", 
+        RowBox[{"\"\<M\>\"", "->", "M"}]}], "|>"}]}], 
      ",", 
-     RowBox[{"\"\<Solution\>\"", "\[Rule]", 
-      RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\"\<Solution\>\"", "->", 
+      RowBox[{"<|", 
        RowBox[{
-        RowBox[{"\"\<\[Omega]\>\"", "\[Rule]", "\[Omega]"}], ",", 
-        RowBox[{"\"\<\[Nu]\>\"", "\[Rule]", "\[Nu]"}], ",", 
-        RowBox[{"\"\<R\>\"", "\[Rule]", "R"}], ",", 
-        RowBox[{"\"\<S\>\"", "\[Rule]", "S"}]}], "\[RightAssociation]"}]}]}], 
-    "\[RightAssociation]"}]}], ";"}]}], "Input",
+        RowBox[{"\"\<\[Omega]\>\"", "->", "\[Omega]"}], ",", 
+        RowBox[{"\"\<\[Nu]\>\"", "->", "\[Nu]"}], ",", 
+        RowBox[{"\"\<R\>\"", "->", "R"}], ",", 
+        RowBox[{"\"\<S\>\"", "->", "S"}]}], "|>"}]}]}], 
+    "|>"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.864777392058223*^9, 3.864777394113221*^9}, {
    3.864777812029127*^9, 3.864777842278801*^9}, {3.864802171283193*^9, 
    3.864802180304125*^9}, {3.864802240649514*^9, 3.864802240995062*^9}, {
@@ -11381,12 +11348,12 @@ Cell[BoxData[{
         RowBox[{
          RowBox[{
           RowBox[{"#", "[", "\"\<Parameters\>\"", "]"}], "[", "\"\<n\>\"", 
-          "]"}], "\[Equal]", "nvalue"}], "&"}]}], "]"}], ",", " ", 
+          "]"}], "==", "nvalue"}], "&"}]}], "]"}], ",", " ", 
      RowBox[{
       RowBox[{
        RowBox[{
         RowBox[{"#", "[", "\"\<Parameters\>\"", "]"}], "[", "\"\<m\>\"", 
-        "]"}], "\[Equal]", "mvalue"}], "&"}]}], "]"}]}], 
+        "]"}], "==", "mvalue"}], "&"}]}], "]"}]}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
@@ -12758,7 +12725,7 @@ m1n0_a900000_Sm1_prec_p_HPee.mx\>\"", "]"}]}], ";"}], "\[IndentingNewLine]",
      RowBox[{"r", ",", "1.436", ",", "1000"}], "}"}], ",", 
     RowBox[{"{", 
      RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", " ", 
-    RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], 
+    RowBox[{"PlotRange", "->", "All"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Plot", "[", 
@@ -12850,7 +12817,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
               GridBox[{{
                  RowBox[{
                    TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -12858,7 +12825,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "}"}], "SummaryItem"]}]}, {
                  RowBox[{
                    TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox["\"scalar\"", "SummaryItem"]}]}}, 
                GridBoxAlignment -> {
                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -12926,7 +12893,7 @@ q5SZmRFAL++xNeOlE0Dwt3AR
               GridBox[{{
                  RowBox[{
                    TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox[
                     RowBox[{"{", 
                     RowBox[{"{", 
@@ -12934,19 +12901,19 @@ q5SZmRFAL++xNeOlE0Dwt3AR
                     "}"}], "SummaryItem"]}]}, {
                  RowBox[{
                    TagBox["\"Output: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox["\"scalar\"", "SummaryItem"]}]}, {
                  RowBox[{
                    TagBox["\"Order: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox["3", "SummaryItem"]}]}, {
                  RowBox[{
                    TagBox["\"Method: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox["\"Hermite\"", "SummaryItem"]}]}, {
                  RowBox[{
                    TagBox["\"Periodic: \"", "SummaryItemAnnotation"], 
-                   "\[InvisibleSpace]", 
+                   " ", 
                    TagBox["False", "SummaryItem"]}]}}, 
                GridBoxAlignment -> {
                 "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
@@ -15385,14 +15352,14 @@ VGYwm3ksZAnLWcVaNrCZbexkD/s5xFFOcJpz/AeGAX5K
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"dolan\[Omega]", " ", "=", " ", 
-   RowBox[{"0.35920565365675217`", "\[VeryThinSpace]", "+", 
-    RowBox[{"0.0002369433184210433`", " ", "\[ImaginaryI]"}]}]}], 
+   RowBox[{"0.35920565365675217`", " ", "+", 
+    RowBox[{"0.0002369433184210433`", " ", "I"}]}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"dolan\[Nu]", " ", "=", " ", 
    RowBox[{
     RowBox[{"-", "0.6002837284375238`"}], "-", 
-    RowBox[{"0.00033368731882264666`", " ", "\[ImaginaryI]"}]}]}], 
+    RowBox[{"0.00033368731882264666`", " ", "I"}]}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"dolansol", " ", "=", " ", 
@@ -15542,7 +15509,7 @@ Cell[BoxData[{
      RowBox[{"r", ",", "1.436", ",", "1000"}], "}"}], ",", 
     RowBox[{"{", 
      RowBox[{"\[Theta]", ",", "0", ",", "\[Pi]"}], "}"}], ",", " ", 
-    RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], 
+    RowBox[{"PlotRange", "->", "All"}]}], "]"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Plot", "[", 
@@ -15572,7 +15539,7 @@ Cell[BoxData[{
        "]"}], ")"}], "//", "Re"}], ",", " ", 
     RowBox[{"{", 
      RowBox[{"t", ",", "1.436", ",", "2000"}], "}"}], ",", " ", 
-    RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}], ";"}]}], "Input",
+    RowBox[{"PlotRange", "->", "All"}]}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.865926502136199*^9, 3.865926526782282*^9}, {
   3.8659268366438093`*^9, 3.865926851306017*^9}, {3.865927046234199*^9, 
   3.865927066451486*^9}, {3.865927352345119*^9, 3.865927373622752*^9}, {
@@ -16556,10 +16523,10 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"\[Theta]", ",", "0.01", ",", 
      RowBox[{"\[Pi]", "-", "0.01"}]}], "}"}], ",", " ", 
-   RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"PlotRange", "->", 
     RowBox[{"{", 
      RowBox[{"0", ",", "All"}], "}"}]}], ",", " ", 
-   RowBox[{"RegionFunction", "\[Rule]", 
+   RowBox[{"RegionFunction", "->", 
     RowBox[{"Function", "[", 
      RowBox[{
       RowBox[{"{", 
@@ -16573,8 +16540,8 @@ Cell[BoxData[
            SuperscriptBox[
             RowBox[{"Cos", "[", "\[Theta]", "]"}], "2"]}]}], "]"}]}]}]}], 
      "]"}]}], ",", " ", 
-   RowBox[{"PlotPoints", "\[Rule]", "10"}], ",", " ", 
-   RowBox[{"MaxRecursion", "\[Rule]", "1"}]}], "]"}]], "Input",
+   RowBox[{"PlotPoints", "->", "10"}], ",", " ", 
+   RowBox[{"MaxRecursion", "->", "1"}]}], "]"}]], "Input",
  CellChangeTimes->{{3.86591143902324*^9, 3.865911453189404*^9}, {
    3.865911532662325*^9, 3.865911541111616*^9}, {3.865911635425831*^9, 
    3.865911635732333*^9}, {3.865912616285193*^9, 3.865912617698482*^9}, {
@@ -16625,10 +16592,10 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"\[Theta]", ",", "0.1", ",", 
      RowBox[{"\[Pi]", "-", "0.1"}]}], "}"}], ",", " ", 
-   RowBox[{"PlotRange", "\[Rule]", 
+   RowBox[{"PlotRange", "->", 
     RowBox[{"{", 
      RowBox[{"All", ",", "All"}], "}"}]}], ",", " ", 
-   RowBox[{"RegionFunction", "\[Rule]", 
+   RowBox[{"RegionFunction", "->", 
     RowBox[{"Function", "[", 
      RowBox[{
       RowBox[{"{", 
@@ -16655,9 +16622,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{720, 756},
-<<<<<<< HEAD
-WindowMargins->{{0, Automatic}, {0, Automatic}},
-=======
+
 WindowMargins->{{Automatic, 0}, {0, Automatic}},
 >>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 TaggingRules-><|"TryRealOnly" -> False|>,
@@ -16678,154 +16643,6 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 161, 3, 69, "Chapter",ExpressionUUID->"5897e374-0544-4e6b-a0f7-5ebd8e14162d"],
-<<<<<<< HEAD
-Cell[744, 27, 4060, 103, 532, "Input",ExpressionUUID->"53a3e911-a1d5-41b7-8120-6dcc2b99f2fb",
- InitializationCell->True]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[4841, 135, 74, 0, 58, "Chapter",ExpressionUUID->"5e63cb2d-e403-4501-a114-b505ecbf151a"],
-Cell[4918, 137, 247, 5, 29, "Input",ExpressionUUID->"b23baa6b-b418-443f-ad84-752a6698f668"],
-Cell[5168, 144, 149, 2, 29, "Input",ExpressionUUID->"bca9ec03-aa00-4509-b686-f4a0cba06c21"],
-Cell[5320, 148, 872, 23, 133, "Input",ExpressionUUID->"a59e6104-2dac-4256-bb59-efb5e1409205"],
-Cell[6195, 173, 351, 7, 29, "Input",ExpressionUUID->"4a6beff2-0310-4a84-894e-7dc94bd2d58a"],
-Cell[6549, 182, 435, 10, 29, "Input",ExpressionUUID->"124144a6-40b0-4bc7-af13-3cda442008f2"],
-Cell[CellGroupData[{
-Cell[7009, 196, 931, 26, 92, "Input",ExpressionUUID->"ccdf9cdf-9334-46b2-be21-50a3c6f36502"],
-Cell[7943, 224, 522, 10, 33, "Output",ExpressionUUID->"50023d8c-f1e9-4a12-9c30-ca009f87535a"],
-Cell[8468, 236, 2234, 47, 206, "Output",ExpressionUUID->"623d53b0-6dda-46cc-b0fa-7bab4361bccd"],
-Cell[10705, 285, 268, 4, 49, "Output",ExpressionUUID->"5bf721d9-596a-4cd4-a4b9-07c4808c1fd1"],
-Cell[10976, 291, 268, 4, 49, "Output",ExpressionUUID->"fb0cdb37-aac7-4a05-ac84-62fe565f145a"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[11281, 300, 985, 29, 100, "Input",ExpressionUUID->"ee487de9-5a9c-4f6d-be2e-bd9004424a1b"],
-Cell[12269, 331, 276, 5, 49, "Output",ExpressionUUID->"60b72e43-7069-4666-9f88-a74bc1cc4e40"],
-Cell[12548, 338, 274, 5, 49, "Output",ExpressionUUID->"66dbef7e-f991-4a6a-be2e-44a3f0b8213c"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[12859, 348, 341, 8, 29, "Input",ExpressionUUID->"5680a0f6-36fc-413a-a777-499611bf54fc"],
-Cell[13203, 358, 253555, 5114, 2669, "Output",ExpressionUUID->"88c66e41-f15a-479e-a543-8f41427acdd8"]
-}, Open  ]],
-Cell[266773, 5475, 494, 8, 298, "Input",ExpressionUUID->"f16cf84b-9610-4775-bb19-e20439b64787"],
-Cell[267270, 5485, 539, 11, 113, "Input",ExpressionUUID->"42d071ba-f0e5-493a-afe5-2e0205d322fe"],
-Cell[267812, 5498, 2666, 42, 669, "Input",ExpressionUUID->"80483de4-e5fc-47f1-9637-69251721325c"],
-Cell[270481, 5542, 336, 9, 29, "Input",ExpressionUUID->"1659c8ca-d752-45b9-9873-fb4e647e936d"],
-Cell[270820, 5553, 212, 4, 29, "Input",ExpressionUUID->"3b9bb171-efed-4392-bba0-c4a0a73bb97c"],
-Cell[271035, 5559, 399, 7, 236, "Input",ExpressionUUID->"3b9f63bb-4ed3-4465-b078-ff61ed6f6d1e"],
-Cell[271437, 5568, 436, 10, 29, "Input",ExpressionUUID->"143f87d9-2f09-468a-9613-24eada3e0ac9"],
-Cell[271876, 5580, 426, 8, 51, "Input",ExpressionUUID->"e6211622-d45b-46f8-85e9-da94623a4f99"],
-Cell[272305, 5590, 214, 3, 29, "Input",ExpressionUUID->"e048b0d9-5d84-454c-b134-6531433911cd"],
-Cell[272522, 5595, 627, 13, 51, "Input",ExpressionUUID->"757a23f6-56e0-471c-bc16-ee2a2c72f960"],
-Cell[273152, 5610, 590, 13, 51, "Input",ExpressionUUID->"4dd45b95-d048-4325-8466-319d0a5278dc"],
-Cell[273745, 5625, 1216, 32, 201, "Input",ExpressionUUID->"5ee58af3-4cc0-4c70-a647-74aa6b7d0ca1"],
-Cell[274964, 5659, 3211, 84, 273, "Input",ExpressionUUID->"d0a6cefd-967b-498e-92d2-e8763d3b4eee"],
-Cell[278178, 5745, 1586, 35, 174, "Input",ExpressionUUID->"c8b8d7c6-487d-4af8-b368-c8a5fda0c3a8"],
-Cell[279767, 5782, 1634, 43, 133, "Input",ExpressionUUID->"a0610daf-3e9b-4f1e-bead-3c277a8c6150"],
-Cell[281404, 5827, 1062, 27, 154, "Input",ExpressionUUID->"6e8ac310-b507-4001-9f09-f0e68ffd0c75"],
-Cell[282469, 5856, 2531, 65, 190, "Input",ExpressionUUID->"d8c635e1-541b-4aaf-ade3-2fcd2e6d8687"],
-Cell[285003, 5923, 1218, 30, 195, "Input",ExpressionUUID->"4e3d6cc0-04b1-498e-92ea-1b8615621f33"],
-Cell[286224, 5955, 1799, 45, 133, "Input",ExpressionUUID->"e6dcc955-3cdc-42b6-9988-b39b6bbcd4fe"],
-Cell[288026, 6002, 1345, 34, 220, "Input",ExpressionUUID->"a1548f52-349e-4f0f-a70a-37da7374c0c3"],
-Cell[289374, 6038, 1843, 44, 275, "Input",ExpressionUUID->"c12a77d6-8d3c-4a65-b969-9a71d2354cc1"],
-Cell[291220, 6084, 1778, 44, 248, "Input",ExpressionUUID->"102831fd-9cdf-415f-b33c-e5729d6a2070"],
-Cell[293001, 6130, 424, 7, 257, "Input",ExpressionUUID->"837700b3-170b-4a0a-9fdb-a0119d12e45f"],
-Cell[293428, 6139, 450, 12, 51, "Input",ExpressionUUID->"8700f0a1-38ed-44e3-92b7-7bbb19c999ac"],
-Cell[293881, 6153, 953, 27, 92, "Input",ExpressionUUID->"32b82095-e772-4fff-b7f1-cbd3e32a74d4"],
-Cell[294837, 6182, 1617, 34, 154, "Input",ExpressionUUID->"e0303f03-8226-45f5-a1e5-e42b14860a4d"],
-Cell[296457, 6218, 868, 21, 71, "Input",ExpressionUUID->"1fe7c90d-5e8f-4464-8301-b22aed087765"],
-Cell[297328, 6241, 182, 4, 29, "Input",ExpressionUUID->"93eaeebb-f182-4616-ae22-e2e58e6bf3d1"],
-Cell[297513, 6247, 601, 9, 360, "Input",ExpressionUUID->"c9665549-fb7d-4772-a085-9e2f30617675"],
-Cell[298117, 6258, 205, 3, 29, "Input",ExpressionUUID->"03575cce-d742-4721-84e0-816ad23f08ad"],
-Cell[298325, 6263, 465, 11, 92, "Input",ExpressionUUID->"1adfe52e-33b5-48bd-afcd-ad2bed984e59"],
-Cell[298793, 6276, 404, 10, 29, "Input",ExpressionUUID->"e5386280-708c-4197-93a6-df92ecdb380a"],
-Cell[299200, 6288, 945, 24, 71, "Input",ExpressionUUID->"299ccf6b-4e6b-4056-8789-4fcce1a4cc00"],
-Cell[300148, 6314, 391, 9, 29, "Input",ExpressionUUID->"8bd245b7-f908-4a49-89f0-751be19a1bce"],
-Cell[300542, 6325, 276, 5, 29, "Input",ExpressionUUID->"55a7f99a-7a44-4daf-b584-70a0c04e1927"],
-Cell[300821, 6332, 323, 6, 29, "Input",ExpressionUUID->"d9167345-7fe2-4c73-a31d-3ceda2f29536"],
-Cell[301147, 6340, 1259, 43, 71, "Input",ExpressionUUID->"e528476e-3d86-40b6-9af7-7da6851ebb84"],
-Cell[302409, 6385, 214, 3, 29, "Input",ExpressionUUID->"af373908-7c23-4a0c-9ba8-08ecbd18c3b2"],
-Cell[302626, 6390, 1052, 23, 71, "Input",ExpressionUUID->"afb89037-4274-4d14-a46d-ee6c5d62d011"],
-Cell[303681, 6415, 224, 4, 29, "Input",ExpressionUUID->"5a007b34-caea-4498-bb83-dcac47858033"],
-Cell[303908, 6421, 500, 11, 51, "Input",ExpressionUUID->"2167093f-cce5-46b8-8dd0-3323e51859bd"],
-Cell[304411, 6434, 356, 9, 29, "Input",ExpressionUUID->"779890df-2971-4fcc-9de1-83ecb6b9105e"],
-Cell[304770, 6445, 498, 11, 51, "Input",ExpressionUUID->"d9257ba1-f54d-4975-9473-8e2599a134da"],
-Cell[305271, 6458, 452, 10, 51, "Input",ExpressionUUID->"6771ccc5-eb05-49e1-a2cc-1135e83ac07f"],
-Cell[305726, 6470, 732, 20, 71, "Input",ExpressionUUID->"cb45d180-54b0-4153-9a1d-ece03ff9cb15"],
-Cell[306461, 6492, 562, 16, 29, "Input",ExpressionUUID->"f3cc3ef5-decc-49ac-b329-3b8b50faf881"],
-Cell[307026, 6510, 505, 8, 236, "Input",ExpressionUUID->"715ac347-b8c6-4877-b75f-12d8a1e37eeb"],
-Cell[307534, 6520, 1322, 30, 145, "Input",ExpressionUUID->"ab66a3d7-7435-42e5-9c03-6d40af091c3a"],
-Cell[308859, 6552, 517, 11, 41, "Input",ExpressionUUID->"5303b38b-3506-41ed-848b-43afd7c02e05"],
-Cell[309379, 6565, 376, 7, 216, "Input",ExpressionUUID->"96e50ea9-1806-4d12-9370-9d427494edb9"],
-Cell[309758, 6574, 840, 22, 87, "Input",ExpressionUUID->"146d1c17-5b80-421d-ab9e-3efef642f91d"],
-Cell[310601, 6598, 655, 19, 62, "Input",ExpressionUUID->"b28e53cb-393e-48f6-a840-58d6e9a96112"],
-Cell[311259, 6619, 3122, 102, 185, "Input",ExpressionUUID->"775c897a-14dd-491a-8bf6-04098aa334ad"],
-Cell[314384, 6723, 280, 5, 41, "Input",ExpressionUUID->"6991eb9d-f9f6-49da-82d9-01b9db2249a5"],
-Cell[314667, 6730, 4309, 126, 185, "Input",ExpressionUUID->"e41949dc-25c7-400b-8a91-2296879ba7a1"],
-Cell[318979, 6858, 401, 7, 236, "Input",ExpressionUUID->"7b7344a1-1212-4aca-816f-0b57f05ae0b5"],
-Cell[319383, 6867, 4661, 117, 310, "Input",ExpressionUUID->"47fedf8c-bc7d-42ad-85c5-9242cce02478"],
-Cell[324047, 6986, 1060, 28, 83, "Input",ExpressionUUID->"71043e03-86e4-4210-9bfd-f78ba0a2c1b2"],
-Cell[325110, 7016, 1036, 26, 104, "Input",ExpressionUUID->"72a1aaac-ad49-495c-8ac9-d669b6419610"],
-Cell[326149, 7044, 4287, 110, 374, "Input",ExpressionUUID->"9942413e-8df8-4835-9e37-5aaac84820ff"],
-Cell[330439, 7156, 1387, 40, 149, "Input",ExpressionUUID->"0eb66ca5-adf4-452d-b7e9-2849041c34c4"],
-Cell[331829, 7198, 616, 16, 83, "Input",ExpressionUUID->"8efe647f-a92b-413e-875e-697e396fee96"],
-Cell[332448, 7216, 708, 18, 83, "Input",ExpressionUUID->"7b869c2e-c237-45db-a43d-b92a65f9e259"],
-Cell[333159, 7236, 210, 4, 71, "Input",ExpressionUUID->"ea445393-e8f0-4d6c-a5f3-210008610e2f"],
-Cell[333372, 7242, 280, 5, 133, "Input",ExpressionUUID->"0cc63af2-18c4-4922-b5ff-ab9c50f8ccff"],
-Cell[333655, 7249, 257, 5, 41, "Input",ExpressionUUID->"af649ddc-0b8f-4eea-b3f5-449c1cd2a7d9"],
-Cell[333915, 7256, 657, 19, 83, "Input",ExpressionUUID->"15e485db-02ed-4f62-8c7a-0f3520a2a941"],
-Cell[334575, 7277, 1132, 28, 145, "Input",ExpressionUUID->"44a50570-377f-4219-85af-396274179079"],
-Cell[335710, 7307, 775, 19, 100, "Input",ExpressionUUID->"5f53015c-62c2-4c3f-877e-b9d50110d4e7"],
-Cell[336488, 7328, 613, 16, 68, "Input",ExpressionUUID->"300f70c5-0ffa-4fce-934c-0671bf107abd"],
-Cell[337104, 7346, 1462, 36, 145, "Input",ExpressionUUID->"13c16b39-234c-4032-be01-7bad1acacbf9"],
-Cell[338569, 7384, 547, 9, 360, "Input",ExpressionUUID->"fc096903-a240-4528-922a-f0fc79fdf2fc"],
-Cell[339119, 7395, 678, 17, 71, "Input",ExpressionUUID->"637e7c98-58bf-4d3a-966c-5aeee95d52ef"],
-Cell[339800, 7414, 1874, 48, 142, "Input",ExpressionUUID->"02e368b9-65d1-418a-a9fa-66011d3ac867"],
-Cell[341677, 7464, 2129, 50, 285, "Input",ExpressionUUID->"eee2b8c5-30c4-469d-9655-69e60408d5b4"],
-Cell[343809, 7516, 345, 6, 41, "Input",ExpressionUUID->"2065c1fa-c5c3-49cd-a817-0db5158421bd"],
-Cell[344157, 7524, 281, 5, 29, "Input",ExpressionUUID->"96d789d7-fec7-41b3-9e67-3b6d675311d0"],
-Cell[344441, 7531, 1067, 15, 793, "Input",ExpressionUUID->"3f86b689-a79a-452f-bccf-4c1d2a1e4e39"],
-Cell[345511, 7548, 408, 8, 51, "Input",ExpressionUUID->"129a0a07-5aca-4b36-b8ba-5962f6266e0a"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[345956, 7561, 175, 3, 69, "Chapter",ExpressionUUID->"1868c6f9-f299-4ff6-bb11-73af637d9769"],
-Cell[346134, 7566, 202, 3, 29, "Input",ExpressionUUID->"467e89f9-48af-4d9f-acf2-44392586fa68"],
-Cell[346339, 7571, 3600, 79, 342, "Input",ExpressionUUID->"391187fd-efcb-4e4b-92c1-6ed886dc29e2"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[349976, 7655, 163, 3, 58, "Chapter",ExpressionUUID->"8b9ebbd9-94c6-4a4a-a8da-0068c458a862"],
-Cell[350142, 7660, 17116, 428, 1835, "Input",ExpressionUUID->"8f351247-90ee-413d-996c-8c88ad6eb327"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[367295, 8093, 156, 3, 58, "Chapter",ExpressionUUID->"e8e11bb1-1180-4ba9-a365-bc62cae960e8"],
-Cell[367454, 8098, 37785, 840, 4580, "Input",ExpressionUUID->"f962f834-1ff1-4d70-848c-3483eab3fcbd"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[405276, 8943, 74, 0, 58, "Chapter",ExpressionUUID->"3bc5af24-747b-4a2d-8b61-c4c268512fc4"],
-Cell[405353, 8945, 297, 4, 29, "Input",ExpressionUUID->"a8cd3f08-809f-4567-9131-209ce279cbb9"],
-Cell[405653, 8951, 4565, 128, 360, "Input",ExpressionUUID->"1fab639c-b523-437b-87f6-73ad0120c1a2"],
-Cell[410221, 9081, 155451, 2631, 249, "Input",ExpressionUUID->"6af89e11-724a-4bb6-ae4b-0a7461eb911c"],
-Cell[565675, 11714, 5607, 159, 236, "Input",ExpressionUUID->"05f59099-a232-4af7-bd52-03c76526d1d5"],
-Cell[571285, 11875, 208, 4, 71, "Input",ExpressionUUID->"45786977-0c0f-438d-a2a6-04263bf17ef5"],
-Cell[571496, 11881, 521, 12, 51, "Input",ExpressionUUID->"731bfede-d338-4e35-a762-794982145ba5"],
-Cell[572020, 11895, 231, 4, 71, "Input",ExpressionUUID->"1da5cd16-f494-473b-8a72-9031d7e7df2e"],
-Cell[572254, 11901, 2508, 68, 195, "Input",ExpressionUUID->"d888a6db-1ecd-4e0b-8a82-f60ddea64373"],
-Cell[574765, 11971, 1825, 51, 71, "Input",ExpressionUUID->"d8b6d54d-db8e-4ec1-beef-e85e5b2d6de6"],
-Cell[576593, 12024, 1884, 49, 133, "Input",ExpressionUUID->"afeb3876-e8a9-498a-a016-7610376362fe"],
-Cell[578480, 12075, 3635, 102, 174, "Input",ExpressionUUID->"195cbf77-cd79-4ad1-9ee6-7508b4622e2c"],
-Cell[582118, 12179, 1438, 37, 71, "Input",ExpressionUUID->"86fa0bbf-a303-4cd9-b19e-dfde158b9df4"],
-Cell[583559, 12218, 5198, 132, 257, "Input",ExpressionUUID->"c8024c70-2144-498f-b9dd-250e2c954c92"],
-Cell[588760, 12352, 1642, 46, 51, "Input",ExpressionUUID->"ea9f450d-04f5-4218-96f6-503abc2fa550"],
-Cell[590405, 12400, 5688, 166, 381, "Input",ExpressionUUID->"89fcc932-372c-47b6-9791-f1a332f300dd"],
-Cell[596096, 12568, 481, 12, 29, "Input",ExpressionUUID->"06131356-ddcc-45b9-8353-aff23f705ee7"],
-Cell[596580, 12582, 446, 11, 29, "Input",ExpressionUUID->"68e283fc-ac28-4ab0-885a-7689c6df8a5b"],
-Cell[597029, 12595, 3724, 100, 154, "Input",ExpressionUUID->"cc9140c5-b474-469a-a1ab-de55bfec77e8"],
-Cell[600756, 12697, 2989, 81, 92, "Input",ExpressionUUID->"85b370d8-70ff-4625-acd2-7c6abbe007b4"],
-Cell[603748, 12780, 579, 16, 29, "Input",ExpressionUUID->"64fc2330-8f9d-49ae-a761-a66d9fa12a62"],
-Cell[604330, 12798, 595, 14, 29, "Input",ExpressionUUID->"9a5e44cd-4dda-4300-9a7d-2e3e74314037"],
-Cell[604928, 12814, 507, 13, 29, "Input",ExpressionUUID->"b24badee-5791-41b4-aa91-de22d13a2acc"],
-Cell[605438, 12829, 2568, 57, 54, "Input",ExpressionUUID->"0ecd9c2f-825c-4f99-bf71-4f5dd0ceaf0a"],
-Cell[608009, 12888, 381, 8, 29, "Input",ExpressionUUID->"57c0aad0-add3-440c-9d79-be98a66b676b"],
-Cell[608393, 12898, 1861, 47, 32, "Input",ExpressionUUID->"78d8afeb-db37-4971-b0a9-e4b9686f7e28"]
-=======
 Cell[744, 27, 4061, 103, 532, "Input",ExpressionUUID->"53a3e911-a1d5-41b7-8120-6dcc2b99f2fb",
  InitializationCell->True]
 }, Closed]],
@@ -16996,7 +16813,6 @@ Cell[553717, 11106, 507, 13, 29, "Input",ExpressionUUID->"b24badee-5791-41b4-aa9
 Cell[554227, 11121, 2568, 57, 54, "Input",ExpressionUUID->"0ecd9c2f-825c-4f99-bf71-4f5dd0ceaf0a"],
 Cell[556798, 11180, 381, 8, 29, "Input",ExpressionUUID->"57c0aad0-add3-440c-9d79-be98a66b676b"],
 Cell[557182, 11190, 1861, 47, 32, "Input",ExpressionUUID->"78d8afeb-db37-4971-b0a9-e4b9686f7e28"]
->>>>>>> 59f9c4dfd34a455eace67dcafad1cb40e25edb71
 }, Open  ]]
 }
 ]

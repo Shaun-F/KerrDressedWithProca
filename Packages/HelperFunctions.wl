@@ -248,7 +248,7 @@ ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParam
 ToParamSymbols:={a->\[Chi]};
 
 
-Options[OptimizedFunction]={WithProperties->True,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
+Options[OptimizedFunction]={WithProperties->False,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
 OptimizedFunction[vars_, expr_, OptionsPattern[]]:=Module[{i,exproe, res,ret},
 exproe = Experimental`OptimizeExpression[expr,
 ExcludedForms->OptionValue[ExcludedForms],
@@ -271,8 +271,7 @@ RuntimeAttributes->OptionValue[RuntimeAttributes],
 RuntimeOptions->OptionValue[RuntimeOptions]
 }
 },
-rett = Compile@@Hold[thevars, Evaluate[resc]@@thevars,opts];
-ret =rett
+ret = Compile@@Hold[thevars, Evaluate[resc]@@thevars,opts];
 ];
 Return[ret]
 ];

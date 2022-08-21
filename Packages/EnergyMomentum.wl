@@ -4,7 +4,7 @@ EnergyMomentumwl;
 (*Import Proca Mode Solver*)
 If["KerrWithProca"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]]
 (*Import xAct Setup*)
-If["xActSetup"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]]
+If["xActSetup"\[NotElement]Names["Glretobal`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]]
 (*Import Helper functions*)
 If["HelperFunctions"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]]
 
