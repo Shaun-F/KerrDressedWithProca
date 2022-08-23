@@ -90,6 +90,18 @@ Do[
 			PutAppend[Sequence@@Logger, LogFile];
 			Continue[]
 		];
+		
+		(*Skip solution if exceeds superradiant condition*)
+		If[TrueQ@StringQ[SingleSolution["Solution"]],
+			Print["Superradiant condition failed on current condition, Skipping iteration."];
+			AppendTo[Logger, ""]; AppendTo[Logger, ""];
+			AppendTo[Logger, "Superradiant condition failed on current condition, Skipping iteration."];
+			AppendTo[Logger, ""]; AppendTo[Logger, ""];
+			PutAppend[Sequence@@Logger, LogFile];
+			Continue[]
+		];
+		
+		
 		Print["\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		AppendTo[Logger, "\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		(*----------Black hole evolution----------*)
