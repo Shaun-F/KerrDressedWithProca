@@ -466,12 +466,13 @@ If[NormalizationError/normalization>10^-2,
 
 (*Renormalize energy*)
 RenormalizedEnergy = totalenergy*normalization^2;
+RenormalizedEnergyErrors = totalenergyresults["Errors"]*normalization^2;
 
 <|
 	"Normalization"->normalization, 
 	"NormalizationFractionalError"->NormalizationError/normalization,
 	"TotalEnergy"->RenormalizedEnergy, 
-	"TotalEnergyErrors"->totalenergyresults["Errors"], 
+	"TotalEnergyErrors"->RenormalizedEnergyErrors, 
 	"FinalMass"->finalmass, 
 	"FinalSpin"->FinalDimlessSpin[\[Chi]v,wv,mv,InitialMass, finalmass/InitialMass]
 |>
