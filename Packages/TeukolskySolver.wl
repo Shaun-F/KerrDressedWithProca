@@ -405,8 +405,8 @@ Amplitude,
 Zcoefficient,
 \[CapitalDelta]=Evaluate[Kerr\[CapitalDelta]//FromxActVariables//ApplySolutionSet[ProcaSolution]], 
 rdom = ProcaSolution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, ProcaSolution["Parameters", "\[Chi]"]]&,
-\[Chi]v = SetPrecision[ProcaSolution["Parameters", "\[Chi]"],30],
-\[Omega]v = SetPrecision[2*ProcaSolution["Solution", "\[Omega]"]//Re,30],
+\[Chi]v = SetPrecision[ProcaSolution["Parameters", "\[Chi]"],40],
+\[Omega]v = SetPrecision[2*ProcaSolution["Solution", "\[Omega]"]//Re,40],
 mv = 2*ProcaSolution["Parameters", "m"]
 },
 DeltaFunction = {r}|->Evaluate[\[CapitalDelta]];
