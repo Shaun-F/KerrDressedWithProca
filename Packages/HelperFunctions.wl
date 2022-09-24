@@ -31,6 +31,15 @@ Return[OutputSolution]
 ];
 
 
+OperateOnInterpolationValues::usage="Operate on the values inputted into the interpolation function with a listable function";
+OperateOnInterpolationValues[interp_, function_]:=
+Block[{Out},
+Out = List@@interp;
+Out[[4]]=Out[[4]]//function;
+Return[InterpolatingFunction@@Out]
+]
+
+
 RenormalizeProcaSolution::usage="rescale a given proca solution by a given normalization factor";
 RenormalizeProcaSolution[solution_, normalizationfactor_]:=
 Block[{temporaryRadialInterpolatingFunction,temporaryRadialInterpolatingFunctionList, temporarySolution=solution},
@@ -214,7 +223,7 @@ AssociationThread[{\[Omega],\[Nu],S,R,dR,ddR}->Flatten@{Re[\[Omega]v],
 											Sv,
 											(Rv[RadialToHorizonCoord[#,\[Chi]v]]&), 
 											((Derivative[1][Rv][RadialToHorizonCoord[#,\[Chi]v]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]))&),
-											((Derivative[1][Derivative[1][Rv]][RadialToHorizonCoord[#,\[Chi]v]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^2)&)
+											((Derivative[2][Rv][RadialToHorizonCoord[#,\[Chi]v]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^2)&)
 }
 ],
 
@@ -230,6 +239,36 @@ AssociationThread[{\[Omega],\[Nu],S,R,dR,ddR}->Flatten@{\[Omega]v,
 ];
 
 
+ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParamSymbols/.ParamsToReprRule[solution]/.SolToReprRule[solution,real->OptionValue[real]];
+
+
+ApplyRealSolutionSet[solution_][expr_]:=
+	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
+		repr = {
+			HoldPattern@Derivative[d_][Rr][r_]->Re[Derivative[d][solR][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
+			HoldPattern@Derivative[d_][Ri][r_]->Im[Derivative[d][solR][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
+			HoldPattern@Derivative[d_][Sr][r_]->Re[Derivative[d][solS][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
+			HoldPattern@Derivative[d_][Si][r_]->Im[Derivative[d][solS][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
+			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
+			\[Omega]i->Im[solution["Solution","\[Omega]"]],
+			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
+			\[Nu]i->Im[solution["Solution","\[Nu]"]],
+			\[Chi]->solution["Parameters", "\[Chi]"], 
+			a->solution["Parameters", "\[Chi]"],
+			\[Chi]v->solution["Parameters", "\[Chi]"],
+			m->solution["Parameters", "m"], 
+			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
+			\[Mu]->solution["Parameters", "\[Mu]Nv"],
+			Rr->( Re[solR[#]]&), 
+			Ri->( Im[solR[#]]&), 
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
+			};
+		res = expr/.repr;
+		Return[res]
+	];
+
+
 ThreadThrough::argn="The arguments `1` and `2` must have equal lengths";
 ThreadThrough::usage="Thread a list of functions over a list of arguments.
 ThreadThrough[{f,g,h}, {x,y,z}] -> {f[x], g[y], h[z]}
@@ -240,9 +279,6 @@ Return@Message[MessageName[ThreadThrough,"argn"],functionlist, Operands]
 ];
 Table[functionlist[[i]][Operands[[i]]], {i,1,Length@functionlist}]
 );
-
-
-ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParamSymbols/.ParamsToReprRule[solution]/.SolToReprRule[solution,real->OptionValue[real]];
 
 
 ToParamSymbols:={a->\[Chi]};
@@ -349,28 +385,3 @@ Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->
 Return[retval]
 ]
 ];
-
-
-ApplyRealSolutionSet[solution_][expr_]:=
-	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"]},
-		repr = {
-			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][x]],
-			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][x]],
-			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][x]],
-			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][x]],
-			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
-			\[Omega]i->Im[solution["Solution","\[Omega]"]],
-			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
-			\[Nu]i->Im[solution["Solution","\[Nu]"]],
-			\[Chi]->solution["Parameters", "\[Chi]"], 
-			m->solution["Parameters", "m"], 
-			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
-			Rr->( Re[solR[#]]&), 
-			Ri->( Im[solR[#]]&), 
-			Sr->( Re[solS[#]]&),
-			Si->( Im[solS[#]]&)
-			};
-		res = expr/.repr;
-		Return[res]
-	];
-

@@ -207,7 +207,7 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
-FKKSEnergyMomentum[solution_Association, OptionsPattern[{SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True}]]:=
+FKKSEnergyMomentum[solution_, OptionsPattern[{SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True}]]:=
 Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyMomentumRealCTensor.mx";,
@@ -230,7 +230,7 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 If[OptionValue[SymbolicExpression], 
