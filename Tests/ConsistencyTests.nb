@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     81217,       2123]
-NotebookOptionsPosition[     78150,       2062]
-NotebookOutlinePosition[     78542,       2078]
-CellTagsIndexPosition[     78499,       2075]
+NotebookDataLength[     81493,       2129]
+NotebookOptionsPosition[     78329,       2067]
+NotebookOutlinePosition[     78721,       2083]
+CellTagsIndexPosition[     78678,       2080]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2057,7 +2057,12 @@ Dynamical_Friction/ProcaAroundKerr/NilsSiemonsenCode/Tud.mx\>\"", "]"}]}],
    3.873020970085205*^9, 3.873020991209154*^9}, {3.873021055330839*^9, 
    3.873021064117463*^9}, 3.873021124218322*^9},
  CellLabel->"In[13]:=",ExpressionUUID->"5ea5b111-9ebc-427c-96e9-474cc0b41cdc"]
-}, Open  ]]
+}, Closed]],
+
+Cell["Teukolsky Kinnersly Projections", "Section",
+ CellChangeTimes->{{3.873029059874937*^9, 
+  3.873029068760845*^9}},ExpressionUUID->"ee9bd219-b9c4-47a7-bc59-\
+940755fb06cd"]
 }, Open  ]]
 },
 WindowSize->{1440, 756},
@@ -2123,7 +2128,8 @@ Cell[48957, 1310, 13371, 349, 917, "Input",ExpressionUUID->"a14e6eb4-d09b-4d9a-9
 Cell[CellGroupData[{
 Cell[62377, 1665, 159, 3, 54, "Section",ExpressionUUID->"5bce4a27-3590-4e03-8cf5-e2270ab988f3"],
 Cell[62539, 1670, 15583, 388, 979, "Input",ExpressionUUID->"5ea5b111-9ebc-427c-96e9-474cc0b41cdc"]
-}, Open  ]]
+}, Closed]],
+Cell[78137, 2061, 176, 3, 54, "Section",ExpressionUUID->"ee9bd219-b9c4-47a7-bc59-940755fb06cd"]
 }, Open  ]]
 }
 ]
