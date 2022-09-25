@@ -1,8 +1,5 @@
 (* ::Package:: *)
 
-Import["/home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Packages/HelperFunctions.wl"];
-
-
 xActSetup (*Do Not Remove, used for recognition of package already being imported*)
 M=1;
 
