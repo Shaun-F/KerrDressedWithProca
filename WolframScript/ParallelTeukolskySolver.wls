@@ -83,7 +83,7 @@ Do[
 	With[{SingleSolution = AllData[[i]]},
 		IterationStartTime = AbsoluteTime[];
 		(*Skip solution if already calculated*)
-		If[KeyExistsQ[SingleSolution, "Derived"]&&KeyExistsQ[SingleSolution["Derived"], "Einf"]&&OverwriteExisting,
+		If[KeyExistsQ[SingleSolution, "Derived"]&&KeyExistsQ[SingleSolution["Derived"], "Einf"]&&Not[OverwriteExisting],
 			Print["Solution already exists, skipping iteration."];
 			AppendTo[Logger, ""]; AppendTo[Logger, ""];
 			AppendTo[Logger, "Solution already exists, skipping iteration."];
