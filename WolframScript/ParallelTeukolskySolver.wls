@@ -33,6 +33,7 @@ Print["Solution Path: "];Print["     "<>ToString@$SolutionPath];
 Print["Log File Path: "];Print["     "<>ToString@LogFile];
 Print["Log Run: "<>ToString[TrueQ[LogRun], InputForm]];
 Print["Save to Disk: "<>ToString[TrueQ[SaveToDisk], InputForm]];
+Print["Overwrite Existing Solutions: "<>ToString[TrueQ[OverwriteExisting], InputForm]];
 Print["Number of Kernels: "<>ToString[NumberOfKernels]];
 Print["Orbital Number: "<>ToString[OrbitalNumber]];
 Print["Mode Number: "<>ToString[ModeNumber]];
