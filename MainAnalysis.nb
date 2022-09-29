@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    174902,       3846]
-NotebookOptionsPosition[    167083,       3700]
-NotebookOutlinePosition[    167815,       3725]
-CellTagsIndexPosition[    167729,       3720]
+NotebookDataLength[    175902,       3870]
+NotebookOptionsPosition[    167797,       3721]
+NotebookOutlinePosition[    168529,       3746]
+CellTagsIndexPosition[    168443,       3741]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -3645,7 +3645,7 @@ Cell[BoxData[{
  CellChangeTimes->{{3.8734245455052023`*^9, 3.873424547535491*^9}, {
   3.873424597933467*^9, 3.8734246175676203`*^9}, {3.873424841913724*^9, 
   3.873424844608837*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"5c6270c4-0dbc-4bc8-b6d8-08da4bfe88cf"],
+ CellLabel->"In[14]:=",ExpressionUUID->"5c6270c4-0dbc-4bc8-b6d8-08da4bfe88cf"],
 
 Cell["Partition data", "Text",
  CellChangeTimes->{{3.87342476726005*^9, 
@@ -3681,20 +3681,41 @@ Cell[BoxData[{
      "]"}], "]"}]}], ";"}]}], "Input",
  CellChangeTimes->{{3.8734247802090693`*^9, 3.873424801134733*^9}, {
   3.873424873710408*^9, 3.873424927728098*^9}, {3.873425320472348*^9, 
-  3.873425334690342*^9}, {3.873425540563198*^9, 3.8734255673217373`*^9}},
- CellLabel->"In[86]:=",ExpressionUUID->"7aac3621-2ce8-44c3-8acd-3f013416e55e"],
+  3.873425334690342*^9}, {3.873425540563198*^9, 3.8734255673217373`*^9}, {
+  3.873426006629476*^9, 3.873426035746581*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"7aac3621-2ce8-44c3-8acd-3f013416e55e"],
 
-Cell[BoxData[{
- RowBox[{"Thread", "[", 
-  RowBox[{"{", 
-   RowBox[{"n0m1Masses", ",", 
-    RowBox[{"n0m1Fluxes", "/", "n0m1TotalEn"}]}], "}"}], 
-  "]"}], "\[IndentingNewLine]", 
- RowBox[{"ListLogPlot", "[", "%", "]"}]}], "Input",
+Cell["Energy vs Mass", "Text",
+ CellChangeTimes->{{3.8734259869702682`*^9, 
+  3.873425990010127*^9}},ExpressionUUID->"2d76f1d5-99f9-4e43-bfe6-\
+863400a2e609"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Thread", "[", 
+   RowBox[{"{", 
+    RowBox[{"n0m1Masses", ",", " ", "n0m1TotalEn"}], "}"}], "]"}], "//", 
+  "ListLogPlot"}]], "Input",
+ CellChangeTimes->{{3.87342599143754*^9, 3.8734260005025873`*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"6159d338-cf78-4cd6-bbed-9da475c7937c"],
+
+Cell["Mass vs Rescaled Flux", "Text",
+ CellChangeTimes->{{3.873426124076877*^9, 
+  3.8734261289011593`*^9}},ExpressionUUID->"47056b5f-da1c-43d3-b284-\
+0bd9fa3979bf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Thread", "[", 
+   RowBox[{"{", 
+    RowBox[{"n0m1Masses", ",", 
+     RowBox[{"n0m1Fluxes", "/", "n0m1TotalEn"}]}], "}"}], "]"}], "//", 
+  "ListLogPlot"}]], "Input",
  CellChangeTimes->{{3.873086494458193*^9, 3.873086541204618*^9}, {
   3.873086581355887*^9, 3.8730866036436853`*^9}, {3.8730911939801283`*^9, 
-  3.873091259881689*^9}, {3.8734253415530653`*^9, 3.873425351213266*^9}},
- CellLabel->"In[90]:=",ExpressionUUID->"b01e3402-7b81-4e26-aeb3-900bec2c83fe"]
+  3.873091259881689*^9}, {3.8734253415530653`*^9, 3.873425351213266*^9}, {
+  3.873426132697441*^9, 3.87342613529733*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"b01e3402-7b81-4e26-aeb3-900bec2c83fe"]
 }, Closed]]
 }, Open  ]]
 },
@@ -3719,7 +3740,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"CalculationParameters", 167508, 3713}
+ {"CalculationParameters", 168222, 3734}
  }
 *)
 (*NotebookFileOutline
@@ -3844,8 +3865,11 @@ Cell[164140, 3621, 219, 4, 54, "Chapter",ExpressionUUID->"42aa7e31-a495-4d1e-a26
 Cell[164362, 3627, 157, 3, 32, "Text",ExpressionUUID->"59631159-af52-4102-ba46-9c670464e032"],
 Cell[164522, 3632, 629, 15, 50, "Input",ExpressionUUID->"5c6270c4-0dbc-4bc8-b6d8-08da4bfe88cf"],
 Cell[165154, 3649, 157, 3, 32, "Text",ExpressionUUID->"dac0d81a-291f-486c-9059-d31fb5f190c8"],
-Cell[165314, 3654, 1214, 30, 92, "Input",ExpressionUUID->"7aac3621-2ce8-44c3-8acd-3f013416e55e"],
-Cell[166531, 3686, 524, 10, 48, "Input",ExpressionUUID->"b01e3402-7b81-4e26-aeb3-900bec2c83fe"]
+Cell[165314, 3654, 1263, 31, 92, "Input",ExpressionUUID->"7aac3621-2ce8-44c3-8acd-3f013416e55e"],
+Cell[166580, 3687, 158, 3, 32, "Text",ExpressionUUID->"2d76f1d5-99f9-4e43-bfe6-863400a2e609"],
+Cell[166741, 3692, 315, 7, 30, "Input",ExpressionUUID->"6159d338-cf78-4cd6-bbed-9da475c7937c"],
+Cell[167059, 3701, 165, 3, 32, "Text",ExpressionUUID->"47056b5f-da1c-43d3-b284-0bd9fa3979bf"],
+Cell[167227, 3706, 542, 11, 27, "Input",ExpressionUUID->"b01e3402-7b81-4e26-aeb3-900bec2c83fe"]
 }, Closed]]
 }, Open  ]]
 }
