@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    128571,       3496]
-NotebookOptionsPosition[    124514,       3421]
-NotebookOutlinePosition[    124945,       3438]
-CellTagsIndexPosition[    124902,       3435]
+NotebookDataLength[    307435,       7963]
+NotebookOptionsPosition[    302004,       7869]
+NotebookOutlinePosition[    302435,       7886]
+CellTagsIndexPosition[    302392,       7883]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2881,6 +2881,8 @@ Cell[BoxData[{
    3.87345706118225*^9}, 3.873458090864697*^9},
  CellLabel->"In[13]:=",ExpressionUUID->"72d6832e-a932-4269-9319-00c7cf24a013"],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[{
  RowBox[{"Dynamic", "[", "$Messenger", "]"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -3278,6 +3280,183 @@ Cell[BoxData[{
  CellLabel->"In[32]:=",ExpressionUUID->"2fdf8ec9-fccd-411a-9d0e-f4a55330acef"],
 
 Cell[BoxData[
+ TemplateBox[{
+  "PrintAsCharacter", "argx", 
+   "\"\\!\\(\\*RowBox[{\\\"PrintAsCharacter\\\"}]\\) called with \
+\\!\\(\\*RowBox[{\\\"0\\\"}]\\) arguments; 1 argument is expected.\"", 2, 37, 
+   1, 17629561315320613331, "Local", "xAct`xTensor`PrintAsCharacter"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.873458406158358*^9, 3.8735112886827602`*^9},
+ CellLabel->
+  "During evaluation of \
+In[32]:=",ExpressionUUID->"3f38fda3-01c6-4af3-874d-c11a79d1adca"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "PrintAsCharacter", "argx", 
+   "\"\\!\\(\\*RowBox[{\\\"PrintAsCharacter\\\"}]\\) called with \
+\\!\\(\\*RowBox[{\\\"0\\\"}]\\) arguments; 1 argument is expected.\"", 2, 44, 
+   2, 17629561315320613331, "Local", "xAct`xTensor`PrintAsCharacter"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.873458406158358*^9, 3.873512674666168*^9},
+ CellLabel->
+  "During evaluation of \
+In[32]:=",ExpressionUUID->"ae832853-dd26-4bcc-9698-cfe26e269c77"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "PrintAsCharacter", "argx", 
+   "\"\\!\\(\\*RowBox[{\\\"PrintAsCharacter\\\"}]\\) called with \
+\\!\\(\\*RowBox[{\\\"0\\\"}]\\) arguments; 1 argument is expected.\"", 2, 51, 
+   3, 17629561315320613331, "Local", "xAct`xTensor`PrintAsCharacter"},
+  "MessageTemplate2"]], "Message", "MSG",
+ CellChangeTimes->{3.873458406158358*^9, 3.8735138814671507`*^9},
+ CellLabel->
+  "During evaluation of \
+In[32]:=",ExpressionUUID->"f0eaf048-c4da-4f24-832d-8ba4a4f25259"],
+
+Cell[BoxData["\<\"Generating: Done.\"\>"], "Print",
+ CellChangeTimes->{3.8734623568866587`*^9, 3.873515338603956*^9},
+ CellLabel->
+  "During evaluation of \
+In[32]:=",ExpressionUUID->"88bd3c3e-4da9-4313-8752-c3586be99ed3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"tnntempRInterp", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"tnntempR", ",", 
+     RowBox[{"InterpolationOrder", "->", "3"}], ",", 
+     RowBox[{"Method", "->", "\"\<Spline\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tnntempIInterp", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"tnntempI", ",", 
+     RowBox[{"InterpolationOrder", "->", "3"}], ",", 
+     RowBox[{"Method", "->", "\"\<Spline\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmntempRInterp", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"tmntempR", ",", 
+     RowBox[{"InterpolationOrder", "->", "3"}], ",", 
+     RowBox[{"Method", "->", "\"\<Spline\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmntempIInterp", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"tmntempI", ",", 
+     RowBox[{"InterpolationOrder", "->", "3"}], ",", 
+     RowBox[{"Method", "->", "\"\<Spline\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmmtempRInterp", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"tmmtempR", ",", 
+     RowBox[{"InterpolationOrder", "->", "3"}], ",", 
+     RowBox[{"Method", "->", "\"\<Spline\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tmmtempIInterp", " ", "=", " ", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"tmmtempI", ",", 
+     RowBox[{"InterpolationOrder", "->", "3"}], ",", 
+     RowBox[{"Method", "->", "\"\<Spline\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<tnntempRInterp.mx\>\""}], ",", " ", "tnntempRInterp"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<tnntempIInterp.mx\>\""}], ",", " ", "tnntempIInterp"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<tmntempRInterp.mx\>\""}], ",", " ", "tmntempRInterp"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<tmntempIInterp.mx\>\""}], ",", " ", "tmntempIInterp"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<tmmtempRInterp.mx\>\""}], ",", " ", "tmmtempRInterp"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<tmmtempIInterp.mx\>\""}], ",", " ", "tmmtempIInterp"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.873515362377966*^9, 3.873515602474663*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"dfcdac85-b8df-4d9b-840b-0275a9f6a279"],
+
+Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/Project/\
+ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Tests/tnntempRInterp.mx\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.873515562797379*^9, {3.873515596764185*^9, 3.873515603542911*^9}},
+ CellLabel->
+  "Out[112]=",ExpressionUUID->"e1856709-2a1e-4602-b89c-a851df1d5580"],
+
+Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/Project/\
+ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Tests/tnntempIInterp.mx\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.873515562797379*^9, {3.873515596764185*^9, 3.873515603555574*^9}},
+ CellLabel->
+  "Out[113]=",ExpressionUUID->"19697ede-7013-4ecf-91c7-f6543186c002"],
+
+Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/Project/\
+ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Tests/tmntempRInterp.mx\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.873515562797379*^9, {3.873515596764185*^9, 3.873515603578861*^9}},
+ CellLabel->
+  "Out[114]=",ExpressionUUID->"42cd7d10-e51d-49f1-a790-7ab387c1967b"],
+
+Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/Project/\
+ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Tests/tmntempIInterp.mx\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.873515562797379*^9, {3.873515596764185*^9, 3.873515603618189*^9}},
+ CellLabel->
+  "Out[115]=",ExpressionUUID->"36785083-2852-4a13-8a0c-095a363ebed1"],
+
+Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/Project/\
+ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Tests/tmmtempRInterp.mx\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.873515562797379*^9, {3.873515596764185*^9, 3.873515603633011*^9}},
+ CellLabel->
+  "Out[116]=",ExpressionUUID->"47cc9fc2-d33f-4e4b-8dbc-ed5748f85a0a"],
+
+Cell[BoxData["\<\"/home/shaunf/Documents/Computer/Code/Project/\
+ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Tests/tmmtempIInterp.mx\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.873515562797379*^9, {3.873515596764185*^9, 3.873515603659318*^9}},
+ CellLabel->
+  "Out[117]=",ExpressionUUID->"25784666-5234-4dd6-8974-181f425be0e9"]
+}, Open  ]],
+
+Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
    RowBox[{"Computing", " ", "integrand", " ", "of", " ", "Tlm\[Omega]"}], 
@@ -3413,9 +3592,4278 @@ FKKSsolver/NilsSiemonsenCode/NilsTeuTintegrandOwnGeneration.mx\>\"", "]"}]}],
         RowBox[{"r", "->", "rr"}], ",", 
         RowBox[{"\[Theta]", "->", "\[Theta]\[Theta]"}]}], "}"}]}]}], 
     ";"}]}]}]], "Input",
- CellChangeTimes->{{3.873458132423318*^9, 
-  3.873458164529703*^9}},ExpressionUUID->"2f443d24-c7b7-4359-a002-\
-356f0a2dfad2"]
+ CellChangeTimes->{{3.873458132423318*^9, 3.873458164529703*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"2f443d24-c7b7-4359-a002-356f0a2dfad2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TeukolskyTintegrandExpl", "[", 
+  RowBox[{"2", ",", "1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.873515344594223*^9, 3.8735153504949512`*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"1cde0ffd-2f14-4fc2-89e6-f4fc2452198d"],
+
+Cell[BoxData[
+ RowBox[{"4", " ", 
+  SuperscriptBox[
+   RowBox[{"(", 
+    RowBox[{"2", "-", 
+     RowBox[{
+      FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{
+       InterpretationBox[
+        StyleBox["Cos",
+         ShowAutoStyles->False,
+         AutoSpacing->False],
+        Cos,
+        Editable->False], "[", "1", "]"}]}]}], ")"}], "5"], " ", 
+  RowBox[{"(", 
+   RowBox[{"2", "+", 
+    RowBox[{
+     FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+     RowBox[{
+      InterpretationBox[
+       StyleBox["Cos",
+        ShowAutoStyles->False,
+        AutoSpacing->False],
+       Cos,
+       Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+  RowBox[{"(", 
+   RowBox[{
+    RowBox[{"-", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"6561", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+             "1.47841606474766806825141434187406057578`16.63814406122767", 
+              "+", 
+              RowBox[{
+              "1.04824849999702173926770318423344820611`16.63814406122767", 
+               " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                "0.1363468347598781284318384217835071942`16.63814406122767", 
+                 "+", 
+                 RowBox[{
+                 "0.15686831598406516040801546491390089781`16.\
+528418419198136", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+               RowBox[{"Tmm", "[", 
+                RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+              "+", 
+              FractionBox[
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                RowBox[{"Tmm", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}]], "+", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}], 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]]}], 
+                 "+", 
+                 FractionBox[
+                  InterpretationBox[
+                   StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                   Editable->False], 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]]}], ")"}]}]}], 
+             ")"}]}], "+", 
+           RowBox[{"4", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"2", "-", 
+               RowBox[{
+                FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Cos",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Cos,
+                  Editable->False], "[", "1", "]"}]}]}], ")"}], "3"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                "0.1363468347598781284318384217835071942`16.63814406122767", 
+                 "+", 
+                 RowBox[{
+                 "0.15686831598406516040801546491390089781`16.\
+528418419198136", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+               RowBox[{"Tmm", "[", 
+                RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+              "+", 
+              FractionBox[
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                RowBox[{"Tmm", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}]], "+", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}], 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]]}], 
+                 "+", 
+                 FractionBox[
+                  InterpretationBox[
+                   StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                   Editable->False], 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]]}], ")"}]}]}], 
+             ")"}]}], "+", 
+           RowBox[{
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"2", "-", 
+               RowBox[{
+                FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Cos",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Cos,
+                  Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"\[ImaginaryI]", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                   "0.17941311501247540888832211302592530147`16.\
+586737371457104", "-", 
+                    RowBox[{
+                    "0.09272504087497633026742989304829654072`16.\
+63814406122767", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+                  RowBox[{"Tmm", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                 "+", 
+                 RowBox[{
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    "-", "0.02117488333612813547754058659908129761`16.\
+63814406122767"}], "+", 
+                    RowBox[{
+                    "0.01094369228653551601589555950090861498`16.\
+63814406122767", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+                    RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    FractionBox[
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    "-", "0.24933075807516747823287501375055519152`16.\
+63814406122767"}], " ", 
+                    RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    "1.56490058643372864135908078857452775931`18.", " ", 
+                    RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    "0.08179295518655869123429464826086963058`16.\
+63814406122767", " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]]}], ")"}]}]}], 
+                ")"}]}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox[
+                   RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}], 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]]}], 
+                 "+", 
+                 FractionBox[
+                  InterpretationBox[
+                   StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                   Editable->False], 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]]}], ")"}]}], "+", 
+              RowBox[{"2", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 FractionBox[
+                  RowBox[{"Tmm", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}], 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]], "+", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}], 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]]}], 
+                    "+", 
+                    FractionBox[
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False], 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]]}], ")"}]}]}], 
+                ")"}]}], "+", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 FractionBox[
+                  RowBox[{"2", " ", 
+                   RowBox[{"Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "3"]], "-", 
+                 
+                 FractionBox[
+                  RowBox[{"2", " ", 
+                   InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}], 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]], "+", 
+                 
+                 FractionBox[
+                  InterpretationBox[
+                   StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], 
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmm", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmm[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]]],
+                   Editable->False], 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}]]}], ")"}]}]}], 
+             ")"}]}]}], ")"}]}], ")"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"40000", " ", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"2", "-", 
+            RowBox[{
+             FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+             RowBox[{
+              InterpretationBox[
+               StyleBox["Cos",
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               Cos,
+               Editable->False], "[", "1", "]"}]}]}], ")"}], "8"], " ", 
+         RowBox[{"(", 
+          RowBox[{"2", "+", 
+           RowBox[{
+            FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+            RowBox[{
+             InterpretationBox[
+              StyleBox["Cos",
+               ShowAutoStyles->False,
+               AutoSpacing->False],
+              Cos,
+              Editable->False], "[", "1", "]"}]}]}], ")"}]}], ")"}]}], 
+      ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"6561", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+           "0.522991211400918415737979044992773801`16.63814406122767", "+", 
+            RowBox[{
+            "0.07356635051166155290999815115363448542`15.833480936552116", 
+             " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", "5.31758874064684047824403221831839285934`18."}], 
+               "+", 
+               RowBox[{"0``17.362725790816643", " ", "\[ImaginaryI]"}]}], 
+              ")"}], " ", 
+             RowBox[{"Tmn", "[", 
+              RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "-", 
+            
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             RowBox[{
+              InterpretationBox[
+               StyleBox["Cot",
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               Cot,
+               Editable->False], "[", "1", "]"}], " ", 
+             RowBox[{"Tmn", "[", 
+              RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+            
+            RowBox[{"2", " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             RowBox[{
+              InterpretationBox[
+               StyleBox["Csc",
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               Csc,
+               Editable->False], "[", "1", "]"}], " ", 
+             RowBox[{"Tmn", "[", 
+              RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+            
+            RowBox[{
+             FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+             RowBox[{"(", 
+              RowBox[{"2", "-", 
+               RowBox[{
+                FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Cos",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Cos,
+                  Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             RowBox[{
+              InterpretationBox[
+               StyleBox["Sin",
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               Sin,
+               Editable->False], "[", "1", "]"}], " ", 
+             RowBox[{"Tmn", "[", 
+              RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+            
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"-", 
+                 FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Sin",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Sin,
+                  Editable->False], "[", "1", "]"}], " ", 
+                RowBox[{"Tmn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+               "+", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                InterpretationBox[
+                 StyleBox[
+                  RowBox[{
+                   SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 xAct`xTensor`PD[{2, -$CellContext`ch}][
+                  $CellContext`Tmn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+                 Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{"81", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"2", "+", 
+               RowBox[{
+                FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Cos",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Cos,
+                  Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]}]], 
+          RowBox[{"400", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "3"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"-", "5.31758874064684047824403221831839285934`18."}],
+                 "+", 
+                RowBox[{"0``17.362725790816643", " ", "\[ImaginaryI]"}]}], 
+               ")"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "-", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cot",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cot,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{"2", " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Csc",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Csc,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Sin,
+                   Editable->False], "[", "1", "]"}], " ", 
+                 RowBox[{"Tmn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 InterpretationBox[
+                  StyleBox[
+                   RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  xAct`xTensor`PD[{2, -$CellContext`ch}][
+                   $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                  Editable->False]}]}], ")"}]}]}], ")"}]}]}], "+", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"-", 
+             RowBox[{
+              FractionBox["1", 
+               RowBox[{"81", " ", 
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "3"]}]], 
+              RowBox[{"200", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{
+                    "-", "5.31758874064684047824403221831839285934`18."}], 
+                    "+", 
+                    RowBox[{"0``17.362725790816643", " ", "\[ImaginaryI]"}]}],
+                    ")"}], " ", 
+                  RowBox[{"Tmn", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                 "-", 
+                 RowBox[{
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cot",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cot,
+                    Editable->False], "[", "1", "]"}], " ", 
+                  RowBox[{"Tmn", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                 "+", 
+                 RowBox[{"2", " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Csc",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Csc,
+                    Editable->False], "[", "1", "]"}], " ", 
+                  RowBox[{"Tmn", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                 "+", 
+                 RowBox[{
+                  FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{"(", 
+                   RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                  RowBox[{"Tmn", "[", 
+                   RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                 "+", 
+                 RowBox[{
+                  SuperscriptBox[
+                   RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                  RowBox[{"(", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}]}], "+", 
+            RowBox[{
+             FractionBox["1", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]], 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                FractionBox["100", "81"], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cot",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cot,
+                    Editable->False], "[", "1", "]"}]}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+                  RowBox[{"2", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Csc",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Csc,
+                    Editable->False], "[", "1", "]"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+                  RowBox[{
+                   FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "-", 
+                  RowBox[{"0.35210263194758894430579317742926874585`18.", " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+                  RowBox[{
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}], "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], 
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]]],
+                    Editable->False]}], "+", 
+                    RowBox[{"2", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}], "+", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "-", 
+               RowBox[{
+                FractionBox["1", "6561"], 
+                RowBox[{"20000", " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    "-", "5.31758874064684047824403221831839285934`18."}], 
+                    "+", 
+                    RowBox[{"0``17.362725790816643", " ", "\[ImaginaryI]"}]}],
+                     ")"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "-", 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cot",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cot,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{"2", " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Csc",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Csc,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{
+                    FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}]}], ")"}]}]}], 
+           ")"}]}]}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"20000", " ", 
+       SqrtBox["2"], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"2", "-", 
+          RowBox[{
+           FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Cos",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Cos,
+             Editable->False], "[", "1", "]"}]}]}], ")"}], "8"], " ", 
+       RowBox[{"(", 
+        RowBox[{"2", "+", 
+         RowBox[{
+          FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["Cos",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            Cos,
+            Editable->False], "[", "1", "]"}]}]}], ")"}]}], ")"}]}], "-", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"6561", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+            "-", "0.17484039020944163221137560207397256348`17.\
+195336875324443"}], "+", 
+            RowBox[{
+            "1.24295940795581966802834085888899813149`18.", " ", 
+             "\[ImaginaryI]"}]}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"0``16.376832407078936", "+", 
+               RowBox[{
+               "2.23744408659049813555979444479815402754`16.638144061227674", 
+                " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+             RowBox[{"Tmn", "[", 
+              RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+            
+            RowBox[{
+             FractionBox["200", "81"], " ", 
+             RowBox[{"(", 
+              RowBox[{"2", "-", 
+               RowBox[{
+                FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Cos",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Cos,
+                  Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             RowBox[{"Tmn", "[", 
+              RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+            
+            RowBox[{
+             SuperscriptBox[
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                FractionBox["200", "81"], " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                RowBox[{"Tmn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+               "+", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"-", 
+                   FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                  RowBox[{
+                   FractionBox["100", "81"], " ", 
+                   InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}], "-", 
+         
+         RowBox[{
+          FractionBox["1", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "+", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]], 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Cot",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Cot,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0``16.376832407078936", "+", 
+                RowBox[{
+                "2.23744408659049813555979444479815402754`16.638144061227674",
+                  " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["200", "81"], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["200", "81"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{"Tmn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                   RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
+         "+", 
+         RowBox[{
+          FractionBox["1", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "+", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]], 
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Csc",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Csc,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0``16.376832407078936", "+", 
+                RowBox[{
+                "2.23744408659049813555979444479815402754`16.638144061227674",
+                  " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["200", "81"], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["200", "81"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{"Tmn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                   RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
+         "+", 
+         RowBox[{
+          FractionBox["1", 
+           RowBox[{"5", " ", 
+            SuperscriptBox[
+             RowBox[{"(", 
+              RowBox[{"2", "+", 
+               RowBox[{
+                FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Cos",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Cos,
+                  Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]}]], 
+          RowBox[{"18", " ", "\[ImaginaryI]", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "3"], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Sin",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Sin,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"0``16.376832407078936", "+", 
+                RowBox[{
+                "2.23744408659049813555979444479815402754`16.638144061227674",
+                  " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              FractionBox["200", "81"], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"Tmn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["200", "81"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{"Tmn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                   RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
+         "+", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             FractionBox["1", 
+              RowBox[{"5", " ", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"2", "+", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "3"]}]], 
+             RowBox[{"9", " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"0``16.376832407078936", "+", 
+                   RowBox[{
+                   "2.23744408659049813555979444479815402754`16.\
+638144061227674", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+                 RowBox[{"Tmn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 FractionBox["200", "81"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "-", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 RowBox[{"Tmn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    FractionBox["200", "81"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
+            "+", 
+            RowBox[{
+             FractionBox["1", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "+", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]], 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{
+                FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                RowBox[{
+                 InterpretationBox[
+                  StyleBox["Sin",
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  Sin,
+                  Editable->False], "[", "1", "]"}], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   FractionBox["200", "81"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                   RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                   "+", 
+                  RowBox[{
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+               RowBox[{"\[ImaginaryI]", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    "-", "0.38899140682477284414883741554388578389`16.\
+194609211944936"}], "+", 
+                    RowBox[{
+                    "1.59989202176467746435551202622640784093`16.\
+63814406122767", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+                   RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                   "+", 
+                  RowBox[{
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    "0.0918199057822297699347670902839561811`16.\
+63814406122767", "-", 
+                    RowBox[{
+                    "0.37764827737273903018205503529415573282`16.\
+63814406122767", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    "0.46918307440105711115187154308548320109`16.\
+63814406122767", "+", 
+                    RowBox[{
+                    "0.24248517032135571408899439166955993695`16.\
+63814406122767", " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+               RowBox[{"2", " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   FractionBox["10", "9"], " ", "\[ImaginaryI]", " ", 
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                   RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                   "+", 
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["20", "9"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+               RowBox[{
+                SuperscriptBox[
+                 RowBox[{"(", 
+                  RowBox[{"2", "-", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"-", 
+                    FractionBox["9", "5"]}], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "6561"]}], "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}], "+", 
+                  RowBox[{"2", " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["10", "9"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                     "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}], "+", 
+                  RowBox[{
+                   SuperscriptBox[
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    FractionBox[
+                    RowBox[{"20000", " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}], "6561"]}], "+", 
+                    RowBox[{
+                    FractionBox["100", "81"], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], 
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["r",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tmn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    xAct`xTensor`PD[{1, -$CellContext`ch}][
+                    $CellContext`Tmn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
+           ")"}]}]}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"20000", " ", 
+       SqrtBox["2"], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"2", "-", 
+          RowBox[{
+           FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Cos",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Cos,
+             Editable->False], "[", "1", "]"}]}]}], ")"}], "8"], " ", 
+       RowBox[{"(", 
+        RowBox[{"2", "+", 
+         RowBox[{
+          FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["Cos",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            Cos,
+            Editable->False], "[", "1", "]"}]}]}], ")"}]}], ")"}]}], "-", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"2", " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"2", "-", 
+          RowBox[{
+           FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Cos",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Cos,
+             Editable->False], "[", "1", "]"}]}]}], ")"}], "8"], " ", 
+       RowBox[{"(", 
+        RowBox[{"2", "+", 
+         RowBox[{
+          FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+          RowBox[{
+           InterpretationBox[
+            StyleBox["Cos",
+             ShowAutoStyles->False,
+             AutoSpacing->False],
+            Cos,
+            Editable->False], "[", "1", "]"}]}]}], ")"}]}]], 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "3.07568451248240282597978759051091754001`18."}], "+", 
+          
+          RowBox[{
+          "4.33784679239941978644429121994037457954`18.", " ", 
+           "\[ImaginaryI]"}]}], ")"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "2.51039220192739728707552208874766911758`18."}], 
+             "+", 
+             RowBox[{
+             "0.61036681290064621812198763279612480423`17.556465150717262", 
+              " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Csc",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Csc,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Sin",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Sin,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+               Editable->False]}]}], ")"}]}]}], ")"}]}], "-", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"2", "-", 
+           RowBox[{
+            FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+            RowBox[{
+             InterpretationBox[
+              StyleBox["Cos",
+               ShowAutoStyles->False,
+               AutoSpacing->False],
+              Cos,
+              Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["Cot",
+           ShowAutoStyles->False,
+           AutoSpacing->False],
+          Cot,
+          Editable->False], "[", "1", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "2.51039220192739728707552208874766911758`18."}], 
+             "+", 
+             RowBox[{
+             "0.61036681290064621812198763279612480423`17.556465150717262", 
+              " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Csc",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Csc,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Sin",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Sin,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+               Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+       RowBox[{"2", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"2", "-", 
+           RowBox[{
+            FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+            RowBox[{
+             InterpretationBox[
+              StyleBox["Cos",
+               ShowAutoStyles->False,
+               AutoSpacing->False],
+              Cos,
+              Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["Csc",
+           ShowAutoStyles->False,
+           AutoSpacing->False],
+          Csc,
+          Editable->False], "[", "1", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "2.51039220192739728707552208874766911758`18."}], 
+             "+", 
+             RowBox[{
+             "0.61036681290064621812198763279612480423`17.556465150717262", 
+              " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Csc",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Csc,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Sin",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Sin,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+               Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        FractionBox["18", "5"], " ", "\[ImaginaryI]", " ", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"2", "-", 
+           RowBox[{
+            FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+            RowBox[{
+             InterpretationBox[
+              StyleBox["Cos",
+               ShowAutoStyles->False,
+               AutoSpacing->False],
+              Cos,
+              Editable->False], "[", "1", "]"}]}]}], ")"}], "3"], " ", 
+        RowBox[{
+         InterpretationBox[
+          StyleBox["Sin",
+           ShowAutoStyles->False,
+           AutoSpacing->False],
+          Sin,
+          Editable->False], "[", "1", "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "2.51039220192739728707552208874766911758`18."}], 
+             "+", 
+             RowBox[{
+             "0.61036681290064621812198763279612480423`17.556465150717262", 
+              " ", "\[ImaginaryI]"}]}], ")"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{"2", " ", 
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Csc",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Csc,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "+", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Sin",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Sin,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"Tnn", "[", 
+            RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+               Editable->False]}]}], ")"}]}]}], ")"}]}], "+", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"2", "-", 
+           RowBox[{
+            FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+            RowBox[{
+             InterpretationBox[
+              StyleBox["Cos",
+               ShowAutoStyles->False,
+               AutoSpacing->False],
+              Cos,
+              Editable->False], "[", "1", "]"}]}]}], ")"}], "4"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{"2", "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cos",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cos,
+                Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+           RowBox[{
+            InterpretationBox[
+             StyleBox["Sin",
+              ShowAutoStyles->False,
+              AutoSpacing->False],
+             Sin,
+             Editable->False], "[", "1", "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+               Editable->False]}]}], ")"}]}], "+", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"2", "-", 
+                  RowBox[{
+                   FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                   RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"]}], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Cot",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Cot,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Csc",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Csc,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Csc",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Csc,
+                Editable->False], "[", "1", "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "-", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Sin,
+                   Editable->False], "[", "1", "]"}], " ", 
+                 RowBox[{"Tnn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 SuperscriptBox[
+                  RowBox[{"(", 
+                   RowBox[{"2", "-", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"-", 
+                    FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"2", "+", 
+                    RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tnn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}], "+", 
+          
+          RowBox[{
+           FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Sin",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Sin,
+                 Editable->False], "[", "1", "]"}], "2"], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+                 SuperscriptBox[
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], "2"], " ", 
+                 RowBox[{"Tnn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tnn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}], "-", 
+          
+          RowBox[{"0.35210263194758894430579317742926874585`18.", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              FractionBox["9", "5"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "-", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              SuperscriptBox[
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Sin",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Sin,
+                 Editable->False], "[", "1", "]"}], "2"], " ", 
+              RowBox[{"Tnn", "[", 
+               RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], "+", 
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"2", "-", 
+                 RowBox[{
+                  FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"-", 
+                  FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+                 SuperscriptBox[
+                  RowBox[{
+                   InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], "2"], " ", 
+                 RowBox[{"Tnn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"2", "+", 
+                   RowBox[{
+                    FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Cos,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    RowBox[{"Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}],
+                    "+", 
+                   RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    Sin,
+                    Editable->False], "[", "1", "]"}], " ", 
+                    InterpretationBox[
+                    StyleBox[
+                    RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                    xAct`xTensor`PD[{2, -$CellContext`ch}][
+                    $CellContext`Tnn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                    Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}], "+", 
+          
+          RowBox[{
+           SuperscriptBox[
+            RowBox[{"(", 
+             RowBox[{"2", "-", 
+              RowBox[{
+               FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+               RowBox[{
+                InterpretationBox[
+                 StyleBox["Cos",
+                  ShowAutoStyles->False,
+                  AutoSpacing->False],
+                 Cos,
+                 Editable->False], "[", "1", "]"}]}]}], ")"}], "2"], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"-", 
+               FractionBox["9", "10"]}], " ", "\[ImaginaryI]", " ", 
+              RowBox[{
+               InterpretationBox[
+                StyleBox["Sin",
+                 ShowAutoStyles->False,
+                 AutoSpacing->False],
+                Sin,
+                Editable->False], "[", "1", "]"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]],
+               Editable->False]}], "-", 
+             RowBox[{
+              FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}], " ", 
+                 RowBox[{"Tnn", "[", 
+                  RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}]}], 
+                "+", 
+                RowBox[{
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Sin",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Sin,
+                   Editable->False], "[", "1", "]"}], " ", 
+                 InterpretationBox[
+                  StyleBox[
+                   RowBox[{
+                    SubscriptBox["\[PartialD]", 
+                    StyleBox["\[Theta]",
+                    FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                    RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                   ShowAutoStyles->False,
+                   AutoSpacing->False],
+                  xAct`xTensor`PD[{2, -$CellContext`ch}][
+                   $CellContext`Tnn[$CellContext`t, 2, 
+                    1, $CellContext`\[Phi]]],
+                  Editable->False]}]}], ")"}]}], "+", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                RowBox[{
+                 FractionBox["9", "10"], " ", "\[ImaginaryI]", " ", 
+                 RowBox[{
+                  InterpretationBox[
+                   StyleBox["Cos",
+                    ShowAutoStyles->False,
+                    AutoSpacing->False],
+                   Cos,
+                   Editable->False], "[", "1", "]"}]}]}], ")"}], " ", 
+              InterpretationBox[
+               StyleBox[
+                RowBox[{
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], 
+                 SubscriptBox["\[PartialD]", 
+                  StyleBox["\[Theta]",
+                   FontColor->RGBColor[1., 0., 0.]]], "Tnn", "[", 
+                 RowBox[{"t", ",", "2", ",", "1", ",", "\[Phi]"}], "]"}],
+                ShowAutoStyles->False,
+                AutoSpacing->False],
+               xAct`xTensor`PD[{2, -$CellContext`ch}][
+                xAct`xTensor`PD[{2, -$CellContext`ch}][
+                 $CellContext`Tnn[$CellContext`t, 2, 1, $CellContext`\[Phi]]]],
+               Editable->False]}]}], ")"}]}]}], ")"}]}]}], ")"}]}]}], 
+   ")"}]}]], "Output",
+ CellChangeTimes->{3.873515350946516*^9},
+ CellLabel->"Out[64]=",ExpressionUUID->"bb7d0023-b113-48d6-8a26-ccb2516f27ad"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -3494,8 +7942,27 @@ Cell[95233, 2593, 2603, 64, 239, "Input",ExpressionUUID->"752e08c9-981d-4599-809
 Cell[CellGroupData[{
 Cell[97873, 2662, 217, 4, 65, "Section",ExpressionUUID->"6e64b9b7-5c75-4399-a4ea-3d9034117268"],
 Cell[98093, 2668, 7148, 213, 522, "Input",ExpressionUUID->"72d6832e-a932-4269-9319-00c7cf24a013"],
-Cell[105244, 2883, 13889, 394, 1013, "Input",ExpressionUUID->"2fdf8ec9-fccd-411a-9d0e-f4a55330acef"],
-Cell[119136, 3279, 5350, 138, 409, "Input",ExpressionUUID->"2f443d24-c7b7-4359-a002-356f0a2dfad2"]
+Cell[CellGroupData[{
+Cell[105266, 2885, 13889, 394, 1091, "Input",ExpressionUUID->"2fdf8ec9-fccd-411a-9d0e-f4a55330acef"],
+Cell[119158, 3281, 489, 10, 35, "Message",ExpressionUUID->"3f38fda3-01c6-4af3-874d-c11a79d1adca"],
+Cell[119650, 3293, 487, 10, 35, "Message",ExpressionUUID->"ae832853-dd26-4bcc-9698-cfe26e269c77"],
+Cell[120140, 3305, 489, 10, 35, "Message",ExpressionUUID->"f0eaf048-c4da-4f24-832d-8ba4a4f25259"],
+Cell[120632, 3317, 222, 4, 31, "Print",ExpressionUUID->"88bd3c3e-4da9-4313-8752-c3586be99ed3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[120891, 3326, 2940, 81, 339, "Input",ExpressionUUID->"dfcdac85-b8df-4d9b-840b-0275a9f6a279"],
+Cell[123834, 3409, 329, 6, 41, "Output",ExpressionUUID->"e1856709-2a1e-4602-b89c-a851df1d5580"],
+Cell[124166, 3417, 329, 6, 41, "Output",ExpressionUUID->"19697ede-7013-4ecf-91c7-f6543186c002"],
+Cell[124498, 3425, 329, 6, 41, "Output",ExpressionUUID->"42cd7d10-e51d-49f1-a790-7ab387c1967b"],
+Cell[124830, 3433, 329, 6, 41, "Output",ExpressionUUID->"36785083-2852-4a13-8a0c-095a363ebed1"],
+Cell[125162, 3441, 329, 6, 41, "Output",ExpressionUUID->"47cc9fc2-d33f-4e4b-8dbc-ed5748f85a0a"],
+Cell[125494, 3449, 329, 6, 41, "Output",ExpressionUUID->"25784666-5234-4dd6-8974-181f425be0e9"]
+}, Open  ]],
+Cell[125838, 3458, 5369, 137, 409, "Input",ExpressionUUID->"2f443d24-c7b7-4359-a002-356f0a2dfad2"],
+Cell[CellGroupData[{
+Cell[131232, 3599, 246, 4, 36, "Input",ExpressionUUID->"1cde0ffd-2f14-4fc2-89e6-f4fc2452198d"],
+Cell[131481, 3605, 170483, 4259, 3924, "Output",ExpressionUUID->"bb7d0023-b113-48d6-8a26-ccb2516f27ad"]
+}, Open  ]]
 }, Open  ]]
 }, Open  ]]
 }
