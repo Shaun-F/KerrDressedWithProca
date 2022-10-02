@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27605,        839]
-NotebookOptionsPosition[     27138,        823]
-NotebookOutlinePosition[     27549,        840]
-CellTagsIndexPosition[     27506,        837]
+NotebookDataLength[     28094,        849]
+NotebookOptionsPosition[     27533,        832]
+NotebookOutlinePosition[     27946,        849]
+CellTagsIndexPosition[     27903,        846]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -378,13 +378,14 @@ Cell[BoxData[{
 Tdd_PrivateTeukolsky.mx\>\"", ",", "Tdd"}], "]"}], ";"}], "*)"}]}], "\n", 
  RowBox[{
   RowBox[{"Tdd", "=", 
-   RowBox[{
-   "Import", "[", 
-    "\"\</home/shaunf/Documents/Computer/Code/Project/ProcaAroundKerr/\
-FKKSsolver/KerrDressedWithProca/Debugging/TddNilsOwnGeneration.mx\>\"", 
-    "]"}]}], ";"}]}], "Input",
- CellChangeTimes->{{3.8734286097137938`*^9, 3.873428627196816*^9}},
- CellLabel->"In[1]:=",ExpressionUUID->"cbe3a631-7700-4813-af63-8c4643f5f351"],
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<TddNilsOwnGeneration.mx\>\""}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8734286097137938`*^9, 3.873428627196816*^9}, {
+  3.873521435438746*^9, 3.8735214378610992`*^9}},
+ CellLabel->
+  "(Local2) In[1]:=",ExpressionUUID->"cbe3a631-7700-4813-af63-8c4643f5f351"],
 
 Cell[BoxData[{
  RowBox[{
@@ -489,7 +490,7 @@ Cell[BoxData[{
       RowBox[{
        RowBox[{"mbarK", "[", "b", "]"}], "//", 
        RowBox[{"ToBasis", "[", "ch", "]"}]}], "//", "ComponentArray"}], ",", 
-     "mbarKtemp"}], "]"}], ";"}], "\n", "\[IndentingNewLine]", 
+     "mbarKtemp"}], "]"}], ";"}], "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", 
    RowBox[{
    "Integrad", " ", "for", " ", "the", " ", "T_lm\[Omega]", " ", "for", " ", 
@@ -717,7 +718,7 @@ Cell[BoxData[{
          RowBox[{"(", 
           RowBox[{
            RowBox[{"ToExpression", "[", 
-            RowBox[{"\"\<PrivateTeukolsky`T\>\"", "<>", 
+            RowBox[{"\"\<T\>\"", "<>", 
              RowBox[{"ToString", "[", "j", "]"}]}], "]"}], "[", 
            RowBox[{
             RowBox[{"t", "[", "]"}], ",", 
@@ -757,7 +758,7 @@ Cell[BoxData[{
            RowBox[{"(", 
             RowBox[{
              RowBox[{"ToExpression", "[", 
-              RowBox[{"\"\<PrivateTeukolsky`T\>\"", "<>", 
+              RowBox[{"\"\<T\>\"", "<>", 
                RowBox[{"ToString", "[", "j", "]"}]}], "]"}], "[", 
              RowBox[{
               RowBox[{"t", "[", "]"}], ",", 
@@ -781,19 +782,18 @@ Cell[BoxData[{
          RowBox[{"\"\<nn\>\"", ",", "\"\<mn\>\"", ",", "\"\<mm\>\""}], 
          "}"}]}], "}"}]}], "]"}], "//", "Flatten"}]}], ";"}], "\n", 
  RowBox[{
-  RowBox[{
-   RowBox[{"TeukolskyTintegrand1", "=", 
+  RowBox[{"TeukolskyTintegrand1", "=", 
+   RowBox[{
     RowBox[{
      RowBox[{
       RowBox[{
-       RowBox[{
-        RowBox[{"4", "/", 
-         RowBox[{"(", 
-          RowBox[{"\[Rho]bar", " ", 
-           RowBox[{"\[Rho]", "^", "5"}]}], ")"}]}], " ", 
+       RowBox[{"4", "/", 
         RowBox[{"(", 
-         RowBox[{"B2", "+", "B2s"}], ")"}]}], "//.", "ddTij"}], "//.", 
-      "dTij"}], "//.", "coordinates"}]}], ";"}], " ", 
+         RowBox[{"\[Rho]bar", " ", 
+          RowBox[{"\[Rho]", "^", "5"}]}], ")"}]}], " ", 
+       RowBox[{"(", 
+        RowBox[{"B2", "+", "B2s"}], ")"}]}], "//.", "ddTij"}], "//.", 
+     "dTij"}], "//.", "coordinates"}]}], ";", " ", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"The", " ", 
@@ -802,29 +802,38 @@ Cell[BoxData[{
        RowBox[{"2", "\[Pi]"}], "]"}]}], " ", "is", " ", "not", " ", "part", 
      " ", "of", " ", "the", " ", "FT", " ", "below"}], ",", " ", 
     RowBox[{"so", " ", "we", " ", "include", " ", "it", " ", 
-     RowBox[{"here", "!"}]}]}], "*)"}]}], "\n", 
- RowBox[{
+     RowBox[{"here", "!"}]}]}], "*)"}], "\n", 
   RowBox[{"Export", "[", 
    RowBox[{
-   "\"\<./NilsTeuTintegrandOwnGeneration.mx\>\"", ",", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<NilsTeuTintegrandOwnGeneration.mx\>\""}], ",", 
     "TeukolskyTintegrand1"}], "]"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"TeukolskyTintegrand", "=", 
-   RowBox[{
-   "Import", "[", "\"\<./NilsTeuTintegrandOwnGeneration.mx\>\"", "]"}]}], 
-  ";"}], "\n", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<NilsTeuTintegrandOwnGeneration.mx\>\""}], "]"}]}], ";"}], "\n", 
  RowBox[{
   RowBox[{
   "Print", "[", "\"\<Generating analytical Teukolsky T: done.\>\"", "]"}], 
   ";"}]}], "Input",
  CellChangeTimes->{{3.873437399684718*^9, 3.873437409120677*^9}, {
-  3.8734374541307907`*^9, 3.873437504639738*^9}},
- CellLabel->"In[72]:=",ExpressionUUID->"d1404d19-2969-4cbb-b58a-2ea079c2428f"]
+  3.8734374541307907`*^9, 3.873437504639738*^9}, {3.873521466309806*^9, 
+  3.873521477103066*^9}, {3.8735216864908047`*^9, 3.873521689780793*^9}},
+ CellLabel->
+  "(Local2) In[63]:=",ExpressionUUID->"d1404d19-2969-4cbb-b58a-2ea079c2428f"],
+
+Cell[BoxData["TeukolskyTintegrand1"], "Input",
+ CellChangeTimes->{{3.873521677385771*^9, 3.873521697261455*^9}},
+ CellLabel->
+  "(Local2) In[92]:=",ExpressionUUID->"c6aa7987-2332-4e3c-ace1-997fa00b93cc"]
 },
-Evaluator->"Local 2",
-WindowSize->{1440, 792},
+Evaluator->"Local2",
+WindowSize->{1440, 756},
 WindowMargins->{{0, Automatic}, {0, Automatic}},
-FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"ffbf2862-be81-4bf5-b588-76e3c9238198"
 ]
@@ -839,8 +848,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 12325, 366, 1275, "Input",ExpressionUUID->"cbe3a631-7700-4813-af63-8c4643f5f351"],
-Cell[12886, 388, 14248, 433, 1032, "Input",ExpressionUUID->"d1404d19-2969-4cbb-b58a-2ea079c2428f"]
+Cell[558, 20, 12343, 367, 931, "Input",ExpressionUUID->"cbe3a631-7700-4813-af63-8c4643f5f351"],
+Cell[12904, 389, 14419, 436, 751, "Input",ExpressionUUID->"d1404d19-2969-4cbb-b58a-2ea079c2428f"],
+Cell[27326, 827, 203, 3, 41, "Input",ExpressionUUID->"c6aa7987-2332-4e3c-ace1-997fa00b93cc"]
 }
 ]
 *)

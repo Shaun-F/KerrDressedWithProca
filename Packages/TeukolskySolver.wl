@@ -119,7 +119,7 @@ rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,soluti
 Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
@@ -128,11 +128,9 @@ for the undetermined coefficients A, B, and C by choosing three values of Subscr
 (\[NoBreak]T[0,r,\[Theta],p1]
 T[0,r,\[Theta],p2]
 T[0,r,\[Theta],p3]
-
 \[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
 Cos[2m p3]	Sin[2m p3]	1
-
 \[NoBreak])(\[NoBreak]A
 B
 C
@@ -150,7 +148,7 @@ coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(r
 coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
-TnnDecomposed = {t,r,\[Theta],\[Phi]}|->Evaluate[coeff1[r,\[Theta]]*Cos[-2*\[Omega]value*t + 2*mvalue*\[Phi]]+coeff2[r,\[Theta]]*Sin[-2*\[Omega]value*t + 2*mvalue*\[Phi]]]
+TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
@@ -338,7 +336,7 @@ tnn = Tnn[solution, AsInterpolatingFunction->True],
 B = -1/2 \[Rho]^8*\[Rho]b*L[-1][\[Rho]^-4*L[0][(\[Rho]^-2*\[Rho]b^-1*tnn[t,r,\[Theta],\[Phi]])]]-1/(2*Sqrt[2]) \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*L[-1][\[Rho]^-4*\[Rho]b^2 Jp[(\[Rho]^-2*\[Rho]b^-2*\[CapitalDelta]^-1*tmbn[t,r,\[Theta],\[Phi]])]];
 BPrime = -1/4 \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jp[\[Rho]^-4*Jp[(\[Rho]^-2*\[Rho]b*tmbmb[t,r,\[Theta],\[Phi]])]]-1/(2*Sqrt[2]) \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jp[\[Rho]^-4*\[Rho]b^2*\[CapitalDelta]^-1*L[-1][(\[Rho]^-2*\[Rho]b^-2*tmbn[t,r,\[Theta],\[Phi]])]];
 expr = (2(B+BPrime))//FromxActVariables//ApplySolutionSet[solution];
-\[ScriptCapitalT] = OptimizedFunction[{t,r,\[Theta],\[Phi]},expr];
+\[ScriptCapitalT] = OptimizedFunction[{t,r,\[Theta],\[Phi]},Evaluate@expr];
 Return[\[ScriptCapitalT]];
 ]
 ];
