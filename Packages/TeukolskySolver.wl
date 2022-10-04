@@ -116,39 +116,34 @@ $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
 Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
-Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
+Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"]), \[Pi]/(8*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
 Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
-(\[NoBreak]T[0,r,\[Theta],p1]
-T[0,r,\[Theta],p2]
-T[0,r,\[Theta],p3]
-\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
+(\[NoBreak]T[0,r,\[Theta],p1],T[0,r,\[Theta],p2],T[0,r,\[Theta],p3]\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
 Cos[2m p3]	Sin[2m p3]	1
-\[NoBreak])(\[NoBreak]A
-B
-C
-
-\[NoBreak])
+\[NoBreak])(\[NoBreak]A,B,C\[NoBreak])
 *)
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
 coefftimestart = AbsoluteTime[];
-CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb}];
-reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]]};
+CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
+reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
 coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
+coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
-TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]];
+TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
@@ -189,48 +184,41 @@ If[OptionValue[AsOptimized],
 ];
 
 If[OptionValue[AsInterpolatingFunction], 
-$Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[CapitalTau]\), \(\*OverscriptBox[\(m\), \(_\)] \*OverscriptBox[\(m\), \(_\)]\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
-(*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
+$Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbmb\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
+(*Assume Expression of the formSubscript[T, mbmb] = Subscript[(T^1), mbmb][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), mbmb][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), mbmb][r,\[Theta]]*)
 Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
-Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
+Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"]), \[Pi]/(8*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
-Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
+Subscript[T, mbmb][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
-(\[NoBreak]T[0,r,\[Theta],p1]
-T[0,r,\[Theta],p2]
-T[0,r,\[Theta],p3]
-
-\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
+(\[NoBreak]T[0,r,\[Theta],p1],T[0,r,\[Theta],p2],T[0,r,\[Theta],p3]\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
 Cos[2m p3]	Sin[2m p3]	1
-
-\[NoBreak])(\[NoBreak]A
-B
-C
-
-\[NoBreak])
+\[NoBreak])(\[NoBreak]A,B,C\[NoBreak])
 *)
-$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[CapitalTau]\), \(\*OverscriptBox[\(m\), \(_\)] \*OverscriptBox[\(m\), \(_\)]\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbmb\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
 coefftimestart = AbsoluteTime[];
-CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb}];
-reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]]};
+CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
+reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
 coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
+coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
-TnnDecomposed = {t,r,\[Theta],\[Phi]}|->Evaluate[coeff1[r,\[Theta]]*Cos[-2*\[Omega]value*t + 2*mvalue*\[Phi]]+coeff2[r,\[Theta]]*Sin[-2*\[Omega]value*t + 2*mvalue*\[Phi]]]
+TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];(*end With statement*)
 
-$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[CapitalTau]\), \(\*OverscriptBox[\(m\), \(_\)] \*OverscriptBox[\(m\), \(_\)]\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbmb\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
 Return[TnnDecomposed]
 ];(*end Block statement*)
 ]; (*end If statement*)
@@ -269,48 +257,41 @@ Return[tmp$]
 ];
 
 If[OptionValue[AsInterpolatingFunction], 
-$Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[CapitalTau]\), \(\*OverscriptBox[\(m\), \(_\)] n\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
-(*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
+$Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
+(*Assume Expression of the formSubscript[T, mbn] = Subscript[(T^1), mbn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), mbn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), mbn][r,\[Theta]]*)
 Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
-Dmat[phi1_, phi2_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1]},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2]}};
+Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
 tmp$ = OptimizedFunction[{t,r,\[Theta],\[Phi]}, res, ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re//Evaluate,
+With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $TSMaxRadialPoints+10*Log[radialdomain[[-1]]]], \[Theta]points = $TSCoefficent\[Theta]points, \[Phi]sampling = {0, \[Pi]/(4*solution["Parameters", "m"]), \[Pi]/(8*solution["Parameters", "m"])}, \[Omega]value = solution["Solution", "\[Omega]"]//Re,
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
-Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
+Subscript[T, mbn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
-(\[NoBreak]T[0,r,\[Theta],p1]
-T[0,r,\[Theta],p2]
-T[0,r,\[Theta],p3]
-
-\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
+(\[NoBreak]T[0,r,\[Theta],p1],T[0,r,\[Theta],p2],T[0,r,\[Theta],p3]\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
 Cos[2m p3]	Sin[2m p3]	1
-
-\[NoBreak])(\[NoBreak]A
-B
-C
-
-\[NoBreak])
+\[NoBreak])(\[NoBreak]A,B,C\[NoBreak])
 *)
-$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[CapitalTau]\), \(\*OverscriptBox[\(m\), \(_\)] n\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
 coefftimestart = AbsoluteTime[];
-CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb}];
-reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]]};
+CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
+reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
 coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
+coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
-TnnDecomposed = {t,r,\[Theta],\[Phi]}|->Evaluate[coeff1[r,\[Theta]]*Cos[-2*\[Omega]value*t + 2*mvalue*\[Phi]]+coeff2[r,\[Theta]]*Sin[-2*\[Omega]value*t + 2*mvalue*\[Phi]]]
+TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];(*end With statement*)
 
-$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[CapitalTau]\), \(\*OverscriptBox[\(m\), \(_\)] n\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
 Return[TnnDecomposed]
 ];(*end Block statement*)
 ]; (*end If statement*)
