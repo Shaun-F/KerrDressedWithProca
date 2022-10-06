@@ -10,33 +10,40 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     75659,       2085]
-NotebookOptionsPosition[     74935,       2065]
-NotebookOutlinePosition[     75419,       2084]
-CellTagsIndexPosition[     75376,       2081]
+NotebookDataLength[     78297,       2145]
+NotebookOptionsPosition[     77402,       2124]
+NotebookOutlinePosition[     77866,       2142]
+CellTagsIndexPosition[     77823,       2139]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\</NilsPolarizationTensor.mx\>\""}], ",", " ", 
+   RowBox[{"BBLtemp2", "//", "Simplify"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8739580598266087`*^9, 3.8739580609116096`*^9}, 
+   3.873958212034829*^9},
+ CellLabel->"In[78]:=",ExpressionUUID->"0388d9ba-aaa5-4a83-8797-801b0eea96ba"],
+
 Cell["Generate Nils Vector Fields", "Text",
  CellChangeTimes->{{3.8739459480877113`*^9, 
   3.873945953788604*^9}},ExpressionUUID->"8578ff2c-de55-4886-a551-\
 c2688af868aa"],
 
-Cell[BoxData[
- RowBox[{"Import", "[", 
-  "\"\</home/shaunf/Documents/Computer/Code/Project/ProcaAroundKerr/\
-FKKSsolver/KerrDressedWithProca/Packages/HelperFunctions.wl\>\"", 
-  "]"}]], "Input",
- CellChangeTimes->{{3.873948503559641*^9, 3.8739485174212093`*^9}},
- CellLabel->
-  "In[137]:=",ExpressionUUID->"32db6e3a-2122-4ffa-8f71-153749623af5"],
-
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"Needs", "[", "\"\<xAct`xCoba`\>\"", "]"}], "\n", "\n", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<../Packages/HelperFunctions.wl\>\""}], "]"}], "\n", 
   RowBox[{"(*", 
-   RowBox[{"xAct", " ", "initializations"}], "*)"}]}], "\n", 
+   RowBox[{"xAct", " ", "initializations"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Needs", "[", "\"\<xAct`xCoba`\>\"", "]"}], "\n", 
  RowBox[{
   RowBox[{"$DefInfoQ", "=", "False"}], ";"}], "\n", 
  RowBox[{
@@ -46,21 +53,24 @@ Cell[BoxData[{
  RowBox[{"$ShowTimeThreshold", "=", "0.5"}], "\n", 
  RowBox[{
   RowBox[{"DefManifold", "[", 
-   RowBox[{"M", ",", "4", ",", 
-    RowBox[{"IndexRange", "[", 
-     RowBox[{"b", ",", "l"}], "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{"NilsM", ",", "4", ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "aN", ",", "bN", ",", "cN", ",", "dN", ",", "eN", ",", "fN", ",", "gN", 
+      ",", "hN", ",", "iN", ",", "jN", ",", "kN"}], "}"}]}], "]"}], 
+  ";"}], "\n", 
  RowBox[{
   RowBox[{"DefMetric", "[", 
    RowBox[{
     RowBox[{"-", "1"}], ",", 
-    RowBox[{"met", "[", 
+    RowBox[{"Nilsmet", "[", 
      RowBox[{
-      RowBox[{"-", "b"}], ",", 
-      RowBox[{"-", "c"}]}], "]"}], ",", "CD", ",", 
+      RowBox[{"-", "aN"}], ",", 
+      RowBox[{"-", "bN"}]}], "]"}], ",", "NilsCD", ",", 
     RowBox[{"PrintAs", "->", "\"\<g\>\""}]}], "]"}], ";"}], "\n", 
  RowBox[{
   RowBox[{"DefChart", "[", 
-   RowBox[{"ch", ",", "M", ",", 
+   RowBox[{"ch", ",", "NilsM", ",", 
     RowBox[{"{", 
      RowBox[{"0", ",", "1", ",", "2", ",", "3"}], "}"}], ",", 
     RowBox[{"{", 
@@ -170,23 +180,23 @@ Cell[BoxData[{
   RowBox[{
    RowBox[{
     RowBox[{
-     RowBox[{"met", "[", 
+     RowBox[{"Nilsmet", "[", 
       RowBox[{
-       RowBox[{"-", "b"}], ",", 
-       RowBox[{"-", "c"}]}], "]"}], "//", 
+       RowBox[{"-", "bN"}], ",", 
+       RowBox[{"-", "cN"}]}], "]"}], "//", 
      RowBox[{"ToBasis", "[", "ch", "]"}]}], "//", "ComponentArray"}], ",", 
    "KerrBL"}], "]"}], "\n", 
  RowBox[{"MetricCompute", "[", 
-  RowBox[{"met", ",", "ch", ",", "All"}], "]"}], "\n", 
+  RowBox[{"Nilsmet", ",", "ch", ",", "All"}], "]"}], "\n", 
  RowBox[{"MetricCompute", "[", 
-  RowBox[{"met", ",", "ch", ",", 
+  RowBox[{"Nilsmet", ",", "ch", ",", 
    RowBox[{"\"\<Christoffel\>\"", "[", 
     RowBox[{"1", ",", 
      RowBox[{"-", "1"}], ",", 
      RowBox[{"-", "1"}]}], "]"}], ",", 
    RowBox[{"CVSimplify", "->", "Simplify"}]}], "]"}], "\n", 
  RowBox[{"MetricCompute", "[", 
-  RowBox[{"met", ",", "ch", ",", 
+  RowBox[{"Nilsmet", ",", "ch", ",", 
    RowBox[{"\"\<Ricci\>\"", "[", 
     RowBox[{
      RowBox[{"-", "1"}], ",", 
@@ -206,7 +216,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{
    RowBox[{"cd", "=", 
-    RowBox[{"CovDOfMetric", "[", "met", "]"}]}], ";"}], "\n", "\n", 
+    RowBox[{"CovDOfMetric", "[", "Nilsmet", "]"}]}], ";"}], "\n", "\n", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{
@@ -218,8 +228,8 @@ Cell[BoxData[{
  RowBox[{"DefTensor", "[", 
   RowBox[{
    RowBox[{"\[CapitalLambda]", "[", 
-    RowBox[{"b", ",", 
-     RowBox[{"-", "c"}]}], "]"}], ",", "M"}], "]"}], "\n", 
+    RowBox[{"bN", ",", 
+     RowBox[{"-", "cN"}]}], "]"}], ",", "NilsM"}], "]"}], "\n", 
  RowBox[{
   RowBox[{"\[CapitalLambda]updownFKKStoBL", "=", 
    RowBox[{"{", 
@@ -248,8 +258,8 @@ Cell[BoxData[{
      RowBox[{
       RowBox[{
        RowBox[{"\[CapitalLambda]", "[", 
-        RowBox[{"b", ",", 
-         RowBox[{"-", "c"}]}], "]"}], "//", 
+        RowBox[{"bN", ",", 
+         RowBox[{"-", "cN"}]}], "]"}], "//", 
        RowBox[{"ToBasis", "[", "ch", "]"}]}], "//", "ComponentArray"}], ",", 
      "\[CapitalLambda]updownFKKStoBL"}], "]"}], ";"}], "\n", "\n", 
   RowBox[{"(*", 
@@ -263,7 +273,7 @@ Cell[BoxData[{
  RowBox[{"DefTensor", "[", 
   RowBox[{
    RowBox[{"BDolan", "[", 
-    RowBox[{"b", ",", "c"}], "]"}], ",", "M"}], "]"}], "\n", 
+    RowBox[{"bN", ",", "cN"}], "]"}], ",", "NilsM"}], "]"}], "\n", 
  RowBox[{
   RowBox[{"BupupFKKS", "=", 
    RowBox[{
@@ -685,7 +695,7 @@ Cell[BoxData[{
      RowBox[{
       RowBox[{
        RowBox[{"BDolan", "[", 
-        RowBox[{"b", ",", "c"}], "]"}], "//", 
+        RowBox[{"bN", ",", "cN"}], "]"}], "//", 
        RowBox[{"ToBasis", "[", "ch", "]"}]}], "//", "ComponentArray"}], ",", 
      "BupupFKKS"}], "]"}], ";"}], "\n", "\n", 
   RowBox[{"(*", 
@@ -695,7 +705,7 @@ Cell[BoxData[{
  RowBox[{"DefTensor", "[", 
   RowBox[{
    RowBox[{"BBL", "[", 
-    RowBox[{"b", ",", "c"}], "]"}], ",", "M"}], "]"}], "\n", 
+    RowBox[{"bN", ",", "cN"}], "]"}], ",", "NilsM"}], "]"}], "\n", 
  RowBox[{
   RowBox[{"BBLtemp1", "=", 
    RowBox[{
@@ -704,13 +714,13 @@ Cell[BoxData[{
       RowBox[{
        RowBox[{
         RowBox[{"\[CapitalLambda]", "[", 
-         RowBox[{"f", ",", 
-          RowBox[{"-", "g"}]}], "]"}], 
+         RowBox[{"fN", ",", 
+          RowBox[{"-", "gN"}]}], "]"}], 
         RowBox[{"\[CapitalLambda]", "[", 
-         RowBox[{"d", ",", 
-          RowBox[{"-", "e"}]}], "]"}], 
+         RowBox[{"dN", ",", 
+          RowBox[{"-", "eN"}]}], "]"}], 
         RowBox[{"BDolan", "[", 
-         RowBox[{"g", ",", "e"}], "]"}]}], "//", "eval"}], ")"}], "/.", 
+         RowBox[{"gN", ",", "eN"}], "]"}]}], "//", "eval"}], ")"}], "/.", 
      RowBox[{"{", 
       RowBox[{
        RowBox[{"y", "->", 
@@ -749,15 +759,23 @@ Cell[BoxData[{
   "Print", "[", "\"\<Should be 0! If not, then BBL is not correct!\>\"", 
    "]"}], ";"}], "\n", 
  RowBox[{
-  RowBox[{
-   RowBox[{"ComponentValue", "[", 
+  RowBox[{"ComponentValue", "[", 
+   RowBox[{
     RowBox[{
      RowBox[{
-      RowBox[{
-       RowBox[{"BBL", "[", 
-        RowBox[{"b", ",", "c"}], "]"}], "//", 
-       RowBox[{"ToBasis", "[", "ch", "]"}]}], "//", "ComponentArray"}], ",", 
-     "BBLtemp2"}], "]"}], ";"}], "\n", "\n", 
+      RowBox[{"BBL", "[", 
+       RowBox[{"bN", ",", "cN"}], "]"}], "//", 
+      RowBox[{"ToBasis", "[", "ch", "]"}]}], "//", "ComponentArray"}], ",", 
+    "BBLtemp2"}], "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\</NilsPolarizationTensor.mx\>\""}], ",", " ", 
+     RowBox[{"BBLtemp2", "//", "Simplify"}]}], "]"}], ";"}], 
+  "\[IndentingNewLine]", "\n", 
   RowBox[{"(*", 
    RowBox[{"The", " ", "Dolan", " ", 
     RowBox[{"eq", ".", " ", 
@@ -793,19 +811,19 @@ Cell[BoxData[{
  RowBox[{"DefTensor", "[", 
   RowBox[{
    RowBox[{"A", "[", 
-    RowBox[{"-", "b"}], "]"}], ",", "M"}], "]"}], "\n", 
+    RowBox[{"-", "bN"}], "]"}], ",", "NilsM"}], "]"}], "\n", 
  RowBox[{
   RowBox[{"A", "/:", 
-   RowBox[{"A", "[", "c_", "]"}], ":=", 
+   RowBox[{"A", "[", "cN_", "]"}], ":=", 
    RowBox[{"Module", "[", 
     RowBox[{
-     RowBox[{"{", "b", "}"}], ",", 
+     RowBox[{"{", "bN", "}"}], ",", 
      RowBox[{
       RowBox[{"BBL", "[", 
-       RowBox[{"c", ",", "b"}], "]"}], 
+       RowBox[{"cN", ",", "bN"}], "]"}], 
       RowBox[{
-       RowBox[{"CD", "[", 
-        RowBox[{"-", "b"}], "]"}], "@", 
+       RowBox[{"NilsCD", "[", 
+        RowBox[{"-", "bN"}], "]"}], "@", 
        RowBox[{"Z", "[", 
         RowBox[{
          RowBox[{"t", "[", "]"}], ",", 
@@ -813,30 +831,49 @@ Cell[BoxData[{
          RowBox[{"\[Theta]", "[", "]"}], ",", 
          RowBox[{"\[Phi]", "[", "]"}]}], "]"}]}]}]}], "]"}]}], ";"}], "\n", 
  RowBox[{
-  RowBox[{
-   RowBox[{"A", "/:", 
-    RowBox[{"A", "[", 
-     RowBox[{"-", "c_"}], "]"}], ":=", 
-    RowBox[{"Module", "[", 
+  RowBox[{"A", "/:", 
+   RowBox[{"A", "[", 
+    RowBox[{"-", "cN_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"bN", ",", "eN"}], "}"}], ",", 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{"b", ",", "e"}], "}"}], ",", 
-      RowBox[{
-       RowBox[{"met", "[", 
-        RowBox[{
-         RowBox[{"-", "e"}], ",", 
-         RowBox[{"-", "c"}]}], "]"}], 
-       RowBox[{"BBL", "[", 
-        RowBox[{"e", ",", "b"}], "]"}], 
+      RowBox[{"Nilsmet", "[", 
        RowBox[{
-        RowBox[{"CD", "[", 
-         RowBox[{"-", "b"}], "]"}], "@", 
-        RowBox[{"Z", "[", 
-         RowBox[{
-          RowBox[{"t", "[", "]"}], ",", 
-          RowBox[{"r", "[", "]"}], ",", 
-          RowBox[{"\[Theta]", "[", "]"}], ",", 
-          RowBox[{"\[Phi]", "[", "]"}]}], "]"}]}]}]}], "]"}]}], ";"}], "\n", 
+        RowBox[{"-", "eN"}], ",", 
+        RowBox[{"-", "cN"}]}], "]"}], 
+      RowBox[{"BBL", "[", 
+       RowBox[{"eN", ",", "bN"}], "]"}], 
+      RowBox[{
+       RowBox[{"NilsCD", "[", 
+        RowBox[{"-", "bN"}], "]"}], "@", 
+       RowBox[{"Z", "[", 
+        RowBox[{
+         RowBox[{"t", "[", "]"}], ",", 
+         RowBox[{"r", "[", "]"}], ",", 
+         RowBox[{"\[Theta]", "[", "]"}], ",", 
+         RowBox[{"\[Phi]", "[", "]"}]}], "]"}]}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+     "\"\<NilsFullsAdownSimp.mx\>\""}], ",", " ", 
+    RowBox[{
+     RowBox[{"A", "[", 
+      RowBox[{"-", "cN"}], "]"}], "//", "eval"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\<NilsFullsAupSimp.mx\>\""}], ",", " ", 
+     RowBox[{
+      RowBox[{"A", "[", "cN", "]"}], "//", "eval"}]}], "]"}], ";"}], "\n", 
   "\n", 
   RowBox[{"(*", 
    RowBox[{
@@ -856,7 +893,7 @@ Cell[BoxData[{
     ",", " ", 
     RowBox[{
     "and", " ", "comment", " ", "the", " ", "following", " ", "out"}]}], 
-   "*)"}]}], "\n", 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"sin", "=", 
    RowBox[{"Sin", "[", 
@@ -929,7 +966,7 @@ Cell[BoxData[{
     RowBox[{
      RowBox[{"(", 
       RowBox[{
-       RowBox[{"A", "[", "b", "]"}], "//", "eval"}], ")"}], "//.", 
+       RowBox[{"A", "[", "bN", "]"}], "//", "eval"}], ")"}], "//.", 
      "complextoreal"}], "//.", 
     RowBox[{"{", 
      RowBox[{
@@ -1112,7 +1149,7 @@ Cell[BoxData[{
      RowBox[{"(", 
       RowBox[{
        RowBox[{"A", "[", 
-        RowBox[{"-", "b"}], "]"}], "//", "eval"}], ")"}], "//.", 
+        RowBox[{"-", "bN"}], "]"}], "//", "eval"}], ")"}], "//.", 
      "complextoreal"}], "//.", 
     RowBox[{"{", 
      RowBox[{
@@ -1222,9 +1259,31 @@ Cell[BoxData[{
      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<AdownSimp.mx\>\""}], 
     ",", "AdownSimp"}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.8739460180418043`*^9, 3.873946048903186*^9}, {
-  3.873946327762794*^9, 3.87394634551785*^9}, {3.873946396236354*^9, 
-  3.873946398041486*^9}},
+   3.873946327762794*^9, 3.87394634551785*^9}, {3.873946396236354*^9, 
+   3.873946398041486*^9}, 3.873956066528309*^9, {3.873956525643446*^9, 
+   3.873956551399028*^9}, {3.873956657203823*^9, 3.8739566574036703`*^9}, {
+   3.873958068572132*^9, 3.873958068709445*^9}, {3.873958203710597*^9, 
+   3.873958205842637*^9}, {3.873959348344039*^9, 3.8739593568467093`*^9}, {
+   3.873959471296404*^9, 3.87395951072891*^9}, {3.873959595346519*^9, 
+   3.873959603649654*^9}, {3.873959635947953*^9, 3.87395963901783*^9}, {
+   3.873959680070189*^9, 3.873959719666051*^9}, {3.873959778769459*^9, 
+   3.8739597960528307`*^9}, {3.8739598705965347`*^9, 
+   3.8739600017449913`*^9}, {3.8739600794595823`*^9, 
+   3.8739600815905027`*^9}, {3.873961443792486*^9, 3.873961466654587*^9}, {
+   3.873961605148641*^9, 3.8739616117139874`*^9}},
  CellLabel->"In[1]:=",ExpressionUUID->"1ca9888c-7f3e-4026-bf8a-3c3ca6cd04ac"],
+
+Cell[BoxData["AupSimp"], "Input",
+ CellChangeTimes->{{3.8739624340232763`*^9, 3.8739624353500977`*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"e334e1f0-047b-40fe-bea7-288ece8f1077"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.873961972098271*^9, 
+  3.873961973026044*^9}},ExpressionUUID->"6a0e34ab-3168-4d3a-8fa5-\
+9af4330e1686"],
 
 Cell[BoxData[
  RowBox[{
@@ -2063,12 +2122,11 @@ Cell[BoxData[
    3.873949596955481*^9},ExpressionUUID->"508a54f2-1a86-4952-9497-\
 e0d97f1b9b4d"]
 },
-Evaluator->"Local 2",
-WindowSize->{1440, 792},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{720, 756},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
 TaggingRules-><|"TryRealOnly" -> False|>,
 Magnification:>0.75 Inherited,
-FrontEndVersion->"13.1 for Linux x86 (64-bit) (June 16, 2022)",
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"1f6a5751-1ce1-4c8f-96cb-bdb061e5986b"
 ]
@@ -2083,10 +2141,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 171, 3, 32, "Text",ExpressionUUID->"8578ff2c-de55-4886-a551-c2688af868aa"],
-Cell[732, 25, 345, 7, 27, "Input",ExpressionUUID->"32db6e3a-2122-4ffa-8f71-153749623af5"],
-Cell[1080, 34, 39857, 1192, 1995, "Input",ExpressionUUID->"1ca9888c-7f3e-4026-bf8a-3c3ca6cd04ac"],
-Cell[40940, 1228, 33991, 835, 2012, "Input",ExpressionUUID->"508a54f2-1a86-4952-9497-e0d97f1b9b4d"]
+Cell[558, 20, 405, 9, 24, "Input",ExpressionUUID->"0388d9ba-aaa5-4a83-8797-801b0eea96ba"],
+Cell[966, 31, 171, 3, 27, "Text",ExpressionUUID->"8578ff2c-de55-4886-a551-c2688af868aa"],
+Cell[1140, 36, 41772, 1237, 1838, "Input",ExpressionUUID->"1ca9888c-7f3e-4026-bf8a-3c3ca6cd04ac"],
+Cell[42915, 1275, 182, 2, 22, "Input",ExpressionUUID->"e334e1f0-047b-40fe-bea7-288ece8f1077"],
+Cell[43100, 1279, 304, 6, 119, "Input",ExpressionUUID->"6a0e34ab-3168-4d3a-8fa5-9af4330e1686"],
+Cell[43407, 1287, 33991, 835, 1879, "Input",ExpressionUUID->"508a54f2-1a86-4952-9497-e0d97f1b9b4d"]
 }
 ]
 *)

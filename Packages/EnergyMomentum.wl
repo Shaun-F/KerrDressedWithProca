@@ -43,7 +43,7 @@ Im[(Sr^\[Prime]\[Prime])[\[Epsilon]_]]:>0,Im[(Si^\[Prime]\[Prime])[\[Epsilon]_]]
 
 (*A^\[Mu]*)
 FKKSProca[solution_:analytic, OptionsPattern[{SymbolicExpression->False, Optimized->False, RealPart->True}]]:=
-Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar, Filename,Filenamecomps},
+Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar,assumps, Filename,Filenamecomps},
 If[OptionValue[RealPart],
 Filename = "FKKSProcaRealCTensor.mx";
 Filenamecomps = "AuprealComponents.mx";,
@@ -78,7 +78,8 @@ SetSharedVariable[ProcaMessenger,  AuprealComponents];
 DistributeDefinitions[KeyRule,complexToRealReprRule, killImagTerms,A,ProcaComponentsFilePath];
 ParallelDo[
 ProcaMessenger[[1+($KernelID/.KeyRule)]]=Row[{"Kernel "<>ToString[$KernelID]<>" working on iteration "<>ToString[i], Spacer[20], ProgressIndicator[Appearance->"Percolate"]}];
-AuprealComponents[[i+1]] = (A[[1]][[i+1]]//.complexToRealReprRule//Re//ComplexExpand)/.killImagTerms//Simplify[#,TimeConstraint->Infinity]&;
+assumps = {Derivative[1][Si][\[Theta]]\[Element]Reals, Derivative[1][Sr][\[Theta]]\[Element]Reals,Derivative[1][Ri][\[Theta]]\[Element]Reals,Derivative[1][Rr][\[Theta]]\[Element]Reals};;
+AuprealComponents[[i+1]] = (A[[1]][[i+1]]//.complexToRealReprRule//Re//ComplexExpand)//Simplify[#,Assumptions->assumps,TimeConstraint->Infinity]&;
 ProcaMessenger[[1+($KernelID/.KeyRule)]]="Kernel "<>ToString[$KernelID]<>" done.";,
 {i,0,3}];
 Export[ProcaComponentsFilePath,AuprealComponents];
@@ -96,12 +97,14 @@ With[{ProcaFilePath = $FKKSRoot<>"Expressions/FKKSProcaCTensor.mx"},
 If[
 FileExistsQ[ProcaFilePath],
 res = Import[ProcaFilePath];,
+Block[{ch=sphericalchart},
 Z = R[r[]]*S[\[Theta][]]*Exp[-I*\[Omega]*t[]]*Exp[I*m*\[Phi][]];
 res = Head[Polarization[\[Zeta],\[Xi]]Cd[-\[Xi]]@Z//FromBasisExpand//Simplify];
 Export[ProcaFilePath,res];
+](*End of Block*)
 ]
-];
-];
+];(*End of Not Real Part*)
+]; (*End of If Optionvalue[RealPart]*)
 If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
