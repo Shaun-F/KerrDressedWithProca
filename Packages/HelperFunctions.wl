@@ -242,15 +242,18 @@ AssociationThread[{\[Omega],\[Nu],S,R,dR,ddR}->Flatten@{\[Omega]v,
 ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParamSymbols/.ParamsToReprRule[solution]/.SolToReprRule[solution,real->OptionValue[real]];
 
 
-ApplyRealSolutionSet[solution_][expr_]:=
+Options[ApplyRealSolutionSet]={QuasiboundState->False, ProperDerivative->True};
+ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
 	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
+	postfactor = 1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]);
+	(*postfactor=1;*)
 		repr = {
-			HoldPattern@Derivative[d_][Rr][r_]->Re[Derivative[d][solR][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
-			HoldPattern@Derivative[d_][Ri][r_]->Im[Derivative[d][solR][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
-			HoldPattern@Derivative[d_][Sr][r_]->Re[Derivative[d][solS][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
-			HoldPattern@Derivative[d_][Si][r_]->Im[Derivative[d][solS][r]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^d,
+			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
 			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
-			\[Omega]i->Im[solution["Solution","\[Omega]"]],
+			\[Omega]i->Evaluate@If[OptionValue[QuasiboundState], 0, Im[solution["Solution","\[Omega]"]]],
 			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
 			\[Nu]i->Im[solution["Solution","\[Nu]"]],
 			\[Chi]->solution["Parameters", "\[Chi]"], 
@@ -259,10 +262,10 @@ ApplyRealSolutionSet[solution_][expr_]:=
 			m->solution["Parameters", "m"], 
 			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
 			\[Mu]->solution["Parameters", "\[Mu]Nv"],
-			Rr->( Re[solR[#]]&), 
-			Ri->( Im[solR[#]]&), 
-			Sr->( Re[solS[#]]&),
-			Si->( Im[solS[#]]&)
+			Rr->( Re[solR[RadialToHorizonCoord[#,\[Chi]v]]]&), 
+			Ri->( Im[solR[RadialToHorizonCoord[#,\[Chi]v]]]&), 
+			Sr->( Re[solS[RadialToHorizonCoord[#,\[Chi]v]]]&),
+			Si->( Im[solS[RadialToHorizonCoord[#,\[Chi]v]]]&)
 			};
 		res = expr/.repr;
 		Return[res]
@@ -281,7 +284,7 @@ Table[functionlist[[i]][Operands[[i]]], {i,1,Length@functionlist}]
 );
 
 
-ToParamSymbols:={a->\[Chi]};
+ToParamSymbols={a->\[Chi]};
 
 
 Options[OptimizedFunction]={WithProperties->False,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
@@ -379,7 +382,7 @@ funcOnPoints = With[{operand = {func,Sequence@@CoordinateRanges}},
 					];
 
 Messenger="Generating Interpolation function";
-retval = ListInterpolation[funcOnPoints, CoordinateRanges, Method->"Spline"];
+retval = ListInterpolation[funcOnPoints, CoordinateRanges, Method->"Hermite"];
 If[OptionValue[Metadata],
 Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>],
 Return[retval]

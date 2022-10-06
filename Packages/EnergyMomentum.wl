@@ -42,7 +42,8 @@ Im[(Sr^\[Prime]\[Prime])[\[Epsilon]_]]:>0,Im[(Si^\[Prime]\[Prime])[\[Epsilon]_]]
 
 
 (*A^\[Mu]*)
-FKKSProca[solution_:analytic, OptionsPattern[{SymbolicExpression->False, Optimized->False, RealPart->True}]]:=
+Options[FKKSProca]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False};
+FKKSProca[solution_:analytic, OptionsPattern[]]:=
 Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar,assumps, Filename,Filenamecomps},
 If[OptionValue[RealPart],
 Filename = "FKKSProcaRealCTensor.mx";
@@ -110,7 +111,7 @@ Return[res/.ToParamSymbols]
 ];
 
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 
@@ -122,43 +123,6 @@ If[OptionValue[Optimized],
 Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
 ];
 
-
-Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
-]
-
-
-(*A^\[Mu]Subscript[A, \[Mu]]*)
-FKKSProcaNorm[solution_:analytic,OptionsPattern[{SymbolicExpression->False, Optimized->False, RealPart->True}]]:=
-Block[{tmp,res,A, Filename},
-If[OptionValue[RealPart],
-Filename = "FKKSProcaNormReal.mx";,
-Filename = "FKKSProcaNorm.mx";
-];
-With[{FSFilePath = $FKKSRoot<>"Expressions/"<>Filename},
-If[
-FileExistsQ[FSFilePath],
-res = Import[FSFilePath];,
-
-A=FKKSProca[analytic, RealPart->OptionValue[RealPart]];
-res = A[-\[Zeta]]A[\[Zeta]];
-Export[FSFilePath, res];
-]
-];
-(*Format output based on input arguments*)
-If[TrueQ[solution==analytic],
-Return[res/.ToParamSymbols]
-];
-If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution];,
-tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
-];
-If[OptionValue[SymbolicExpression], 
-Return[tmp]
-];
-
-If[OptionValue[Optimized],
-Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
-];
 
 Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 ]
@@ -171,7 +135,8 @@ Subscript[F, \[Mu]\[Nu]]=\!\(
 \*SubscriptBox[\(\[Del]\), \(\[Nu]\)]
 \*SubscriptBox[\(A\), \(\[Mu]\)]\)
 *)
-FKKSFieldStrength[solution_, OptionsPattern[{SymbolicExpression->False, Optimized->False, RealPart->True}]]:=
+Options[FKKSFieldStrength]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False};
+FKKSFieldStrength[solution_, OptionsPattern[]]:=
 Block[{res,tmp,A,Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSFieldStrengthRealCTensor.mx";,
@@ -191,7 +156,7 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 
@@ -210,7 +175,8 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
-FKKSEnergyMomentum[solution_, OptionsPattern[{SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True}]]:=
+Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->False};
+FKKSEnergyMomentum[solution_, OptionsPattern[]]:=
 Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyMomentumRealCTensor.mx";,
@@ -233,7 +199,7 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 If[OptionValue[SymbolicExpression], 
@@ -246,50 +212,14 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
 
 Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 
-]
-
-
-(*
-Subscript[\[ScriptCapitalT]^\[Sigma], \[Sigma]]
-*)
-FKKSEnergyMomentumTrace[solution_Association, OptionsPattern[{SymbolicExpression->False,Optimized->True, RealPart->True}]]:=
-Block[{res, resOE,fkksEM,OptimizedResult, tmp, Filename},
-If[OptionValue[RealPart],
-Filename = "FKKSEnergyMomentumTraceReal.mx";,
-Filename = "FKKSEnergyMomentumTrace.mx";
-];
-With[{ENFilePath =$FKKSRoot<>"Expressions/"<>Filename},
-If[FileExistsQ[ENFilePath],
-res = Import[ENFilePath];,
-fkksEM = FKKSEnergyMomentum[analytic, RealPart->OptionValue[RealPart]];
-res = fkksEM[{\[Zeta],sphericalchart},{\[Xi],sphericalchart}]met[{-\[Zeta],-sphericalchart},{-\[Xi],-sphericalchart}]//TraceBasisDummy;
-Export[ENFilePath, res];
-];
-];
-(*Format output based on input arguments*)
-If[TrueQ[solution==analytic],
-Return[res/.ToParamSymbols]
-];
-If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution];,
-tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
-];
-If[OptionValue[SymbolicExpression], 
-Return[tmp]
-];
-
-If[OptionValue[Optimized],
-Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
-];
-
-Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 ]
 
 
 (*
 \[Rho] == Subscript[\[ScriptCapitalT]^t, t]
 *)
-FKKSEnergyDensity[solution_Association, OptionsPattern[{SymbolicExpression->False,Optimized->True,ToCompiled->False, RealPart->True , WithProperties->True,Experimental`OptimizeExpression, Compile}]]:=
+Options[FKKSEnergyDensity]={SymbolicExpression->False,Optimized->True,ToCompiled->False, RealPart->True , WithProperties->True, QuasiboundState->True}\[Union]Options[Experimental`OptimizeExpression]\[Union]Options[Compile];
+FKKSEnergyDensity[solution_Association, OptionsPattern[]]:=
 Block[{res, resOE,T,OptimizedResult, tmp,UnOptimizedResult, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyDensityReal.mx";,
@@ -309,7 +239,7 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 If[OptionValue[SymbolicExpression], 
@@ -343,7 +273,8 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 E = \[Integral]\[Rho]\[Sqrt](-g)dV
 *)
-FKKSTotalEnergy[solution_Association]:=
+Options[FKKSTotalEnergy]={QuasiboundState->True};
+FKKSTotalEnergy[solution_Association, OptionsPattern[]]:=
 Block[{TotalEnergyMessenger,
 energydensity,
 res, 
@@ -360,7 +291,7 @@ n\[Phi]points,
 Radialdomain = HorizonCoordToRadial[solution["Solution", "R"]["Domain"][[1]], solution["Parameters", "\[Chi]"]]
 },
 
-energydensity = FKKSEnergyDensity[solution, ToCompiled->True];
+energydensity = FKKSEnergyDensity[solution, ToCompiled->True, QuasiboundState->OptionValue[QuasiboundState]];
 
 SpacialEnergyDensity = {r,\[Theta],\[Phi]}|->energydensity[0,r,\[Theta],\[Phi]];
 
@@ -456,7 +387,7 @@ Return[solution["Derived", "Normalization"]];
 ]
 ];
 ];
-totalenergyresults = FKKSTotalEnergy[solution];
+totalenergyresults = FKKSTotalEnergy[solution, QuasiboundState->True];
 totalenergy = totalenergyresults["Total"];
 finalmass = FKKSFinalMass[wv, mv, \[Chi]v, InitialMass];
 normalization = Sqrt[(InitialMass-finalmass)/totalenergy];
