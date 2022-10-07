@@ -244,14 +244,15 @@ ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParam
 
 Options[ApplyRealSolutionSet]={QuasiboundState->False, ProperDerivative->True};
 ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
-	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
-	postfactor = 1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]);
-	(*postfactor=1;*)
+	Block[{repr,postfactor, res, MapToRadial, solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
+	(*postfactor = 1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]);*)
+		postfactor=1;
+		MapToRadial={x}|->Identity[x];(*RadialToHorizonCoord[x,\[Chi]v];*)
 		repr = {
-			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][RadialToHorizonCoord[x,\[Chi]v]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][MapToRadial[x]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][MapToRadial[x]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][MapToRadial[x]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][MapToRadial[x]]]*postfactor^d,
 			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
 			\[Omega]i->Evaluate@If[OptionValue[QuasiboundState], 0, Im[solution["Solution","\[Omega]"]]],
 			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
@@ -262,10 +263,10 @@ ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
 			m->solution["Parameters", "m"], 
 			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
 			\[Mu]->solution["Parameters", "\[Mu]Nv"],
-			Rr->( Re[solR[RadialToHorizonCoord[#,\[Chi]v]]]&), 
-			Ri->( Im[solR[RadialToHorizonCoord[#,\[Chi]v]]]&), 
-			Sr->( Re[solS[RadialToHorizonCoord[#,\[Chi]v]]]&),
-			Si->( Im[solS[RadialToHorizonCoord[#,\[Chi]v]]]&)
+			Rr->( Re[solR[MapToRadial[x]]]&), 
+			Ri->( Im[solR[MapToRadial[x]]]&), 
+			Sr->( Re[solS[MapToRadial[x]]]&),
+			Si->( Im[solS[MapToRadial[x]]]&)
 			};
 		res = expr/.repr;
 		Return[res]
