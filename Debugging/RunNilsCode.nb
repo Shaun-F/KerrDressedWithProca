@@ -1,0 +1,486 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16077,        478]
+NotebookOptionsPosition[     15466,        459]
+NotebookOutlinePosition[     15899,        476]
+CellTagsIndexPosition[     15856,        473]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Import", " ", "data"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"$FKKSRoot", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../\>\""}]}], ";"}],
+    "\[IndentingNewLine]", 
+   RowBox[{"<<", "SpinWeightedSpheroidalHarmonics`"}], "\[IndentingNewLine]", 
+   
+   RowBox[{"<<", "Teukolsky`"}], "\[IndentingNewLine]", 
+   StyleBox[
+    RowBox[{
+     RowBox[{"NotebookEvaluate", "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\<../Tests/NilsFunctions.nb\>\""}], "]"}], ";"}],
+    FontSize->14], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\<../Packages/HelperFunctions.wl\>\""}], "]"}], ";"}],
+    FontSize->14], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], 
+   StyleBox[
+    RowBox[{
+     RowBox[{"testsol", " ", "=", " ", 
+      RowBox[{"Import", "[", 
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+        "\"\<../Solutions/RunData_\[Epsilon]1_10000\[Mu]Nv31_100m1\[Eta]\
+0n0l0s-1\[Chi]9_10KMax4branch1.mx\>\""}], "]"}]}], ";"}],
+    FontSize->14], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], 
+   StyleBox[
+    RowBox[{
+     RowBox[{
+      RowBox[{"testsol", "[", 
+       RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<R\>\""}], "]"}], " ", "=", 
+      " ", 
+      RowBox[{"RecastInterpolationFunction", "[", 
+       RowBox[{
+        RowBox[{"testsol", "[", 
+         RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<R\>\""}], "]"}], ",", " ", 
+        RowBox[{
+         RowBox[{"HorizonCoordToRadial", "[", 
+          RowBox[{"#", ",", " ", 
+           RowBox[{"testsol", "[", 
+            RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Chi]\>\""}], 
+            "]"}]}], "]"}], "&"}]}], "]"}]}], ";"}],
+    FontSize->14], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], 
+   RowBox[{
+    RowBox[{"NilsSol", " ", "=", " ", 
+     RowBox[{
+     "Import", "[", 
+      "\"\</home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_\
+Dynamical_Friction/ProcaAroundKerr/NilsSiemonsenCode/precision_mode_library/\
+m1n0_a900000_Sm1_prec_p_HPee.mx\>\"", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"NilsSolAss", " ", "=", " ", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<Parameters\>\"", "->", 
+        RowBox[{"<|", "|>"}]}], ",", " ", 
+       RowBox[{"\"\<Solution\>\"", "->", 
+        RowBox[{"<|", "|>"}]}]}], "|>"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<\[Omega]\>\""}], "]"}], " ", 
+     "=", " ", 
+     RowBox[{
+      RowBox[{"NilsSol", "[", 
+       RowBox[{"[", "5", "]"}], "]"}], "//", "First"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<\[Nu]\>\""}], "]"}], " ", 
+     "=", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"QNMcode`r\[Nu]", "+", 
+        RowBox[{"I", "*", "QNMcode`i\[Nu]"}]}], ")"}], "/.", 
+      RowBox[{"First", "[", 
+       RowBox[{"NilsSol", "[", 
+        RowBox[{"[", "4", "]"}], "]"}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Mu]Nv\>\""}], "]"}], " ",
+      "=", " ", 
+     RowBox[{
+      RowBox[{"NilsSol", "[", 
+       RowBox[{"[", "3", "]"}], "]"}], "//", "First"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<S\>\""}], "]"}], " ", "=", 
+     " ", 
+     RowBox[{
+      RowBox[{"{", "\[Theta]", "}"}], "|->", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"NilsSol", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], "/.", 
+         RowBox[{"QNMcode`\[Theta]", "->", "\[Theta]"}]}], "//", "First"}], "//",
+        "Evaluate"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<R\>\""}], "]"}], " ", "=", 
+     " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"NilsSol", "[", 
+         RowBox[{"[", "6", "]"}], "]"}], "//", "First"}], "//", "First"}], "//",
+       "Last"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Chi]\>\""}], "]"}], " ", 
+     "=", " ", "0.9"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<m\>\""}], "]"}], " ", "=", 
+     " ", "1"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"NilsSolAss", "[", 
+      RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<n\>\""}], "]"}], " ", "=", 
+     " ", "0"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"testsol", " ", "=", " ", "NilsSolAss"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.87439337501381*^9, 3.8743933823781557`*^9}, {
+  3.874401363031308*^9, 3.8744013649355173`*^9}, {3.8744023229288177`*^9, 
+  3.8744023551042852`*^9}},
+ CellLabel->
+  "In[179]:=",ExpressionUUID->"14e240c7-856d-42a1-853b-406bdd961b61"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["Block",
+   FontSize->14], 
+  StyleBox["[",
+   FontSize->14], 
+  RowBox[{
+   StyleBox[
+    RowBox[{"{", "\[IndentingNewLine]", "\t", 
+     RowBox[{
+      RowBox[{"mv", "=", " ", 
+       RowBox[{"testsol", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<m\>\""}], "]"}]}], ",", 
+      "\[IndentingNewLine]", "\t", 
+      RowBox[{"nv", " ", "=", " ", 
+       RowBox[{"testsol", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<n\>\""}], "]"}]}], ",", 
+      "\[IndentingNewLine]", "\t", 
+      RowBox[{"spinin", " ", "=", " ", 
+       RowBox[{"testsol", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Chi]\>\""}], "]"}]}], 
+      ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"Mini", " ", "=", " ", "1"}], ",", "\[IndentingNewLine]", "\t", 
+      
+      RowBox[{"\[Mu]v", " ", "=", " ", 
+       RowBox[{"testsol", "[", 
+        RowBox[{"\"\<Parameters\>\"", ",", " ", "\"\<\[Mu]Nv\>\""}], "]"}]}], 
+      ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"\[Omega]rv", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"testsol", "[", 
+         RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<\[Omega]\>\""}], "]"}], "//",
+         "Re"}]}], ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"\[Omega]iv", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"testsol", "[", 
+         RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<\[Omega]\>\""}], "]"}], "//",
+         "Im"}]}], ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"\[Nu]rv", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"testsol", "[", 
+         RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<\[Nu]\>\""}], "]"}], "//",
+         "Re"}]}], ",", "\[IndentingNewLine]", "\t", 
+      RowBox[{"\[Nu]iv", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"testsol", "[", 
+         RowBox[{"\"\<Solution\>\"", ",", " ", "\"\<\[Nu]\>\""}], "]"}], "//",
+         "Im"}]}]}], "\[IndentingNewLine]", "}"}],
+    FontSize->14], 
+   StyleBox[",",
+    FontSize->14], 
+   StyleBox["\[IndentingNewLine]",
+    FontSize->14], 
+   RowBox[{
+    StyleBox[
+     RowBox[{
+      RowBox[{"prec", "=", 
+       RowBox[{
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"#", ",", "20"}], "]"}], "&"}]}], ";"}],
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"(*", 
+      RowBox[{"Black", " ", "hole", " ", "evolution"}], "*)"}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"GenerateNilsBHEvolution", "[", "testsol", "]"}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"EprocainM0", " ", "=", " ", 
+      RowBox[{"1", "-", 
+       RowBox[{"Mfspinf", "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}]}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["(",
+        FontSize->14], 
+       StyleBox["*",
+        FontSize->14]}]], 
+     StyleBox[
+      RowBox[{
+       RowBox[{"calculate", " ", "vector", " ", "field"}], ",", " ", 
+       RowBox[{"energy", " ", "density", " ", "and", " ", "normalization"}]}],
+      
+      FontSize->14], 
+     StyleBox[
+      RowBox[{
+       StyleBox["*",
+        FontSize->14], 
+       StyleBox[")",
+        FontSize->14]}]]}], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"GenerateNilsEnergyDensityNormalization", "[", 
+      RowBox[{"testsol", ",", " ", 
+       RowBox[{"BlackHoleMass", "->", "EprocainM0"}]}], "]"}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"rstart", " ", "=", " ", 
+      RowBox[{"prec", "@", "rtst"}]}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"rstop", " ", "=", " ", 
+      RowBox[{"prec", "@", 
+       RowBox[{"(", 
+        FractionBox["rstop", "3"], ")"}]}]}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["(",
+        FontSize->14], 
+       StyleBox["*",
+        FontSize->14]}]], 
+     StyleBox[
+      RowBox[{"Generate", " ", "EM", " ", "Tensor"}],
+      FontSize->14], 
+     StyleBox[
+      StyleBox[
+       RowBox[{"*", ")"}]],
+      FontSize->14]}], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"GenerateNilsEMTensor", "[", 
+      RowBox[{"AdownNorm", ",", " ", "testsol"}], "]"}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["(",
+        FontSize->14], 
+       StyleBox["*",
+        FontSize->14]}]], 
+     StyleBox[
+      RowBox[{"Generate", " ", "Nils", " ", "TLM\[Omega]"}],
+      FontSize->14], 
+     StyleBox[
+      StyleBox[
+       RowBox[{"*", ")"}]],
+      FontSize->14]}], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"GenerateNilsTlmw", "[", 
+      RowBox[{
+       RowBox[{"Tdowndown", "[", 
+        RowBox[{"t", ",", "r", ",", "\[Theta]", ",", "\[Phi]"}], "]"}], ",", 
+       " ", "testsol", ",", " ", 
+       RowBox[{"2", "*", "mv"}], ",", 
+       RowBox[{"2", "*", "\[Omega]rv"}], ",", " ", "rstart", ",", " ", 
+       "rstop", ",", " ", "\[Theta]start", ",", " ", "\[Theta]stop"}], "]"}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox[
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+        "\"\<TeukolskyTintegrandExplRunNilsCode.mx\>\""}], ",", " ", 
+       "TeukolskyTintegrandExpl"}], "]"}],
+     FontSize->14], 
+    StyleBox[";",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       StyleBox["(",
+        FontSize->14], 
+       StyleBox["*",
+        FontSize->14]}]], 
+     StyleBox[
+      RowBox[{"Generate", " ", "Nils", " ", "MST"}],
+      FontSize->14], 
+     StyleBox[
+      StyleBox[
+       RowBox[{"*", ")"}]],
+      FontSize->14]}], 
+    StyleBox["\[IndentingNewLine]",
+     FontSize->14], " ", 
+    RowBox[{"Do", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"GenerateNilsMST", "[", 
+        RowBox[{"spinin", ",", 
+         RowBox[{"-", "2"}], ",", "j", ",", "l", ",", "2", ",", " ", 
+         RowBox[{"2", "*", "\[Omega]rv"}], ",", " ", "rstop"}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"GenerateNilsGW", "[", 
+        RowBox[{
+         RowBox[{"BincSet", "[", 
+          RowBox[{"j", ",", "l"}], "]"}], ",", " ", 
+         RowBox[{"2", "*", "\[Omega]rv"}], ",", " ", 
+         RowBox[{
+          RowBox[{"Tlm\[Omega]", "[", "l", "]"}], "[", "r", "]"}], ",", " ", 
+         RowBox[{"RinSet", "[", 
+          RowBox[{"l", ",", "j"}], "]"}], ",", " ", "spinin", ",", " ", "j", 
+         ",", "l", ",", "rstart", ",", " ", "rstop"}], "]"}], ";"}], 
+      "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{"l", ",", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "3", ",", "4"}], "}"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", 
+        RowBox[{"{", "2", "}"}]}], "}"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.874140169541211*^9, 3.87414017085515*^9}, {
+   3.874140204220739*^9, 3.87414020995748*^9}, {3.874141421557378*^9, 
+   3.874141481800805*^9}, {3.874141526908263*^9, 3.8741415293685827`*^9}, {
+   3.874141559629991*^9, 3.874141721991411*^9}, {3.8741417948577747`*^9, 
+   3.8741418684534082`*^9}, {3.8741424024728413`*^9, 3.8741424060162*^9}, {
+   3.8741428214931498`*^9, 3.874142821716804*^9}, {3.874142963968841*^9, 
+   3.874142976819398*^9}, {3.874143459535408*^9, 3.874143469315722*^9}, {
+   3.8741435326089582`*^9, 3.8741435708350477`*^9}, {3.874143636643992*^9, 
+   3.874143656727528*^9}, {3.874144085234489*^9, 3.874144112108189*^9}, {
+   3.8741445112601*^9, 3.8741445186883917`*^9}, {3.874144553104342*^9, 
+   3.874144556970935*^9}, {3.874379459717951*^9, 3.874379499559037*^9}, {
+   3.8743803090448837`*^9, 3.874380321697895*^9}, {3.874382296782946*^9, 
+   3.8743823100342617`*^9}, 3.874383561878605*^9, {3.874386557196395*^9, 
+   3.874386583453454*^9}, {3.874389662361462*^9, 3.874389676515977*^9}, {
+   3.874392517899704*^9, 3.874392520038568*^9}, {3.8743925554602947`*^9, 
+   3.874392590941238*^9}, {3.8743954940251417`*^9, 3.874395517535474*^9}, {
+   3.874397274357728*^9, 3.874397322899344*^9}, 3.87439973661296*^9, {
+   3.874401713781116*^9, 3.8744017433385267`*^9}},
+ CellLabel->
+  "In[198]:=",ExpressionUUID->"8508e06d-a927-4661-af9b-058a4684c378"],
+
+Cell[BoxData["\<\"Black hole evolution done. Data stored in Mfspinf.\"\>"], \
+"Print",
+ CellChangeTimes->{3.874402434418075*^9},
+ CellLabel->
+  "During evaluation of \
+In[198]:=",ExpressionUUID->"0a96568a-9d4a-47cc-a30c-ffafdabf96fb"]
+}, Open  ]]
+},
+WindowSize->{720, 756},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+FrontEndVersion->"13.0 for Linux x86 (64-bit) (February 4, 2022)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"24c0aa1c-3815-453b-a6c6-7671b69bdbe1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 5461, 155, 649, "Input",ExpressionUUID->"14e240c7-856d-42a1-853b-406bdd961b61"],
+Cell[CellGroupData[{
+Cell[6044, 179, 9169, 270, 847, "Input",ExpressionUUID->"8508e06d-a927-4661-af9b-058a4684c378"],
+Cell[15216, 451, 234, 5, 23, "Print",ExpressionUUID->"0a96568a-9d4a-47cc-a30c-ffafdabf96fb"]
+}, Open  ]]
+}
+]
+*)
+

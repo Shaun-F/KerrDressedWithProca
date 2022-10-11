@@ -22,6 +22,15 @@ Return[absoluteFileName]
 ]
 
 
+RecastInterpolationFunction::usage="Recast interpolating function over a new domain obtained by operating on the old domain with DomainFunction"
+RecastInterpolationFunction[int_InterpolatingFunction, DomainFunction_]:=
+Block[{GridPoints = int["Grid"]//Flatten, NewGridPoints, NewData},
+NewGridPoints = DomainFunction/@GridPoints;
+NewData = Thread[{NewGridPoints, int/@GridPoints}];
+Interpolation[NewData, InterpolationOrder->int["InterpolationOrder"], Method->int["InterpolationMethod"]]
+]
+
+
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
 OutputSolution = solution;
