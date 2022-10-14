@@ -134,7 +134,9 @@ Do[
 		AsymptoticFlux = EnergyFlux[NormedData,OrbitalNumber,ModeNumber, TeukolskyTlmw->Tlmw, ZCoefficient->AsymptoticAmplitude];
 		If[SaveToDisk,
 			Print["Asymptotic flux calculation complete. Appending data to solution"];
-			AppendToSolution[SingleSolution][{{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Normalization", Normalization}, {"Zinf", AsymptoticAmplitude}}];
+			ExportData = {{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Zinf", AsymptoticAmplitude}};
+			AppendTo[ExportData,#]&/@Table[{i,Normalization[i]}, {i, Normalization//Keys}]//Last;
+			AppendToSolution[SingleSolution][ExportData];
 		];
 		IterationStopTime=AbsoluteTime[];
 		Print["Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];

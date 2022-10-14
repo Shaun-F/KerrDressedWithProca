@@ -31,6 +31,29 @@ Interpolation[NewData, InterpolationOrder->int["InterpolationOrder"], Method->in
 ]
 
 
+TruncateInterpolatingFunction[int_InterpolatingFunction, TruncatingFunction_, OptionsPattern[{OnValues->False, OnDomain->True}]]:=
+Block[{interp = int, interpdomain,NewInterp, NewValuesAndGrid = {}},
+interpdomain = interp["Grid"]//Flatten;
+If[OptionValue[OnValues],
+For[i=1, i<=Length[interpdomain], i++, 
+If[int[interpdomain[[i]]]//TruncatingFunction,
+AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];
+];(*If statmement*)
+];(*For loop*)
+];(*If statement*)
+
+If[OptionValue[OnDomain],
+For[i=1, i<=Length[interpdomain], i++,
+If[interpdomain[[i]]//TruncatingFunction,
+AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];,
+Break[];(*Else*)
+];(*If statement*)
+](*For loops*)
+];(*If statement*)
+NewInterp = Interpolation[NewValuesAndGrid, Method->interp["InterpolationMethod"], InterpolationOrder->interp["InterpolationOrder"]]
+]
+
+
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
 OutputSolution = solution;
@@ -253,10 +276,10 @@ ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParam
 
 Options[ApplyRealSolutionSet]={QuasiboundState->False, ProperDerivative->True};
 ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
-	Block[{repr,postfactor, res, MapToRadial, solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
+	Block[{repr,postfactor, res, MapToRadial},
+	With[{MapToRadial = Function[{x}, Identity[x]],solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
 	(*postfactor = 1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]);*)
-		postfactor=1;
-		MapToRadial={x}|->Identity[x];(*RadialToHorizonCoord[x,\[Chi]v];*)
+		postfactor=1;(*RadialToHorizonCoord[x,\[Chi]v];*)
 		repr = {
 			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][MapToRadial[x]]]*postfactor^d,
 			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][MapToRadial[x]]]*postfactor^d,
@@ -272,13 +295,14 @@ ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
 			m->solution["Parameters", "m"], 
 			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
 			\[Mu]->solution["Parameters", "\[Mu]Nv"],
-			Rr->( Re[solR[MapToRadial[x]]]&), 
-			Ri->( Im[solR[MapToRadial[x]]]&), 
-			Sr->( Re[solS[MapToRadial[x]]]&),
-			Si->( Im[solS[MapToRadial[x]]]&)
-			};
-		res = expr/.repr;
+			Rr->( Re[solR[MapToRadial[#]]]&), 
+			Ri->( Im[solR[MapToRadial[#]]]&), 
+			Sr->( Re[solS[MapToRadial[#]]]&),
+			Si->( Im[solS[MapToRadial[#]]]&)
+			}//Evaluate;
+		res = expr/.repr//Evaluate;
 		Return[res]
+		];
 	];
 
 
