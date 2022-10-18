@@ -276,15 +276,19 @@ ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParam
 
 Options[ApplyRealSolutionSet]={QuasiboundState->False, ProperDerivative->True};
 ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
-	Block[{repr,postfactor, res, MapToRadial},
-	With[{MapToRadial = Function[{x}, Identity[x]],solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
+	Block[{repr, res},
+	With[{solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
 	(*postfactor = 1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]);*)
-		postfactor=1;(*RadialToHorizonCoord[x,\[Chi]v];*)
+		With[{MapToRadial =  (RadialToHorizonCoord[#,\[Chi]v]&),postfactor=1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])},
 		repr = {
-			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][MapToRadial[x]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][MapToRadial[x]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][MapToRadial[x]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][MapToRadial[x]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Rr][r_]:>Re[Derivative[d][solR][MapToRadial[r]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Ri][r_]:>Im[Derivative[d][solR][MapToRadial[r]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Sr][x_]:>Re[Derivative[d][solS][x]],
+			HoldPattern@Derivative[d_][Si][x_]:>Im[Derivative[d][solS][x]],
+			HoldPattern@Derivative[d_][Rr]:>(Re[Derivative[d][solR][MapToRadial[#]]]*postfactor^d&),
+			HoldPattern@Derivative[d_][Ri]:>(Im[Derivative[d][solR][MapToRadial[#]]]*postfactor^d&),
+			HoldPattern@Derivative[d_][Sr]:>(Re[Derivative[d][solS][#]]&),
+			HoldPattern@Derivative[d_][Si]:>(Im[Derivative[d][solS][#]]&),
 			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
 			\[Omega]i->Evaluate@If[OptionValue[QuasiboundState], 0, Im[solution["Solution","\[Omega]"]]],
 			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
@@ -295,13 +299,15 @@ ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
 			m->solution["Parameters", "m"], 
 			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
 			\[Mu]->solution["Parameters", "\[Mu]Nv"],
+			n->solution["Parameters", "n"],
 			Rr->( Re[solR[MapToRadial[#]]]&), 
 			Ri->( Im[solR[MapToRadial[#]]]&), 
-			Sr->( Re[solS[MapToRadial[#]]]&),
-			Si->( Im[solS[MapToRadial[#]]]&)
-			}//Evaluate;
-		res = expr/.repr//Evaluate;
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
+			};
+		res = expr/.repr;
 		Return[res]
+		];
 		];
 	];
 

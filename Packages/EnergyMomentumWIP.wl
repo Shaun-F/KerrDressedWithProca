@@ -2,11 +2,11 @@
 
 EnergyMomentumwl;
 (*Import Proca Mode Solver*)
-If["KerrWithProca"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]]
+If[\[Not]MemberQ[Names["Global`*"], "KerrWithProca"], Get[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]]
 (*Import xAct Setup*)
-If["xActSetup"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]]
+If[\[Not]MemberQ[Names["Global`*"], "xActSetup"], Get[FileNameJoin[{$FKKSRoot, "Packages", "xActSetup.wl"}]]]
 (*Import Helper functions*)
-If["HelperFunctions"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]]
+If[\[Not]MemberQ[Names["Global`*"], "HelperFunctions"], Get[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]]
 
 
 (*$Assumptions={r>0,M>0,J>0,1>a\[GreaterEqual]0,\[Pi]\[GreaterEqual]\[Theta]\[GreaterEqual]0, \[Lambda]\[Element]Complexes,\[Omega]\[Element]Complexes, \[Nu]\[Element]Complexes};*)
@@ -26,30 +26,27 @@ AnalyticSolution = <|"Parameters"-><|"\[Epsilon]"->\[Epsilon],"\[Mu]Nv"->\[Mu]Nv
 
 
 complexToRealReprRule = {R[\[Epsilon]_]:>Rr[\[Epsilon]]+I*Ri[\[Epsilon]],Derivative[1][R][\[Epsilon]_]:>Derivative[1][Rr][\[Epsilon]]+I*Derivative[1][Ri][\[Epsilon]],S[t_]:>Sr[t]+I*Si[t],Derivative[1][S][t_]:>Derivative[1][Sr][t]+I*Derivative[1][Si][t], \[Omega]:>\[Omega]r+I*\[Omega]i, \[Nu]:>\[Nu]r+I*\[Nu]i};
-killImagTerms = {
-Im[Rr[\[Epsilon]_]]:>0,Im[Ri[\[Epsilon]_]]:>0,
- Re[Rr[\[Epsilon]_]]:>Rr[\[Epsilon]], Re[Ri[\[Epsilon]_]]:>Ri[\[Epsilon]],
-Im[Derivative[1][Rr][\[Epsilon]_]]:>0,Im[Derivative[1][Ri][\[Epsilon]_]]:>0,
- Re[Derivative[1][Rr][\[Epsilon]_]]:>Derivative[1][Rr][\[Epsilon]], Re[Derivative[1][Ri][\[Epsilon]_]]:>Derivative[1][Ri][\[Epsilon]],
-Im[(Rr^\[Prime]\[Prime])[\[Epsilon]_]]:>0,Im[(Ri^\[Prime]\[Prime])[\[Epsilon]_]]->0,
- Re[(Rr^\[Prime]\[Prime])[\[Epsilon]_]]:>(Rr^\[Prime]\[Prime])[\[Epsilon]], Re[(Ri^\[Prime]\[Prime])[\[Epsilon]_]]:>(Ri^\[Prime]\[Prime])[\[Epsilon]],
-Im[Sr[\[Epsilon]_]]:>0,Im[Si[\[Epsilon]_]]:>0,
- Re[Sr[\[Epsilon]_]]:>Sr[\[Epsilon]], Re[Si[\[Epsilon]_]]:>Si[\[Epsilon]],
-Im[Derivative[1][Sr][\[Epsilon]_]]:>0,Im[Derivative[1][Si][\[Epsilon]_]]:>0,
- Re[Derivative[1][Sr][\[Epsilon]_]]:>Derivative[1][Sr][\[Epsilon]], Re[Derivative[1][Si][\[Epsilon]_]]:>Derivative[1][Si][\[Epsilon]],
-Im[(Sr^\[Prime]\[Prime])[\[Epsilon]_]]:>0,Im[(Si^\[Prime]\[Prime])[\[Epsilon]_]]->0,
- Re[(Sr^\[Prime]\[Prime])[\[Epsilon]_]]:>(Sr^\[Prime]\[Prime])[\[Epsilon]], Re[(Si^\[Prime]\[Prime])[\[Epsilon]_]]:>(Si^\[Prime]\[Prime])[\[Epsilon]]};
 
 
 (*A^\[Mu]*)
 Options[FKKSProca]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False, IndexStructure->up};
 FKKSProca[solution_:analytic, OptionsPattern[]]:=
-Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar, Filename,Filenamecomps},
-If[OptionValue[RealPart],
-Filename = "FKKSProcaRealCTensor.mx";
-Filenamecomps = "AuprealComponents.mx";,
+Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar,assumps, Filename,Filenamecomps},
 
-Filename = "FKKSProcaCTensor.mx";
+If[OptionValue[RealPart],
+(*Real filenames*)
+If[TrueQ[OptionValue[IndexStructure]==up],
+Filename = "FKKSProcaUpRealCTensor.mx";
+Filenamecomps = "AuprealComponents.mx";
+Filename="FKKSProcaDownRealCTensor.mx";
+Filenamecomps = "AdownrealComponents.mx"
+],
+
+(*Not real filenames*)
+If[TrueQ[OptionValue[IndexStructure]==up],
+Filename = "FKKSProcaUpCTensor.mx";,
+Filename = "FKKSProcaDownCTensor.mx"
+];
 ];
 
 If[OptionValue[RealPart],
@@ -67,6 +64,8 @@ If[
 FileExistsQ[ProcaComponentsFilePath],
 AuprealComponents = Import[ProcaComponentsFilePath];,
 
+If[OptionValue[IndexStructure]==up,
+(*up*)
 Z = R[r[]]*S[\[Theta][]]*Exp[-I*\[Omega]*t[]]*Exp[I*m*\[Phi][]];
 A = (Polarization[\[Xi],\[Zeta]]Cd[-\[Zeta]]@Z)//ToBasisExpand//FromBasisExpand//Head;
 CloseKernels[];LaunchKernels[4];
@@ -76,10 +75,31 @@ ParallelEvaluate[Off[PrintAsCharacter::argx]];
 KeyRule = ParallelTable[$KernelID->i, {i,0,3}];
 AuprealComponents = {0,0,0,0};
 SetSharedVariable[ProcaMessenger,  AuprealComponents];
-DistributeDefinitions[KeyRule,complexToRealReprRule, killImagTerms,A,ProcaComponentsFilePath];
+DistributeDefinitions[KeyRule,complexToRealReprRule, A,ProcaComponentsFilePath];
 ParallelDo[
 ProcaMessenger[[1+($KernelID/.KeyRule)]]=Row[{"Kernel "<>ToString[$KernelID]<>" working on iteration "<>ToString[i], Spacer[20], ProgressIndicator[Appearance->"Percolate"]}];
-AuprealComponents[[i+1]] = (A[[1]][[i+1]]//.complexToRealReprRule//Re//ComplexExpand)/.killImagTerms//Simplify[#,TimeConstraint->Infinity]&;
+assumps = {Derivative[1][Si][\[Theta]]\[Element]Reals, Derivative[1][Sr][\[Theta]]\[Element]Reals,Derivative[1][Ri][\[Theta]]\[Element]Reals,Derivative[1][Rr][\[Theta]]\[Element]Reals};
+AuprealComponents[[i+1]] = (A[[1]][[i+1]]//.complexToRealReprRule//Re//ComplexExpand)//Simplify[#,Assumptions->assumps,TimeConstraint->Infinity]&;
+ProcaMessenger[[1+($KernelID/.KeyRule)]]="Kernel "<>ToString[$KernelID]<>" done.";,
+{i,0,3}];
+Export[ProcaComponentsFilePath,AuprealComponents];
+ProcaMessenger[[1+($KernelID/.KeyRule)]]="Kernel "<>ToString[$KernelID]<>" Done.";
+];,
+(*down*)
+Z = R[r[]]*S[\[Theta][]]*Exp[-I*\[Omega]*t[]]*Exp[I*m*\[Phi][]];
+A = (Polarization[-\[Xi],\[Zeta]]Cd[-\[Zeta]]@Z)//ToBasisExpand//FromBasisExpand//Head;
+CloseKernels[];LaunchKernels[4];
+PrintTemporary@Dynamic[ProcaMessenger//MatrixForm];
+ProcaMessenger=ConstantArray["", $KernelCount];
+ParallelEvaluate[Off[PrintAsCharacter::argx]];
+KeyRule = ParallelTable[$KernelID->i, {i,0,3}];
+AuprealComponents = {0,0,0,0};
+SetSharedVariable[ProcaMessenger,  AuprealComponents];
+DistributeDefinitions[KeyRule,complexToRealReprRule, A,ProcaComponentsFilePath];
+ParallelDo[
+ProcaMessenger[[1+($KernelID/.KeyRule)]]=Row[{"Kernel "<>ToString[$KernelID]<>" working on iteration "<>ToString[i], Spacer[20], ProgressIndicator[Appearance->"Percolate"]}];
+assumps = {Derivative[1][Si][\[Theta]]\[Element]Reals, Derivative[1][Sr][\[Theta]]\[Element]Reals,Derivative[1][Ri][\[Theta]]\[Element]Reals,Derivative[1][Rr][\[Theta]]\[Element]Reals};
+AuprealComponents[[i+1]] = (A[[1]][[i+1]]//.complexToRealReprRule//Re//ComplexExpand)//Simplify[#,Assumptions->assumps,TimeConstraint->Infinity]&;
 ProcaMessenger[[1+($KernelID/.KeyRule)]]="Kernel "<>ToString[$KernelID]<>" done.";,
 {i,0,3}];
 Export[ProcaComponentsFilePath,AuprealComponents];
@@ -93,16 +113,30 @@ Export[ProcaFilePath,res];
 ];,
 
 (*Not real part*)
-With[{ProcaFilePath = $FKKSRoot<>"Expressions/FKKSProcaCTensor.mx"},
+With[{ProcaFilePath = FileNameJoin[{ $FKKSRoot,"Expressions",Filename}]},
 If[
 FileExistsQ[ProcaFilePath],
 res = Import[ProcaFilePath];,
+
+If[TrueQ[OptionValue[IndexStructure]==up],
+(*up*)
+Block[{ch=sphericalchart},
 Z = R[r[]]*S[\[Theta][]]*Exp[-I*\[Omega]*t[]]*Exp[I*m*\[Phi][]];
 res = Head[Polarization[\[Zeta],\[Xi]]Cd[-\[Xi]]@Z//FromBasisExpand//Simplify];
 Export[ProcaFilePath,res];
-]
+](*End of Block*),
+
+(*down*)
+Block[{ch=sphericalchart},
+Z = R[r[]]*S[\[Theta][]]*Exp[-I*\[Omega]*t[]]*Exp[I*m*\[Phi][]];
+res = Head[Polarization[-\[Zeta],\[Xi]]Cd[-\[Xi]]@Z//FromBasisExpand//Simplify];
+Export[ProcaFilePath,res];
+](*End of Block*)
 ];
-];
+](*End of outer If*)
+] (*End of Not Real Part*)
+]; (*End of If Optionvalue[RealPart]*)
+
 If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
@@ -119,7 +153,6 @@ Return[tmp]
 If[OptionValue[Optimized],
 Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
 ];
-
 
 Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 ]
@@ -172,8 +205,8 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
-Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->False}
-FKKSEnergyMomentum[solution_Association, OptionsPattern[]]:=
+Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->False};
+FKKSEnergyMomentum[solution_, OptionsPattern[]]:=
 Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyMomentumRealCTensor.mx";,
@@ -196,7 +229,7 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 If[OptionValue[SymbolicExpression], 
@@ -236,7 +269,7 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
 tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
 ];
 If[OptionValue[SymbolicExpression], 
@@ -288,7 +321,7 @@ n\[Phi]points,
 Radialdomain = HorizonCoordToRadial[solution["Solution", "R"]["Domain"][[1]], solution["Parameters", "\[Chi]"]]
 },
 
-energydensity = FKKSEnergyDensity[solution, ToCompiled->True,QuasiboundState->OptionValue[QuasiboundState]];
+energydensity = FKKSEnergyDensity[solution, ToCompiled->True, QuasiboundState->OptionValue[QuasiboundState]];
 
 SpacialEnergyDensity = {r,\[Theta],\[Phi]}|->energydensity[0,r,\[Theta],\[Phi]];
 
@@ -384,7 +417,7 @@ Return[solution["Derived", "Normalization"]];
 ]
 ];
 ];
-totalenergyresults = FKKSTotalEnergy[solution,QuasiboundState->True];
+totalenergyresults = FKKSTotalEnergy[solution, QuasiboundState->True];
 totalenergy = totalenergyresults["Total"];
 finalmass = FKKSFinalMass[wv, mv, \[Chi]v, InitialMass];
 normalization = Sqrt[(InitialMass-finalmass)/totalenergy];
@@ -397,14 +430,14 @@ If[NormalizationError/normalization>10^-2,
 
 (*Renormalize energy*)
 RenormalizedEnergy = totalenergy*normalization^2;
+RenormalizedEnergyErrors = totalenergyresults["Errors"]*normalization^2;
 
 <|
 	"Normalization"->normalization, 
 	"NormalizationFractionalError"->NormalizationError/normalization,
 	"TotalEnergy"->RenormalizedEnergy, 
-	"TotalEnergyErrors"->totalenergyresults["Errors"], 
+	"TotalEnergyErrors"->RenormalizedEnergyErrors, 
 	"FinalMass"->finalmass, 
 	"FinalSpin"->FinalDimlessSpin[\[Chi]v,wv,mv,InitialMass, finalmass/InitialMass]
 |>
 ]
-
