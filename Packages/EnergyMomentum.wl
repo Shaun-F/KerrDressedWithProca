@@ -13,7 +13,7 @@ If["HelperFunctions"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot,
 
 
 M=1;
-\[Delta]\[Theta]=10^-5;
+\[Delta]\[Theta]=10^-4;
 SolutionPath =$FKKSRoot<>"Solutions/";
 
 $EMMinRecursion = 0;
@@ -304,7 +304,7 @@ If[!NumericQ[integrand[2,2,2]],
 res = NIntegrate[
 integrand[r,\[Theta],\[Phi]], 
 {r,Radialdomain[[1]],Radialdomain[[1]],Radialdomain[[2]]}, (*Exclude r=Subscript[r, initial]*)
-{\[Theta],\[Theta]\[Epsilon],\[Theta]\[Epsilon], \[Pi]-\[Theta]\[Epsilon], \[Pi]-\[Theta]\[Epsilon]},(*Exclude \[Theta]=0,\[Pi]*)
+{\[Theta],\[Delta]\[Theta],\[Delta]\[Theta], \[Pi]-\[Delta]\[Theta], \[Pi]-\[Delta]\[Theta]},(*Exclude \[Theta]=0,\[Pi]*)
 {\[Phi],0,2\[Pi]},
 MaxRecursion->$EMMaxRecursion,
 Method->$EMNIntegrateMethod,
