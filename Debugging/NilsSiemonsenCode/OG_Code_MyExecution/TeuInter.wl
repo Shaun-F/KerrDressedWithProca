@@ -47,10 +47,10 @@ rstop=prec@(VectorFieldNorm`rstop/3);
 rmesh = VectorFieldNorm`rmesh;
 \[Theta]start = prec@VectorFieldNorm`\[Theta]start;
 \[Theta]stop = prec@VectorFieldNorm`\[Theta]stop;
-Anorm = VectorFieldNorm`Anorm;
-edensityNorm = VectorFieldNorm`edensityNorm;
-AdownNorm = VectorFieldNorm`AdownNorm;
-AupNorm = VectorFieldNorm`AupNorm;
+Anorm = VectorFieldNorm`Anorm//Evaluate;
+edensityNorm = VectorFieldNorm`edensityNorm//Evaluate;
+AdownNorm = VectorFieldNorm`AdownNorm//Evaluate;
+AupNorm = VectorFieldNorm`AupNorm//Evaluate;
 
 (*Plotting things*)
 out3=GraphicsRow[{LogPlot[Rsol[r]//Re//Abs,{r,rstart,rstop},PlotRange->All],
@@ -84,11 +84,11 @@ out5=N[NIntegrate[-Tuptdownt[0,r,\[Theta],\[Phi]]sqrtmg[r,\[Theta]],{r,rintstart
 (*Teukolsky T*)
 Print["Beginning Tlm\[Omega] calculation"];
 TeukolskyT`FieldEnergyMomentum[AdownNorm[t,r,\[Theta],\[Phi]],\[Mu],spinin];
-Tdowndown = TeukolskyT`Tdowndown;
+Tdowndown = TeukolskyT`Tdowndown//Evaluate;
 Print["Subscript[T, \[Mu]\[Nu]] test: "<>ToString[Tdowndown[2,2,2,2], InputForm]];
 
 TeukolskyT`TeukolskyTlmw[Tdowndown[t,r,\[Theta],\[Phi]],\[Mu],spinin,2,2wr,rstop,rstart,\[Theta]stop,\[Theta]start];
-Tlm\[Omega] = TeukolskyT`Tlm\[Omega];
+Tlm\[Omega] = TeukolskyT`Tlm\[Omega]//Evaluate;
 out6=GraphicsRow[Flatten[{Table[Plot[Tlm\[Omega][i][r]//ReIm,{r,rstart,rstop},PlotRange->All],{i,2,4}],Table[Plot[Conjugate[Tlm\[Omega][i][r]]//ReIm,{r,rstart,rstop},PlotRange->All],{i,2,4}]}]];
 
 
@@ -165,7 +165,7 @@ out10 = <|
 			"Solution"->
 				<|"R"->Rsol, "S"->Anglsol, "\[Omega]"->wr+I*wi, "\[Nu]"->\[Nu]r+I*\[Nu]i|>,
 			"Derived"->
-				<|"Adown"->AdownNorm, "Tdowndown"->Tdowndown, 
+				<|"Adown"->AdownNorm[t,r,\[Theta],\[Phi]], "Tdowndown"->Tdowndown, 
 				"AdownUnnormed"->VectorFieldNorm`Adownvector, "AupUnnormed"->VectorFieldNorm`Aupvector,
 				"Einf"->TotalPower, "NormalizedEinf"->TotalPower EprocainM0^-2, 
 				"ProcaNormalizedEnergy"->out5, "ProcaUnnormalizedEnergy"->VectorFieldNorm`massNorm, 

@@ -241,31 +241,6 @@ dataout={0,0,0,0};
 
 sin=Sin[m \[Phi]-t \[Omega]r];
 cos=Cos[m \[Phi]-t \[Omega]r];
-
-
-Print[AdownSimp/.\[Omega]i->0/.i\[Nu]->\[Nu]i/.r\[Nu]->\[Nu]r/.\[Omega]r->1/.\[Nu]i->2/.\[Nu]r->3/.\[Chi]->0.9/.m->1/.nh->0/.\[Mu]->0.3/.Rr->(2&)/.Ri->(2&)/.Si->(2&)/.Sr->(2&)/.Private`t->0/.Private`r->4/.Private`\[Theta]->2/.Private`\[Phi]->2];
-Print[\[Chi]0];
-Print[m0];
-Print[r\[Nu]0];
-Print[i\[Nu]0];
-Print[\[Omega]r0];
-Print[\[Mu]0];
-Print[nh0];
-Print[Rad[2]];
-Print[Sangl[2]];
-Block[{tmp$,tmp$$},
-tmp$=DeleteCases[CoefficientList[Last[AdownSimp]/.{\[Omega]i->0},{sin,cos}]/.{\[Nu]i->i\[Nu],\[Nu]r->r\[Nu]}/.{\[Chi]->\[Chi]0,m->m0,r\[Nu]->r\[Nu]0,i\[Nu]->i\[Nu]0,\[Omega]r->\[Omega]r0,\[Mu]->\[Mu]0,nh->nh0},0,2];
-tmp$$ = Global`OptimizedFunction[{r,\[Theta]}, tmp$[[1]]//.solidentify];
-Print[tmp$[[1]]/.Ri->(1&)/.Rr->(2&)/.Sr->(3&)/.Si->(4&)/.Private`r->2/.Private`\[Theta]->1];
-Print[Ri[r]/.solidentify/.Private`r->2];
-Print[Rr[r]/.solidentify/.Private`r->2];
-Print[Si[\[Theta]]/.solidentify/.Private`\[Theta]->2];
-Print[Sr[\[Theta]]/.solidentify/.Private`\[Theta]->2];
-Print[solidentify];
-Print[tmp$$[2,1]];
-];
-
-
 Print["Generating Interpolating functions for \!\(\*SubscriptBox[\(A\), \(\[Mu]\)]\)"];
 Do[
 Clear[coefflistdown,coefflistup,coefflistInterdown,coefflistInterup];
