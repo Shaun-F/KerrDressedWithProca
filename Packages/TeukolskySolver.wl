@@ -85,7 +85,7 @@ Block[{nn,mm,mmbar},
 
 
 (*Calculate various projections of EM-tensor onto kinnersley tetrad*)
-Options[Tnn]={AsSymbolic->False, AsInterpolatingFunction->False, AsOptimized->False, ToCompiled->False, WithProperties->False};
+Options[Tnn]={AsSymbolic->False, AsInterpolatingFunction->False, AsOptimized->False, ToCompiled->False, WithProperties->False, ExtractTimeDependence->False};
 Tnn[solution_?AssociationQ, OptionsPattern[]]:=
 Block[{TLL,tmp, tmp$, tmp$OE,tmp$$, tmp$IP, tmp$r, ww$, mm$, res, rmin$, rmax$,Messengernn},
 With[{TnnFilePath = FileNameJoin[{$FKKSRoot, "Expressions", "FKKSEnergyMomentumNN.mx"}]},
@@ -143,7 +143,13 @@ coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rd
 coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
+If[OptionValue[ExtractTimeDependence],
+TnnDecomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+
+(*Numerical prefactor in agreement with nils code*)
+(*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
 TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
+];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
@@ -186,7 +192,7 @@ If[OptionValue[AsOptimized],
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbmb\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, mbmb] = Subscript[(T^1), mbmb][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), mbmb][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), mbmb][r,\[Theta]]*)
-Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
+Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, Decomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
@@ -215,11 +221,17 @@ coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rd
 coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
-TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
+If[OptionValue[ExtractTimeDependence],
+Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+
+(*Numerical prefactor in agreement with nils code*)
+(*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
+Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
+];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbmb\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
-Return[TnnDecomposed]
+Return[Decomposed]
 ];(*end Block statement*)
 ]; (*end If statement*)
 
@@ -259,7 +271,7 @@ Return[tmp$]
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, mbn] = Subscript[(T^1), mbn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), mbn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), mbn][r,\[Theta]]*)
-Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
+Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, Decomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
@@ -288,7 +300,13 @@ coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rd
 coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
-TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
+If[OptionValue[ExtractTimeDependence],
+Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+
+(*Numerical prefactor in agreement with nils code*)
+(*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
+Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
+];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
