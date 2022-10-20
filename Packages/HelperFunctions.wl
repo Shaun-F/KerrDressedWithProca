@@ -381,7 +381,7 @@ Print["Coords must be either BL (boyer-lindquist) or Horizon"]
 
 
 SetAttributes[GenerateInterpolation, HoldFirst];
-Options[GenerateInterpolation] = { DensityFunctions->Automatic, Metadata->False};
+Options[GenerateInterpolation] = { DensityFunctions->Automatic, Metadata->False}\[Union]Options[ListInterpolation];
 GenerateInterpolation[funcform_, args___, OptionsPattern[]]:=
 Block[{
 func,
@@ -394,6 +394,11 @@ densityfuncs,
 RecastDensityToBoundary,
 recastfunctions,
 CoordinateRanges,
+Generator,
+funcOnPointsReal,
+funcOnPointsImag,
+interpRe,
+interpIm,
 retval
 },
 func = Hold[funcform][[1,0]];(*Extract head*)
@@ -417,14 +422,28 @@ Table[rcfunc[ReleaseHold[var]], arg]
 {coordIter, 1, Length[variables]}];
 Messenger="Mapping function over mesh. \n\t Function Sample with timing: "<>ToString[Part[func@@StartPoints//Timing,1], InputForm];
 DistributeDefinitions[func, CoordinateRanges];
-funcOnPoints = With[{operand = {func,Sequence@@CoordinateRanges}},
+funcOnPoints = N@With[{operand = {func,Sequence@@CoordinateRanges}},
 						Parallelize[Outer@@operand]
 					];
 
 Messenger="Generating Interpolation function";
-retval = ListInterpolation[funcOnPoints, CoordinateRanges, Method->"Hermite"];
+Generator = ListInterpolation[#1, CoordinateRanges, Method->OptionValue[Method], InterpolationOrder->OptionValue[InterpolationOrder], PeriodicInterpolation->OptionValue[PeriodicInterpolation]]&;
+If[AnyTrue[funcOnPoints, (Head[#]==Complex &), Depth[funcOnPoints]-1] && TrueQ[OptionValue[Method]=="Spline"],
+funcOnPointsReal = Re[funcOnPoints];
+funcOnPointsImag = Im[funcOnPoints];
+interpRe = Generator@funcOnPointsReal;
+interpIm = Generator@funcOnPointsImag;
+With[{unheldvars = ReleaseHold/@variables},
+retval = Evaluate[unheldvars] |->Evaluate[interpRe[Sequence@@unheldvars] + I*interpIm[Sequence@@unheldvars]];
+];,
+
+retval = Generator@funcOnPoints;
+];
+
 If[OptionValue[Metadata],
-Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>],
+Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>
+],
 Return[retval]
 ]
+
 ];

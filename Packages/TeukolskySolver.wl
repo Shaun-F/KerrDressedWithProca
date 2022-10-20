@@ -14,19 +14,19 @@ If["xActSetup" \[NotElement] Names["Global`*"],
 
 If["EnergyMomentumwl" \[NotElement] Names["Global`*"],
   Get[FileNameJoin[{$FKKSRoot, "Packages", "EnergyMomentum.wl"}]]
-]
+];
 
 If["MSTSolver" \[NotElement] Names["Global`*"],
   Get[FileNameJoin[{$FKKSRoot, "Packages", "MSTSolver.wl"}]]
-]
+];
 
 If["KerrWithProca" \[NotElement] Names["Global`*"],
   Get[FileNameJoin[{$FKKSRoot, "Packages", "KerrWithProca.wl"}]]
-]
+];
 
 If["HelperFunctions" \[NotElement] Names["Global`*"],
   Get[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]
-]
+];
 
 Get["SpinWeightedSpheroidalHarmonics`"]
 Get["Teukolsky`"]
@@ -59,6 +59,22 @@ Jp[expr_]:=
 	Block[{tmp},
 		With[{EXPRESSION = FromxActVariables[expr], \[CapitalDelta] = FromxActVariables[Kerr\[CapitalDelta]]},
 			tmp=(D[#,r]-1/\[CapitalDelta] ((r^2+a^2)D[#,t]+a*D[#,\[Phi]]))&@EXPRESSION
+		];
+	ToxActVariables[tmp]
+	];
+	
+Lexpl[s_][expr_]:=
+	Block[{tmp},
+		With[{EXPRESSION = FromxActVariables[expr]},
+			tmp = (D[#,\[Theta]] + ((2*m)/Sin[\[Theta]]-2*a*\[Omega]*Sin[\[Theta]]+s*Cot[\[Theta]])*#)&@EXPRESSION
+			];
+		ToxActVariables[tmp]
+	];
+
+Jpexpl[expr_]:=
+	Block[{tmp},
+		With[{EXPRESSION = FromxActVariables[expr], \[CapitalDelta] = FromxActVariables[Kerr\[CapitalDelta]]},
+			tmp=(D[#,r]+(2*I*#)/\[CapitalDelta] ((r^2+a^2)*\[Omega] - a*m))&@EXPRESSION
 		];
 	ToxActVariables[tmp]
 	];
@@ -114,7 +130,7 @@ If[OptionValue[AsOptimized],
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
-Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, TnnDecomposed},
+Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, Decomposed},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
@@ -136,24 +152,26 @@ CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
 reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
-coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
-coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
-coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
+coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+If[Not[OptionValue[ExtractTimeDependence]],
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
 If[OptionValue[ExtractTimeDependence],
-TnnDecomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
-
 (*Numerical prefactor in agreement with nils code*)
 (*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
-TnnDecomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
+Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+
+Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
-Return[TnnDecomposed]
+Return[Decomposed]
 ];(*end Block statement*)
 ]; (*end If statement*)
 
@@ -201,31 +219,33 @@ With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $T
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
-Subscript[T, mbmb][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
+Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
 (\[NoBreak]T[0,r,\[Theta],p1],T[0,r,\[Theta],p2],T[0,r,\[Theta],p3]\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
 Cos[2m p3]	Sin[2m p3]	1
 \[NoBreak])(\[NoBreak]A,B,C\[NoBreak])
 *)
-$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbmb\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
 coefftimestart = AbsoluteTime[];
 CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
 reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
-coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
-coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
-coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
+coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+If[Not[OptionValue[ExtractTimeDependence]],
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
 If[OptionValue[ExtractTimeDependence],
-Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
-
 (*Numerical prefactor in agreement with nils code*)
 (*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
+Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+
 Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];
 ];(*end With statement*)
@@ -280,37 +300,39 @@ With[{rpoints = If[radialdomain[[-1]]<$TSMaxRadialPoints, radialdomain[[-1]], $T
  mvalue = solution["Parameters", "m"]},
 Off[CompiledFunction::cfsa];
 (*We solve the expression 
-Subscript[T, mbn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
+Subscript[T, nn][0,r,\[Theta],Subscript[\[Phi], sample]]=A*Cos[2*m*Subscript[\[Phi], sample]]+B*Sin[2*m*Subscript[\[Phi], sample]]+C 
 for the undetermined coefficients A, B, and C by choosing three values of Subscript[\[Phi], sample] and solving the resulting matrix equation 
 (\[NoBreak]T[0,r,\[Theta],p1],T[0,r,\[Theta],p2],T[0,r,\[Theta],p3]\[NoBreak]) = (\[NoBreak]Cos[2m p1]	Sin[2m p1]	1
 Cos[2m p2]	Sin[2m p2]	1
 Cos[2m p3]	Sin[2m p3]	1
 \[NoBreak])(\[NoBreak]A,B,C\[NoBreak])
 *)
-$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
+$Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}], "Generating coefficient interpolating functions"}];
 coefftimestart = AbsoluteTime[];
 CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
 reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 
-coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
-coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
-coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}];
+coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+If[Not[OptionValue[ExtractTimeDependence]],
+coeff3exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[3]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
+coeff3= GenerateInterpolation[coeff3exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+];
 On[CompiledFunction::cfsa];
 coefftimestop = AbsoluteTime[];
 If[OptionValue[ExtractTimeDependence],
-Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
-
 (*Numerical prefactor in agreement with nils code*)
 (*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
+Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+
 Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];
 ];(*end With statement*)
 
 $Messenger = Column[{Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(mbn\)]\) Interpolating Function ... Done."}], "Generating coefficient interpolating functions... Done", "time to generate coefficient interpolating functions: "<>ToString[coefftimestop-coefftimestart, InputForm]}];
-Return[TnnDecomposed]
+Return[Decomposed]
 ];(*end Block statement*)
 ]; (*end If statement*)
 
@@ -325,17 +347,17 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]},  Evaluate[FromxActVariables[res]
 TeukolskySource[solution_?AssociationQ]:=Block[{\[ScriptCapitalT], B, BPrime,expr},
 $Messenger="Beginning Teukolsky Source Calculation...";
 With[{
-tmbmb = Tmbmb[solution, AsInterpolatingFunction->True],
-tmbn = Tmbn[solution, AsInterpolatingFunction->True],
-tnn = Tnn[solution, AsInterpolatingFunction->True], 
+tmbmb = Tmbmb[solution, AsInterpolatingFunction->True, ExtractTimeDependence->True],
+tmbn = Tmbn[solution, AsInterpolatingFunction->True, ExtractTimeDependence->True],
+tnn = Tnn[solution, AsInterpolatingFunction->True, ExtractTimeDependence->True], 
 \[Rho] = Teukrho,
 \[Rho]b = Teukrhob, 
 \[CapitalDelta] = Kerr\[CapitalDelta]
 },
-B = -1/2 \[Rho]^8*\[Rho]b*L[-1][\[Rho]^-4*L[0][(\[Rho]^-2*\[Rho]b^-1*tnn[t,r,\[Theta],\[Phi]])]]-1/(2*Sqrt[2]) \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*L[-1][\[Rho]^-4*\[Rho]b^2 Jp[(\[Rho]^-2*\[Rho]b^-2*\[CapitalDelta]^-1*tmbn[t,r,\[Theta],\[Phi]])]];
-BPrime = -1/4 \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jp[\[Rho]^-4*Jp[(\[Rho]^-2*\[Rho]b*tmbmb[t,r,\[Theta],\[Phi]])]]-1/(2*Sqrt[2]) \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jp[\[Rho]^-4*\[Rho]b^2*\[CapitalDelta]^-1*L[-1][(\[Rho]^-2*\[Rho]b^-2*tmbn[t,r,\[Theta],\[Phi]])]];
+B = -1/2 \[Rho]^8*\[Rho]b*Lexpl[-1][\[Rho]^-4*Lexpl[0][(\[Rho]^-2*\[Rho]b^-1*tnn[r,\[Theta]])]]-1/(2*Sqrt[2]) \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Lexpl[-1][\[Rho]^-4*\[Rho]b^2 Jpexpl[(\[Rho]^-2*\[Rho]b^-2*\[CapitalDelta]^-1*tmbn[r,\[Theta]])]];
+BPrime = -1/4 \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jpexpl[\[Rho]^-4*Jpexpl[(\[Rho]^-2*\[Rho]b*tmbmb[r,\[Theta]])]]-1/(2*Sqrt[2]) \[Rho]^8*\[Rho]b*\[CapitalDelta]^2*Jpexpl[\[Rho]^-4*\[Rho]b^2*\[CapitalDelta]^-1*Lexpl[-1][(\[Rho]^-2*\[Rho]b^-2*tmbn[r,\[Theta]])]];
 expr = (2(B+BPrime))//FromxActVariables//ApplySolutionSet[solution];
-\[ScriptCapitalT] = OptimizedFunction[{t,r,\[Theta],\[Phi]},Evaluate@expr];
+\[ScriptCapitalT] = OptimizedFunction[{r,\[Theta]},Evaluate@expr];
 Return[\[ScriptCapitalT]];
 ]
 ];
@@ -344,17 +366,22 @@ Return[\[ScriptCapitalT]];
 (*
 Subscript[\[ScriptCapitalT], lm\[Omega], integrand] = 2 2/Sqrt[2*\[Pi]]*\[Rho]^-5*Overscript[\[Rho], _]^-1 \[ScriptCapitalT]Subscript[(r,\[Theta]) , -2]Subscript[S^a\[Omega], lm](\[Theta])
 *)
-TeukolskySourceModalIntegrand[solution_?AssociationQ,l_?IntegerQ,m_?IntegerQ]:=
+Options[TeukolskySourceModalIntegrand]={Source->Null};
+TeukolskySourceModalIntegrand[solution_?AssociationQ,l_?IntegerQ,m_?IntegerQ, OptionsPattern[]]:=
 With[{Gamma = solution[["Parameters","\[Chi]"]]*2*solution[["Solution","\[Omega]"]]//Re},
-OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2/Sqrt[2*\[Pi]]*Teukrho^-5*Teukrhob^-1*TeukolskySource[solution][0,r,\[Theta],0]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]
-]
+(*Additional factor of Sqrt[2*\[Pi]] comes from normalization of SWSH package compared to normalization defined in http://link.springer.com/10.12942/lrr-2003-6*)
+If[TrueQ[OptionValue[Source]==Null],
+retval = OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2*Teukrho^-5*Teukrhob^-1*TeukolskySource[solution][r,\[Theta]]*Sqrt[2*\[Pi]]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]],
+retval = OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2*Teukrho^-5*Teukrhob^-1*OptionValue[Source][r,\[Theta]]*Sqrt[2*\[Pi]]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]]
+];
+Return[retval];
 ];
 
 
 (*
 Subscript[\[ScriptCapitalT], lm\[Omega]] = \[Integral]d\[Theta]d\[Phi] sin(\[Theta]) Subscript[\[ScriptCapitalT], lm\[Omega], integrand]
 *)
-Options[TeukolskySourceModal]={Recalculate->False};
+Options[TeukolskySourceModal]={Recalculate->False, SourceIntegrand->Null};
 TeukolskySourceModal[solution_?AssociationQ,l_?IntegerQ,m_?IntegerQ, OptionsPattern[]]:=
 Block[{SourceIntegrand,SourceIntegrandFunction,IntegrationFunction,TlmwOnMesh,TlmwData, TlmwInterpolation,radialMesh,rpoints,
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#, solution["Parameters", "\[Chi]"]]&
@@ -363,7 +390,10 @@ rpoints = If[rdom[[-1]]<$TSMaxRadialPoints, rdom[[-1]], $TSMaxRadialPoints+10*Lo
 radialMesh = Table[r, {r,rdom[[1]], rdom[[2]], (rdom[[2]]-rdom[[1]])/rpoints}];
 If[OptionValue[Recalculate]||!KeyExistsQ[solution, "Derived"],
 $Messenger = "Generating Teukolsky Integrand";
-SourceIntegrand = TeukolskySourceModalIntegrand[solution,l,m];
+If[TrueQ[OptionValue[SourceIntegrand]==Null],
+SourceIntegrand = TeukolskySourceModalIntegrand[solution,l,m];,
+SourceIntegrand = OptionValue[SourceIntegrand];
+];
 SourceIntegrandFunction[x_?NumericQ,\[Theta]_?NumericQ]:=SourceIntegrand[x,\[Theta]];
 IntegrationFunction[x_?NumericQ]:=NIntegrate[SourceIntegrandFunction[x,\[Theta]]*Sin[\[Theta]], {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon]}, WorkingPrecision->10, MaxRecursion->100];
 $Messenger = "Evaluating integration at each radial mesh node";

@@ -231,15 +231,15 @@ Monitor[Do[
 	Print["Generating: Spheroidal harmonic for (s=-2,\[Chi],Re(\[Omega]_Teu))."];
 	thetarange=prec@Range[0+10^-4,\[Pi]-10^-4,(\[Pi]-2 10^-4)/400];
 	SWSHdata=Table[{x,Sqrt[2\[Pi]]SpinWeightedSpheroidalHarmonicS[-2,lTeu,mTeu,spin \[Omega]Teu,x,0]},{x,thetarange}];
-	Sbar[\[Theta]\[Theta]_]:=Interpolation[SWSHdata,InterpolationOrder->2,Method->"Hermite"][\[Theta]\[Theta]];
+	Sbar[lTeu][\[Theta]\[Theta]_]:=Interpolation[SWSHdata,InterpolationOrder->2,Method->"Hermite"][\[Theta]\[Theta]];
 	alm=SpinWeightedSpheroidalEigenvalue[-2,lTeu,mTeu,spin \[Omega]Teu]+2mTeu spin \[Omega]Teu-(spin \[Omega]Teu)^2;
 	Print[ToString["Eigenvalues of SWSH: "<>ToString[alm]]];
 	sinfunc[x_]:=Sin[x];
-	plotsbar[lTeu]=Plot[Sbar[x]sinfunc[x],{x,10^-4,\[Pi]-10^-4}];
+	plotsbar[lTeu]=Plot[Sbar[lTeu][x]sinfunc[x],{x,10^-4,\[Pi]-10^-4}];
 	rrangeout=rrange;
 	Print["Generating: Interpolation data..."];
 	DistributeDefinitions[TeukolskyTintegrandExpl, Sbar, sinfunc, \[Theta]start, \[Theta]stop, rrange];
-	Tlm\[Omega]temp=ParallelTable[{r,NIntegrate[TeukolskyTintegrandExpl[r,\[Theta]]Sbar[\[Theta]]sinfunc[\[Theta]],{\[Theta],\[Theta]start,\[Theta]stop},MaxRecursion->50,WorkingPrecision->5]},{r,rrange}];
+	Tlm\[Omega]temp=ParallelTable[{r,NIntegrate[TeukolskyTintegrandExpl[r,\[Theta]]Sbar[lTeu][\[Theta]]sinfunc[\[Theta]],{\[Theta],\[Theta]start,\[Theta]stop},MaxRecursion->50,WorkingPrecision->5]},{r,rrange}];
 	Print["Generating: Tlm\[Omega]."];
 	Tlm\[Omega][lTeu]=Interpolation[Tlm\[Omega]temp,InterpolationOrder->2,Method->"Hermite"];
 ,{lTeu,Abs[mTeu],Abs[mTeu]+1}],lTeu];
