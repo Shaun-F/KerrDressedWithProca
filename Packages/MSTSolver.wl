@@ -11,7 +11,7 @@ MSTSolver;
 $MSTMaxN = 30; (*Max index of series expansions to use throughout*)
 $RAMMaxN = 500; (*Max N to use for calculating the renormalized angular momentum*)
 $MSTDumbyR = 0; (*summation halting index for Equation 165 in Sasaki et al.*)
-$MSTGlobalPrecision = 40;
+$MSTGlobalPrecision = 50;
 
 
 (*helper functions*)
@@ -128,7 +128,7 @@ Block[{testval, RenormedAngularMomentumtmp,nsample=0},
 (*!!!!! Check convergence for range of parameter space we're interested in.*)
 
 (*Teukolsky uses SpinWeightedSpheroidalEigenvalue to compute the SWSH eigenvalue*)
-testval = RenormalizedAngularMomentum[s,l,m,\[Chi],\[Omega], Method->OptionValue[Method]]//ToMSTPrecision;
+testval = RenormalizedAngularMomentum[s,l,m,\[Chi],\[Omega], Method->OptionValue[Method]];
 
 Return[testval//ToMSTPrecision];
 

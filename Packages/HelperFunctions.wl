@@ -45,11 +45,11 @@ AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];
 If[OptionValue[OnDomain],
 For[i=1, i<=Length[interpdomain], i++,
 If[interpdomain[[i]]//TruncatingFunction,
-AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];,
-Break[];(*Else*)
+AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];
 ];(*If statement*)
 ](*For loops*)
 ];(*If statement*)
+
 NewInterp = Interpolation[NewValuesAndGrid, Method->interp["InterpolationMethod"], InterpolationOrder->interp["InterpolationOrder"]]
 ]
 
