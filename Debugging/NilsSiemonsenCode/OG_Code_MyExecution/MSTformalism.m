@@ -169,7 +169,6 @@ ConvenientHypergeometric[a_,b_,c_,x_]:=(Gamma[c]Gamma[b-a])/(Gamma[b]Gamma[c-a])
 
 (*The Columbic expansion*)
 \[Nu]=SetPrecision[\[Nu]sol1,100];
-Print["\[Nu]sol = "<>ToString[\[Nu]]];
 R\[Nu]plus=prec@(2^\[Nu] Exp[-\[Pi] \[Epsilon]]Exp[I \[Pi](\[Nu]+1-sMST)] Gamma[\[Nu]+1-sMST+I \[Epsilon]]/Gamma[\[Nu]+1+sMST-I \[Epsilon]] Exp[-I z]z^(\[Nu]+I \[Epsilon]p) (z-\[Epsilon] \[Kappa])^(-sMST-I \[Epsilon]p) Sum[I^n f[n](2z)^n IrrConflHyper[n+\[Nu]+1-sMST+I \[Epsilon],2n+2\[Nu]+2,2I z],{n,-Nmax,Nmax}]/.{\[Nu]->\[Nu]r+I \[Nu]i}/.gsolexpl);
 R\[Nu]minus=prec@(2^\[Nu] Exp[-\[Pi] \[Epsilon]]Exp[-I \[Pi](\[Nu]+1+sMST)]Exp[I z]z^(\[Nu]+I \[Epsilon]p) (z-\[Epsilon] \[Kappa])^(-sMST-I \[Epsilon]p) Sum[I^n Pochhammer[\[Nu]+1+sMST-I \[Epsilon],n]/Pochhammer[\[Nu]+1-sMST+I \[Epsilon],n] f[n](2z)^n IrrConflHyper[n+\[Nu]+1+sMST-I \[Epsilon],2n+2\[Nu]+2,-2I z],{n,-Nmax,Nmax}]/.{\[Nu]->\[Nu]r+I \[Nu]i}/.gsolexpl);
 R\[Nu]C=prec@(R\[Nu]plus+R\[Nu]minus);
@@ -234,6 +233,7 @@ maxstep=10^9;
 \[CapitalDelta][r_]:=SetPrecision[r^2-2r+spin1^2,setprec];
 Kf[r_,\[Chi]t_,\[Omega]t_,mt_]:=SetPrecision[(r^2+\[Chi]t^2)\[Omega]t-\[Chi]t mt,setprec];
 Lambda[Alm_,\[Chi]t_,\[Omega]t_,mt_]:=SetPrecision[Alm+\[Chi]t^2 \[Omega]t^2-2\[Chi]t mt \[Omega]t,setprec];
+Print["\!\(\*SubscriptBox[\(\[Lambda]\), \(swsh, \\\ MSTpackage\)]\): "<>ToString[Lambda[Almin,spin1,wpick,min], InputForm]];
 Diffr=\[CapitalDelta][r]^-s D[\[CapitalDelta][r]^(s+1) D[#,r],r]+((Kf[r,spin1,wpick,min]^2-2I s(r-1)Kf[r,spin1,wpick,min])/\[CapitalDelta][r]+4I s wpick r-Lambda[Almin,spin1,wpick,min])#&;
 (*Collect[Diffr@f[r]/.{f\[Rule](f[(#-rp[\[Chi]])/(rp[\[Chi]]-rm[\[Chi]])]&)}/.{r\[Rule]x(rp[\[Chi]]-rm[\[Chi]])+rp[\[Chi]]}//Simplify,{f[x],f'[x],f''[x]}]*)
 rp[\[Chi]t_]:=SetPrecision[1+Sqrt[1-\[Chi]t^2],20];
@@ -250,7 +250,8 @@ FrobOfr[r_]:=SetPrecision[Frob[x]//.Coeff//.{x->(r-rp[spin1])/(rp[spin1]-rm[spin
 adaptivestep=If[wpick<0.45,0.01,If[wpick<1,0.001,0.0005]];
 R0=SetPrecision[Limit[FrobOfr[r],r->rstart[spin1]],20];
 dR0=SetPrecision[Limit[D[FrobOfr[r],r],r->rstart[spin1]],20];
-solR=NDSolve[{Diffr@R[r]==0,R[rstart[spin1]]==R0,R'[rstart[spin1]]==dR0},R,{r,rstart[spin1],rstophere},Method->{"TimeIntegration"->{"ExplicitRungeKutta","DifferenceOrder"->8}}(*,Method->{"StiffnessSwitching"}*),WorkingPrecision->setprec,MaxSteps->maxstep,PrecisionGoal->15,AccuracyGoal->15(*,MaxStepSize->adaptivestep*)]//First;
+eqset = {Diffr@R[r]==0,R[rstart[spin1]]==R0,R'[rstart[spin1]]==dR0}//Evaluate;
+solR=NDSolve[eqset,R,{r,rstart[spin1],rstophere},Method->{"TimeIntegration"->{"ExplicitRungeKutta","DifferenceOrder"->8}}(*,Method->{"StiffnessSwitching"}*),WorkingPrecision->setprec,MaxSteps->maxstep,PrecisionGoal->15,AccuracyGoal->15(*,MaxStepSize->adaptivestep*)]//First;
 norm=SetPrecision[RinOutput[(2/3)*rstophere]/(R[(2/3)*rstophere]/.solR),100];
 Rnumerical[rr_]:=SetPrecision[norm R[r]/.solR//.{r->rr},setprec];
 ];
@@ -265,3 +266,6 @@ Print["------------------------------------------------------"];
 End[]
 
 EndPackage[]
+
+
+

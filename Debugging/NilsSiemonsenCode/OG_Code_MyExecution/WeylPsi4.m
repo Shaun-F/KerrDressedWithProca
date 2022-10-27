@@ -26,9 +26,10 @@ With[{precval = TeuInterEnv`$precValue},
 prec=SetPrecision[#,precval]&;
 ];
 integrand[rr_]:=((TlmwIn RinIn)/((rr^2-2rr+\[Chi]^2)^2))/.{TeuInterEnv`r->rr};
-Print[rstop];
-Print[rstart];
-Zlm\[Omega]Inf=1/(2 I \[Omega]In BincIn) NIntegrate[integrand[rr],{rr,rstart,rstop},MaxRecursion->50,WorkingPrecision->10];
+Print[integrand[3.86]];
+integration = NIntegrate[integrand[rr],{rr,rstart,rstop},MaxRecursion->50,WorkingPrecision->10];
+Zlm\[Omega]Inf=1/(2 I \[Omega]In BincIn) integration;
+Print["\!\(\*SubscriptBox[\(Z\), \(lm\[Omega]\)]\): "<>ToString[Zlm\[Omega]Inf, InputForm]];
 Clear[Slmw];
 
 thetarange=prec@Range[10^-4,\[Pi]-10^-4,(\[Pi]-2 10^-4)/400];
@@ -56,3 +57,6 @@ Print["-------------------------------------------------"];
 End[]
 
 EndPackage[]
+
+
+

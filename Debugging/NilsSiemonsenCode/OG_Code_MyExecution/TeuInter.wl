@@ -94,7 +94,7 @@ out6=GraphicsRow[Flatten[{Table[Plot[Tlm\[Omega][i][r]//ReIm,{r,rstart,rstop},Pl
 
 (*MST solution*)
 Monitor[Do[
-Print["MST Solution --------------------------------------"];
+Print["MST Solution (l="<>ToString[l]<>", j="<>ToString[j]<>")--------------------------------------"];
 MSTformalism`MSTgRoots[spinin,-2,j,l,2];
 \[Nu]sol[w_]:=MSTformalism`nurealMY[w]+I MSTformalism`nuimaginaryMY[w];
 AlmSWSH = MSTformalism`AlmSWSH;
@@ -105,14 +105,25 @@ plotrenanglmom[l]=GraphicsRow[{plota,plotb}];
 Print[\[Nu]sol[2wr]];
 Clear[\[Nu]sol];
 \[Nu]sol[w_]:=MSTformalism`nufullBHPT[w];
-Print[\[Nu]sol[2wr]];
-Print[MSTformalism`AlmSWSH[2wr]];
+Print["\[Nu]sol["<>ToString[l]<>","<>ToString[j]<>"]: "<>ToString[\[Nu]sol[2wr], InputForm]];
+Print["AlmSWSH: "<>ToString[AlmSWSH[2wr], InputForm]];
+Print["\!\(\*SubscriptBox[\(\[Lambda]\), \(swsh\)]\): "<>ToString[AlmSWSH[2*wr] + spinin^2*(2 wr)^2-2*spinin*l*(2*wr), InputForm]];
+\[Nu]solIn[l,j][\[Omega]_]:=Evaluate@MSTformalism`nufullBHPT[\[Omega]];
 MSTformalism`MSTSolution[spinin,\[Nu]sol[2wr],2wr,AlmSWSH[2wr],-2,j,l, rstop];
 Rnumerical=MSTformalism`Rnumerical;
 RinMST=MSTformalism`RinMST;
 Binc = MSTformalism`Binc;
 Bref = MSTformalism`Bref;
 AinMST = MSTformalism`AinMST;
+
+
+Print["Rnumerical[2]: "<>ToString[Rnumerical[2]]];
+Print["SolR[2]: "<>ToString[PrivateMST`R[2]/.PrivateMST`solR]];
+Print["Coeff: "<>ToString[PrivateMST`Coeff, InputForm]];
+Print["R0: "<>ToString[PrivateMST`R0, InputForm]];
+Print["dR0: "<>ToString[PrivateMST`dR0, InputForm]];
+Print["norm: "<>ToString[PrivateMST`norm, InputForm]];
+Print["eqset: "<>ToString[PrivateMST`eqset, InputForm]];
 RinSet[l,j]=SetPrecision[Rnumerical[r],20];
 RinSet[l,-j]=Conjugate[Rnumerical[r]];
 RinSetMST[l,j]=RinMST[r];
@@ -131,6 +142,10 @@ Print["GW Power --------------------------------------"];
 (*Gravitational waves*)
 Monitor[Do[
 Print["Mode: "<>ToString[{l,j}]];
+Print["BincSet: "<>ToString[BincSet[2,2], InputForm]];
+Print["Tlm\[Omega][l][3.86]: "<>ToString[Tlm\[Omega][l][3.86], InputForm]];
+Print["RinSet[l,j][3.86]: "<>ToString[RinSet[l,j]/.TeuInterEnv`r->3.86, InputForm]];
+
 WeylPsi4`GravitationalRadiation[BincSet[l,j],2wr,Tlm\[Omega][l][r],RinSet[l,j],spinin,j,l,rstart+1,rstop];
 Psi4Inf = WeylPsi4`Psi4Inf;
 Psi4mInf = WeylPsi4`Psi4mInf;

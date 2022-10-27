@@ -130,7 +130,7 @@ If[OptionValue[AsOptimized],
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
-Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, Decomposed},
+Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, Decomposed,Prefactor},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
@@ -164,7 +164,8 @@ coefftimestop = AbsoluteTime[];
 If[OptionValue[ExtractTimeDependence],
 (*Numerical prefactor in agreement with nils code*)
 (*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
-Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+Prefactor = Sqrt[2]*\[Pi]^(3/2);
+Decomposed = {r$,\[Theta]$}|->Evaluate[Prefactor*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
 
 Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];
@@ -244,7 +245,7 @@ coefftimestop = AbsoluteTime[];
 If[OptionValue[ExtractTimeDependence],
 (*Numerical prefactor in agreement with nils code*)
 (*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
-Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+Decomposed = {r$,\[Theta]$}|->Evaluate[Sqrt[2]*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
 
 Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];
@@ -325,7 +326,7 @@ coefftimestop = AbsoluteTime[];
 If[OptionValue[ExtractTimeDependence],
 (*Numerical prefactor in agreement with nils code*)
 (*expression comes from fourier transforming TNN, which has the functional form CC[r,\[Theta]]+AA[r,\[Theta]] Cos[2  (\[Phi]+\[Pi])-2 t \[Omega]]+BB[r,\[Theta]] Sin[2 (\[Phi]+\[Pi])-2 t \[Omega]]*)
-Decomposed = {r$,\[Theta]$}|->Evaluate[2*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
+Decomposed = {r$,\[Theta]$}|->Evaluate[Sqrt[2]*\[Pi]^(3/2)*(coeff1[r$,\[Theta]$]-I*coeff2[r$,\[Theta]$])];,
 
 Decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1[r$,\[Theta]$]*Cos[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff2[r$,\[Theta]$]*Sin[-2*\[Omega]value*t$ + 2*mvalue*\[Phi]$]+coeff3[r$,\[Theta]$]];
 ];
@@ -370,9 +371,10 @@ Options[TeukolskySourceModalIntegrand]={Source->Null};
 TeukolskySourceModalIntegrand[solution_?AssociationQ,l_?IntegerQ,m_?IntegerQ, OptionsPattern[]]:=
 With[{Gamma = solution[["Parameters","\[Chi]"]]*2*solution[["Solution","\[Omega]"]]//Re},
 (*Additional factor of Sqrt[2*\[Pi]] comes from normalization of SWSH package compared to normalization defined in http://link.springer.com/10.12942/lrr-2003-6*)
+(*Note, integrand contains jacobian already*)
 If[TrueQ[OptionValue[Source]==Null],
-retval = OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2*Teukrho^-5*Teukrhob^-1*TeukolskySource[solution][r,\[Theta]]*Sqrt[2*\[Pi]]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]],
-retval = OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2*Teukrho^-5*Teukrhob^-1*OptionValue[Source][r,\[Theta]]*Sqrt[2*\[Pi]]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]]]]]
+retval = OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2/(Teukrhob*Teukrho^5)*TeukolskySource[solution][r,\[Theta]]*Sqrt[2*\[Pi]]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]*Sin[\[Theta]]]]]],
+retval = OptimizedFunction[{r,\[Theta]},Evaluate[ApplySolutionSet[solution][FromxActVariables[2/(Teukrhob*Teukrho^5)*OptionValue[Source][r,\[Theta]]*Sqrt[2*\[Pi]]*SpinWeightedSpheroidalHarmonicS[-2,l,m,Gamma,\[Theta],0]*Sin[\[Theta]]]]]]
 ];
 Return[retval];
 ];
@@ -395,11 +397,11 @@ SourceIntegrand = TeukolskySourceModalIntegrand[solution,l,m];,
 SourceIntegrand = OptionValue[SourceIntegrand];
 ];
 SourceIntegrandFunction[x_?NumericQ,\[Theta]_?NumericQ]:=SourceIntegrand[x,\[Theta]];
-IntegrationFunction[x_?NumericQ]:=NIntegrate[SourceIntegrandFunction[x,\[Theta]]*Sin[\[Theta]], {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon]}, WorkingPrecision->10, MaxRecursion->100];
+IntegrationFunction[x_?NumericQ]:=NIntegrate[SourceIntegrandFunction[x,\[Theta]], {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon]}, WorkingPrecision->10, MaxRecursion->100];
 $Messenger = "Evaluating integration at each radial mesh node";
 DistributeDefinitions[SourceIntegrand, SourceIntegrandFunction,SpinWeightedSpheroidalHarmonicS];
-TlmwOnMesh = ParallelMap[IntegrationFunction, radialMesh];
-TlmwData = Thread[{radialMesh,TlmwOnMesh}];
+TlmwData = ParallelMap[({#,IntegrationFunction[#]}&), radialMesh];
+(*TlmwData = Thread[{radialMesh,TlmwOnMesh}];*)
 $Messenger = "Generating Interpolation function";
 TlmwInterpolation = Interpolation[TlmwData];
 Return[TlmwInterpolation];
@@ -450,12 +452,29 @@ Print["Error: Renormalized angular momentum = "<>ToString[RenormedAngMom, InputF
 Amplitude = IncomingAmplitudeB[RenormedAngMom,\[Omega]v,\[Chi]v,m,-2,SWSHEigenvalue];
 integrand[r_?NumericQ]:= TeukolskyLM\[Omega][r]*TeukRin[r]/DeltaFunction[r]^2;
 $Messenger="Performing Integration";
+
+
+
+Print["Binc: "<>ToString[Amplitude, InputForm]];
+Print["Tlmw[3.86]: "<>ToString[TeukolskyLM\[Omega][3.86], InputForm]];
+Print["Rinc[3.86]: "<>ToString[TeukRin[3.86], InputForm]];
+Print["\[CapitalDelta][3.86]: "<>ToString[DeltaFunction[3.86], InputForm]];
+Plot[integrand[r]//Abs, {r, rdom[[1]], rdom[[2]]}, PlotRange->All]//Print;
+Print[rdom];
+
+
 integration = NIntegrate[integrand[r], 
-{r,rdom[[1]], rdom[[2]]}, 
+{r,rdom[[1]]+1, rdom[[2]]}, 
 PrecisionGoal->$TSNIntegratePrecision,
 MaxRecursion->$TSNIntegrateMaxRecursion,
 Method->$TSNIntegrateMethod];
 Zcoefficient = integration/(2*I*\[Omega]v*Amplitude);
+
+
+
+Print[integration];
+
+
 $Messenger="";
 Return[Zcoefficient]
 ];

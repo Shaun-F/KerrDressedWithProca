@@ -8,10 +8,10 @@ MSTSolver;
 <<Teukolsky`
 <<SpinWeightedSpheroidalHarmonics`
 
-$MSTMaxN = 40; (*Max index of series expansions to use throughout*)
+$MSTMaxN = 30; (*Max index of series expansions to use throughout*)
 $RAMMaxN = 500; (*Max N to use for calculating the renormalized angular momentum*)
 $MSTDumbyR = 0; (*summation halting index for Equation 165 in Sasaki et al.*)
-$MSTGlobalPrecision = 30;
+$MSTGlobalPrecision = 40;
 
 
 (*helper functions*)
@@ -130,6 +130,11 @@ Block[{testval, RenormedAngularMomentumtmp,nsample=0},
 (*Teukolsky uses SpinWeightedSpheroidalEigenvalue to compute the SWSH eigenvalue*)
 testval = RenormalizedAngularMomentum[s,l,m,\[Chi],\[Omega], Method->OptionValue[Method]]//ToMSTPrecision;
 
+Return[testval//ToMSTPrecision];
+
+
+(*I forgot why I built the following code*)
+(*
 If[Im[testval]==0,
 Return[testval//ToMSTPrecision]
 ];
@@ -143,7 +148,8 @@ If[TrueQ[\[Omega]<=0.6&&Im[testval]!=0],
 RenormedAngularMomentumtmp = l-1+testval;
 Return[RenormedAngularMomentumtmp//ToMSTPrecision];
 ];
-]
+*)
+];
 
 A\[Nu]plus[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_]:=
 Block[{A\[Nu]plustmp},
@@ -177,7 +183,7 @@ With[{\[Epsilon]val = ToMSTPrecision[\[Epsilon][\[Omega]]], \[Kappa]val = ToMSTP
 Kcoeff1 = MatchingKcoeff[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]];
 Kcoeff2 = MatchingKcoeff[-\[Nu]-1,\[Omega],\[Chi],m,s,\[Lambda]];
 Aplus = A\[Nu]plus[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]];
-IncomingAmplitudeBtmp = 1/\[Omega]*(Kcoeff1 - I*Exp[-I*\[Pi]*\[Nu]]*Sin[\[Pi](\[Nu]-s+I*\[Epsilon]val)]/Sin[\[Pi](\[Nu]+s-I*\[Epsilon]val)]*Kcoeff2)*Aplus*Exp[-I*(\[Epsilon]val*Log[\[Epsilon]val]-(1-\[Kappa]val)/2*\[Epsilon]val)];
+IncomingAmplitudeBtmp = 1/\[Omega]*(Kcoeff1 - I*Exp[-I*\[Pi]*\[Nu]]*Sin[\[Pi](\[Nu]-s+I*\[Epsilon]val)]/Sin[\[Pi](\[Nu]+s-I*\[Epsilon]val)]*Kcoeff2)*Aplus*Exp[-I*(\[Epsilon]val*Log[\[Epsilon]val](*-(1-\[Kappa]val)/2*\[Epsilon]val*))];      (*__________________TEST___________________*)
 Return[IncomingAmplitudeBtmp//ToMSTPrecision]
 ];
 ];
@@ -215,26 +221,27 @@ Return[TransmittedAmplitudeCtmp//ToMSTPrecision];
 ];
 
 
-OuterRPlus[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_][r_]:=
+Options[OuterRPlus] = {SeriesSign->1};
+OuterRPlus[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_, OptionsPattern[]][r_]:=
 Block[{OuterRPlustmp},
 With[{\[Epsilon]val = \[Epsilon][\[Omega]],\[Epsilon]plusval = \[Epsilon]plus[\[Omega],\[Chi],m],\[Kappa]val = \[Kappa][\[Chi]], coeff = Function[{n},SeriesCoeff[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]][n]]},
-
 OuterRPlustmp = 2^\[Nu]*Exp[-\[Pi]*\[Epsilon]val]*Exp[I*\[Pi]*(\[Nu]+1-s)]*Gamma[\[Nu]+1-s+I*\[Epsilon]val]/Gamma[\[Nu]+1+s-I*\[Epsilon]val]*Exp[-I*ztilde[r,\[Omega],\[Chi]]]*ztilde[r,\[Omega],\[Chi]]^(\[Nu]+I*\[Epsilon]plusval) (ztilde[r,\[Omega],\[Chi]]-\[Epsilon]val*\[Kappa]val)^(-s-I*\[Epsilon]plusval)*
 \!\(
 \*SubsuperscriptBox[\(\[Sum]\), \(n = \(-$MSTMaxN\)\), \($MSTMaxN\)]\((
-\*SuperscriptBox[\(I\), \(n\)]*coeff[n]*
+\*SuperscriptBox[\(I\), \(n\)]*coeff[OptionValue[SeriesSign]*n]*
 \*SuperscriptBox[\((2*ztilde[r, \[Omega], \[Chi]])\), \(n\)]*IrregularConfluentHGF[n + \[Nu] + 1 - s + I*\[Epsilon]val, \ 2*n + 2*\[Nu] + 2, \ 2*I*ztilde[r, \[Omega], \[Chi]]])\)\);
 Return[OuterRPlustmp//ToMSTPrecision]
 ]
 ];
 
-OuterRMinus[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_][r_]:=
+Options[OuterRMinus] = {SeriesSign->1};
+OuterRMinus[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_, OptionsPattern[]][r_]:=
 Block[{OuterRMinustmp},
 With[{\[Epsilon]val = \[Epsilon][\[Omega]],\[Epsilon]plusval = \[Epsilon]plus[\[Omega],\[Chi],m],\[Kappa]val = \[Kappa][\[Chi]], coeff = Function[{n},SeriesCoeff[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]][n]]},
 OuterRMinustmp =  2^\[Nu]*Exp[-\[Pi]*\[Epsilon]val]*Exp[-I*\[Pi]*(\[Nu]+1+s)]Exp[I*ztilde[r,\[Omega],\[Chi]]]*ztilde[r,\[Omega],\[Chi]]^(\[Nu]+I*\[Epsilon]plusval) (ztilde[r,\[Omega],\[Chi]]-\[Epsilon]val*\[Kappa]val)^(-s-I*\[Epsilon]plusval)*\!\(
 \*SubsuperscriptBox[\(\[Sum]\), \(n = \(-$MSTMaxN\)\), \($MSTMaxN\)]\((
 \*SuperscriptBox[\(I\), \(n\)]*
-\*FractionBox[\(Pochhammer[\[Nu] + 1 + s - I*\[Epsilon]val, n]\), \(Pochhammer[\[Nu] + 1 - s + I*\[Epsilon]val, n]\)] coeff[n]*
+\*FractionBox[\(Pochhammer[\[Nu] + 1 + s - I*\[Epsilon]val, n]\), \(Pochhammer[\[Nu] + 1 - s + I*\[Epsilon]val, n]\)] coeff[OptionValue[SeriesSign]*n]*
 \*SuperscriptBox[\((2  ztilde[r, \[Omega], \[Chi]])\), \(n\)]*IrregularConfluentHGF[n + \[Nu] + 1 + s - I*\[Epsilon]val, \ 2*n + 2*\[Nu] + 2, \ \(-2\)*I*ztilde[r, \[Omega], \[Chi]]])\)\);
 Return[OuterRMinustmp//ToMSTPrecision]
 ];
@@ -242,11 +249,13 @@ Return[OuterRMinustmp//ToMSTPrecision]
 
 OuterRC::usage="Asymptotic expansion of radial function in terms of Coulombic wavefunctions satisfying the ingoing boundary condition. 
 See Eq. (152) of Sasaki et. al";
-OuterRC[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_][r_]:=OuterRPlus[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]][r]+OuterRMinus[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]][r]
+Options[OuterRC] = Options[OuterRPlus];
+OuterRC[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_, OptionsPattern[]][r_]:=OuterRPlus[\[Nu],\[Omega],\[Chi],m,s,\[Lambda], SeriesSign->OptionValue[SeriesSign]][r]+OuterRMinus[\[Nu],\[Omega],\[Chi],m,s,\[Lambda],SeriesSign->OptionValue[SeriesSign]][r]
 
 OuterRIncoming::usage="Asymptotic expansion of radial function in terms of Coulombic wavefunctions satisfying the ingoing boundary condition and using matching of solution to Horizon expansion. 
 See Eq. (166) of Sasaki et. al";
-OuterRIncoming[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_][r_]:=
+Options[OuterRIncoming] = Options[OuterRPlus];
+OuterRIncoming[\[Nu]_,\[Omega]_,\[Chi]_,m_,s_,\[Lambda]_, OptionsPattern[]][r_]:=
 MatchingKcoeff[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]]*OuterRC[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]][r] + MatchingKcoeff[-\[Nu]-1,\[Omega],\[Chi],m,s,\[Lambda]]*OuterRC[-\[Nu]-1,\[Omega],\[Chi],m,s,\[Lambda]][r];
 
 
@@ -258,6 +267,8 @@ RNumerical[\[Nu]_,\[Omega]_,\[Chi]_,l_,m_,s_,\[Lambda]_, RSTOP_]:=
 Block[{
 rinx, 
 Radial,
+\[CapitalDelta],
+K,
 xinr,
 DiffEQX,
 DiffEQr,
@@ -277,16 +288,17 @@ NormalizedRSolution
 
 },
 With[{
-\[CapitalDelta] = Function[{r}, r^2-2*r + \[Chi]^2],
-K = Function[{r}, (r^2+\[Chi]^2)*\[Omega] -m*\[Chi]],
-\[Lambda]val = SpinWeightedSpheroidalEigenvalue[s,l,m,\[Chi]*\[Omega]]},
-DiffEQr= (\[CapitalDelta][r]^-s*D[\[CapitalDelta][r]^(s+1)*D[#,r],r] + ((K[r]^2-2*I*s*(r-1)*K[r])/\[CapitalDelta][r]+4*I*s*\[Omega]*r -\[Lambda])#)& ;
+\[Lambda]val = SpinWeightedSpheroidalEigenvalue[s,l,m,\[Chi]*\[Omega]],
+\[CapitalDelta] =  r^2-2*r + \[Chi]^2,
+K = (r^2+\[Chi]^2)*\[Omega] -m*\[Chi]},
+
+DiffEQr=((\[CapitalDelta])^-s*D[\[CapitalDelta]^(s+1)*D[#,r],r] + ((K^2-2*I*s*(r-1)*K)/\[CapitalDelta]+4*I*s*\[Omega]*r -\[Lambda])#)& ;
 
 (*Frobenius expansion near horizon to generate initial conditions*)
 rinx = X*(rplus[\[Chi]]-rminus[\[Chi]])+rplus[\[Chi]];
 xinr =( r-rplus[\[Chi]])/(rplus[\[Chi]]-rminus[\[Chi]]);
-With[{\[CapitalDelta]x = \[CapitalDelta][rinx],Kx = K[rinx], jacobian = D[xinr,r]},
-DiffEQX =(\[CapitalDelta]x*jacobian^2*D[#,X,X] + (s+1)*(2*X-1)*D[#,X]+ ((Kx^2-2*I*s*(rinx-1)*Kx)/\[CapitalDelta]x+4*I*s*\[Omega]*rinx -\[Lambda]val)#)& ;
+With[{\[CapitalDelta]x = \[CapitalDelta]/.r->rinx,Kx = K/.r->rinx, jacobian = D[xinr,r]},
+DiffEQX = (\[CapitalDelta]x^-s*D[\[CapitalDelta]x^(s+1),X]*D[#,X]*jacobian^2 + \[CapitalDelta]x*jacobian^2*D[#,X,X] + ((Kx^2-2*I*s*(rinx-1)Kx)/\[CapitalDelta]x+4*I*s*\[Omega]*rinx - \[Lambda])#)&;
 ];
 
 rstart = (rplus[\[Chi]]+10^-5)//ToMSTPrecision;
@@ -297,8 +309,6 @@ FrobSeriesEquationSet = FrobSeriesEquation//LogicalExpand;
 FrobSolution = NSolve[FrobSeriesEquationSet, {kk, C1, C2}][[1]];
 
 
-
-(*FrobSolution = {kk\[Rule]0.`,C1\[Rule]0.`,C2\[Rule]2.324777497632098`*^31+4.135306151018094`*^30 \[ImaginaryI]};*)
 FrobinR[r_]:=Frob[(r-rplus[\[Chi]])/(rplus[\[Chi]]-rminus[\[Chi]])]/.FrobSolution//ToMSTPrecision;
 InitialConditions = {Limit[FrobinR[r], r->rstart], Limit[D[FrobinR[r],r], r->rstart]}//ToMSTPrecision;
 
@@ -307,6 +317,7 @@ RSolution = NDSolve[
 Radial, 
 {r,rstart, rstop}, 
 WorkingPrecision->$MachinePrecision,
+Method->{"TimeIntegration"->{"ExplicitRungeKutta","DifferenceOrder"->8}},
  MaxSteps->10^9]//First//First//Last;(*Pick out the InterpolatingFunction from the return value of NDSolve*)
 
 SampleRadius = If[rstop<10, rstop,10];
@@ -315,9 +326,8 @@ SampleRadius = If[rstop<10, rstop,10];
 Block[{$MSTMaxN=10}, (*Using lower value of MaxN results in much faster computation time with little decrease in required precision*)
 Normalization = OuterRIncoming[\[Nu],\[Omega],\[Chi],m,s,\[Lambda]][SampleRadius]/RSolution[SampleRadius]//SetPrecision[#, 100]&;
 ];
-NormalizedRSolution = List@@RSolution;
-NormalizedRSolution[[4]] = NormalizedRSolution[[4]]*Normalization;
-NormalizedRSolution = InterpolatingFunction@@NormalizedRSolution;
+NormalizedRSolution = OperateOnInterpolationValues[RSolution, (#*Normalization&)];
+MSTDebug = <|"FrobSeriesEquationSet"->FrobSeriesEquationSet,"UnnormalizedRSolution"->RSolution, "Normalization"->Normalization, "IC"-> InitialConditions, "rstart"->rstart, "rstop"->rstop, "FrobeniusSolution"->FrobSolution, "DiffEQx"->DiffEQX, "DiffEQr"->DiffEQr|>;
 Return[NormalizedRSolution];
 ]
 ]
