@@ -7,7 +7,8 @@ TeuCode::usage "something."
 Begin["TeuInterEnv`"]
 
 (*All of the input has to be fiven in M0 units*)
-TeuCode[min_,nin_,spininitial_,procamass_,massinitial_]:=Module[{min1=min,nin1=nin,spin=spininitial,massinitial1=massinitial},
+Options[TeuCode]={MySolution->False};
+TeuCode[min_,nin_,spininitial_,procamass_,massinitial_, OptionsPattern[]]:=Module[{min1=min,nin1=nin,spin=spininitial,massinitial1=massinitial},
 $precValue = 25;
 prec=SetPrecision[#,$precValue]&;
 
@@ -18,6 +19,8 @@ spinin=prec@spin;
 Mini=prec@massinitial;
 \[Mu]=prec@procamass;
 $root = Global`$root;
+If[Not[TrueQ[OptionValue[MySolution]]],
+Print["________Nils solution________"];
 spinstring=NumberForm[spinin*10^6//Round,6,DigitBlock->5,ExponentStep->6,NumberSeparator->""];
 modedataoutput=prec@Import[ToString[$root<>"precision_mode_library/m"<>ToString[m]<>ToString["n"]<>ToString[n]<>ToString["_a"]<>ToString[spinstring]<>ToString["_Sm1_prec.mx"]]]//.{QNMcode`r\[Nu]->r\[Nu],QNMcode`i\[Nu]->i\[Nu],QNMcode`\[Theta]->\[Theta],QNMcode`R->R}//.{QNMmode`r\[Nu]->r\[Nu],QNMmode`i\[Nu]->i\[Nu],QNMmode`\[Theta]->\[Theta],QNMmode`R->R};
 
@@ -33,10 +36,27 @@ wi=modedataoutput[[5,pos]]//Im;
 Print["\n\nData import: \n\t input mass: "<>ToString[\[Mu], InputForm]<>"\n\t data index: "<>ToString[pos]<>"\n\t mass: "<>ToString[Procamass, InputForm]<>"\n\t BH Spin: "<>ToString[spinin, InputForm]<>"\n\t Mode: "<>ToString[m, InputForm]<>"\n\t Overtone: "<>ToString[n, InputForm]<>"\n\t Frequency: "<>ToString[wr+I*wi, InputForm]<>"\n\t Eigenvalue: "<>ToString[\[Nu]r+I*\[Nu]i, InputForm]];
 Print["Radsol[2]: "<>ToString[Rsol[2],InputForm]];
 Print["Angsol[2]: "<>ToString[Anglsol/.TeuInterEnv`\[Theta]->2, InputForm]];
-
 (*Plotting things*);
 out1=LogLogPlot[Interpolation[Table[{modedataoutput[[3,i]],modedataoutput[[5,i]]//Im},{i,1,pos}],InterpolationOrder->2][\[Mu]in],{\[Mu]in,0.05,Procamass},PlotRange->All];
 (*We set the Procamass to the BH mass M0, since we cancel that out later on anyway*)
+,
+
+(*My Solution*)
+Print["________My solution________"];
+dat = Global`getResults[Global`$SolutionPath, {{"m",m}, {"n",n}, {"\[Mu]Nv", StringReplace[ToString[Rationalize[procamass], InputForm], "/"->"_"]}}]//First;
+Rsol = Global`RecastInterpolationFunction[dat["Solution", "R"], (Global`HorizonCoordToRadial[#,spinin]&)];
+Anglsol=dat["Solution", "S"][\[Theta]];
+Procamass=dat["Parameters", "\[Mu]Nv"];
+wr=dat["Solution", "\[Omega]"]//Re;
+wi=dat["Solution", "\[Omega]"]//Im;
+\[Nu]r=dat["Solution", "\[Nu]"]//Re;
+\[Nu]i=dat["Solution", "\[Nu]"]//Im;
+Print["\n\nData import: \n\t input mass: "<>ToString[\[Mu], InputForm]<>"\n\t mass: "<>ToString[Procamass, InputForm]<>"\n\t BH Spin: "<>ToString[spinin, InputForm]<>"\n\t Mode: "<>ToString[m, InputForm]<>"\n\t Overtone: "<>ToString[n, InputForm]<>"\n\t Frequency: "<>ToString[wr+I*wi, InputForm]<>"\n\t Eigenvalue: "<>ToString[\[Nu]r+I*\[Nu]i, InputForm]];
+Print["Radsol[2]: "<>ToString[Rsol[2],InputForm]];
+Print["Angsol[2]: "<>ToString[Anglsol/.TeuInterEnv`\[Theta]->2, InputForm]];
+];
+
+
 prec@BHEvol`KerrProcaEvolution[m,n,spinin,\[Mu],Mini];
 out2=BHEvol`Mfspinf;
 EprocainM0=1-BHEvol`Mfspinf[[1]];
@@ -115,15 +135,6 @@ RinMST=MSTformalism`RinMST;
 Binc = MSTformalism`Binc;
 Bref = MSTformalism`Bref;
 AinMST = MSTformalism`AinMST;
-
-
-Print["Rnumerical[2]: "<>ToString[Rnumerical[2]]];
-Print["SolR[2]: "<>ToString[PrivateMST`R[2]/.PrivateMST`solR]];
-Print["Coeff: "<>ToString[PrivateMST`Coeff, InputForm]];
-Print["R0: "<>ToString[PrivateMST`R0, InputForm]];
-Print["dR0: "<>ToString[PrivateMST`dR0, InputForm]];
-Print["norm: "<>ToString[PrivateMST`norm, InputForm]];
-Print["eqset: "<>ToString[PrivateMST`eqset, InputForm]];
 RinSet[l,j]=SetPrecision[Rnumerical[r],20];
 RinSet[l,-j]=Conjugate[Rnumerical[r]];
 RinSetMST[l,j]=RinMST[r];
@@ -197,3 +208,6 @@ Export[ToString[$root<>"GWoutput/GW_m"<>ToString[m]<>ToString["n"]<>ToString[n]<
 End[]
 
 EndPackage[]
+
+
+
