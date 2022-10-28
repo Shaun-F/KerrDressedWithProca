@@ -8,6 +8,9 @@ If["xActSetup"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Pack
 (*Import Helper functions*)
 If["HelperFunctions"\[NotElement]Names["Global`*"], Get[FileNameJoin[{$FKKSRoot, "Packages", "HelperFunctions.wl"}]]]
 
+$EMMaxRadialPoints=200;
+$EMCoefficient\[Theta]points=50;
+
 
 (*$Assumptions={r>0,M>0,J>0,1>a\[GreaterEqual]0,\[Pi]\[GreaterEqual]\[Theta]\[GreaterEqual]0, \[Lambda]\[Element]Complexes,\[Omega]\[Element]Complexes, \[Nu]\[Element]Complexes};*)
 
@@ -42,7 +45,7 @@ Im[(Sr^\[Prime]\[Prime])[\[Epsilon]_]]:>0,Im[(Si^\[Prime]\[Prime])[\[Epsilon]_]]
 
 
 (*A^\[Mu]*)
-Options[FKKSProca]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False, IndexStructure->up};
+Options[FKKSProca]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False, IndexStructure->up, AsInterpolatingFunction->False};
 FKKSProca[solution_:analytic, OptionsPattern[]]:=
 Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar, Filename,Filenamecomps},
 If[OptionValue[RealPart],
@@ -118,6 +121,33 @@ Return[tmp]
 
 If[OptionValue[Optimized],
 Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
+];
+
+If[OptionValue[AsInterpolatingFunction],
+radialdomain = solution["Solution", "R"]["Domain"]//First;
+Block[{dmat, Idmat, tmpoe, VectorSamplingValues, coeff1, coeff2, coeff1Interp, coeff2Interp, \[Omega]v= solution["Solution", "\[Omega]"], mv = solution["Parameters", "m"]},
+	With[{\[Phi]sampling = {0, \[Pi]/(2*mv)},
+			rdom = radialdomain//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&,
+			rpoints = If[radialdomain[[-1]]<$EMMaxRadialPoints, radialdomain[[-1]], $EMMaxRadialPoints+10*Log[radialdomain[[-1]]]],
+			\[Theta]points = $EMCoefficient\[Theta]points
+			},
+			dmat[\[Phi]1_, \[Phi]2_]:= {{Cos[\[Phi]1], Sin[\[Phi]1]}, {Cos[\[Phi]2], Sin[\[Phi]2]}};
+			Idmat[\[Phi]1_, \[Phi]2_]:={{-Csc[\[Phi]1-\[Phi]2] Sin[\[Phi]2],Csc[\[Phi]1-\[Phi]2] Sin[\[Phi]1]},{Cos[\[Phi]2] Csc[\[Phi]1-\[Phi]2],-Cos[\[Phi]1] Csc[\[Phi]1-\[Phi]2]}};
+			tmpoe = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp[{\[Zeta],sphericalchart}]//ComponentArray]];
+			VectorSamplingValues = {tmpoe[0,r,\[Theta],\[Phi]sampling[[1]]], tmpoe[0,r,\[Theta],\[Phi]sampling[[2]]]};
+			{coeff1, coeff2} = Idmat[\[Phi]sampling[[1]], \[Phi]sampling[[2]]] . VectorSamplingValues;
+			coeff1oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff1]];
+			coeff1Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points},Metadata->True, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+			Print[coeff1Interp];
+			Abort[];
+			coeff2Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];	
+		];
+	If[OptionValue[QuasiboundState],
+	decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1Interp[r$,\[Theta]$]*Cos[-Re[\[Omega]v]*t$ + mv*\[Phi]$]]+coeff2Interp[r$,\[Theta]$]*Sin[-Re[\[Omega]v]*t$ + mv*\[Phi]$],
+	decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1Interp[r$,\[Theta]$]*Cos[-\[Omega]v*t$ + mv*\[Phi]$]]+coeff2Interp[r$,\[Theta]$]*Sin[-\[Omega]v*t$ + mv*\[Phi]$]
+	];
+	Return[decomposed];
+	];
 ];
 
 
