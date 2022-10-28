@@ -47,7 +47,7 @@ Im[(Sr^\[Prime]\[Prime])[\[Epsilon]_]]:>0,Im[(Si^\[Prime]\[Prime])[\[Epsilon]_]]
 (*A^\[Mu]*)
 Options[FKKSProca]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False, IndexStructure->up, AsInterpolatingFunction->False};
 FKKSProca[solution_:analytic, OptionsPattern[]]:=
-Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar, Filename,Filenamecomps},
+Block[{res,tmp,gradZ,Z,A,Aupreal, AuprealComponents,Ar, Filename,Filenamecomps,radialdomain,mv,\[Omega]v},
 If[OptionValue[RealPart],
 Filename = "FKKSProcaRealCTensor.mx";
 Filenamecomps = "AuprealComponents.mx";,
@@ -125,7 +125,9 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
 
 If[OptionValue[AsInterpolatingFunction],
 radialdomain = solution["Solution", "R"]["Domain"]//First;
-Block[{dmat, Idmat, tmpoe, VectorSamplingValues, coeff1, coeff2, coeff1Interp, coeff2Interp, \[Omega]v= solution["Solution", "\[Omega]"], mv = solution["Parameters", "m"]},
+mv = solution["Parameters", "m"];
+\[Omega]v= solution["Solution", "\[Omega]"];
+Block[{ dmat, Idmat, tmpoe, VectorSamplingValues, coeff1, coeff2,coeff1oe,coeff2oe,coeff1Interp, coeff2Interp,coeff1interpfunction,coeff2interpfunction},
 	With[{\[Phi]sampling = {0, \[Pi]/(2*mv)},
 			rdom = radialdomain//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&,
 			rpoints = If[radialdomain[[-1]]<$EMMaxRadialPoints, radialdomain[[-1]], $EMMaxRadialPoints+10*Log[radialdomain[[-1]]]],
@@ -137,16 +139,19 @@ Block[{dmat, Idmat, tmpoe, VectorSamplingValues, coeff1, coeff2, coeff1Interp, c
 			VectorSamplingValues = {tmpoe[0,r,\[Theta],\[Phi]sampling[[1]]], tmpoe[0,r,\[Theta],\[Phi]sampling[[2]]]};
 			{coeff1, coeff2} = Idmat[\[Phi]sampling[[1]], \[Phi]sampling[[2]]] . VectorSamplingValues;
 			coeff1oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff1]];
-			coeff1Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points},Metadata->True, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
-			Print[coeff1Interp];
-			Abort[];
-			coeff2Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];	
+			coeff2oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff2]];
+			coeff1Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points},DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
+			coeff2Interp = GenerateInterpolation[coeff2oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];	
 		];
+	coeff1interpfunction = {r$,\[Theta]$}|->Evaluate@Table[coeff1Interp[[i]][r$,\[Theta]$], {i,1,4}];
+	coeff2interpfunction = {r$,\[Theta]$}|->Evaluate@Table[coeff2Interp[[i]][r$,\[Theta]$], {i,1,4}];
+	With[{mvv = mv, \[Omega]vv=\[Omega]v, C1 = coeff1interpfunction, C2 = coeff2interpfunction},
 	If[OptionValue[QuasiboundState],
-	decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1Interp[r$,\[Theta]$]*Cos[-Re[\[Omega]v]*t$ + mv*\[Phi]$]]+coeff2Interp[r$,\[Theta]$]*Sin[-Re[\[Omega]v]*t$ + mv*\[Phi]$],
-	decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[coeff1Interp[r$,\[Theta]$]*Cos[-\[Omega]v*t$ + mv*\[Phi]$]]+coeff2Interp[r$,\[Theta]$]*Sin[-\[Omega]v*t$ + mv*\[Phi]$]
+	decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[C1[r$,\[Theta]$]*Cos[-Re[\[Omega]vv]*t$ + mvv*\[Phi]$]+C2[r$,\[Theta]$]*Sin[-Re[\[Omega]vv]*t$ + mvv*\[Phi]$]],
+	decomposed = {t$,r$,\[Theta]$,\[Phi]$}|->Evaluate[C1[r$, \[Theta]$]*Cos[-\[Omega]vv*t$ + mvv*\[Phi]$]+C2[r$,\[Theta]$]*Sin[-\[Omega]vv*t$ + mvv*\[Phi]$]]
 	];
-	Return[decomposed];
+	];
+	Return[{t,r,\[Theta],\[Phi]}|->Evaluate[CTensor[decomposed[t,r,\[Theta],\[Phi]], {sphericalchart}]]];
 	];
 ];
 
@@ -162,7 +167,7 @@ Subscript[F, \[Mu]\[Nu]]=\!\(
 \*SubscriptBox[\(\[Del]\), \(\[Nu]\)]
 \*SubscriptBox[\(A\), \(\[Mu]\)]\)
 *)
-Options[FKKSFieldStrength]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False};
+Options[FKKSFieldStrength]={SymbolicExpression->False, Optimized->False, RealPart->True, QuasiboundState->False, AsInterpolatingFunction->False};
 FKKSFieldStrength[solution_, OptionsPattern[]]:=
 Block[{res,tmp,A,Filename},
 If[OptionValue[RealPart],
@@ -173,7 +178,7 @@ With[{FSFilePath = $FKKSRoot<>"Expressions/"<>Filename},
 If[
 FileExistsQ[FSFilePath],
 res = Import[FSFilePath];,
-A=FKKSProca[analytic, RealPart->OptionValue[RealPart]];
+A=FKKSProca[analytic, RealPart->OptionValue[RealPart], AsInterpolatingFunction->OptionValue[AsInterpolatingFunction]];
 res = Head[Cd[-\[Zeta]]@A[-\[Xi]] - Cd[-\[Xi]]@A[-\[Zeta]]];
 Export[FSFilePath, res];
 ]
@@ -202,7 +207,7 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
-Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->False}
+Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->False, AsInterpolatingFunction->False};
 FKKSEnergyMomentum[solution_Association, OptionsPattern[]]:=
 Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename},
 If[OptionValue[RealPart],
@@ -308,6 +313,7 @@ res,
 weight,
 integrand,
 result,
+rmin,
 IntegrationErrors, 
 energydensityInterpolation,
 SpacialEnergyDensity,
@@ -331,9 +337,10 @@ If[!NumericQ[integrand[2,2,2]],
 	Print["Error! Integrand not a number! integrand[2,2,2] = "<>ToString[integrand[2,2,2], InputForm]];
 	Return[Null];
 ];
+rmin = rplusN[solution["Parameters", "\[Chi]"]]+10^-1.9;
 res = NIntegrate[
 integrand[r,\[Theta],\[Phi]], 
-{r,Radialdomain[[1]],Radialdomain[[1]],Radialdomain[[2]]}, (*Exclude r=Subscript[r, initial]*)
+{r,rmin,rmin,Radialdomain[[2]]}, (*Exclude r=Subscript[r, initial]*)
 {\[Theta],\[Delta]\[Theta],\[Delta]\[Theta], \[Pi]-\[Delta]\[Theta], \[Pi]-\[Delta]\[Theta]},(*Exclude \[Theta]=0,\[Pi]*)
 {\[Phi],0,2\[Pi]},
 MaxRecursion->$EMMaxRecursion,

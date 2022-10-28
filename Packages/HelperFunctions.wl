@@ -391,6 +391,7 @@ EndPoints = List[args][[All,3]],
 NArgs = Length@List@args,
 funcOnPoints,
 densityfuncs,
+scalar, vectorial,
 RecastDensityToBoundary,
 recastfunctions,
 CoordinateRanges,
@@ -401,11 +402,19 @@ interpRe,
 interpIm,
 retval
 },
+
 func = Hold[funcform][[1,0]];(*Extract head*)
 RecastDensityToBoundary[Identity,_,_][x_]:=x;
 RecastDensityToBoundary[denfunc_,rstart_,rstop_][x_]:=denfunc[x]/((denfunc[rstop]-denfunc[rstart])/(rstop-rstart))+(rstart*denfunc[rstop]-rstop*denfunc[rstart])/(denfunc[rstop] -denfunc[rstart]);
 SetAttributes[RecastDensityToBoundary, Listable];
 SetAttributes[func, Listable];
+
+(*if input function is vectorial or scalar*)
+FunctionDimension = Length[func@@StartPoints];
+If[TrueQ[FunctionDimension!=1],
+	Switcher = vectorial,
+	Switcher = scalar
+];
 
 If[TrueQ[OptionValue[DensityFunctions]==Automatic],
 densityfuncs = ConstantArray[Identity,Length[variables]];,
@@ -424,11 +433,13 @@ Messenger="Mapping function over mesh. \n\t Function Sample with timing: "<>ToSt
 DistributeDefinitions[func, CoordinateRanges];
 funcOnPoints = N@With[{operand = {func,Sequence@@CoordinateRanges}},
 						Parallelize[Outer@@operand]
-					];
+					];			
+Switch[Switcher,
 
-Messenger="Generating Interpolation function";
+scalar,			
+Messenger="Generating Interpolation function for scalar function";
 Generator = ListInterpolation[#1, CoordinateRanges, Method->OptionValue[Method], InterpolationOrder->OptionValue[InterpolationOrder], PeriodicInterpolation->OptionValue[PeriodicInterpolation]]&;
-If[AnyTrue[funcOnPoints, (Head[#]==Complex &), Depth[funcOnPoints]-1] && TrueQ[OptionValue[Method]=="Spline"],
+If[AnyTrue[funcOnPoints, (TrueQ[Head[#]==Complex] &), Depth[funcOnPoints]-1] && TrueQ[OptionValue[Method]=="Spline"],
 funcOnPointsReal = Re[funcOnPoints];
 funcOnPointsImag = Im[funcOnPoints];
 interpRe = Generator@funcOnPointsReal;
@@ -436,9 +447,30 @@ interpIm = Generator@funcOnPointsImag;
 With[{unheldvars = ReleaseHold/@variables},
 retval = Evaluate[unheldvars] |->Evaluate[interpRe[Sequence@@unheldvars] + I*interpIm[Sequence@@unheldvars]];
 ];,
-
 retval = Generator@funcOnPoints;
+];,
+
+
+vectorial,
+Messenger="Generating Interpolation function for Vectorial function";
+InterpList = {};
+Do[
+With[{SubspaceFunctionPoints = Map[Part[#,i]&, funcOnPoints, {-(2)}]},
+Generator = ListInterpolation[#1, CoordinateRanges, Method->OptionValue[Method], InterpolationOrder->OptionValue[InterpolationOrder], PeriodicInterpolation->OptionValue[PeriodicInterpolation]]&;
+If[AnyTrue[SubspaceFunctionPoints, (TrueQ[Head[#]==Complex] &), Depth[SubspaceFunctionPoints]-1] && TrueQ[OptionValue[Method]=="Spline"],
+funcOnPointsReal = Re[SubspaceFunctionPoints];
+funcOnPointsImag = Im[SubspaceFunctionPoints];
+interpRe = Generator@SubspaceFunctionPoints;
+interpIm = Generator@SubspaceFunctionPoints;
+With[{unheldvars = ReleaseHold/@variables},
+AppendTo[InterpList, Evaluate[unheldvars] |->Evaluate[interpRe[Sequence@@unheldvars] + I*interpIm[Sequence@@unheldvars]]];
+];,
+AppendTo[InterpList,Generator@SubspaceFunctionPoints];
 ];
+];(*End of With Statement*), {i, 1,FunctionDimension}
+];(*End of Do*)
+retval = InterpList;
+];(*End of Switch*)
 
 If[OptionValue[Metadata],
 Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>
