@@ -391,6 +391,8 @@ EndPoints = List[args][[All,3]],
 NArgs = Length@List@args,
 funcOnPoints,
 densityfuncs,
+FunctionDimension, Switcher,
+InterpList,
 scalar, vectorial,
 RecastDensityToBoundary,
 recastfunctions,
@@ -411,7 +413,7 @@ SetAttributes[func, Listable];
 
 (*if input function is vectorial or scalar*)
 FunctionDimension = Length[func@@StartPoints];
-If[TrueQ[FunctionDimension!=1],
+If[TrueQ[FunctionDimension>0],
 	Switcher = vectorial,
 	Switcher = scalar
 ];

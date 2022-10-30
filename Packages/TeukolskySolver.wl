@@ -39,7 +39,7 @@ $TSNIntegrateMethod = {"GlobalAdaptive", "MaxErrorIncreases"->2000, Method->{"Cl
 $TSNIntegratePrecision = 5;
 $TSNIntegrateMaxRecursion = 30;
 $TSNIntegrateMinRecursion=0;
-$TSMaxRadialPoints=100;
+$TSMaxRadialPoints=300;
 $TSRuntimeOptions = {"CatchMachineOverflow"->False, "CatchMachineIntegerOverflow"->False, "CompareWithTolerance"->False, "EvaluateSymbolically"->False, "RuntimeErrorHandler"->Null, "WarningMessages"->True};
 
 Teukrho = 1/(r[]-I*a*Cos[\[Theta][]]);
@@ -74,7 +74,7 @@ Lexpl[s_][expr_]:=
 Jpexpl[expr_]:=
 	Block[{tmp},
 		With[{EXPRESSION = FromxActVariables[expr], \[CapitalDelta] = FromxActVariables[Kerr\[CapitalDelta]]},
-			tmp=(D[#,r]+(2*I*#)/\[CapitalDelta] ((r^2+a^2)*\[Omega] - a*m))&@EXPRESSION
+			tmp=(D[#,r]+(I*#)/\[CapitalDelta] ((r^2+a^2)*2*\[Omega] - a*2*m))&@EXPRESSION
 		];
 	ToxActVariables[tmp]
 	];
@@ -90,7 +90,7 @@ Block[{nn,mm,mmbar},
 	DefTensor[mm[\[Zeta]], \[ScriptCapitalM], PrintAs->"m"];
 	DefTensor[mmbar[\[Zeta]], \[ScriptCapitalM], PrintAs->"\!\(\*OverscriptBox[\(m\), \(_\)]\)"];
 		Block[{Print},
-			ComponentValue[ComponentArray[nn[{\[Zeta],sphericalchart}]], {r[]^2+a^2, -(r[]^2-2*M*r[] + a^2),0,a}/(2*(r[]^2+a^2*Cos[\[Theta][]]^2))];
+			ComponentValue[ComponentArray[nn[{\[Zeta],sphericalchart}]], {r[]^2+a^2, -Kerr\[CapitalDelta],0,a}/(2*Kerr\[CapitalSigma])//Evaluate];
 			ComponentValue[ComponentArray[mm[{\[Zeta],sphericalchart}]], {I*a*Sin[\[Theta][]],0,1,I/Sin[\[Theta][]]}/(Sqrt[2]*(r[]+I*a*Cos[\[Theta][]]))];
 			ComponentValue[ComponentArray[mmbar[{\[Zeta],sphericalchart}]], {-I*a*Sin[\[Theta][]],0,1,-I/Sin[\[Theta][]]}/(Sqrt[2]*(r[]-I*a*Cos[\[Theta][]]))];
 		];
@@ -130,7 +130,7 @@ If[OptionValue[AsOptimized],
 If[OptionValue[AsInterpolatingFunction], 
 $Messenger = Row[{"Generating \!\(\*SubscriptBox[\(\[ScriptCapitalT]\), \(nn\)]\) Interpolating Function", ProgressIndicator[Appearance->"Percolate"]}];
 (*Assume Expression of the formSubscript[T, nn] = Subscript[(T^1), nn][r,\[Theta]] Cos[-\[Omega] t + m \[Phi]] + Subscript[(T^2), nn][r,\[Theta]] Sin[-\[Omega] t + m \[Phi]] + Subscript[(T^3), nn][r,\[Theta]]*)
-Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule, coeff1exp, coeff2exp, coeff3exp,coeff1, coeff2, coeff3, Decomposed,Prefactor},
+Block[{rdom, coefftimestart,coefftimestop,Dmat, radialdomain, CoefficientSolution, reprrule,  coeff1exp, coeff2exp, coeff3exp, coeff1,coeff2, coeff3, Decomposed,Prefactor},
 rdom = solution["Solution", "R"]["Domain"]//First//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&;
 Dmat[phi1_, phi2_, phi3_] := {{Cos[2*solution["Parameters", "m"]*phi1],Sin[2*solution["Parameters", "m"]*phi1],1},{Cos[2*solution["Parameters", "m"]*phi2],Sin[2*solution["Parameters", "m"]*phi2],1}, {Cos[2*solution["Parameters", "m"]*phi3],Sin[2*solution["Parameters", "m"]*phi3],1}};
 radialdomain = solution["Solution", "R"]["Domain"]//First;
@@ -152,7 +152,6 @@ CoefficientSolution = LinearSolve[Dmat[Sequence@@\[Phi]sampling], {Aa,Bb,Cc}];
 reprrule = {Aa->tmp$[0,r,\[Theta],\[Phi]sampling[[1]]], Bb->tmp$[0,r,\[Theta],\[Phi]sampling[[2]]], Cc->tmp$[0,r,\[Theta],\[Phi]sampling[[3]]]};
 coeff1exp = OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[1]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
 coeff2exp =  OptimizedFunction[{r,\[Theta]},Evaluate[CoefficientSolution[[2]]/.reprrule], ToCompiled->True, CompilationTarget->"WVM", RuntimeOptions->$TSRuntimeOptions];
-
 coeff1 = GenerateInterpolation[coeff1exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
 coeff2= GenerateInterpolation[coeff2exp[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
 If[Not[OptionValue[ExtractTimeDependence]],
@@ -464,7 +463,7 @@ Print[rdom];
 
 
 integration = NIntegrate[integrand[r], 
-{r,rdom[[1]]+1, rdom[[2]]}, 
+{r,rdom[[1]], rdom[[2]]}, 
 PrecisionGoal->$TSNIntegratePrecision,
 MaxRecursion->$TSNIntegrateMaxRecursion,
 Method->$TSNIntegrateMethod];

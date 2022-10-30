@@ -186,11 +186,6 @@ TnnExpl = Global`OptimizedFunction[{t,r,\[Theta],\[Phi]},tnnexpltemp/.{\[Chi]->s
 TmnExpl = Global`OptimizedFunction[{t,r,\[Theta],\[Phi]},tmnexpltemp/.{\[Chi]->spin,\[Mu]->Procamass}//.coordinates//Evaluate];
 TmmExpl = Global`OptimizedFunction[{t,r,\[Theta],\[Phi]},tmmexpltemp/.{\[Chi]->spin,\[Mu]->Procamass}//.coordinates//Evaluate];
 If[TrueQ[TnnExplNOE[2,2,2,2]!=TnnExpl[2,2,2,2]]||TrueQ[TmnExplNOE[2,2,2,2]!=TmnExpl[2,2,2,2]]||TrueQ[TmmExplNOE[2,2,2,2]!=TmmExpl[2,2,2,2]], Print["Error: Optimized functions not equal to unoptimized functions"];Abort[];];
-
-Print["TnnExpl Test: "<>ToString[TnnExpl[2,2,2,2], InputForm]];
-Print["rrange: "<>ToString[rrange[[1;;3]], InputForm]<>" ..."];
-Print["\[Theta]range: "<>ToString[\[Theta]range[[1;;3]], InputForm]<>" ..."];
-
 Print["---------------------------------------------------------------------"];
 Print["Generating: Tnn..."];
 DistributeDefinitions[rrange, \[Theta]range, TnnExpl, TmnExpl, TmmExpl];
