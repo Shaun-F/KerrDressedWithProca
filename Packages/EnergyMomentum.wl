@@ -16,14 +16,14 @@ $EMCoefficient\[Theta]points=50;
 
 
 M=1;
-\[Delta]\[Theta]=10^-4;
+\[Delta]\[Theta]=10^-3;
 SolutionPath =$FKKSRoot<>"Solutions/";
 
 $EMMinRecursion = 0;
 $EMMaxRecursion = Automatic;
 $EMNIntegratePrecision = 5; (*Produces sufficient accuracy*)
 $EMNIntegrateMethod = {"GlobalAdaptive"};
-
+$EMPrecision=25;ToEMPrecision[expr_]:=SetPrecision[expr, $EMPrecision];
 AnalyticSolution = <|"Parameters"-><|"\[Epsilon]"->\[Epsilon],"\[Mu]Nv"->\[Mu]Nv,"m"->m,"n"->n,"\[Chi]"->\[Chi],"M"->M|>,"Solution"-><|"\[Omega]"->\[Omega],"\[Nu]"->\[Nu],"R"->R,"S"->S|>|>;
 
 
@@ -111,8 +111,8 @@ Return[res/.ToParamSymbols]
 ];
 
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
-tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]]//ToEMPrecision;,
+tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution]//ToEMPrecision;
 ];
 
 If[OptionValue[SymbolicExpression], 
@@ -129,19 +129,19 @@ mv = solution["Parameters", "m"];
 \[Omega]v= solution["Solution", "\[Omega]"];
 Block[{ dmat, Idmat, tmpoe, VectorSamplingValues, coeff1, coeff2,coeff1oe,coeff2oe,coeff1Interp, coeff2Interp,coeff1interpfunction,coeff2interpfunction},
 	With[{\[Phi]sampling = {0, \[Pi]/(2*mv)},
-			rdom = radialdomain//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&,
+			rdom = radialdomain//HorizonCoordToRadial[#,solution["Parameters", "\[Chi]"]]&//ToEMPrecision,
 			rpoints = If[radialdomain[[-1]]<$EMMaxRadialPoints, radialdomain[[-1]], $EMMaxRadialPoints+10*Log[radialdomain[[-1]]]],
 			\[Theta]points = $EMCoefficient\[Theta]points
 			},
 			dmat[\[Phi]1_, \[Phi]2_]:= {{Cos[\[Phi]1], Sin[\[Phi]1]}, {Cos[\[Phi]2], Sin[\[Phi]2]}};
 			Idmat[\[Phi]1_, \[Phi]2_]:={{-Csc[\[Phi]1-\[Phi]2] Sin[\[Phi]2],Csc[\[Phi]1-\[Phi]2] Sin[\[Phi]1]},{Cos[\[Phi]2] Csc[\[Phi]1-\[Phi]2],-Cos[\[Phi]1] Csc[\[Phi]1-\[Phi]2]}};
-			tmpoe = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp[{\[Zeta],sphericalchart}]//ComponentArray]];
+			tmpoe = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp[{\[Zeta],sphericalchart}]//ComponentArray//ToEMPrecision]];
 			VectorSamplingValues = {tmpoe[0,r,\[Theta],\[Phi]sampling[[1]]], tmpoe[0,r,\[Theta],\[Phi]sampling[[2]]]};
 			{coeff1, coeff2} = Idmat[\[Phi]sampling[[1]], \[Phi]sampling[[2]]] . VectorSamplingValues;
-			coeff1oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff1]];
-			coeff2oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff2]];
-			coeff1Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points},DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];
-			coeff2Interp = GenerateInterpolation[coeff2oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), Identity}, InterpolationOrder->3, Method->"Spline"];	
+			coeff1oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff1//ToEMPrecision]];
+			coeff2oe = OptimizedFunction[{r,\[Theta]}, Evaluate[coeff2//ToEMPrecision]];
+			coeff1Interp = GenerateInterpolation[coeff1oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), (Erf[(#-(\[Pi]/2))/(75/100)]&)}, InterpolationOrder->3, Method->"Spline", WorkingPrecision->$EMPrecision];
+			coeff2Interp = GenerateInterpolation[coeff2oe[r,\[Theta]], {r,rdom[[1]], rdom[[2]],(rdom[[2]]-rdom[[1]])/rpoints}, {\[Theta],\[Theta]\[Epsilon],\[Pi]-\[Theta]\[Epsilon],\[Pi]/\[Theta]points}, DensityFunctions->{(#^4&), (Erf[(#-(\[Pi]/2))/(75/100)]&)}, InterpolationOrder->3, Method->"Spline", WorkingPrecision->$EMPrecision];	
 		];
 	coeff1interpfunction = {r$,\[Theta]$}|->Evaluate@Table[coeff1Interp[[i]][r$,\[Theta]$], {i,1,4}];
 	coeff2interpfunction = {r$,\[Theta]$}|->Evaluate@Table[coeff2Interp[[i]][r$,\[Theta]$], {i,1,4}];
@@ -188,8 +188,8 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
-tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
+tmp = res/.ToParamSymbols//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]]//ToEMPrecision;,
+tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution]//ToEMPrecision;
 ];
 
 If[OptionValue[SymbolicExpression], 
@@ -209,25 +209,30 @@ Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
 Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->True, AsInterpolatingFunction->False};
 FKKSEnergyMomentum[solution_Association, OptionsPattern[]]:=
-Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename, chartcoords={t[],r[],\[Theta][],\[Phi][]}},
+Block[{res,tmp, mass = \[Mu]Nv, tmpOE,F,A,A0,A1,A2,A3, Filename, chartcoords={t[],r[],\[Theta][],\[Phi][]}, EMinA, Areprule, PDreprule,tmp$},
+
 If[OptionValue[AsInterpolatingFunction],
 InterpedAup = FKKSProca[solution, AsInterpolatingFunction->True, RealPart->OptionValue[RealPart], QuasiboundState->OptionValue[QuasiboundState]][Sequence@@chartcoords];
 InterpedAdown = (InterpedAup[{-\[Xi],-sphericalchart}]//ToBasis[sphericalchart]//ComponentArray//ApplyRealSolutionSet[MySolution, QuasiboundState->OptionValue[QuasiboundState]]);
+A=CTensor[{A0[t[],r[],\[Theta][],\[Phi][]],A1[t[],r[],\[Theta][],\[Phi][]],A2[t[],r[],\[Theta][],\[Phi][]],A3[t[],r[],\[Theta][],\[Phi][]]},{-sphericalchart}];
+
 With[{EMFilePath=$FKKSRoot<>"Expressions/FKKSEnergyMomentumInVector.mx"},
 If[FileExistsQ[EMFilePath],
 EMinA = Import[EMFilePath],
-A=CTensor[{A0[t[],r[],\[Theta][],\[Phi][]],A1[t[],r[],\[Theta][],\[Phi][]],A2[t[],r[],\[Theta][],\[Phi][]],A3[t[],r[],\[Theta][],\[Phi][]]},{sphericalchart}];
+Do[DefScalarFunction[ToExpression["A"<>ToString[i]]], {i,0,3}];
 F = Head[Cd[-\[Zeta]]@A[-\[Xi]] - Cd[-\[Xi]]@A[-\[Zeta]]];
-EMinA = F[-\[Zeta],-\[Gamma]]F[-\[Xi],\[Gamma]] + mass^2*A[-\[Zeta]]A[-\[Xi]] -1/4 met[-\[Zeta],-\[Xi]](F[-\[Iota],-\[Gamma]]F[\[Iota],\[Gamma]] + 2*mass^2*A[-\[Gamma]]A[\[Gamma]])//ToBasis[sphericalchart]//ComponentArray//Simplify;
+EMinA = Simplify@Head[F[-\[Zeta],-\[Gamma]]F[-\[Xi],\[Gamma]] + \[Mu]^2*A[-\[Zeta]]A[-\[Xi]] -1/4 met[-\[Zeta],-\[Xi]](F[-\[Iota],-\[Gamma]]F[\[Iota],\[Gamma]] + 2*\[Mu]^2*A[-\[Gamma]]A[\[Gamma]])];
 Export[EMFilePath,EMinA];
 ];
 ];
+
 Areprule = Table[ToExpression["A"<>ToString[i]][Sequence@@chartcoords]->InterpedAdown[[i+1]], {i,0,3}];
-PDreprule = Table[PDsphericalchart[{i,-sphericalchart}][A[{j,-sphericalchart}]]->D[InterpedAdown[[j+1]], chartcoords[[i+1]]], {i,0,3},{j,0,3}];
+PDreprule = Flatten[Table[PDsphericalchart[{i,-sphericalchart}][A[{j,-sphericalchart}]]->D[InterpedAdown[[j+1]], chartcoords[[i+1]]], {i,0,3},{j,0,3}]];
 tmp$ = EMinA/.PDreprule/.Areprule//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];
-res = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[CTensor[tmp$, {-sphericalchart, -sphericalchart}]]];
+res = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp$]];
 Return[res];
-,
+];
+
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyMomentumRealCTensor.mx";,
 Filename = "FKKSEnergyMomentumCTensor.mx";
@@ -237,14 +242,15 @@ If[
 FileExistsQ[EMFilePath],
 res = Import[EMFilePath];,
 
-F = FKKSFieldStrength[analytic, RealPart->OptionValue[RealPart]];
-A=FKKSProca[analytic, RealPart->OptionValue[RealPart]];
+F = FKKSFieldStrength[analytic, RealPart->OptionValue[RealPart], QuasiboundState->OptionValue[QuasiboundState]];
+A=FKKSProca[analytic, RealPart->OptionValue[RealPart], QuasiboundState->OptionValue[QuasiboundState]];
 tmp$ = F[-\[Zeta],-\[Gamma]]F[-\[Xi],\[Gamma]] + mass^2*A[-\[Zeta]]A[-\[Xi]] -1/4 met[-\[Zeta],-\[Xi]](F[-\[Iota],-\[Gamma]]F[\[Iota],\[Gamma]] + 2*mass^2*A[-\[Gamma]]A[\[Gamma]]);
 res=Evaluate@Head[tmp$];
 If[TrueQ[Head[res]!=CTensor],Print["ERROR: Form of EM tensor incorrect"],Export[EMFilePath,res]];
 ]
 ];
 (*Format output based on input arguments*)
+
 If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
@@ -262,8 +268,7 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
 
 Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 
-]
-]
+];
 
 
 (*
@@ -281,7 +286,7 @@ If[FileExistsQ[ENFilePath],
 res = Import[ENFilePath];,
 
 T = FKKSEnergyMomentum[analytic, RealPart->OptionValue[RealPart], QuasiboundState->OptionValue[QuasiboundState]];
-res = -1*T[{0,sphericalchart},{0,-sphericalchart}]//FromxActVariables;
+res = -1*T[{0,sphericalchart},{0,-sphericalchart}]//FromxActVariables//ToEMPrecision;
 Export[ENFilePath, res];
 ];
 ];
@@ -290,8 +295,8 @@ If[TrueQ[solution==analytic],
 Return[res/.ToParamSymbols]
 ];
 If[OptionValue[RealPart],
-tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];,
-tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution];
+tmp = res/.ToParamSymbols/.\[Omega]i->0//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]]//ToEMPrecision;,
+tmp = res/.ToParamSymbols//FromxActVariables//PrimedToSymbolic//ApplySolutionSet[solution]//ToEMPrecision;
 ];
 If[OptionValue[SymbolicExpression], 
 Return[tmp]
@@ -340,10 +345,10 @@ nradialpoints,
 n\[Theta]points, 
 n\[Phi]points,
 \[Chi] = solution["Parameters", "\[Chi]"],
-Radialdomain = HorizonCoordToRadial[solution["Solution", "R"]["Domain"][[1]], solution["Parameters", "\[Chi]"]]
+Radialdomain = HorizonCoordToRadial[solution["Solution", "R"]["Domain"][[1]], solution["Parameters", "\[Chi]"]]//ToEMPrecision
 },
 
-energydensity = FKKSEnergyDensity[solution, ToCompiled->True,QuasiboundState->OptionValue[QuasiboundState]];
+energydensity = FKKSEnergyDensity[solution, ToCompiled->True,QuasiboundState->OptionValue[QuasiboundState]]//ToEMPrecision;
 
 SpacialEnergyDensity = {r,\[Theta],\[Phi]}|->energydensity[0,r,\[Theta],\[Phi]];
 
@@ -366,7 +371,8 @@ MaxRecursion->$EMMaxRecursion,
 Method->$EMNIntegrateMethod,
 MinRecursion->$EMMinRecursion,
 PrecisionGoal->$EMNIntegratePrecision,
-IntegrationMonitor:>((IntegrationErrors=Through[#1@"Error"])&)
+IntegrationMonitor:>((IntegrationErrors=Through[#1@"Error"])&),
+WorkingPrecision->$EMPrecision
 ];
 If[Total@Errors>0.01,
 Print["ERROR: integration errors greater than 1%"];
@@ -426,7 +432,7 @@ FKKSFinalMass[freq_,mode_,InitialDimlessSpin_,MInitial_]:=
 Block[{mm, MRatio, allsolutions},
 allsolutions = mm/.NSolve[SaturationCondition[freq,mode,InitialDimlessSpin,MInitial,mm],mm,Reals];
 MRatio = Select[allsolutions,  0<=#<=1&]//First; (*Assuming energy flows from BH to proca cloud*)
-MRatio*MInitial
+MRatio*MInitial//ToEMPrecision
 ]
 
 
@@ -441,9 +447,9 @@ Return[solution["Derived", "Normalization"]];
 ];
 ];
 totalenergyresults = FKKSTotalEnergy[solution,QuasiboundState->True];
-totalenergy = totalenergyresults["Total"];
-finalmass = FKKSFinalMass[wv, mv, \[Chi]v, InitialMass];
-normalization = Sqrt[(InitialMass-finalmass)/totalenergy];
+totalenergy = totalenergyresults["Total"]//ToEMPrecision;
+finalmass = FKKSFinalMass[wv, mv, \[Chi]v, InitialMass]//ToEMPrecision;
+normalization = Sqrt[(InitialMass-finalmass)/totalenergy]//ToEMPrecision;
 
 (*Error Analysis*)
 NormalizationError = normalization*totalenergyresults["Errors"]/totalenergy//Total;
@@ -452,7 +458,7 @@ If[NormalizationError/normalization>10^-2,
 ];
 
 (*Renormalize energy*)
-RenormalizedEnergy = totalenergy*normalization^2;
+RenormalizedEnergy = totalenergy*normalization^2//ToEMPrecision;
 
 <|
 	"Normalization"->normalization, 

@@ -409,7 +409,7 @@ Print["Coords must be either BL (boyer-lindquist) or Horizon"]
 
 
 SetAttributes[GenerateInterpolation, HoldFirst];
-Options[GenerateInterpolation] = { DensityFunctions->Automatic, Metadata->False}\[Union]Options[ListInterpolation];
+Options[GenerateInterpolation] = { DensityFunctions->Automatic, Metadata->False, WorkingPrecision->$MachinePrecision}\[Union]Options[ListInterpolation];
 GenerateInterpolation[funcform_, args___, OptionsPattern[]]:=
 Block[{
 func,
@@ -458,12 +458,12 @@ CoordinateRanges =Table[
 With[{arg = List[args][[coordIter]], rcfunc =recastfunctions[[coordIter]],var = variables[[coordIter]] },
 Table[rcfunc[ReleaseHold[var]], arg]
 ],
-{coordIter, 1, Length[variables]}];
+{coordIter, 1, Length[variables]}]//SetPrecision[#,OptionValue[WorkingPrecision]]&;
 Messenger="Mapping function over mesh. \n\t Function Sample with timing: "<>ToString[Part[func@@StartPoints//Timing,1], InputForm];
 DistributeDefinitions[func, CoordinateRanges];
 funcOnPoints = N@With[{operand = {func,Sequence@@CoordinateRanges}},
 						Parallelize[Outer@@operand]
-					];			
+					]//SetPrecision[#,OptionValue[WorkingPrecision]]&;			
 Switch[Switcher,
 
 scalar,			

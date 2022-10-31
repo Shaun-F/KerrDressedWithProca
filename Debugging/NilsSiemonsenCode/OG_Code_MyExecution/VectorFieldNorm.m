@@ -173,7 +173,7 @@ Print["r glue = "<>ToString[rglue]];
 
 (*Generating the interpolations for a grid of 40x40 points over (r,\[Theta]) for each of the A^\mu and A_\mu components*)
 Print["Interpolation: Start."];
-\[Theta]mesh=If[m0==1,49,If[m0==2,59,59]];
+\[Theta]mesh=If[m0==1,99,If[m0==2,59,59]];
 rmesh=If[m0==1,199,If[m0==2,699,699]];
 p=If[rstop<500,4,5];
 Print["rmesh = "<>ToString[rmesh]];
@@ -218,6 +218,7 @@ dRslopeRe=Rslope[dR1re,r1,dR2re,r2];
 dRslopeIm=Rslope[dR1im,r1,dR2im,r2];
 ddRslopeRe=Rslope[ddR1re,r1,ddR2re,r2];
 ddRslopeIm=Rslope[ddR1im,r1,ddR2im,r2];
+
 (*Final solution*)
 Rad[rr_]:=Piecewise[{{Rsol[y]//.{y->rr},rr<rglue},{Exp[RslopeRe rr]/Exp[RslopeRe rglue]Re[Rsol[rglue]]+I Exp[RslopeIm rr]/Exp[RslopeIm rglue]Im[Rsol[rglue]],rr>rglue}}];
 dRad[rr_]:=Piecewise[{{D[Rsol[y],y]//.{y->rr},rr<rglue},{Exp[dRslopeRe rr]/Exp[dRslopeRe rglue]Re[D[Rsol[x],x]/.{x->rglue}]+I Exp[dRslopeIm rr]/Exp[dRslopeIm rglue]Im[D[Rsol[x],x]/.{x->rglue}],rr>rglue}}];
