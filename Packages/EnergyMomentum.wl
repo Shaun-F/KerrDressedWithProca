@@ -207,9 +207,27 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 (*
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
-Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->False, AsInterpolatingFunction->False};
+Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->True, AsInterpolatingFunction->False};
 FKKSEnergyMomentum[solution_Association, OptionsPattern[]]:=
-Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename},
+Block[{res,tmp,tmp$, mass = \[Mu]Nv, tmpOE,F,A, Filename, chartcoords={t[],r[],\[Theta][],\[Phi][]}},
+If[OptionValue[AsInterpolatingFunction],
+InterpedAup = FKKSProca[solution, AsInterpolatingFunction->True, RealPart->OptionValue[RealPart], QuasiboundState->OptionValue[QuasiboundState]][Sequence@@chartcoords];
+InterpedAdown = (InterpedAup[{-\[Xi],-sphericalchart}]//ToBasis[sphericalchart]//ComponentArray//ApplyRealSolutionSet[MySolution, QuasiboundState->OptionValue[QuasiboundState]]);
+With[{EMFilePath=$FKKSRoot<>"Expressions/FKKSEnergyMomentumInVector.mx"},
+If[FileExistsQ[EMFilePath],
+EMinA = Import[EMFilePath],
+A=CTensor[{A0[t[],r[],\[Theta][],\[Phi][]],A1[t[],r[],\[Theta][],\[Phi][]],A2[t[],r[],\[Theta][],\[Phi][]],A3[t[],r[],\[Theta][],\[Phi][]]},{sphericalchart}];
+F = Head[Cd[-\[Zeta]]@A[-\[Xi]] - Cd[-\[Xi]]@A[-\[Zeta]]];
+EMinA = F[-\[Zeta],-\[Gamma]]F[-\[Xi],\[Gamma]] + mass^2*A[-\[Zeta]]A[-\[Xi]] -1/4 met[-\[Zeta],-\[Xi]](F[-\[Iota],-\[Gamma]]F[\[Iota],\[Gamma]] + 2*mass^2*A[-\[Gamma]]A[\[Gamma]])//ToBasis[sphericalchart]//ComponentArray//Simplify;
+Export[EMFilePath,EMinA];
+];
+];
+Areprule = Table[ToExpression["A"<>ToString[i]][Sequence@@chartcoords]->InterpedAdown[[i+1]], {i,0,3}];
+PDreprule = Table[PDsphericalchart[{i,-sphericalchart}][A[{j,-sphericalchart}]]->D[InterpedAdown[[j+1]], chartcoords[[i+1]]], {i,0,3},{j,0,3}];
+tmp$ = EMinA/.PDreprule/.Areprule//FromxActVariables//ApplyRealSolutionSet[solution, QuasiboundState->OptionValue[QuasiboundState]];
+res = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[CTensor[tmp$, {-sphericalchart, -sphericalchart}]]];
+Return[res];
+,
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyMomentumRealCTensor.mx";,
 Filename = "FKKSEnergyMomentumCTensor.mx";
@@ -245,6 +263,7 @@ Return[OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp]]]
 Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 
 ]
+]
 
 
 (*
@@ -261,7 +280,7 @@ With[{ENFilePath =$FKKSRoot<>"Expressions/"<>Filename},
 If[FileExistsQ[ENFilePath],
 res = Import[ENFilePath];,
 
-T = FKKSEnergyMomentum[analytic, RealPart->OptionValue[RealPart]];
+T = FKKSEnergyMomentum[analytic, RealPart->OptionValue[RealPart], QuasiboundState->OptionValue[QuasiboundState]];
 res = -1*T[{0,sphericalchart},{0,-sphericalchart}]//FromxActVariables;
 Export[ENFilePath, res];
 ];

@@ -274,17 +274,18 @@ AssociationThread[{\[Omega],\[Nu],S,R,dR,ddR}->Flatten@{\[Omega]v,
 ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParamSymbols/.ParamsToReprRule[solution]/.SolToReprRule[solution,real->OptionValue[real]];
 
 
-Options[ApplyRealSolutionSet]={QuasiboundState->False, ProperDerivative->True};
+Options[ApplyRealSolutionSet]={QuasiboundState->False, InHorizonCoords->True};
 ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
 	Block[{repr, res},
 	With[{solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
-	(*postfactor = 1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]);*)
 		With[{MapToRadial =  (RadialToHorizonCoord[#,\[Chi]v]&),postfactor=1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])},
+		
+		If[OptionValue[InHorizonCoords],
 		repr = {
 			HoldPattern@Derivative[d_][Rr][r_]:>Re[Derivative[d][solR][MapToRadial[r]]]*postfactor^d,
 			HoldPattern@Derivative[d_][Ri][r_]:>Im[Derivative[d][solR][MapToRadial[r]]]*postfactor^d,
-			HoldPattern@Derivative[d_][Sr][x_]:>Re[Derivative[d][solS][x]],
-			HoldPattern@Derivative[d_][Si][x_]:>Im[Derivative[d][solS][x]],
+			HoldPattern@Derivative[d_][Sr][\[Theta]_]:>Re[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Si][\[Theta]_]:>Im[Derivative[d][solS][\[Theta]]],
 			HoldPattern@Derivative[d_][Rr]:>(Re[Derivative[d][solR][MapToRadial[#]]]*postfactor^d&),
 			HoldPattern@Derivative[d_][Ri]:>(Im[Derivative[d][solR][MapToRadial[#]]]*postfactor^d&),
 			HoldPattern@Derivative[d_][Sr]:>(Re[Derivative[d][solS][#]]&),
@@ -304,7 +305,34 @@ ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
 			Ri->( Im[solR[MapToRadial[#]]]&), 
 			Sr->( Re[solS[#]]&),
 			Si->( Im[solS[#]]&)
+			};,
+			
+			repr = {
+			HoldPattern@Derivative[d_][Rr][r_]:>Re[Derivative[d][solR][r]],
+			HoldPattern@Derivative[d_][Ri][r_]:>Im[Derivative[d][solR][r]],
+			HoldPattern@Derivative[d_][Sr][\[Theta]_]:>Re[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Si][\[Theta]_]:>Im[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Rr]:>(Re[Derivative[d][solR][#]]&),
+			HoldPattern@Derivative[d_][Ri]:>(Im[Derivative[d][solR][#]]&),
+			HoldPattern@Derivative[d_][Sr]:>(Re[Derivative[d][solS][#]]&),
+			HoldPattern@Derivative[d_][Si]:>(Im[Derivative[d][solS][#]]&),
+			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
+			\[Omega]i->Evaluate@If[OptionValue[QuasiboundState], 0, Im[solution["Solution","\[Omega]"]]],
+			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
+			\[Nu]i->Im[solution["Solution","\[Nu]"]],
+			\[Chi]->solution["Parameters", "\[Chi]"], 
+			a->solution["Parameters", "\[Chi]"],
+			\[Chi]v->solution["Parameters", "\[Chi]"],
+			m->solution["Parameters", "m"], 
+			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
+			\[Mu]->solution["Parameters", "\[Mu]Nv"],
+			n->solution["Parameters", "n"],
+			Rr->( Re[solR[#]]&), 
+			Ri->( Im[solR[#]]&), 
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
 			};
+			];
 		res = expr/.repr;
 		Return[res]
 		];
