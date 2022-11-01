@@ -134,14 +134,14 @@ Do[
 		AsymptoticFlux = EnergyFlux[NormedData,OrbitalNumber,ModeNumber, TeukolskyTlmw->Tlmw, ZCoefficient->AsymptoticAmplitude];
 		If[SaveToDisk,
 			Print["Asymptotic flux calculation complete. Appending data to solution"];
-			ExportData = {{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Zinf", AsymptoticAmplitude}};
+			ExportData = {{"Einf", AsymptoticFlux}, {"NormalizedEinf",AsymptoticFlux/(1-Normalization["FinalMass"])^2}  {"Tlmw",Tlmw}, {"Zinf", AsymptoticAmplitude}};
 			AppendTo[ExportData,#]&/@Table[{i,Normalization[i]}, {i, Normalization//Keys}]//Last;
 			AppendToSolution[SingleSolution][ExportData];
 		];
 		IterationStopTime=AbsoluteTime[];
 		Print["Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
 		Print["Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
-		AppendTo[Logger, "Energy Flux: "<>ToString[AsymptoticFlux, InputForm]];
+		AppendTo[Logger, "Normalized Energy Flux: "<>ToString[AsymptoticFlux/(1-Normalization["FinalMass"])^2, InputForm]];
 		AppendTo[Logger, "Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
 		AppendTo[Logger, "Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
 		PutAppend[Sequence@@Logger, LogFile];
