@@ -281,7 +281,7 @@ FrobeniusSystem[\[Kappa]_,c1_,c2_,\[Nu]Nt_,\[Omega]Nt_,parameters_, OptionsPatte
 
 getRadialSolution[w_?NumberQ, v_?NumberQ, parameters_]:=
 	Block[{
-		(*StartingRadius, 
+		StartingRadius, 
 		EndingRadius, 
 		AnalyticFrobeniusSystem,
 		FullFrobeniusSolution, 
@@ -292,7 +292,7 @@ getRadialSolution[w_?NumberQ, v_?NumberQ, parameters_]:=
 		FrobRPrime0, 
 		BC, 
 		eq, 
-		RadialSolutions,*)
+		RadialSolutions,
 		\[Omega]vv = w, 
 		\[Nu]vv=v,
 		\[Chi]=parameters["\[Chi]"],

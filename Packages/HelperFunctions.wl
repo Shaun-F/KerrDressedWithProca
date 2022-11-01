@@ -22,6 +22,38 @@ Return[absoluteFileName]
 ]
 
 
+RecastInterpolationFunction::usage="Recast interpolating function over a new domain obtained by operating on the old domain with DomainFunction"
+RecastInterpolationFunction[int_InterpolatingFunction, DomainFunction_]:=
+Block[{GridPoints = int["Grid"]//Flatten, NewGridPoints, NewData},
+NewGridPoints = DomainFunction/@GridPoints;
+NewData = Thread[{NewGridPoints, int/@GridPoints}];
+Interpolation[NewData, InterpolationOrder->int["InterpolationOrder"], Method->int["InterpolationMethod"]]
+]
+
+
+TruncateInterpolatingFunction[int_InterpolatingFunction, TruncatingFunction_, OptionsPattern[{OnValues->False, OnDomain->True}]]:=
+Block[{interp = int, interpdomain,NewInterp, NewValuesAndGrid = {}},
+interpdomain = interp["Grid"]//Flatten;
+If[OptionValue[OnValues],
+For[i=1, i<=Length[interpdomain], i++, 
+If[int[interpdomain[[i]]]//TruncatingFunction,
+AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];
+];(*If statmement*)
+];(*For loop*)
+];(*If statement*)
+
+If[OptionValue[OnDomain],
+For[i=1, i<=Length[interpdomain], i++,
+If[interpdomain[[i]]//TruncatingFunction,
+AppendTo[NewValuesAndGrid, {interpdomain[[i]],interp[interpdomain[[i]]]}];
+];(*If statement*)
+](*For loops*)
+];(*If statement*)
+
+NewInterp = Interpolation[NewValuesAndGrid, Method->interp["InterpolationMethod"], InterpolationOrder->interp["InterpolationOrder"]]
+]
+
+
 FixProcaSolution[solution_]:=
 Block[{OutputSolution},
 OutputSolution = solution;
@@ -29,6 +61,15 @@ OutputSolution[["Solution", "R"]]=solution[["Solution", "R(r)"]];
 OutputSolution[["Solution", "S"]]={\[Theta]}|->Evaluate[Sum[C[tempiter]*SphericalHarmonicY[Abs[solution["Parameters", "m"]]+2*tempiter+solution["Parameters", "\[Eta]"],solution["Parameters", "m"],\[Theta],\[Phi]]*Exp[-I*solution["Parameters", "m"]*\[Phi]], {tempiter,0,solution["Parameters", "KMax"]}]/.solution["Solution", "AngularKernelVector"]];
 Return[OutputSolution]
 ];
+
+
+OperateOnInterpolationValues::usage="Operate on the values inputted into the interpolation function with a listable function";
+OperateOnInterpolationValues[interp_, function_]:=
+Block[{Out},
+Out = List@@interp;
+Out[[4]]=Out[[4]]//function;
+Return[InterpolatingFunction@@Out]
+]
 
 
 RenormalizeProcaSolution::usage="rescale a given proca solution by a given normalization factor";
@@ -214,7 +255,7 @@ AssociationThread[{\[Omega],\[Nu],S,R,dR,ddR}->Flatten@{Re[\[Omega]v],
 											Sv,
 											(Rv[RadialToHorizonCoord[#,\[Chi]v]]&), 
 											((Derivative[1][Rv][RadialToHorizonCoord[#,\[Chi]v]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v]))&),
-											((Derivative[1][Derivative[1][Rv]][RadialToHorizonCoord[#,\[Chi]v]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^2)&)
+											((Derivative[2][Rv][RadialToHorizonCoord[#,\[Chi]v]]*1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])^2)&)
 }
 ],
 
@@ -230,6 +271,75 @@ AssociationThread[{\[Omega],\[Nu],S,R,dR,ddR}->Flatten@{\[Omega]v,
 ];
 
 
+ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParamSymbols/.ParamsToReprRule[solution]/.SolToReprRule[solution,real->OptionValue[real]];
+
+
+Options[ApplyRealSolutionSet]={QuasiboundState->False, InHorizonCoords->True};
+ApplyRealSolutionSet[solution_, OptionsPattern[]][expr_]:=
+	Block[{repr, res},
+	With[{solR=solution["Solution","R"], solS=solution["Solution", "S"], \[Chi]v=solution["Parameters", "\[Chi]"]},
+		With[{MapToRadial =  (RadialToHorizonCoord[#,\[Chi]v]&),postfactor=1/(rplusN[\[Chi]v]-rminusN[\[Chi]v])},
+		
+		If[OptionValue[InHorizonCoords],
+		repr = {
+			HoldPattern@Derivative[d_][Rr][r_]:>Re[Derivative[d][solR][MapToRadial[r]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Ri][r_]:>Im[Derivative[d][solR][MapToRadial[r]]]*postfactor^d,
+			HoldPattern@Derivative[d_][Sr][\[Theta]_]:>Re[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Si][\[Theta]_]:>Im[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Rr]:>(Re[Derivative[d][solR][MapToRadial[#]]]*postfactor^d&),
+			HoldPattern@Derivative[d_][Ri]:>(Im[Derivative[d][solR][MapToRadial[#]]]*postfactor^d&),
+			HoldPattern@Derivative[d_][Sr]:>(Re[Derivative[d][solS][#]]&),
+			HoldPattern@Derivative[d_][Si]:>(Im[Derivative[d][solS][#]]&),
+			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
+			\[Omega]i->Evaluate@If[OptionValue[QuasiboundState], 0, Im[solution["Solution","\[Omega]"]]],
+			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
+			\[Nu]i->Im[solution["Solution","\[Nu]"]],
+			\[Chi]->solution["Parameters", "\[Chi]"], 
+			a->solution["Parameters", "\[Chi]"],
+			\[Chi]v->solution["Parameters", "\[Chi]"],
+			m->solution["Parameters", "m"], 
+			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
+			\[Mu]->solution["Parameters", "\[Mu]Nv"],
+			n->solution["Parameters", "n"],
+			Rr->( Re[solR[MapToRadial[#]]]&), 
+			Ri->( Im[solR[MapToRadial[#]]]&), 
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
+			};,
+			
+			repr = {
+			HoldPattern@Derivative[d_][Rr][r_]:>Re[Derivative[d][solR][r]],
+			HoldPattern@Derivative[d_][Ri][r_]:>Im[Derivative[d][solR][r]],
+			HoldPattern@Derivative[d_][Sr][\[Theta]_]:>Re[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Si][\[Theta]_]:>Im[Derivative[d][solS][\[Theta]]],
+			HoldPattern@Derivative[d_][Rr]:>(Re[Derivative[d][solR][#]]&),
+			HoldPattern@Derivative[d_][Ri]:>(Im[Derivative[d][solR][#]]&),
+			HoldPattern@Derivative[d_][Sr]:>(Re[Derivative[d][solS][#]]&),
+			HoldPattern@Derivative[d_][Si]:>(Im[Derivative[d][solS][#]]&),
+			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
+			\[Omega]i->Evaluate@If[OptionValue[QuasiboundState], 0, Im[solution["Solution","\[Omega]"]]],
+			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
+			\[Nu]i->Im[solution["Solution","\[Nu]"]],
+			\[Chi]->solution["Parameters", "\[Chi]"], 
+			a->solution["Parameters", "\[Chi]"],
+			\[Chi]v->solution["Parameters", "\[Chi]"],
+			m->solution["Parameters", "m"], 
+			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
+			\[Mu]->solution["Parameters", "\[Mu]Nv"],
+			n->solution["Parameters", "n"],
+			Rr->( Re[solR[#]]&), 
+			Ri->( Im[solR[#]]&), 
+			Sr->( Re[solS[#]]&),
+			Si->( Im[solS[#]]&)
+			};
+			];
+		res = expr/.repr;
+		Return[res]
+		];
+		];
+	];
+
+
 ThreadThrough::argn="The arguments `1` and `2` must have equal lengths";
 ThreadThrough::usage="Thread a list of functions over a list of arguments.
 ThreadThrough[{f,g,h}, {x,y,z}] -> {f[x], g[y], h[z]}
@@ -242,13 +352,10 @@ Table[functionlist[[i]][Operands[[i]]], {i,1,Length@functionlist}]
 );
 
 
-ApplySolutionSet[solution_,OptionsPattern[{real->False}]][expr_]:= expr/.ToParamSymbols/.ParamsToReprRule[solution]/.SolToReprRule[solution,real->OptionValue[real]];
+ToParamSymbols={a->\[Chi]};
 
 
-ToParamSymbols:={a->\[Chi]};
-
-
-Options[OptimizedFunction]={WithProperties->True,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
+Options[OptimizedFunction]={WithProperties->False,ToCompiled->False,OptimizationSymbol->aa, Options@Experimental`OptimizeExpression, Options@Compile}//Flatten;
 OptimizedFunction[vars_, expr_, OptionsPattern[]]:=Module[{i,exproe, res,ret},
 exproe = Experimental`OptimizeExpression[expr,
 ExcludedForms->OptionValue[ExcludedForms],
@@ -271,8 +378,7 @@ RuntimeAttributes->OptionValue[RuntimeAttributes],
 RuntimeOptions->OptionValue[RuntimeOptions]
 }
 },
-rett = Compile@@Hold[thevars, Evaluate[resc]@@thevars,opts];
-ret =rett
+ret = Compile@@Hold[thevars, Evaluate[resc]@@thevars,opts];
 ];
 Return[ret]
 ];
@@ -303,7 +409,7 @@ Print["Coords must be either BL (boyer-lindquist) or Horizon"]
 
 
 SetAttributes[GenerateInterpolation, HoldFirst];
-Options[GenerateInterpolation] = { DensityFunctions->Automatic, Metadata->False};
+Options[GenerateInterpolation] = { DensityFunctions->Automatic, Metadata->False, WorkingPrecision->$MachinePrecision}\[Union]Options[ListInterpolation];
 GenerateInterpolation[funcform_, args___, OptionsPattern[]]:=
 Block[{
 func,
@@ -313,16 +419,32 @@ EndPoints = List[args][[All,3]],
 NArgs = Length@List@args,
 funcOnPoints,
 densityfuncs,
+FunctionDimension, Switcher,
+InterpList,
+scalar, vectorial,
 RecastDensityToBoundary,
 recastfunctions,
 CoordinateRanges,
+Generator,
+funcOnPointsReal,
+funcOnPointsImag,
+interpRe,
+interpIm,
 retval
 },
+
 func = Hold[funcform][[1,0]];(*Extract head*)
 RecastDensityToBoundary[Identity,_,_][x_]:=x;
 RecastDensityToBoundary[denfunc_,rstart_,rstop_][x_]:=denfunc[x]/((denfunc[rstop]-denfunc[rstart])/(rstop-rstart))+(rstart*denfunc[rstop]-rstop*denfunc[rstart])/(denfunc[rstop] -denfunc[rstart]);
 SetAttributes[RecastDensityToBoundary, Listable];
 SetAttributes[func, Listable];
+
+(*if input function is vectorial or scalar*)
+FunctionDimension = Length[func@@StartPoints];
+If[TrueQ[FunctionDimension>0],
+	Switcher = vectorial,
+	Switcher = scalar
+];
 
 If[TrueQ[OptionValue[DensityFunctions]==Automatic],
 densityfuncs = ConstantArray[Identity,Length[variables]];,
@@ -336,42 +458,54 @@ CoordinateRanges =Table[
 With[{arg = List[args][[coordIter]], rcfunc =recastfunctions[[coordIter]],var = variables[[coordIter]] },
 Table[rcfunc[ReleaseHold[var]], arg]
 ],
-{coordIter, 1, Length[variables]}];
+{coordIter, 1, Length[variables]}]//SetPrecision[#,OptionValue[WorkingPrecision]]&;
 Messenger="Mapping function over mesh. \n\t Function Sample with timing: "<>ToString[Part[func@@StartPoints//Timing,1], InputForm];
 DistributeDefinitions[func, CoordinateRanges];
-funcOnPoints = With[{operand = {func,Sequence@@CoordinateRanges}},
+funcOnPoints = N@With[{operand = {func,Sequence@@CoordinateRanges}},
 						Parallelize[Outer@@operand]
-					];
+					]//SetPrecision[#,OptionValue[WorkingPrecision]]&;			
+Switch[Switcher,
 
-Messenger="Generating Interpolation function";
-retval = ListInterpolation[funcOnPoints, CoordinateRanges, Method->"Spline"];
+scalar,			
+Messenger="Generating Interpolation function for scalar function";
+Generator = ListInterpolation[#1, CoordinateRanges, Method->OptionValue[Method], InterpolationOrder->OptionValue[InterpolationOrder], PeriodicInterpolation->OptionValue[PeriodicInterpolation]]&;
+If[AnyTrue[funcOnPoints, (TrueQ[Head[#]==Complex] &), Depth[funcOnPoints]-1] && TrueQ[OptionValue[Method]=="Spline"],
+funcOnPointsReal = Re[funcOnPoints];
+funcOnPointsImag = Im[funcOnPoints];
+interpRe = Generator@funcOnPointsReal;
+interpIm = Generator@funcOnPointsImag;
+With[{unheldvars = ReleaseHold/@variables},
+retval = Evaluate[unheldvars] |->Evaluate[interpRe[Sequence@@unheldvars] + I*interpIm[Sequence@@unheldvars]];
+];,
+retval = Generator@funcOnPoints;
+];,
+
+
+vectorial,
+Messenger="Generating Interpolation function for Vectorial function";
+InterpList = {};
+Do[
+With[{SubspaceFunctionPoints = Map[Part[#,i]&, funcOnPoints, {-(2)}]},
+Generator = ListInterpolation[#1, CoordinateRanges, Method->OptionValue[Method], InterpolationOrder->OptionValue[InterpolationOrder], PeriodicInterpolation->OptionValue[PeriodicInterpolation]]&;
+If[AnyTrue[SubspaceFunctionPoints, (TrueQ[Head[#]==Complex] &), Depth[SubspaceFunctionPoints]-1] && TrueQ[OptionValue[Method]=="Spline"],
+funcOnPointsReal = Re[SubspaceFunctionPoints];
+funcOnPointsImag = Im[SubspaceFunctionPoints];
+interpRe = Generator@SubspaceFunctionPoints;
+interpIm = Generator@SubspaceFunctionPoints;
+With[{unheldvars = ReleaseHold/@variables},
+AppendTo[InterpList, Evaluate[unheldvars] |->Evaluate[interpRe[Sequence@@unheldvars] + I*interpIm[Sequence@@unheldvars]]];
+];,
+AppendTo[InterpList,Generator@SubspaceFunctionPoints];
+];
+];(*End of With Statement*), {i, 1,FunctionDimension}
+];(*End of Do*)
+retval = InterpList;
+];(*End of Switch*)
+
 If[OptionValue[Metadata],
-Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>],
+Return[<|"Interpolation"->retval, "Mesh"->CoordinateRanges, "DensityFunctions"->densityfuncs|>
+],
 Return[retval]
 ]
+
 ];
-
-
-ApplyRealSolutionSet[solution_][expr_]:=
-	Block[{repr, solR=solution["Solution","R"], solS=solution["Solution", "S"]},
-		repr = {
-			HoldPattern@Derivative[d_][Rr][x_]->Re[Derivative[d][solR][x]],
-			HoldPattern@Derivative[d_][Ri][x_]->Im[Derivative[d][solR][x]],
-			HoldPattern@Derivative[d_][Sr][x_]->Re[Derivative[d][solS][x]],
-			HoldPattern@Derivative[d_][Si][x_]->Im[Derivative[d][solS][x]],
-			\[Omega]r -> Re[solution["Solution","\[Omega]"]],
-			\[Omega]i->Im[solution["Solution","\[Omega]"]],
-			\[Nu]r -> Re[solution["Solution","\[Nu]"]], 
-			\[Nu]i->Im[solution["Solution","\[Nu]"]],
-			\[Chi]->solution["Parameters", "\[Chi]"], 
-			m->solution["Parameters", "m"], 
-			\[Mu]Nv->solution["Parameters", "\[Mu]Nv"],
-			Rr->( Re[solR[#]]&), 
-			Ri->( Im[solR[#]]&), 
-			Sr->( Re[solS[#]]&),
-			Si->( Im[solS[#]]&)
-			};
-		res = expr/.repr;
-		Return[res]
-	];
-

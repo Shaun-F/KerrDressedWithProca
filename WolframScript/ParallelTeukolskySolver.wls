@@ -8,8 +8,8 @@ Print[expr_] /; ! FreeQ[expr, s_String /; StringContainsQ[s, "remote kernel"]] =
 Protect[Print];
 
 
-(*$FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/";*) (*directory on ITP cluster to git repo*)
-$FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";
+$FKKSRoot = "/home/fell/Documents/Github/KerrDressedWithProca/"; (*directory on ITP cluster to git repo*)
+(*$FKKSRoot = FileNameJoin[FileNameSplit[ExpandFileName[First[$ScriptCommandLine]]][[1;;-3]]]<>"/";*)
 LogFile = $FKKSRoot<>"Logs/TeukolskyLogFile.log";
 
 
@@ -33,6 +33,7 @@ Print["Solution Path: "];Print["     "<>ToString@$SolutionPath];
 Print["Log File Path: "];Print["     "<>ToString@LogFile];
 Print["Log Run: "<>ToString[TrueQ[LogRun], InputForm]];
 Print["Save to Disk: "<>ToString[TrueQ[SaveToDisk], InputForm]];
+Print["Overwrite Existing Solutions: "<>ToString[TrueQ[OverwriteExisting], InputForm]];
 Print["Number of Kernels: "<>ToString[NumberOfKernels]];
 Print["Orbital Number: "<>ToString[OrbitalNumber]];
 Print["Mode Number: "<>ToString[ModeNumber]];
@@ -82,7 +83,7 @@ Do[
 	With[{SingleSolution = AllData[[i]]},
 		IterationStartTime = AbsoluteTime[];
 		(*Skip solution if already calculated*)
-		If[KeyExistsQ[SingleSolution, "Derived"]&&KeyExistsQ[SingleSolution["Derived"], "Einf"],
+		If[KeyExistsQ[SingleSolution, "Derived"]&&KeyExistsQ[SingleSolution["Derived"], "Einf"]&&Not[OverwriteExisting],
 			Print["Solution already exists, skipping iteration."];
 			AppendTo[Logger, ""]; AppendTo[Logger, ""];
 			AppendTo[Logger, "Solution already exists, skipping iteration."];
@@ -90,6 +91,18 @@ Do[
 			PutAppend[Sequence@@Logger, LogFile];
 			Continue[]
 		];
+		
+		(*Skip solution if exceeds superradiant condition*)
+		If[TrueQ@StringQ[SingleSolution["Solution"]],
+			Print["Superradiant condition failed on current condition, Skipping iteration."];
+			AppendTo[Logger, ""]; AppendTo[Logger, ""];
+			AppendTo[Logger, "Superradiant condition failed on current condition, Skipping iteration."];
+			AppendTo[Logger, ""]; AppendTo[Logger, ""];
+			PutAppend[Sequence@@Logger, LogFile];
+			Continue[]
+		];
+		
+		
 		Print["\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		AppendTo[Logger, "\n\nProgress: "<>ToString[i]<>" out of "<>ToString[Length[AllData]]];
 		(*----------Black hole evolution----------*)
@@ -121,12 +134,14 @@ Do[
 		AsymptoticFlux = EnergyFlux[NormedData,OrbitalNumber,ModeNumber, TeukolskyTlmw->Tlmw, ZCoefficient->AsymptoticAmplitude];
 		If[SaveToDisk,
 			Print["Asymptotic flux calculation complete. Appending data to solution"];
-			AppendToSolution[SingleSolution, Prelabel->"FullSolutionSet"][{{"Einf", AsymptoticFlux}, {"Tlmw",Tlmw}, {"Normalization", Normalization}, {"Zinf", AsymptoticAmplitude}}];
+			ExportData = {{"Einf", AsymptoticFlux}, {"NormalizedEinf",AsymptoticFlux/(1-Normalization["FinalMass"])^2}  {"Tlmw",Tlmw}, {"Zinf", AsymptoticAmplitude}};
+			AppendTo[ExportData,#]&/@Table[{i,Normalization[i]}, {i, Normalization//Keys}]//Last;
+			AppendToSolution[SingleSolution][ExportData];
 		];
 		IterationStopTime=AbsoluteTime[];
 		Print["Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
 		Print["Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
-		AppendTo[Logger, "Energy Flux: "<>ToString[AsymptoticFlux, InputForm]];
+		AppendTo[Logger, "Normalized Energy Flux: "<>ToString[AsymptoticFlux/(1-Normalization["FinalMass"])^2, InputForm]];
 		AppendTo[Logger, "Memory in use by Wolfram Kernel: "<>ToString[MemoryInUse[], InputForm]];
 		AppendTo[Logger, "Time to complete iteration: "<>ToString[IterationStopTime-IterationStartTime, InputForm]];
 		PutAppend[Sequence@@Logger, LogFile];
