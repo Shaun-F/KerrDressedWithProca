@@ -100,7 +100,7 @@ sqrtmg[r_,\[Theta]_]:=Sin[\[Theta]](r^2+spinin^2 Cos[\[Theta]]^2);
 rintstart=rstart;
 rintstop=rstop;
 out5=N[NIntegrate[-Tuptdownt[0,r,\[Theta],\[Phi]]sqrtmg[r,\[Theta]],{r,rintstart,rintstop},{\[Theta],0,\[Pi]},{\[Phi],0,2\[Pi]},MaxRecursion->100,WorkingPrecision->10],20];
-Abort[];
+
 (*Teukolsky T*)
 Print["Beginning Tlm\[Omega] calculation"];
 TeukolskyT`FieldEnergyMomentum[AdownNorm[t,r,\[Theta],\[Phi]],\[Mu],spinin];

@@ -453,18 +453,12 @@ Amplitude = IncomingAmplitudeB[RenormedAngMom,\[Omega]v,\[Chi]v,m,-2,SWSHEigenva
 integrand[r_?NumericQ]:= TeukolskyLM\[Omega][r]*TeukRin[r]/DeltaFunction[r]^2;
 $Messenger="Performing Integration";
 integration = NIntegrate[integrand[r], 
-{r,rdom+1.5}//Flatten, 
+{r,rdom+1.3}//Flatten, 
 PrecisionGoal->$TSNIntegratePrecision,
 MaxRecursion->$TSNIntegrateMaxRecursion,
 Method->$TSNIntegrateMethod,
 WorkingPrecision->$TSPrecision];
 Zcoefficient = integration/(2*I*\[Omega]v*Amplitude);
-
-
-
-Print[integration];
-
-
 $Messenger="";
 Return[Zcoefficient]
 ];

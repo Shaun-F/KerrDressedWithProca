@@ -173,7 +173,7 @@ Print["r glue = "<>ToString[rglue]];
 
 (*Generating the interpolations for a grid of 40x40 points over (r,\[Theta]) for each of the A^\mu and A_\mu components*)
 Print["Interpolation: Start."];
-\[Theta]mesh=If[m0==1,99,If[m0==2,59,59]];
+\[Theta]mesh=If[m0==1,49,If[m0==2,59,59]];
 rmesh=If[m0==1,199,If[m0==2,699,699]];
 p=If[rstop<500,4,5];
 Print["rmesh = "<>ToString[rmesh]];
