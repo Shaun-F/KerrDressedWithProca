@@ -4,6 +4,16 @@
 HelperFunctions;
 
 
+ConvertSolutionsetToPythonReadable[SolSet_List, ExportDir_String]:=
+	Block[{HeaderNames = {"ProcaMass", "ProcaSpin", "ModeNumber", "Overtone", "BlackHoleSpin","Frequency", "AngularEigenvalue", "Einf", "Normalization", "TotalEnergy", "FinalMass", "FinalSpin", "Zinf"}},
+		dat = Table[
+		Flatten[{Table[SolSet[[j]]["Parameters"][i], {i,{"\[Mu]Nv", "s", "m", "n", "\[Chi]"}}], Table[SolSet[[j]]["Solution"][i], {i,{"\[Omega]", "\[Nu]"}}], Table[SolSet[[j]]["Derived"][i], {i,{"Einf", "Normalization", "TotalEnergy", "FinalMass", "FinalSpin", "Zinf"}}]}]//N,
+		{j,1,Length[SolSet]}]/.Complex[x_,y_]:>x+j y;
+		PrependTo[dat, HeaderNames];
+		Export[ExportDir<>"SolutionSet.dat", dat]
+	]
+
+
 Options[SolutionToFilename]={Prelabel->Null, KeyList->{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}, ExtensionType->".mx"};
 SolutionToFilename[Assoc_Association, parentdirectory_, OptionsPattern[]]:=
 Block[{printData, PrelabelString, parametersection,fileName,absoluteFileName},
@@ -22,7 +32,7 @@ Return[absoluteFileName]
 ]
 
 
-RecastInterpolationFunction::usage="Recast interpolating function over a new domain obtained by operating on the old domain with DomainFunction"
+RecastInterpolationFunction::usage="Recast interpolating function over a new domain obtained by operating on the old domain with DomainFunction";
 RecastInterpolationFunction[int_InterpolatingFunction, DomainFunction_]:=
 Block[{GridPoints = int["Grid"]//Flatten, NewGridPoints, NewData},
 NewGridPoints = DomainFunction/@GridPoints;
