@@ -1,7 +1,7 @@
 #!/usr/bin/env wolframscript
 (* ::Package:: *)
 
-$root = "/home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/Debugging/NilsSiemonsenCode/OG_Code_MyExecution/";
+$root = "/home/fell/Documents/Github/KerrDressedWithProca/Debugging/NilsSiemonsenCode/OG_Code_MyExecution/";
 SetDirectory[$root];
 $FKKSRoot = $root<>"../../../";
 Import[$FKKSRoot<>"Packages/HelperFunctions.wl"];
@@ -19,5 +19,5 @@ Block[{Print},
 ]
 
 
-Do[TeuCode[1,0,9/10, i,1,MySolution->True], 
+Do[TeuCode[1,0,9/10, i,1,MySolution->False], 
 {i,6/100,33/100,1/100}]

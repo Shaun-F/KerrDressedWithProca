@@ -164,12 +164,7 @@ rplus=1+Sqrt[1-\[Chi]0^2];
 \[Epsilon]r=10^-2;
 rtst=prec@(\[Epsilon]r+rplus);
 rglue=If[nh0==0,0.12*rstop,0.2*rstop];
-Print["precision: "<>ToString[TeuInterEnv`$precValue]];
-Print["rplus = "<>ToString[rplus]];
-Print["rstart = "<>ToString[rtst]];
-Print["epsilonr = "<>ToString[(rtst-rplus)/rplus]];
-Print["rstop = "<>ToString[rstop]];
-Print["r glue = "<>ToString[rglue]];
+
 
 (*Generating the interpolations for a grid of 40x40 points over (r,\[Theta]) for each of the A^\mu and A_\mu components*)
 Print["Interpolation: Start."];
