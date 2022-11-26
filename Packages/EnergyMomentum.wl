@@ -208,7 +208,7 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 Subscript[\[ScriptCapitalT], \[Mu]\[Nu]]
 *)
 Options[FKKSEnergyMomentum]={SymbolicExpression->False, Debug->False, Optimized->False, RealPart->True, QuasiboundState->True, AsInterpolatingFunction->False};
-FKKSEnergyMomentum[solution_Association, OptionsPattern[]]:=
+FKKSEnergyMomentum[solution_, OptionsPattern[]]:=
 Block[{res,tmp, mass = \[Mu]Nv, tmpOE,F,A,A0,A1,A2,A3, Filename, chartcoords={t[],r[],\[Theta][],\[Phi][]}, EMinA, Areprule, PDreprule,tmp$},
 
 If[OptionValue[AsInterpolatingFunction],

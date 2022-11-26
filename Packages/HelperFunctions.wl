@@ -4,6 +4,26 @@
 HelperFunctions;
 
 
+GenerateEnergyDensityCSVData[sol_Association]:=
+Block[{rsoldom = sol["Solution", "R"]["Domain"][[1]], \[Chi]v=sol["Parameters", "\[Chi]"],
+\[Mu]v = sol["Parameters", "\[Mu]Nv"],
+m = sol["Parameters", "m"],
+n = sol["Parameters", "n"],
+enden,rdom,thdom,data,alphavaluestring,spinvaluestring,filename1, filename2,coorddata},
+enden = FKKSEnergyDensity[sol, ToCompiled->True, CompilationTarget->"WVM"];
+rdom = Range[Sequence@@HorizonCoordToRadial[rsoldom,\[Chi]v]][[2;;-1]]//N; (*Skip near horizon radial coord*)
+thdom = Range[10^-4,\[Pi]-10^-4, \[Pi]/100]//N;
+data = Table[enden[0,r,\[Theta],0], {r,rdom}, {\[Theta],thdom}]//Chop;
+alphavaluestring = ToString[\[Mu]v, InputForm]//StringReplace[#,{"."->"_", "/"->"_"}]&;
+spinvaluestring = ToString[\[Chi]v,InputForm]//StringReplace[#,{"."->"_", "/"->"_"}]&;
+filename1 = $FKKSRoot<>"CSVData/EnergyDensityCOORDS_BHSpin_"<>spinvaluestring<>"_Alpha_"<>alphavaluestring<>"_Mode_"<>ToString[m,InputForm]<>"_Overtone_"<>ToString[n, InputForm]<>".dat";
+filename2 = $FKKSRoot<>"CSVData/EnergyDensityVALUES_BHSpin_"<>spinvaluestring<>"_Alpha_"<>alphavaluestring<>"_Mode_"<>ToString[m,InputForm]<>"_Overtone_"<>ToString[n, InputForm]<>".dat";
+coorddata = Transpose@PadRight[{rdom ,thdom},Automatic,None];
+Export[filename2, data, "CSV"];
+Export[filename1, coorddata, "CSV"];
+];
+
+
 ConvertSolutionsetToPythonReadable[SolSet_List, ExportDir_String]:=
 	Block[{HeaderNames = {"ProcaMass", "ProcaSpin", "ModeNumber", "Overtone", "BlackHoleSpin","Frequency", "AngularEigenvalue", "Einf", "Normalization", "TotalEnergy", "FinalMass", "FinalSpin", "Zinf"}},
 		dat = Table[
