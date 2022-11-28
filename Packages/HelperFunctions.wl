@@ -5,7 +5,13 @@ HelperFunctions;
 
 
 GenerateEnergyDensityCSVData[sol_Association]:=
-Block[{rsoldom = sol["Solution", "R"]["Domain"][[1]], \[Chi]v=sol["Parameters", "\[Chi]"],
+(
+(*If superradiant condition failed, return with Null*)
+If[Head[sol["Solution"]]==String,
+Return[]
+];
+
+Block[{rsoldom = sol["Solution", "R"]["Domain"]//Flatten, \[Chi]v=sol["Parameters", "\[Chi]"],
 \[Mu]v = sol["Parameters", "\[Mu]Nv"],
 m = sol["Parameters", "m"],
 n = sol["Parameters", "n"],
@@ -22,6 +28,7 @@ coorddata = Transpose@PadRight[{rdom ,thdom},Automatic,None];
 Export[filename2, data, "CSV"];
 Export[filename1, coorddata, "CSV"];
 ];
+);
 
 
 ConvertSolutionsetToPythonReadable[SolSet_List, ExportDir_String]:=
