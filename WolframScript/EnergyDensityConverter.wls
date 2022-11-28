@@ -68,7 +68,11 @@ Print["Failed to launch all requested kernels. Number of launched kernels: "<>To
 ];
 
 
-ParallelMap[GenerateEnergyDensityCSVData,AllData]
+ParallelDo[
+Print["Solution "<>ToString[i]<>" of "<>ToString[Length[AllFileNames]]];
+GenerateEnergyDensityCSVData[AllData[[i]]],
+{i,1,Length[AllData]}
+]
 
 
 Print["Energy Density Converter Complete."]
