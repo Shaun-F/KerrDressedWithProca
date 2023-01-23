@@ -67,11 +67,15 @@ Print["Launched "<>ToString[NumberOfKernels, InputForm]<>" kernels."];,
 Print["Failed to launch all requested kernels. Number of launched kernels: "<>ToString[$KernelCount, InputForm]];
 ];
 
+Print["Performing Energy Density Conversion"];
 
 ParallelDo[
-Print["Solution "<>ToString[i]<>" of "<>ToString[Length[AllFileNames]]];
+str="Solution "<>ToString[i]<>" of "<>ToString[Length[AllFileNames]];
+Print[str];
+str>>>LogFile;
+
 GenerateEnergyDensityCSVData[AllData[[i]]],
-{i,1,Length[AllData]}
+{i,1,Length[AllFileNames]}
 ]
 
 
