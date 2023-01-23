@@ -66,7 +66,7 @@ Print["Executing parallel routine..."];
 runStartTime = AbsoluteTime[];
 Evaluators = Flatten@Table[
 				ParallelSubmit[{\[Chi]v}, WorkerFunction[\[Chi]v, parameters, LogFile, OverwritePrevious->OverwriteExisting]],
-				{\[Chi]v, parameters["\[Chi]range"] // First, parameters["\[Chi]range"] // Last}
+				{\[Chi]v, parameters["\[Chi]range"] // First, parameters["\[Chi]range"] // Last, parameters["\[Chi]res"]}
 			];
 WaitAll[Evaluators];
 
