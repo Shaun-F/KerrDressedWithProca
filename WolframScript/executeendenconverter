@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N Wolframscript
+#PBS -q bigmemlong
+#PBS -l nodes=1:ppn=32:bigmem1
+export PATH=$PATH:/opt/bin:/opt/Wolfram/Mathematica/12.3/SystemFiles/Kernel/Binaries/Linux-x86-64/
+
+set queue bigmemlong resources_max.walltime=720:00:00
+
+##ITPCluster
+#cd /home/fell/Documents/Github/KerrDressedWithProca/WolframScript
+
+#Laptop
+cd /home/shaunf/Documents/Computer/Code/projects/Massive_Vector_Field_Dynamical_Friction/ProcaAroundKerr/FKKSsolver/KerrDressedWithProca/WolframScript
+
+echo "$(wolframscript -version)"
+
+./EnergyDensityConverter.wls

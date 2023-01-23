@@ -4,6 +4,43 @@
 HelperFunctions;
 
 
+GenerateEnergyDensityCSVData[sol_Association]:=
+(
+(*If superradiant condition failed, return with Null*)
+If[Head[sol["Solution"]]==String,
+Return[]
+];
+
+Block[{rsoldom = sol["Solution", "R"]["Domain"]//Flatten, \[Chi]v=sol["Parameters", "\[Chi]"],
+\[Mu]v = sol["Parameters", "\[Mu]Nv"],
+m = sol["Parameters", "m"],
+n = sol["Parameters", "n"],
+enden,rdom,thdom,data,alphavaluestring,spinvaluestring,filename1, filename2,coorddata},
+enden = FKKSEnergyDensity[sol, ToCompiled->True, CompilationTarget->"WVM"];
+rdom = Range[Sequence@@HorizonCoordToRadial[rsoldom,\[Chi]v]][[2;;-1]]//N; (*Skip near horizon radial coord*)
+thdom = Range[10^-4,\[Pi]-10^-4, \[Pi]/100]//N;
+data = Table[enden[0,r,\[Theta],0], {r,rdom}, {\[Theta],thdom}]//Chop;
+alphavaluestring = ToString[\[Mu]v, InputForm]//StringReplace[#,{"."->"_", "/"->"_"}]&;
+spinvaluestring = ToString[\[Chi]v,InputForm]//StringReplace[#,{"."->"_", "/"->"_"}]&;
+filename1 = $FKKSRoot<>"CSVData/EnergyDensityCOORDS_BHSpin_"<>spinvaluestring<>"_Alpha_"<>alphavaluestring<>"_Mode_"<>ToString[m,InputForm]<>"_Overtone_"<>ToString[n, InputForm]<>".dat";
+filename2 = $FKKSRoot<>"CSVData/EnergyDensityVALUES_BHSpin_"<>spinvaluestring<>"_Alpha_"<>alphavaluestring<>"_Mode_"<>ToString[m,InputForm]<>"_Overtone_"<>ToString[n, InputForm]<>".dat";
+coorddata = Transpose@PadRight[{rdom ,thdom},Automatic,None];
+Export[filename2, data, "CSV"];
+Export[filename1, coorddata, "CSV"];
+];
+);
+
+
+ConvertSolutionsetToPythonReadable[SolSet_List, ExportDir_String]:=
+	Block[{HeaderNames = {"ProcaMass", "ProcaSpin", "ModeNumber", "Overtone", "BlackHoleSpin","Frequency", "AngularEigenvalue", "Einf", "Normalization", "TotalEnergy", "FinalMass", "FinalSpin", "Zinf"}},
+		dat = Table[
+		Flatten[{Table[SolSet[[j]]["Parameters"][i], {i,{"\[Mu]Nv", "s", "m", "n", "\[Chi]"}}], Table[SolSet[[j]]["Solution"][i], {i,{"\[Omega]", "\[Nu]"}}], Table[SolSet[[j]]["Derived"][i], {i,{"Einf", "Normalization", "TotalEnergy", "FinalMass", "FinalSpin", "Zinf"}}]}]//N,
+		{j,1,Length[SolSet]}]/.Complex[x_,y_]:>x+j y;
+		PrependTo[dat, HeaderNames];
+		Export[ExportDir<>"SolutionSet.dat", dat]
+	]
+
+
 Options[SolutionToFilename]={Prelabel->Null, KeyList->{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}, ExtensionType->".mx"};
 SolutionToFilename[Assoc_Association, parentdirectory_, OptionsPattern[]]:=
 Block[{printData, PrelabelString, parametersection,fileName,absoluteFileName},
@@ -22,7 +59,7 @@ Return[absoluteFileName]
 ]
 
 
-RecastInterpolationFunction::usage="Recast interpolating function over a new domain obtained by operating on the old domain with DomainFunction"
+RecastInterpolationFunction::usage="Recast interpolating function over a new domain obtained by operating on the old domain with DomainFunction";
 RecastInterpolationFunction[int_InterpolatingFunction, DomainFunction_]:=
 Block[{GridPoints = int["Grid"]//Flatten, NewGridPoints, NewData},
 NewGridPoints = DomainFunction/@GridPoints;

@@ -202,7 +202,10 @@ out10 = <|
 				|>
 		|>;
 output={out1,out2,out3,out4,out5,out6,out7,out8,out9,out10};
+If[OptionValue[MySolution],
+Export[$root<>"GWoutput/MySolutionGW_m"<>ToString[m]<>ToString["n"]<>ToString[n]<>ToString["_a"]<>ToString[spinstring]<>ToString["_mu"]<>ToString[Round[100 \[Mu]]]<>"_prec"<>ToString[$precValue]<>ToString[".mx"],output],
 Export[ToString[$root<>"GWoutput/GW_m"<>ToString[m]<>ToString["n"]<>ToString[n]<>ToString["_a"]<>ToString[spinstring]<>ToString["_mu"]<>ToString[Round[100 \[Mu]]]<>"_prec"<>ToString[$precValue]<>ToString[".mx"]],output];
+];
 ];
 
 End[]
