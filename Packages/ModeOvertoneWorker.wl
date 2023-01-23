@@ -74,7 +74,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 					ContinueLoop=False;
 					Break[];
 				];
-				If[parameters["\[Mu]Nv"]>1.2*parameters["m"]*KerrSurfaceRotationN[parameters["\[Chi]"]],
+				If[parameters["\[Mu]Nv"]>1.27*parameters["m"]*KerrSurfaceRotationN[parameters["\[Chi]"]],
 					Print["Error! Significantly past superradiant cutoff. Breaking mass loop. mass iterater value: "<>ToString[muIterationCounter, InputForm]<> "Mass Value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 					AppendTo[Logger, "Error! Significantly past superradiant cutoff. Breaking mass loop. mass iterater value: "<>ToString[muIterationCounter, InputForm]<> "Mass Value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 					PutAppend[Sequence@@Logger, LogFile];
@@ -87,7 +87,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 				
 				(*-----------Construct name for file to save data in-----------*)
 				printData = parameters[[{"\[Epsilon]", "\[Mu]Nv", "m", "\[Eta]", "n", "l", "s", "\[Chi]", "KMax", "branch"}]];
-				SolutionFileName = $SolutionPath<>"RunData_"<>assocToString[printData]<>".mx";
+				SolutionFileName = SolutionToFilename[parameters, $SolutionPath];
 				
 				(*-----------If OverwritePrevious option is false and if the solution file already exists, skip current loop iteration-----------*)
 				If[! OptionValue[OverwritePrevious],
