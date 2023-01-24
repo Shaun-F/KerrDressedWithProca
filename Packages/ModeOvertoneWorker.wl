@@ -30,7 +30,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 			ContinueLoop=True;
 			muIterationCounter=1;
 			ResolutionReductionPoint=Null;
-			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
+			Logger = {StringJoin@@Table["*", {20}]<>"\n"<>StringJoin@@Table["*", {20}]<>"\n"<>"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[parameters["\[Chi]"], InputForm] <> ")"};
 			
 			(*-----------Main Loop-----------*)
 			While[ContinueLoop,
@@ -272,7 +272,7 @@ WorkerFunction[BHSpin_Real, InitialParameters_Association, LogFile_String, Optio
 			ContinueLoop=True;
 			muIterationCounter=1;
 			ResolutionReductionPoint=Null;
-			Logger = {"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[\[Chi]v, InputForm] <> ")"};
+			Logger = {StringJoin@@Table["*", {20}]<>"\n"<>StringJoin@@Table["*", {20}]<>"\n"<>"Beginning search routine:   time:" <> DateString[] <>" Parameter values: (m,n,\[Chi]) = (" <> ToString[k, InputForm] <>"," <> ToString[j, InputForm] <> "," <> ToString[\[Chi]v, InputForm] <> ")"};
 			
 			(*-----------Main Loop-----------*)
 			While[ContinueLoop,
