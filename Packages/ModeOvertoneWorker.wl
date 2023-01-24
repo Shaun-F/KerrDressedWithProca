@@ -74,7 +74,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 					ContinueLoop=False;
 					Break[];
 				];
-				If[parameters["\[Mu]Nv"]>1.27*parameters["m"]*KerrSurfaceRotationN[parameters["\[Chi]"]],
+				If[parameters["\[Mu]Nv"]>1.4*parameters["m"]*KerrSurfaceRotationN[parameters["\[Chi]"]],
 					Print["Error! Significantly past superradiant cutoff. Breaking mass loop. mass iterater value: "<>ToString[muIterationCounter, InputForm]<> "Mass Value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 					AppendTo[Logger, "Error! Significantly past superradiant cutoff. Breaking mass loop. mass iterater value: "<>ToString[muIterationCounter, InputForm]<> "Mass Value: "<>ToString[parameters["\[Mu]Nv"], InputForm]];
 					PutAppend[Sequence@@Logger, LogFile];
