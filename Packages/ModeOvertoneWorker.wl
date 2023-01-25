@@ -251,7 +251,7 @@ WorkerFunction[modeval_Integer,overtoneval_Integer, InitialParameters_Associatio
 
 
 
-WorkerFunction[BHSpin_Real, InitialParameters_Association, LogFile_String, OptionsPattern[]]:=
+WorkerFunction[BHSpin_, InitialParameters_Association, LogFile_String, OptionsPattern[]]:=
 	Block[{$HistoryLength=0, 
 			parameters=InitialParameters,
 			ContinueLoop,
@@ -332,7 +332,17 @@ WorkerFunction[BHSpin_Real, InitialParameters_Association, LogFile_String, Optio
 				(*-----------If OverwritePrevious option is false and if the solution file already exists, skip current loop iteration-----------*)
 				If[! OptionValue[OverwritePrevious],
 					If[FileExistsQ[SolutionFileName],
-						Continue[]
+						Print["File exists. Skipping loop iteration with parameters (\[Mu], m, n, \[Chi]) = ("<>ToString[parameters["\[Mu]Nv"], InputForm]<>", "<>ToString[parameters["m"], InputForm]<>", "<>ToString[parameters["n"], InputForm]<>", "<>ToString[parameters["\[Chi]"], InputForm]<>")"<>" ..."];
+						PreviousData = Import[SolutionFileName];
+						PreviousOmegaValue = PreviousData["Solution", "\[Omega]"];
+						PreviousNuValue = PreviousData["Solution", "\[Nu]"];
+						PreviousMuValue = PreviousData["Parameters", "\[Mu]Nv"];
+						muHolder[muIterationCounter] = PreviousMuValue//SetPrecision[#, parameters["precision"]]&;
+						omegaHolder[muIterationCounter] = PreviousOmegaValue//SetPrecision[#, parameters["precision"]]&;
+						nuHolder[muIterationCounter] =  PreviousNuValue//SetPrecision[#, parameters["precision"]]&;
+						
+						muIterationCounter++;
+						Continue[];
 					];
 				];
 				
@@ -363,8 +373,8 @@ WorkerFunction[BHSpin_Real, InitialParameters_Association, LogFile_String, Optio
 					nuFitFunction[muIterationCounter] = nuFit[muIterationCounter]; (*To be used later for the radial minimization*)
 					,
 					(*Use non-relativistic limit for initial guess of omega in first 5 iterations*)
-					omegaGuess = N[omegaNRNonRel[parameters] + I*omegaNINonRel[parameters]];
-					nuGuess = getNuValue[omegaGuess, parameters, nuNNonRel[omegaGuess, parameters]];
+					omegaGuess = N[omegaNRNonRel[parameters] + I*omegaNINonRel[parameters]]//ToPrecision[parameters];
+					nuGuess = getNuValue[omegaGuess, parameters, nuNNonRel[omegaGuess, parameters]]//N//ToPrecision[parameters];
 				];
 				
 				(*-----------Safety check on frequency value-----------*)

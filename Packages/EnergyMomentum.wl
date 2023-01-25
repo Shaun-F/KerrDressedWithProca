@@ -275,7 +275,7 @@ Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]
 \[Rho] == Subscript[\[ScriptCapitalT]^t, t]
 *)
 Options[FKKSEnergyDensity]={SymbolicExpression->False,Optimized->True,ToCompiled->False, RealPart->True , WithProperties->True, QuasiboundState->True}\[Union]Options[Experimental`OptimizeExpression]\[Union]Options[Compile];
-FKKSEnergyDensity[solution_Association, OptionsPattern[]]:=
+FKKSEnergyDensity[solution_, OptionsPattern[]]:=
 Block[{res, resOE,T,OptimizedResult, tmp,UnOptimizedResult, Filename},
 If[OptionValue[RealPart],
 Filename = "FKKSEnergyDensityReal.mx";,
@@ -303,8 +303,7 @@ Return[tmp]
 ];
 
 If[OptionValue[Optimized],
-Return[
-Evaluate@OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp], 
+OFexp = OptimizedFunction[{t,r,\[Theta],\[Phi]}, Evaluate[tmp], 
 ToCompiled->OptionValue[ToCompiled],
 WithProperties->OptionValue[WithProperties],
 ExcludedForms->OptionValue[ExcludedForms],
@@ -318,8 +317,8 @@ CompilationTarget->OptionValue[CompilationTarget],
 Parallelization->OptionValue[Parallelization],
 RuntimeAttributes->OptionValue[RuntimeAttributes],
 RuntimeOptions->OptionValue[RuntimeOptions]
-]
-]
+];
+Return[OFexp];
 ];
 
 Return[{t,r,\[Theta],\[Phi]}|->Evaluate[tmp]]

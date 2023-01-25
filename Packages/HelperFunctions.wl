@@ -53,8 +53,12 @@ PrelabelString = "",
 PrelabelString = OptionValue[Prelabel]
 ];
 parametersection = assocToString[printData];
+mval = ToString@Assoc["m"];
+nval = ToString@Assoc["n"];
+\[Chi]val = StringReplace[ToString[Rationalize@N@parameters["\[Chi]"], InputForm], "/"->"_"];
+FolderLabel = "m"<>ToString[mval]<>"n"<>ToString[nval]<>"\[Chi]"<>\[Chi]val;
 fileName = PrelabelString<>"RunData_"<>parametersection<>OptionValue[ExtensionType];
-absoluteFileName = FileNameJoin[{parentdirectory,fileName}];
+absoluteFileName = FileNameJoin[{parentdirectory,FolderLabel,fileName}];
 Return[absoluteFileName]
 ]
 
