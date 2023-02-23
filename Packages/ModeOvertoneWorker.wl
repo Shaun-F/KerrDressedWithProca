@@ -278,6 +278,9 @@ WorkerFunction[BHSpin_, InitialParameters_Association, LogFile_String, OptionsPa
 			While[ContinueLoop,
 				(*-----------Prepare parameter values-----------*)
 				parameters["\[Chi]"] = \[Chi]v;
+				If[Not[KeyExistsQ[parameters,"l"]], 
+					parameters["l"]=parameters["m"]+parameters["s"]
+				];
 				
 				(*-----------Determine new mass value-----------*)	
 				parameters["\[Mu]Nv"]=(parameters["\[Mu]range"][[1]]/parameters["m"] + muIterationCounter*parameters["\[Delta]\[Mu]"])*parameters["m"]; (*account for m-dependence of superradiant threshold*)
